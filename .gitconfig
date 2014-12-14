@@ -1,0 +1,18 @@
+[user]
+	name = Brian van Burken
+	email = brian@creativeview.nl
+[credential]
+	helper = osxkeychain
+[color]
+	ui = true
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[help]
+	autocorrect = 1
+[core]
+	editor = vim
+	excludesfile = /Users/Brian/.gitignore_global
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
