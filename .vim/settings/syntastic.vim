@@ -1,6 +1,9 @@
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 
+let g:syntastic_html_checkers=['']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
 " Path to jshint if it not installed globally, then use local installation
 if !executable("jshint")
   if executable("npm") && !executable('jshint')
