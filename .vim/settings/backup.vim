@@ -3,3 +3,6 @@
 set noswapfile
 set nowritebackup
 set nobackup
+
+" Disable netrw
+let g:netrw_dirhistmax = 0

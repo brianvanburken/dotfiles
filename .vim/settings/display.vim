@@ -8,6 +8,7 @@ set encoding=utf-8      " Set default encoding to UTF-8
 set guioptions=         " No menus, scrollbars, or other stuff
 set showmatch           " Show matching brackets/parenthesis
 syntax enable indent on " Turn on syntax highlighting
+set colorcolumn=80
 " hide toolbar
 set guioptions-=T
 

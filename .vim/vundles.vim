@@ -10,9 +10,6 @@ call vundle#begin()
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 
-Plugin 'StanAngeloff/php.vim'
-
-Plugin 'tpope/vim-surround'
 Plugin 'slim-template/vim-slim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -26,6 +23,7 @@ Plugin 'moll/vim-node'
 " Completion
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ervandew/supertab'
+Plugin 'Townk/vim-autoclose'
 
 " Code Display
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
@@ -43,8 +41,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 
 " Commands
-Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 
 " Other
 Bundle 'gmarik/vundle'
