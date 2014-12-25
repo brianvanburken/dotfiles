@@ -26,7 +26,8 @@ Plugin 'ervandew/supertab'
 Plugin 'Townk/vim-autoclose'
 
 " Code Display
-Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+"Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'chriskempson/base16-vim'
 Plugin 'ap/vim-css-color'
 Plugin 'kien/rainbow_parentheses.vim'
 
