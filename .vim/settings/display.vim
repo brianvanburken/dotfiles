@@ -2,7 +2,7 @@ set t_Co=256
 set background=dark
 set guifont=Menlo\ for\ Powerline:h11
 set termencoding=utf-8
-colorscheme base16-ocean
+colorscheme base16-tomorrow
 let base16colorspace=256 " Access colors present in 256 colorspace
 set cursorline
 set encoding=utf-8      " Set default encoding to UTF-8
