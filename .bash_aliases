@@ -13,7 +13,7 @@ alias ...='../..'
 alias hm='~/'
 alias root='~/'
 alias desk='~/Desktop'
-alias dev='/Volumes/Development/'
+alias dev='~/Dropbox/Home/Developer/'
       o () { open ${1:-.} }
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
