@@ -46,12 +46,12 @@ alias hm='h run rake db:migrate'
 # Rake
 alias r='rake'
 alias migrate='r db:migrate'
+alias resetdb='rake db:drop && rake db:create && rake db:migrate && rake db:seed'
 
 # Rails
 alias rsc='rails console'
 alias rss='rails server'
-      rsn () { rails new ${1} ${@:2} && cd ${1} }
-alias s='rspec'
+      rsn () { rails new ${1} ${@:2} && cd ${1} && git init && git add . && git commit -m "Initial commit." }
 alias spec='bin/rspec .'
 alias rubo='rubocop -R -l -c rubocop.yml'
 
