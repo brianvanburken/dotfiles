@@ -42,6 +42,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 
 " Commands
+Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
