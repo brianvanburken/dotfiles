@@ -6,3 +6,7 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+if has("gui_macvim")
+  set shell=/bin/bash\ -l
+endif
