@@ -1,5 +1,5 @@
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="$PATH:$HOME/.rvm/bin"
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
