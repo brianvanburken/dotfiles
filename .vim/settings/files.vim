@@ -3,6 +3,7 @@ autocmd! BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:> ft=markdown
 autocmd! BufRead *.md set ai formatoptions=tcroqn2 comments=n:> ft=markdown
 autocmd! BufRead *.mdown set ai formatoptions=tcroqn2 comments=n:> ft=markdown
 autocmd! BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> ft=markdown
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
 " CSS3
 au BufRead,BufNewFile *.scss set filetype=scss
