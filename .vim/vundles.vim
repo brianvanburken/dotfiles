@@ -9,6 +9,7 @@ call vundle#begin()
 " Languages
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'JulesWang/css.vim'
 
 Plugin 'slim-template/vim-slim'
 Plugin 'vim-ruby/vim-ruby'
