@@ -14,6 +14,7 @@ sudo rm -rf ~/.gitignore_global
 sudo rm -rf ~/.powconfig
 sudo rm -rf ~/.profile
 sudo rm -rf ~/.railsrc
+sudo rm -rf ~/.slate
 sudo rm -rf ~/.vim
 sudo rm -rf ~/.vimrc
 sudo rm -rf ~/.zlogin
@@ -30,6 +31,7 @@ ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/.dotfiles/.powconfig ~/.powconfig
 ln -s ~/.dotfiles/.profile ~/.profile
 ln -s ~/.dotfiles/.railsrc ~/.railsrc
+ln -s ~/.dotfiles/.slate ~/.slate
 ln -s ~/.dotfiles/.vim ~/.vim
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.zlogin ~/.zlogin
