@@ -1,0 +1,47 @@
+# config defaultToCurrentScreen true
+# config nudgePercentOf screenSize
+# config resizePercentOf screenSize
+
+# Resize Bindings
+# bind right:alt;shift;ctrl       resize +10% +0
+# bind left:alt;shift;ctrl        resize -10% +0
+# bind up:alt;shift;ctrl          resize +0   -10%
+# bind down:alt;shift;ctrl        resize +0   +10%
+# bind right:ctrl;alt;shift;cmd  resize -10% +0 bottom-right
+# bind left:ctrl;alt;shift;cmd   resize +10% +0 bottom-right
+# bind up:ctrl;alt;shift;cmd     resize +0   +10% bottom-right
+# bind down:ctrl;alt;shift;cmd   resize +0   -10% bottom-right
+
+# Push Bindings
+# bind up:ctrl;cmd      push up     bar-resize:screenSizeY/2
+# bind down:ctrl;cmd    push down   bar-resize:screenSizeY/2
+bind l:cmd   push right bar-resize:screenSizeX/2
+bind h:cmd   push left  bar-resize:screenSizeX/2
+
+bind l:cmd;shift push right bar-resize:screenSizeX/3
+bind h:cmd;shift push left  bar-resize:screenSizeX/3
+
+bind l:cmd;alt   push right bar-resize:screenSizeX/4
+bind h:cmd;alt   push left  bar-resize:screenSizeX/4
+
+# Move Bindings
+
+# Nudge Bindings
+bind k:cmd;shift nudge +33.33334% +0
+bind j:cmd;shift nudge -33.33334% +0
+bind k:cmd;alt   nudge +25% +0
+bind j:cmd;alt   nudge -25% +0
+# bind up:shift;ctrl    nudge +0   -10%
+# bind down:shift;ctrl  nudge +0   +10%
+
+# Throw Bindings
+# bind 1:ctrl;alt         throw 0 resize
+# bind 2:ctrl;alt         throw 1 resize
+# bind 3:ctrl;alt         throw 2 resize
+# bind right:ctrl;alt;cmd throw right resize
+# bind left:ctrl;alt;cmd  throw left  resize
+# bind up:ctrl;alt;cmd    throw up    resize
+# bind down:ctrl;alt;cmd  throw down  resize
+
+# Window Hints
+bind esc:cmd hint
