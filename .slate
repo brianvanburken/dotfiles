@@ -18,8 +18,8 @@ config windowHintsSpread true
 # Push Bindings
 # bind up:ctrl;cmd      push up     bar-resize:screenSizeY/2
 # bind down:ctrl;cmd    push down   bar-resize:screenSizeY/2
-bind l:cmd   push right bar-resize:screenSizeX/2
-bind h:cmd   push left  bar-resize:screenSizeX/2
+bind l:cmd;ctrl  push right bar-resize:screenSizeX/2
+bind h:cmd;ctrl  push left  bar-resize:screenSizeX/2
 
 bind l:cmd;shift push right bar-resize:screenSizeX/3
 bind h:cmd;shift push left  bar-resize:screenSizeX/3
