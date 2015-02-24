@@ -1,6 +1,9 @@
 # config defaultToCurrentScreen true
 # config nudgePercentOf screenSize
 # config resizePercentOf screenSize
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
 
 # Resize Bindings
 # bind right:alt;shift;ctrl       resize +10% +0
