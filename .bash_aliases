@@ -30,7 +30,6 @@ alias vim='mvim'
 alias vi='vim'
       v () { vim ${1:-.} }
 alias e="$EDITOR"
-alias upgrade_vim_plugins='vim +PluginInstall +qall'
 
 # Brew
 alias brewify='brew update && brew upgrade && brew prune && brew cleanup && brew cask cleanup && brew doctor'
