@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="robbyrussell"
 
-plugins=(git github osx ruby rails brew gem rvm bundler)
+plugins=(git github osx ruby rails brew gem rvm bundler npm ember-cli)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.bash_profile
