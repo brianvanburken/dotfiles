@@ -14,9 +14,6 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 
-" Completion
-Plug 'ervandew/supertab'
-
 " Code Display
 Plug 'chriskempson/base16-vim'
 Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass'] }
