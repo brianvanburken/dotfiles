@@ -1,6 +1,6 @@
-" Silver surfer related settings
+" Use Ag as default grep if available
 if executable('ag')
-    " Note we extract the column as well as the file and line number
-    set grepprg=ag\ --nogroup\ --nocolor\ --column
-    set grepformat=%f:%l:%c%m
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%l:%c:%m
+  command! -nargs=+ -bang Ag silent! grep <args> | redraw! | botright copen
 endif
