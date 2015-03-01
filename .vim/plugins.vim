@@ -27,7 +27,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " Interface
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 
 " Commands
