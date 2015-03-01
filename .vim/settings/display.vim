@@ -5,15 +5,9 @@ set showmatch           " Show matching brackets/parenthesis
 syntax enable indent on " Turn on syntax highlighting
 set colorcolumn=80
 
-if &term == 'xterm' || &term == 'screen'
-  set t_Co=256
-  set t_AB=^[[48;5;%dm
-  set t_AF=^[[38;5;%dm
-  let base16colorspace=256 " Access colors present in 256 colorspace
-  set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-endif
-
 set background=dark
+colorscheme base16-ocean
+
 if has('gui_running')
   " hide toolbar
   set guioptions-=T
@@ -26,5 +20,3 @@ if has('gui_running')
   set guioptions-=L
   set guifont=Menlo\ for\ Powerline:h11
 end
-
-colorscheme base16-ocean
