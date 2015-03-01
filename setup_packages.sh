@@ -104,13 +104,13 @@ fi
 
 if [ ! -e /usr/local/bin/mongodb ]
 then
-  echo "Installing: memcached"
+  echo "Installing: mongodb"
   brew install redis
   mkdir -p ~/Library/LaunchAgents
   cp `brew --prefix mongodb`/homebrew.mxcl.mongodb.plist ~/Library/LaunchAgents/
   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 else
-  echo "Found: memcached"
+  echo "Found: mongodb"
 fi
 
 # Step 3. Install RVM
