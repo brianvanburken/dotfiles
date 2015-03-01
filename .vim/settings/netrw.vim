@@ -14,6 +14,7 @@ let g:netrw_browse_split = 0
 let g:netrw_altv = 0
 let g:netrw_banner = 1
 let g:netrw_list_hide = &wildignore
+let g:netrw_localrmdir='rm -r'
 
 " Ctrl+n to toggle NerdTree
 nmap <silent> <C-N> :Rex<CR>
