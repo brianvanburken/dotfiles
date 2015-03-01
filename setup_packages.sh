@@ -174,16 +174,6 @@ else
   echo "Found: Bower"
 fi
 
-# Step 6. Install POW
-
-if [ ! `which pow` ]
-then
-  echo "Installing POW"
-  curl get.pow.cx | sh
-else
-  echo "Found: POW"
-fi
-
 # Step 7. Configure GIT
 if [ ! `which git` ]
 then
