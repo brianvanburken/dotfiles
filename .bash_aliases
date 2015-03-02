@@ -15,6 +15,7 @@ alias hm='~/'
 alias root='~/'
 alias desk='~/Desktop'
 alias dev='~/Developer/'
+alias dot='~/.dotfiles/'
       o () { open ${1:-.} }
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
