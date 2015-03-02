@@ -13,8 +13,8 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 0
 let g:netrw_altv = 0
 let g:netrw_banner = 1
-let g:netrw_list_hide = &wildignore
+let g:netrw_list_hide = '.git,.sass-cache,.DS_Store,tmp,node_modules,bower_components'
 let g:netrw_localrmdir='rm -r'
-
+let g:netrw_dirhistmax = 0 " Disable .netrwhist/.netrwbook
 " Ctrl+n to toggle NerdTree
 nmap <silent> <C-N> :Rex<CR>
