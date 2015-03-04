@@ -4,10 +4,12 @@ call plug#begin()
 Plug 'othree/html5.vim', { 'for': ['html', 'php'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
 Plug 'JulesWang/css.vim', { 'for': ['css', 'scss'] }
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
