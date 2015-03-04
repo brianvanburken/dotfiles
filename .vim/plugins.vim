@@ -2,11 +2,12 @@ call plug#begin()
 
 " Languages
 Plug 'othree/html5.vim', { 'for': ['html', 'php'] }
+
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
 Plug 'JulesWang/css.vim', { 'for': ['css', 'scss'] }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass'] }
 
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
@@ -18,7 +19,6 @@ Plug 'moll/vim-node', { 'for': 'javascript' }
 
 " Code Display
 Plug 'chriskempson/base16-vim'
-Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass'] }
 Plug 'kien/rainbow_parentheses.vim'
 
 " Intergrations
