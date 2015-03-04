@@ -2,6 +2,7 @@
 config windowHintsShowIcons true
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
+config windowHintsIconAlpha 0.5
 
 # Alias
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
