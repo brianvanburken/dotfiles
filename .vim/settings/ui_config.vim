@@ -14,7 +14,9 @@ set laststatus=2     " Always show the statusbar
 autocmd FocusLost * :set number
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
-"
+
+set clipboard=unnamed " Share Clipboard with OS
+
 if has('gui_running')
   " hide toolbar
   set guioptions-=T
