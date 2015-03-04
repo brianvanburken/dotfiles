@@ -11,7 +11,7 @@ alias ll='ls -la'
 alias restart='sudo shutdown -r now'
 
 alias ...='cd ../..'
-alias hm='cd ~/'
+alias home='cd ~/'
 alias root='cd ~/'
 alias desk='cd ~/Desktop'
 alias dev='cd ~/Developer/'
