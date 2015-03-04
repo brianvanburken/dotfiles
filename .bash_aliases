@@ -7,29 +7,26 @@ alias rm='rm -i'
 alias rrm='rm -r'
 alias mv='mv -i'
 alias ln='ln -i'
-alias ll='la'
+alias ll='ls -la'
 alias restart='sudo shutdown -r now'
 
-alias ...='../..'
-alias hm='~/'
-alias root='~/'
-alias desk='~/Desktop'
-alias dev='~/Developer/'
-alias dot='~/.dotfiles/'
-      o () { open ${1:-.} }
+alias ...='cd ../..'
+alias hm='cd ~/'
+alias root='cd ~/'
+alias desk='cd ~/Desktop'
+alias dev='cd ~/Developer/'
+alias dot='cd ~/.dotfiles/'
+      o () { open ${1:-.}; }
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
 alias mkdir='mkdir -p'
 alias md='mkdir'
-alias reload='source $ZSH/oh-my-zsh.sh'
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias grep='ag'
 
 # Alias vim to mvim
 alias vim='mvim'
 alias vi='vim'
-      v () { vim ${1:-.} }
+      v () { vim ${1:-.}; }
 alias e="$EDITOR"
 
 # Brew
@@ -37,8 +34,6 @@ alias brewify='brew update && brew upgrade && brew prune && brew cleanup && brew
 
 # Heroku
 # Force the use of Heroku Toolbelt instead of a locally installed gem
-alias heroku='/usr/bin/heroku'
-alias heroky='heroku'
 alias h='heroku'
 alias hr='h run'
 alias hc='h run rails c'
@@ -52,7 +47,7 @@ alias resetdb='rake db:drop && rake db:create && rake db:migrate && rake db:seed
 # Rails
 alias rsc='rails console'
 alias rss='rails server'
-      rsn () { rails new ${1} ${@:2} && cd ${1} && git init && git add . && git commit -m "Initial commit." }
+      rsn () { rails new ${1} ${@:2} && cd ${1} && git init && git add . && git commit -m "Initial commit."; }
 alias spec='bin/rspec .'
 alias rubo='rubocop -R -l -c rubocop.yml'
 
