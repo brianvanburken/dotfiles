@@ -1,7 +1,7 @@
 #!/bin/bashln -s ~/Dropbox/Dotfiles/.bash_aliases
 sudo -v
 
-files=(.bash_aliases .bash_profile .bashrc .bundle .csscomb.json .gemrc
+files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .csscomb.json .gemrc
        .gitconfig .gitignore_global .powconfig .profile .railsrc .slate .vim
        .vimrc .zlogin .zshrc)
 dir="$PWD/"
