@@ -3,6 +3,7 @@
 set noswapfile
 set nowritebackup
 set nobackup
+set viminfo=
 
 " Disable netrw
 let g:netrw_dirhistmax = 0
