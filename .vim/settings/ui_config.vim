@@ -16,16 +16,3 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 set clipboard=unnamed " Share Clipboard with OS
-
-if has('gui_running')
-  " hide toolbar
-  set guioptions-=T
-
-  " hide the right hand vertical scrollbar
-  set guioptions-=r
-
-  " hide the left hand vertical scrollbar
-  set guioptions-=l
-  set guioptions-=L
-  set guifont=Menlo\ for\ Powerline:h11
-end
