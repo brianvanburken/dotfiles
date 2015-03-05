@@ -18,7 +18,7 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 
 " Code Display
-Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 Plug 'kien/rainbow_parentheses.vim'
 
 " Intergrations
