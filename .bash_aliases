@@ -24,7 +24,6 @@ alias md='mkdir'
 alias grep='ag'
 
 # Alias vim to mvim
-alias vim='mvim'
 alias vi='vim'
       v () { vim ${1:-.}; }
 alias e="$EDITOR"
