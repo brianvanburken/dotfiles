@@ -2,6 +2,7 @@ call plug#begin()
 
 " Languages
 Plug 'othree/html5.vim', { 'for': ['html', 'php'] }
+Plug 'mustache/vim-mustache-handlebars', { 'for': 'html' }
 
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
 Plug 'JulesWang/css.vim', { 'for': ['css', 'scss'] }
@@ -15,7 +16,7 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'elzr/vim-json', { 'for': 'json' }
 
 " Code Display
 Plug 'morhetz/gruvbox'
