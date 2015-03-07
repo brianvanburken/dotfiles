@@ -51,10 +51,12 @@ alias spec='bin/rspec .'
 alias rubo='rubocop -R -l -c rubocop.yml'
 
 # Git aliases
+alias g='git'
 alias ga='git add'
 alias gl='git pull'
 alias gp='git push'
 alias gs='git status'
+alias gd='git diff'
 alias gco='git checkout'
 alias gcm='git commit -m'
 alias gap='git add --patch'
