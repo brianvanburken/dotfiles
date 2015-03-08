@@ -2,7 +2,7 @@ call plug#begin()
 
 " Languages
 Plug 'othree/html5.vim', { 'for': ['html', 'php'] }
-Plug 'mustache/vim-mustache-handlebars', { 'for': 'html' }
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'htmlbars', 'handlebars'] }
 
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
 Plug 'JulesWang/css.vim', { 'for': ['css', 'scss'] }
