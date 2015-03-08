@@ -18,6 +18,10 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 
+" Autocompletion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'marijnh/tern_for_vim'
+
 " Code Display
 Plug 'morhetz/gruvbox'
 Plug 'kien/rainbow_parentheses.vim'
