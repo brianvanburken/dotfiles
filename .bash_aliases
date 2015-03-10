@@ -1,10 +1,10 @@
 # Shortkeys to make live easier
-alias :q='exit'
+alias ;q='exit'
 alias ..='cd ..;' # can then do .. .. .. to move up multiple directories.
 alias ...='.. ..'
 alias cp='cp -i'
 alias rm='rm -i'
-alias rrm='rm -r'
+alias rrm='rm -rf'
 alias mv='mv -i'
 alias ln='ln -i'
 alias ll='ls -la'
