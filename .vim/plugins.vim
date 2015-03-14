@@ -16,7 +16,6 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'elzr/vim-json', { 'for': 'json' }
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
