@@ -1,2 +1,5 @@
-set undodir = ~/.vim/tmp/
-set undofile
+try
+  set undofile
+  set undodir = $HOME/.vim/tmp/
+catch
+endtry
