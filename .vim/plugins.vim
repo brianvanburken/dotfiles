@@ -29,6 +29,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'scrooloose/syntastic', { 'for': ['javascript', 'css', 'scss', 'sass', 'ruby'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'osyo-manga/vim-over'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
