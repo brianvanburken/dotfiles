@@ -29,7 +29,7 @@ alias vi='vim'
 alias e="$EDITOR"
 
 # Brew
-alias brewify='brew update && brew upgrade && brew prune && brew cleanup && brew cask cleanup && brew doctor'
+alias brewify='brew update && brew upgrade && brew prune && brew cleanup && brew doctor'
 
 # Heroku
 # Force the use of Heroku Toolbelt instead of a locally installed gem
