@@ -1,5 +1,5 @@
 autocmd!
-let mapleader = ","
+let mapleader = " "
 
 " This loads all the plugins specified in ~/.vim/plugins.vim
 " Use Vim-plug plugin to manage all other plugins
