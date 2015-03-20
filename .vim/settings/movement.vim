@@ -13,5 +13,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Yank till end
+nnoremap Y y$
+
 " Use w!! to save a file with privileges if forgotten to sudo it
 cmap w!! w !sudo tee % >/dev/null
