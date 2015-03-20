@@ -66,3 +66,6 @@ alias glog='git log --pretty=format:"%C(yellow)%h%C(reset) %C(green)%ar%C(reset)
 
 # Build vim
 alias update_vim='dev && cd vim/ && hg pull && hg update && sudo make && sudo make install'
+
+# Check battery
+battery () { pmset -g ps | sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p' }
