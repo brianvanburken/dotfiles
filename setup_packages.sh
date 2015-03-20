@@ -187,4 +187,16 @@ echo "Cleanup"
 # Remove outdated Homebrew packages
 brew cleanup
 
+echo -n "Would you like to configure your git name and email? (y/n) => "; read answer
+if [[ $answer = "Y" ]] || [[ $answer = "y" ]]; then
+    echo -n "What is your git user name => "; read name
+    git config --global user.name "$name"
+    echo -n "What is your git email => "; read email
+    git config --global user.email "$email"
+fi
+
 echo "Done!"
+
+echo "*******************************"
+echo "*    Restart your terminal    *"
+echo "*******************************"
