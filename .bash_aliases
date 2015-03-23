@@ -1,7 +1,9 @@
 # Shortkeys to make live easier
 alias q='exit'
-alias ..='cd ..;' # can then do .. .. .. to move up multiple directories.
-alias ...='.. ..'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias cp='cp -i'
 alias rm='rm -i'
 alias rrm='rm -rf'
@@ -27,8 +29,10 @@ alias grep='ag'
 alias vi='vim'
       v () { vim ${1:-.}; }
 alias e="$EDITOR"
+alias c="tr -d '\n' | pbcopy"
 
 # Brew
+alias updatify='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew doctor; npm update npm -g; npm update -g; sudo gem update'
 alias brewify='brew update && brew upgrade && brew prune && brew cleanup && brew doctor'
 
 # Heroku
