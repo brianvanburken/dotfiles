@@ -29,7 +29,6 @@ alias grep='ag'
 alias vi='vim'
       v () { vim ${1:-.}; }
 alias e="$EDITOR"
-alias c="tr -d '\n' | pbcopy"
 
 # Brew
 alias updatify='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew doctor; npm update npm -g; npm update -g; sudo gem update'
