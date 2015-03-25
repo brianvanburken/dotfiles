@@ -68,7 +68,7 @@ alias gundo='git stash save --keep-index && git stash drop'
 alias glog='git log --pretty=format:"%C(yellow)%h%C(reset) %C(green)%ar%C(reset) %C(bold blue)%an%C(reset) %C(red)%d%C(reset) %s" --graph --abbrev-commit --decorate'
 
 # Build vim
-alias update_vim='dev && cd vim/ && hg pull && hg update && sudo make && sudo make install'
+alias update_vim='dev; cd vim/; git pull; sudo make; sudo make install'
 
 # Check battery
 battery () { pmset -g ps | sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p' }
