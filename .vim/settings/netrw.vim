@@ -16,5 +16,7 @@ let g:netrw_banner = 1
 let g:netrw_list_hide = '.git/,.DS_Store,tmp/,node_modules/,bower_components/,bin/,dist/,log/'
 let g:netrw_localrmdir='rm -r'
 let g:netrw_dirhistmax = 0 " Disable .netrwhist/.netrwbook
+
 " Ctrl+n to toggle NerdTree
-nmap <silent> <C-N> :Rex<CR>
+" nmap <silent> <C-N> :Rex<CR>
+nnoremap <Leader>n :Rex<CR>
