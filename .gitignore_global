@@ -14,10 +14,11 @@ config/initializers/secret_token.rb
 config/secrets.yml
 config/database.yml
 
-*.sqlite3
-*.sqlite3-journal
 **.swp
 **.orig
+*.sqlite3
+*.sqlite3-journal
+*.iml
 .rvmrc
 .DS_Store
 .env
