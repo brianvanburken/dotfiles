@@ -8,3 +8,5 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(swp|zip|DS_Store|jira-url|png|jpg|jpeg|svg|gif|eot|ttf|woff)$'
       \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+
+nnoremap <Leader>o :CtrlP<CR>
