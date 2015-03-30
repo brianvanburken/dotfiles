@@ -7,6 +7,7 @@ coverage/
 public/cache/
 public/stylesheets/compiled
 public/system/
+target/
 .idea/
 log/*
 tmp/*
