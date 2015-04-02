@@ -13,6 +13,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+nnoremap <Leader>w <C-w>w<CR>
+nnoremap <Leader>wv <C-w>v<CR>
+nnoremap <Leader>ws <C-w>s<CR>
+
 " Yank till end
 nnoremap Y y$
 
