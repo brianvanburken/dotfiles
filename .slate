@@ -14,6 +14,9 @@ alias leftthird   move screenOriginX;screenOriginY screenSizeX/3;screenSizeY
 alias middlethird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
 alias rightthird  move screenOriginX+screenSizeX/3+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
 
+alias lefttwothird  move screenOriginX;screenOriginY ((screenSizeX/3)*2);screenSizeY
+alias righttwothird move screenOriginX+screenSizeX/3;screenOriginY ((screenSizeX/3)*2);screenSizeY
+
 alias lefthalf    move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf   move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias tophalf     move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
@@ -35,6 +38,9 @@ bind l:shift;cmd ${righthalf}
 bind h:ctrl;cmd ${leftthird}
 bind i:ctrl;cmd ${middlethird}
 bind l:ctrl;cmd ${rightthird}
+
+bind o:ctrl;cmd ${lefttwothird}
+bind p:ctrl;cmd ${righttwothird}
 
 bind u:shift;cmd ${topleft}
 bind i:shift;cmd ${topright}
