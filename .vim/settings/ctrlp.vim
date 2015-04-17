@@ -10,3 +10,16 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 
 nnoremap <Leader>o :CtrlP<CR>
+
+let g:ctrlp_buffer_func = {
+    \ 'enter': 'DisableStatusLine',
+    \ 'exit':  'EnableStatusLine',
+    \ }
+
+func! DisableStatusLine()
+    set laststatus=0
+endfunc
+
+func! EnableStatusLine()
+    set laststatus=2
+endfunc
