@@ -35,7 +35,7 @@ Plug 'osyo-manga/vim-over'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 " Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
+" Plug 'bling/vim-airline'
 
 " Commands
 Plug 'godlygeek/tabular'
