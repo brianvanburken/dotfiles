@@ -2,10 +2,10 @@
 " Returns mode and sets color based on mode
 function! SetStatusLineColor()
   if mode() == 'i' " Insert
-    hi statusline ctermfg=red
+    hi statusline ctermfg=green
     return "INSERT"
   elseif mode() == 'R' " Replace
-    hi statusline ctermfg=blue
+    hi statusline ctermfg=red
     return "REPLACE"
   elseif mode() == 'v' " Visual
     hi statusline ctermfg=yellow
@@ -17,7 +17,7 @@ function! SetStatusLineColor()
     hi statusline ctermfg=yellow
     return "VISUAL BLOCK"
   endif
-  hi statusline ctermfg=green
+  hi statusline ctermfg=darkgray
   return 'NORMAL'
 endfunction
 
