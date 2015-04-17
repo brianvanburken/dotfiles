@@ -16,3 +16,5 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 set clipboard=unnamed " Share Clipboard with OS
+
+set so=7 " Set 7 lines to the cursor - when moving vertically using j/
