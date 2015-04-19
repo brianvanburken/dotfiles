@@ -11,6 +11,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-
 
 nnoremap <Leader>o :CtrlP<CR>
 
+if !has('python')
+  echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+
 let g:ctrlp_buffer_func = {
     \ 'enter': 'DisableStatusLine',
     \ 'exit':  'EnableStatusLine',
