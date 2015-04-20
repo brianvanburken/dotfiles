@@ -19,6 +19,9 @@ let g:currentmodetext = {
       \ 'r?' : 'CONFIRM',
       \ '!'  : 'SHELL'
       \}
+
+" Possible choices: red, yellow, green, blue, magenta, cyan, white, black,
+" gray
 let g:currentmodecolour = {
       \ 'n'  : 'darkgray',
       \ 'no' : 'darkgray',
@@ -29,36 +32,21 @@ let g:currentmodecolour = {
       \ 'S'  : 'yellow',
       \ '' : 'yellow',
       \ 'i'  : 'green',
-      \ 'R'  : 'blue',
-      \ 'Rv' : 'blue',
-      \ 'c'  : 'darkgray',
-      \ 'cv' : 'darkgray',
-      \ 'ce' : 'darkgray',
-      \ 'r'  : 'darkgray',
-      \ 'rm' : 'darkgray',
-      \ 'r?' : 'darkgray',
-      \ '!'  : 'darkgray'
+      \ 'R'  : 'red',
+      \ 'Rv' : 'red',
+      \ 'c'  : 'magenta',
+      \ 'cv' : 'magenta',
+      \ 'ce' : 'magenta',
+      \ 'r'  : 'magenta',
+      \ 'rm' : 'magenta',
+      \ 'r?' : 'magenta',
+      \ '!'  : 'magenta'
       \}
+
 " Mode Indication
 " Returns mode and sets color based on mode
 function! SetStatusLineColor()
-  if mode() == 'i' " Insert
-    hi statusline ctermfg=green
-    return g:currentmodetext[mode()]
-  elseif mode() == 'R' " Replace
-    hi statusline ctermfg=red
-    return g:currentmodetext[mode()]
-  elseif mode() == 'v' " Visual
-    hi statusline ctermfg=yellow
-    return g:currentmodetext[mode()]
-  elseif mode() == 'V' " Visual [line]
-    hi statusline ctermfg=yellow
-    return g:currentmodetext[mode()]
-  elseif g:currentmodetext[mode()] ==# 'VISUAL BLOCK'
-    hi statusline ctermfg=yellow
-    return g:currentmodetext[mode()]
-  endif
-  hi statusline ctermfg=darkgray
+  execute 'hi statusline ctermfg='.g:currentmodecolour[mode()]
   return g:currentmodetext[mode()]
 endfunction
 
