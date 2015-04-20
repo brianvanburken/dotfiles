@@ -1,24 +1,65 @@
+" Define all the different modes
+let g:currentmodetext = {
+      \ 'n'  : 'NORMAL',
+      \ 'no' : 'NORMAL OPERATOR PENDING',
+      \ 'v'  : 'VISUAL',
+      \ 'V'  : 'VISUAL LINE',
+      \ '' : 'VISUAL BLOCK',
+      \ 's'  : 'SELECT',
+      \ 'S'  : 'SELECT Line',
+      \ '' : 'SELECT Block',
+      \ 'i'  : 'INSERT',
+      \ 'R'  : 'REPLACE',
+      \ 'Rv' : 'VISUAL REPLACE',
+      \ 'c'  : 'COMMAND',
+      \ 'cv' : 'VIM EX',
+      \ 'ce' : 'EX',
+      \ 'r'  : 'PROMPT',
+      \ 'rm' : 'MORE',
+      \ 'r?' : 'CONFIRM',
+      \ '!'  : 'SHELL'
+      \}
+let g:currentmodecolour = {
+      \ 'n'  : 'darkgray',
+      \ 'no' : 'darkgray',
+      \ 'v'  : 'yellow',
+      \ 'V'  : 'yellow',
+      \ '' : 'yellow',
+      \ 's'  : 'yellow',
+      \ 'S'  : 'yellow',
+      \ '' : 'yellow',
+      \ 'i'  : 'green',
+      \ 'R'  : 'blue',
+      \ 'Rv' : 'blue',
+      \ 'c'  : 'darkgray',
+      \ 'cv' : 'darkgray',
+      \ 'ce' : 'darkgray',
+      \ 'r'  : 'darkgray',
+      \ 'rm' : 'darkgray',
+      \ 'r?' : 'darkgray',
+      \ '!'  : 'darkgray'
+      \}
 " Mode Indication
 " Returns mode and sets color based on mode
 function! SetStatusLineColor()
   if mode() == 'i' " Insert
     hi statusline ctermfg=green
-    return "INSERT"
+    return g:currentmodetext[mode()]
   elseif mode() == 'R' " Replace
     hi statusline ctermfg=red
-    return "REPLACE"
+    return g:currentmodetext[mode()]
   elseif mode() == 'v' " Visual
     hi statusline ctermfg=yellow
-    return "VISUAL"
+    return g:currentmodetext[mode()]
   elseif mode() == 'V' " Visual [line]
     hi statusline ctermfg=yellow
-    return "VISUAL LINE"
-  elseif mode() == '^V' " Visual [block]
+    return g:currentmodetext[mode()]
+  elseif g:currentmodetext[mode()] ==# 'VISUAL BLOCK'
     hi statusline ctermfg=yellow
-    return "VISUAL BLOCK"
+    return g:currentmodetext[mode()]
   endif
   hi statusline ctermfg=darkgray
-  return 'NORMAL'
+  return g:currentmodetext[mode()]
 endfunction
 
 set laststatus=2 "always enable status line
