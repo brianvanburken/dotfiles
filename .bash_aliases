@@ -10,7 +10,7 @@ alias rrm='rm -rf'
 alias mv='mv -i'
 alias ln='ln -i'
 alias ll='ls -la'
-alias restart='sudo shutdown -r now'
+alias mine='sudo chown -R `whoami`'
 
 alias ...='cd ../..'
 alias home='cd ~/'
