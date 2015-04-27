@@ -31,7 +31,7 @@ alias vi='vim'
 alias e="$EDITOR"
 
 # Brew
-alias updatify='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; brew doctor; npm update npm -g; npm update -g; sudo gem update'
+alias updatify='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; brew doctor; npm update npm -g; npm update -g; sudo gem update'
 
 # NPM
 alias npms='npm i -S'
