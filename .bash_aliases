@@ -137,14 +137,14 @@ alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 alias update_vim='dev; cd vim/; git pull; sudo make; sudo make install'
 
 # Check battery
-battery () { pmset -g ps | sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p' }
+battery () { pmset -g ps | sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p'; }
 
 # Compare orginal and gzipped file size
 # https://github.com/quoo/dotfiles
-gz() {
-  local origsize=$(wc -c < "$1")
-  local gzipsize=$(gzip -c "$1" | wc -c)
-  local ratio=$(echo "$gzipsize * 100/ $origsize" | bc -l)
-  printf "orig: %d bytes\n" "$origsize"
-  printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio"
-}
+# gz() {
+#   local origsize=$(wc -c < "$1")
+#   local gzipsize=$(gzip -c "$1" | wc -c)
+#   local ratio=$(echo "$gzipsize * 100/ $origsize" | bc -l)
+#   printf "orig: %d bytes\n" "$origsize"
+#   printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio"
+# }
