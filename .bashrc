@@ -11,23 +11,23 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=70000000
 export RUBY_GC_HEAP_FREE_SLOTS=100000
 
-export NC='\e[0m' # No Color
-export WHITE='\e[1;37m'
-export BLACK='\e[0;30m'
-export BLUE='\e[0;34m'
-export LIGHT_BLUE='\e[1;34m'
-export GREEN='\e[0;32m'
-export LIGHT_GREEN='\e[1;32m'
-export CYAN='\e[0;36m'
-export LIGHT_CYAN='\e[1;36m'
-export RED='\e[0;31m'
-export LIGHT_RED='\e[1;31m'
-export PURPLE='\e[0;35m'
-export LIGHT_PURPLE='\e[1;35m'
-export BROWN='\e[0;33m'
-export YELLOW='\e[1;33m'
-export GRAY='\e[0;30m'
-export LIGHT_GRAY='\e[0;37m'
+export NC='\033[0m' # No Color
+export WHITE='\033[1;37m'
+export BLACK='\033[0;30m'
+export BLUE='\033[0;34m'
+export LIGHT_BLUE='\033[1;34m'
+export GREEN='\033[0;32m'
+export LIGHT_GREEN='\033[1;32m'
+export CYAN='\033[0;36m'
+export LIGHT_CYAN='\033[1;36m'
+export RED='\033[0;31m'
+export LIGHT_RED='\033[1;31m'
+export PURPLE='\033[0;35m'
+export LIGHT_PURPLE='\033[1;35m'
+export BROWN='\033[0;33m'
+export YELLOW='\033[1;33m'
+export GRAY='\033[0;30m'
+export LIGHT_GRAY='\033[0;37m'
 
 git_branch() {
   # Based on: http://stackoverflow.com/a/13003854/170413
@@ -38,14 +38,14 @@ git_branch() {
     if [[ "$branch" == "HEAD" ]]; then
       branch='detached*'
     fi
-    printf " ${LIGHT_GRAY}("
+    echo -ne " ${LIGHT_GRAY}("
     if [[ "$status" != "" ]]; then
-      printf "${LIGHT_RED}"
+      echo -ne "${LIGHT_RED}"
     else
-      printf "${LIGHT_GREEN}"
+      echo -ne "${LIGHT_GREEN}"
     fi
-    printf "$branch"
-    printf "${LIGHT_GRAY})"
+    echo -ne "$branch"
+    echo -ne "${LIGHT_GRAY})${NC}"
   fi
 }
 
