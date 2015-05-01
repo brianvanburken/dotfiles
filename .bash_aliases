@@ -138,6 +138,8 @@ alias update_vim='dev; cd vim/; git pull; sudo make; sudo make install'
 
 # Check battery
 battery () { pmset -g ps | sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p'; }
+# battery() { ioreg -n AppleSmartBattery -r | awk '$1~/Capacity/{c[$1]=$3} END{OFMT="%.2f%%"; max=c["\"MaxCapacity\""]; print (max>0? 100*c["\"CurrentCapacity\""]/max: "?")}'; }
+isBatteryCharging() { ioreg -n AppleSmartBattery -r | awk '$1~/ExternalConnected/{gsub("Yes", "+");gsub("No", "%"); print substr($0, length, 1)}'; }
 
 # Compare orginal and gzipped file size
 # https://github.com/quoo/dotfiles

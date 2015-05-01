@@ -38,15 +38,21 @@ git_branch() {
     if [[ "$branch" == "HEAD" ]]; then
       branch='detached*'
     fi
-    echo -ne " ${LIGHT_GRAY}("
+    echo -ne "${LIGHT_GRAY}("
     if [[ "$status" != "" ]]; then
       echo -ne "${LIGHT_RED}"
     else
       echo -ne "${LIGHT_GREEN}"
     fi
     echo -ne "$branch"
-    echo -ne "${LIGHT_GRAY})${NC}"
+    echo -ne "${LIGHT_GRAY})${NC} "
   fi
 }
 
-export PS1="\[${LIGHT_BLUE}\]\W\$(git_branch) \[${LIGHT_GRAY}\]→\[${NC}\] "
+battery_prompt() {
+  echo -ne " ${LIGHT_GRAY}["
+  echo -ne "$(battery)"
+  echo -ne "]${NC} "
+}
+
+export PS1="\[${LIGHT_BLUE}\]\W\$(battery_prompt)\$(git_branch)\[${LIGHT_GRAY}\]→\[${NC}\] "
