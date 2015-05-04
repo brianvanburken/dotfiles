@@ -50,10 +50,4 @@ git_branch() {
   fi
 }
 
-battery_prompt() {
-  echo -ne " ${LIGHT_GRAY}["
-  echo -ne "$(battery)"
-  echo -ne "]${NC}"
-}
-
-export PS1="\[${LIGHT_BLUE}\]\W\$(battery_prompt)\$(git_branch)\n\[${LIGHT_GRAY}\]→\[${NC}\] "
+export PS1="\[${LIGHT_BLUE}\]\W\$(git_branch)\n\[${LIGHT_GRAY}\]→\[${NC}\] "
