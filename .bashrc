@@ -56,4 +56,4 @@ battery_prompt() {
   echo -ne "]${NC}"
 }
 
-export PS1="\[${LIGHT_BLUE}\]\W\$(battery_prompt)\$(git_branch)\[${LIGHT_GRAY}\]→\[${NC}\] "
+export PS1="\[${LIGHT_BLUE}\]\W\$(battery_prompt)\$(git_branch)\n\[${LIGHT_GRAY}\]→\[${NC}\] "
