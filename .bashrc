@@ -38,7 +38,7 @@ git_branch() {
     if [[ "$branch" == "HEAD" ]]; then
       branch='detached*'
     fi
-    printf " $LIGHT_GRAY"
+    printf "$LIGHT_GRAY"
     printf "("
     if [[ "$status" != "" ]]; then
       printf "$LIGHT_RED"
@@ -50,4 +50,4 @@ git_branch() {
   fi
 }
 
-export PS1="\[${LIGHT_BLUE}\]\W\$(git_branch)\n\[${LIGHT_GRAY}\]→\[${NC}\] "
+export PS1="\[$LIGHT_GREEN\]\u\[$NC\] at \[${LIGHT_BLUE}\]\W\$(git_branch)\n\[${LIGHT_GRAY}\]→\[${NC}\] "
