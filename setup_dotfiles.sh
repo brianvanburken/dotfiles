@@ -3,7 +3,7 @@ sudo -v
 
 files=(.agignore .bash_aliases .bash_login .bash_profile .bashrc .bundle
         .csscomb.json .gemrc .gitconfig .gitignore_global .powconfig .profile
-        .slate .tmux.conf .vim .vimrc .zlogin .zshrc)
+        .slate .tmux.conf .vim .vimrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
