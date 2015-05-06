@@ -30,6 +30,6 @@ git_branch() {
 
 PS1="\[$LIGHT_GREEN\]\u\[$NC\] at \[$LIGHT_BLUE\]\W"
 PS1="$PS1\$(git_branch)"
-# PS1="$PS1\[$LIGHT_GRAY\] \$(~/.rvm/bin/rvm-prompt)"
+PS1="$PS1\[$LIGHT_GRAY\] ruby-\$(rbenv version | sed -e 's/ .*//')"
 PS1="$PS1\[$YELLOW\] \$(battery)"
 PS1="$PS1\[$LIGHT_GRAY\]\n→\[$NC\] "
