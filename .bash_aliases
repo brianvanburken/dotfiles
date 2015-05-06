@@ -9,7 +9,7 @@ alias rm='rm -i'
 alias rrm='rm -rf'
 alias mv='mv -i'
 alias ln='ln -i'
-alias ll='ls -la'
+alias ll='ls -lahL'
 alias mine='sudo chown -R `whoami`'
 
 alias ...='cd ../..'
