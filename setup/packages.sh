@@ -1,35 +1,11 @@
 #!/bin/sh
 
-# Step 1. Configuring Paths
-
-if ! grep -q '/usr/local/bin' /etc/paths || ! grep -q '/usr/local/sbin' /etc/paths || \
-  ! grep -q '/usr/local/share/npm/bin' /etc/paths || ! grep -q '/usr/local/share/npm/sbin' /etc/paths
-then
-  echo "Configuring: /etc/paths"
-  sudo sh -c "cat > /etc/paths <<EOS
-/usr/local/share/npm/bin
-/usr/local/bin
-/usr/bin
-/bin
-/usr/local/share/npm/sbin
-/usr/local/sbin
-/usr/sbin
-/sbin
-EOS
-"
-else
-  echo "Configured: /etc/paths"
-fi
-
-# Step 2. Installing Brew
-
 if [ ! -f /usr/local/bin/brew ]
 then
   echo "Installing: brew"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
   brew upgrade
-  brew install wget
 else
   echo "Found: brew"
 fi
@@ -113,20 +89,12 @@ else
   echo "Found: mongodb"
 fi
 
-if [ ! -e ~/.rvm/bin/rvm ]
+if [ ! `which rbenv` ]
 then
   echo "Installing: rbenv"
   brew install rbenv ruby-build
 else
   echo "Found: rbenv"
-fi
-
-if [ ! -e /usr/local/bin/npm ]
-then
-  echo "Installing: npm"
-  curl -L https://npmjs.org/install.sh | sh
-else
-  echo "Found: npm"
 fi
 
 if [ ! `which csslint` ]
@@ -169,7 +137,14 @@ else
   echo "Found: Bower"
 fi
 
-# Step 7. Configure GIT
+if [ ! `which gulp` ]
+then
+  echo "Installing: Gulp"
+  npm install -g gulp
+else
+  echo "Found: Gulp"
+fi
+
 if [ ! `which git` ]
 then
   echo "Configuring: git"
@@ -183,11 +158,6 @@ then
 fi
 
 echo "Cleanup"
-# Remove outdated Homebrew packages
 brew cleanup
 
-echo "Done!"
-
-echo "*******************************"
-echo "*    Restart your terminal    *"
-echo "*******************************"
+echo "Done with packages!"
