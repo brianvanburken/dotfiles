@@ -1,15 +1,11 @@
+export JAVA_HOME=$(/usr/libexec/java_home)
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export CC=gcc
 export EDITOR='vim'
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export CLICOLOR=1
 export TERM="xterm-256color"
-
-# Improve Ruby GC
-export RUBY_GC_HEAP_INIT_SLOTS=2000000
-export RUBY_HEAP_SLOTS_INCREMENT=500000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=70000000
-export RUBY_GC_HEAP_FREE_SLOTS=100000
 
 export NC='\033[0m' # No Color
 export WHITE='\033[1;37m'
@@ -52,6 +48,6 @@ git_branch() {
 
 PS1="\[$LIGHT_GREEN\]\u\[$NC\] at \[$LIGHT_BLUE\]\W"
 PS1="$PS1\$(git_branch)"
-PS1="$PS1\[$LIGHT_GRAY\] \$(~/.rvm/bin/rvm-prompt)"
+# PS1="$PS1\[$LIGHT_GRAY\] \$(~/.rvm/bin/rvm-prompt)"
 PS1="$PS1\[$YELLOW\] \$(battery)"
 PS1="$PS1\[$LIGHT_GRAY\]\n→\[$NC\] "
