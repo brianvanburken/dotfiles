@@ -113,18 +113,13 @@ else
   echo "Found: mongodb"
 fi
 
-# Step 3. Install RVM
-
 if [ ! -e ~/.rvm/bin/rvm ]
 then
-  echo "Installing: rvm"
-  curl -L https://get.rvm.io | LESS=-X+Gq bash -s stable --ruby
-  bash -l
+  echo "Installing: rbenv"
+  brew install rbenv ruby-build
 else
-  echo "Found: rvm"
+  echo "Found: rbenv"
 fi
-
-# Step 4. Install NPM
 
 if [ ! -e /usr/local/bin/npm ]
 then
