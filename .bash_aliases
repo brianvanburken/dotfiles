@@ -25,6 +25,10 @@ alias mkdir='mkdir -p'
 alias md='mkdir'
 alias grep='ag'
 
+# Tmux
+alias tma='tmux attach -d -t'
+alias tmn='tmux new -s'
+
 # Vim
 alias vi='vim'
       v () { vim ${1:-.}; }
