@@ -7,6 +7,14 @@ bind '"\e[B":history-search-forward'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+tmxdev() {
+  tmux new-session -d 'vim';
+  tmux split-window -h;
+  tmux split-window -v;
+  tmux split-window -v;
+  tmux -2 attach-session -d;
+}
+
 git_branch() {
   # Based on: http://stackoverflow.com/a/13003854/170413
   local branch
