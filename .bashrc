@@ -5,6 +5,9 @@ source ~/.bash_aliases
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
+# Fix rendering issues with Tmux
+[ -n "$TMUX" ] && export TERM=screen-256color
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 tmxdev() {
