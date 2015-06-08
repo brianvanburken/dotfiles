@@ -1,4 +1,4 @@
-#!/bin/bashln -s ~/Dropbox/Dotfiles/.bash_aliases
+#!/bin/bash
 sudo -v
 
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .csscomb.json
