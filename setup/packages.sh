@@ -154,6 +154,7 @@ then
       git config --global user.name "$name"
       echo -n "What is your git email => "; read email
       git config --global user.email "$email"
+      git config --gloabl push.default current
   fi
 fi
 
