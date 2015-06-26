@@ -1,24 +1,21 @@
 call plug#begin()
 
 " Languages
-" Plug 'othree/html5.vim', { 'for': ['html', 'php'] }
+Plug 'othree/html5.vim', { 'for': ['html', 'php'] }
 " Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'htmlbars', 'handlebars'] }
 
-" Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
-" Plug 'JulesWang/css.vim', { 'for': ['css', 'scss'] }
-" Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-" Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass'] }
+Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
+Plug 'JulesWang/css.vim', { 'for': ['css', 'scss'] }
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass'] }
 
-" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-" Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 " Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 " Plug 'dsawardekar/ember.vim', { 'for': 'javascript' }
-" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-" Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-
-" Autocompletion
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 
 " Code Display
 Plug 'morhetz/gruvbox'
@@ -29,6 +26,7 @@ Plug 'scrooloose/syntastic', { 'for': ['javascript', 'css', 'scss', 'sass', 'rub
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-over'
+Plug 'mattn/emmet-vim'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
