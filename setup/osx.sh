@@ -28,9 +28,6 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Restart automatically if the computer freezes
 systemsetup -setrestartfreeze on
 
-# Never go into computer sleep mode
-systemsetup -setcomputersleep Off > /dev/null
-
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
