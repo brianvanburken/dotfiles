@@ -81,7 +81,7 @@ fi
 if [ ! -e /usr/local/bin/mongodb ]
 then
   echo "Installing: mongodb"
-  brew install redis
+  brew install mongodb
   mkdir -p ~/Library/LaunchAgents
   cp `brew --prefix mongodb`/homebrew.mxcl.mongodb.plist ~/Library/LaunchAgents/
   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
