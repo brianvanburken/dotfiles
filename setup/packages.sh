@@ -159,6 +159,7 @@ then
 fi
 
 echo "Cleanup"
+brew prune
 brew cleanup
 
 echo "Done with packages!"
