@@ -15,6 +15,9 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 
+Plug 'tpope/vim-cucumber'
+Plug 'keith/rspec.vim'
+
 " Code Display
 Plug 'morhetz/gruvbox'
 Plug 'kien/rainbow_parentheses.vim'
