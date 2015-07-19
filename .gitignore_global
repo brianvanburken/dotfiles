@@ -168,7 +168,6 @@ crashlytics-build.properties
 
 
 ### XamarinStudio ###
-bin/
 obj/
 *.userprefs
 
