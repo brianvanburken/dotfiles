@@ -19,4 +19,4 @@ let g:netrw_dirhistmax = 0 " Disable .netrwhist/.netrwbook
 
 " Ctrl+n to toggle NerdTree
 " nmap <silent> <C-N> :Rex<CR>
-nnoremap <Leader>n :Rex<CR>
+nnoremap <Leader>n :Rexplore<CR>
