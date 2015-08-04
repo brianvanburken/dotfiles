@@ -32,6 +32,7 @@ Plug 'mattn/emmet-vim'
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'unblevable/quick-scope'
 
 " Commands
 Plug 'godlygeek/tabular'
