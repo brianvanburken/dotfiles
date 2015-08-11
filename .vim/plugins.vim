@@ -29,6 +29,11 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-over'
 Plug 'mattn/emmet-vim'
 
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
