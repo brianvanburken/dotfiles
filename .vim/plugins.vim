@@ -1,22 +1,18 @@
 call plug#begin()
 
 " Languages
-Plug 'othree/html5.vim', { 'for': ['html', 'php'] }
-
-Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
-Plug 'JulesWang/css.vim', { 'for': ['css', 'scss'] }
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-Plug 'ap/vim-css-color', { 'for': ['css', 'scss', 'sass'] }
-
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
-
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/html5.vim',             { 'for': ['html', 'php'] }
+Plug 'hail2u/vim-css3-syntax',       { 'for': ['css', 'scss'] }
+Plug 'JulesWang/css.vim',            { 'for': ['css', 'scss'] }
+Plug 'cakebaker/scss-syntax.vim',    { 'for': 'scss' }
+Plug 'ap/vim-css-color',             { 'for': ['css', 'scss', 'sass'] }
+Plug 'vim-ruby/vim-ruby',            { 'for': 'ruby' }
+Plug 'tpope/vim-rails',              { 'for': 'ruby' }
+Plug 'slim-template/vim-slim',       { 'for': 'slim' }
+Plug 'keith/rspec.vim',              { 'for': 'ruby' }
+Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-
 Plug 'tpope/vim-cucumber'
-Plug 'keith/rspec.vim'
 
 " Code Display
 Plug 'morhetz/gruvbox'
@@ -38,9 +34,11 @@ Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'unblevable/quick-scope'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'junegunn/vim-easy-align'
 
 " Commands
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
