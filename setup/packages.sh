@@ -10,8 +10,6 @@ else
   echo "Found: brew"
 fi
 
-# Step 3. Installing packages.
-
 if [ ! -f /usr/local/bin/git ]
 then
   echo "Installing: git"
