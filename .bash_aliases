@@ -50,8 +50,9 @@ updatify() {
     brew update;
     brew upgrade;
     brew prune;
-    brew cleanup;
+    brew cleanup --force;
     brew cask cleanup;
+    rm -f -r /Library/Caches/Homebrew/*;
     brew doctor;
   fi
 
