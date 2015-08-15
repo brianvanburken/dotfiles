@@ -57,3 +57,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   brew cask install cookie
 fi
+
+echo Cleaning up...
+brew cleanup --force
+rm -f -r /Library/Caches/Homebrew/*
