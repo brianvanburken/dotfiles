@@ -43,7 +43,7 @@ updatify() {
     sudo softwareupdate -i -a;
   fi
 
-  read -p "Do you want to update brew and it's packages? " -n 1 -r
+  read -p "Do you want to update brew and its packages? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
