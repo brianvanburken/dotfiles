@@ -58,6 +58,13 @@ then
   brew cask install cookie
 fi
 
+read -p "Do you want to the Heroku toolbelt? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  brew cask install --appdir="/Applications" heroku-toolbelt
+fi
+
 echo Cleaning up...
 brew cleanup --force
 rm -f -r /Library/Caches/Homebrew/*
