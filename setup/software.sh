@@ -63,6 +63,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   brew cask install --appdir="/Applications" heroku-toolbelt
+  heroku login
 fi
 
 echo Cleaning up...
