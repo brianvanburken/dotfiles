@@ -13,6 +13,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   brew cask install alfred
+  brew cask alfred link
 fi
 
 read -p "Do you want to install Firefox? " -n 1 -r
