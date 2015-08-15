@@ -18,7 +18,7 @@ alias root='cd ~/'
 alias desk='cd ~/Desktop'
 alias dev='cd ~/Developer/'
 alias dot='cd ~/.dotfiles/'
-      o () { open ${1:-.}; }
+o () { open ${1:-.}; }
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
 alias mkdir='mkdir -p'
@@ -31,23 +31,43 @@ alias tmn='tmux new -s'
 
 # Vim
 alias vi='vim'
-      v () { vim ${1:-.}; }
+v () { vim ${1:-.}; }
 alias e="$EDITOR"
 
 # Brew
 updatify() {
-  sudo softwareupdate -i -a;
+  read -p "Do you want to search for Applestore updates? " -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    sudo softwareupdate -i -a;
+  fi
 
-  brew update;
-  brew upgrade;
-  brew prune;
-  brew cleanup;
-  brew doctor;
+  read -p "Do you want to update brew and it's packages? " -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    brew update;
+    brew upgrade;
+    brew prune;
+    brew cleanup;
+    brew doctor;
+  fi
 
-  npm update npm -g;
-  npm update -g;
+  read -p "Do you want to update NPM? " -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    npm update npm -g;
+    npm update -g;
+  fi
 
-  gem update;
+  read -p "Do you want to update all the gems? " -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    gem update;
+  fi
 }
 
 # NPM
@@ -95,7 +115,7 @@ alias rdb='rails dbconsole'
 alias rg='rails generate'
 alias rgm='rails generate migration'
 alias rs='rails server'
-      rn () { rails new ${1} ${@:2} && cd ${1} && git init && git add . && git commit -m "Initial commit."; }
+rn () { rails new ${1} ${@:2} && cd ${1} && git init && git add . && git commit -m "Initial commit."; }
 
 # Git
 alias g='git'
