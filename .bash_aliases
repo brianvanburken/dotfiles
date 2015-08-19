@@ -70,6 +70,16 @@ updatify() {
   then
     gem update;
   fi
+
+  read -p "Do you want to update Vim? " -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    cd ~/Developer/vim;
+    git pull;
+    sudo make;
+    sudo make install;
+  fi
 }
 
 # NPM
@@ -172,20 +182,5 @@ alias gunstage='git reset HEAD'
 alias gup='git pull --rebase'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
-# Build vim
-alias update_vim='dev; cd vim/; git pull; sudo make; sudo make install'
-
-# Check battery
 battery () { pmset -g ps | sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p'; }
-# battery() { ioreg -n AppleSmartBattery -r | awk '$1~/Capacity/{c[$1]=$3} END{OFMT="%.2f%%"; max=c["\"MaxCapacity\""]; print (max>0? 100*c["\"CurrentCapacity\""]/max: "?")}'; }
 isBatteryCharging() { ioreg -n AppleSmartBattery -r | awk '$1~/ExternalConnected/{gsub("Yes", "+");gsub("No", "%"); print substr($0, length, 1)}'; }
-
-# Compare orginal and gzipped file size
-# https://github.com/quoo/dotfiles
-# gz() {
-#   local origsize=$(wc -c < "$1")
-#   local gzipsize=$(gzip -c "$1" | wc -c)
-#   local ratio=$(echo "$gzipsize * 100/ $origsize" | bc -l)
-#   printf "orig: %d bytes\n" "$origsize"
-#   printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio"
-# }
