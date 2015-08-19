@@ -56,7 +56,7 @@ updatify() {
     brew doctor;
   fi
 
-  read -p "Do you want to update NPM? " -n 1 -r
+  read -p "Do you want to update NPM and its packages? " -n 1 -r
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
