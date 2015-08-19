@@ -75,7 +75,23 @@ updatify() {
   echo    # (optional) move to a new line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    cd ~/Developer/vim;
+    if [ ! -d "~/Developer/vim" ]; then
+      echo "Vim directory not found. Creating one..."
+      mkdir -p ~/Developer;
+      cd ~/Developer;
+      git clone git@github.com:vim/vim.git;
+      cd vim;
+      ./configure --with-features=huge \
+        --prefix=/usr/local/ \
+        --enable-multibyte \
+        --enable-rubyinterp \
+        --with-ruby-command=/usr/bin/ruby \
+        --enable-pythoninterp \
+        --with-python-config-dir=/usr/lib/python2.7/config \
+        --enable-gui=no
+    else
+      cd ~/Developer/vim
+    fi
     git pull;
     sudo make;
     sudo make install;
