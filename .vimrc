@@ -215,7 +215,7 @@ set statusline+=%r      "read only flag
 set statusline+=%=      "left/right separator
 set statusline+=%h      "help file flag
 set statusline+=\       "seperator
-set statusline+=[%{strlen(&fenc)?&fenc: 'none'}] "file encoding
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}] "file encoding
 set statusline+=\       "seperator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
