@@ -23,7 +23,6 @@ Plug 'scrooloose/syntastic', { 'for': ['javascript', 'css', 'scss', 'sass', 'rub
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-over'
-Plug 'mattn/emmet-vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
