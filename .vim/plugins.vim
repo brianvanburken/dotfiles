@@ -13,6 +13,7 @@ Plug 'keith/rspec.vim',              { 'for': 'ruby' }
 Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'tpope/vim-cucumber'
+Plug 'elixir-lang/vim-elixir'
 
 " Code Display
 Plug 'morhetz/gruvbox'
