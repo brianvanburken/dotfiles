@@ -43,6 +43,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 
 nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>p :CtrlP<CR>
 
 if !has('python')
   echo 'In order to use pymatcher plugin, you need +python compiled vim'
