@@ -16,6 +16,7 @@ Plug 'slim-template/vim-slim',       { 'for': 'slim' }
 
 Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'moll/vim-node',                { 'for': 'javascript' }
 
 Plug 'elixir-lang/vim-elixir',       { 'for': ['erlang', 'elixir'] }
 
