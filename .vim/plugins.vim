@@ -12,8 +12,8 @@ Plug 'slim-template/vim-slim',       { 'for': 'slim' }
 Plug 'keith/rspec.vim',              { 'for': 'ruby' }
 Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'tpope/vim-cucumber'
-Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-cucumber',           { 'for': ['ruby', 'cucumber'] }
+Plug 'elixir-lang/vim-elixir',       { 'for': ['erlang', 'elixir'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
