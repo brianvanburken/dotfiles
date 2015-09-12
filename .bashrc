@@ -11,7 +11,7 @@ bind '"\e[B":history-search-forward'
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 tmxdev() {
-  tmux new-session -d 'vim';
+  tmux new-session -d 'vim .';
   tmux split-window -h;
   tmux split-window -v;
   tmux split-window -v;
