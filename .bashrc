@@ -20,28 +20,26 @@ tmxdev() {
 
 git_branch() {
   # Based on: http://stackoverflow.com/a/13003854/170413
-  local branch
-  local status=$(git status --porcelain 2> /dev/null)
-
-  if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-    if [[ "$branch" == "HEAD" ]]; then
-      branch='detached*'
-    fi
-    printf "$LIGHT_GRAY"
-    printf ":"
-    if [[ "$status" != "" ]]; then
-      printf "$LIGHT_RED"
-    else
-      printf "$LIGHT_GREEN"
-    fi
-    echo -ne "$branch"
-    echo -ne "$LIGHT_GRAY$NC "
+  if [ -d .git ]; then
+    local branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)";
+    if [ "$branch" != "" ]; then
+      local status="$(git status --porcelain 2> /dev/null)";
+      echo -ne "$LIGHT_GRAY";
+      echo -ne ":";
+      if [ "$status" != "" ]; then
+        echo -ne "$LIGHT_RED";
+      else
+        echo -ne "$LIGHT_GREEN";
+      fi
+      echo -ne "$branch";
+      echo -ne "$LIGHT_GRAY$NC ";
+    fi;
   else
-    printf " "
-  fi
+    echo -ne " ";
+  fi;
 }
 
-PS1="\[$LIGHT_BLUE\]\W"
+PS1="\[$LIGHT_BLUE\]\W\[$NC\]"
 PS1="$PS1\$(git_branch)"
 PS1="$PS1\[$YELLOW\]\$(battery) "
 PS1="$PS1\[$LIGHT_GRAY\]→\[$NC\] "
