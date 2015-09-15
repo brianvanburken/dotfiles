@@ -200,3 +200,11 @@ alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 battery () { pmset -g ps | sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p'; }
 isBatteryCharging() { ioreg -n AppleSmartBattery -r | awk '$1~/ExternalConnected/{gsub("Yes", "+");gsub("No", "%"); print substr($0, length, 1)}'; }
+
+tmxdev() {
+  tmux new-session -d 'vim .';
+  tmux split-window -h;
+  tmux split-window -v;
+  tmux split-window -v;
+  tmux -2 attach-session -d;
+}
