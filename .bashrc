@@ -28,18 +28,18 @@ git_branch() {
       branch='detached*'
     fi
     printf "$LIGHT_GRAY"
-    printf "("
+    printf ":"
     if [[ "$status" != "" ]]; then
       printf "$LIGHT_RED"
     else
       printf "$LIGHT_GREEN"
     fi
     echo -ne "$branch"
-    echo -ne "$LIGHT_GRAY)${NC}"
+    echo -ne "$LIGHT_GRAY$NC"
   fi
 }
 
-PS1="\[$LIGHT_GREEN\]\u\[$NC\]:\[$LIGHT_BLUE\]\W"
+PS1="\[$LIGHT_BLUE\]\W"
 PS1="$PS1\$(git_branch)"
 PS1="$PS1\[$YELLOW\] \$(battery)"
-PS1="$PS1\[$LIGHT_GRAY\]\n→\[$NC\] "
+PS1="$PS1\[$LIGHT_GRAY\]→\[$NC\] "
