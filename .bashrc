@@ -32,4 +32,4 @@ git_branch() {
 PS1="\[$LIGHT_BLUE\]\W\[$NC\]"
 PS1="$PS1\$(git_branch)"
 PS1="$PS1\[$YELLOW\]\$(battery) "
-PS1="$PS1\[$LIGHT_GRAY\]→\[$NC\] "
+PS1="$PS1\[$LIGHT_GRAY\]\n→\[$NC\] "
