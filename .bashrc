@@ -12,20 +12,18 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 git_branch() {
   # Based on: http://stackoverflow.com/a/13003854/170413
-  if [ -d .git ]; then
-    local branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)";
-    if [ "$branch" != "" ]; then
-      local status="$(git status --porcelain 2> /dev/null)";
-      echo -ne "$LIGHT_GRAY";
-      echo -ne ":";
-      if [ "$status" != "" ]; then
-        echo -ne "$LIGHT_RED";
-      else
-        echo -ne "$LIGHT_GREEN";
-      fi
-      echo -ne "$branch";
-      echo -ne "$LIGHT_GRAY$NC ";
-    fi;
+  local branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)";
+  if [ "$branch" != "" ]; then
+    local status="$(git status --porcelain 2> /dev/null)";
+    echo -ne "$LIGHT_GRAY";
+    echo -ne ":";
+    if [ "$status" != "" ]; then
+      echo -ne "$LIGHT_RED";
+    else
+      echo -ne "$LIGHT_GREEN";
+    fi
+    echo -ne "$branch";
+    echo -ne "$LIGHT_GRAY$NC ";
   else
     echo -ne " ";
   fi;
