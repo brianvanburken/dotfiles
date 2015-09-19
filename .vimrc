@@ -34,13 +34,18 @@ set colorcolumn=80
 if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
 endif
-
+let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
+let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
 let g:ctrlp_use_caching = 0
+let g:ctrlp_showhidden = 0             " do not show hidden files in match list
+let g:ctrlp_split_window = 0
+let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
+let g:ctrlp_use_caching = 0            " don't cache, we want new list immediately each time
+let g:ctrlp_max_files = 0              " no restriction on results/file list
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/](\.(git|hg|svn|bundle)|coverage|dist|tmp|log|bower_components|vendor|node_modules)$',
-      \ 'file': '\v\.(swp|zip|DS_Store|jira-url|png|jpg|jpeg|svg|gif|eot|ttf|woff)$'
+      \ 'file': '\v\.(swp|DS_Store|png|jpg|jpeg|ico|svg|gif|eot|ttf|woff)$'
       \ }
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
