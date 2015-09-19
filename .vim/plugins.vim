@@ -42,6 +42,7 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-expand-region'
 Plug 'unblevable/quick-scope'
+Plug 'bling/vim-airline'
 
 " Commands
 Plug 'tpope/vim-commentary'

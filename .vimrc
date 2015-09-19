@@ -51,18 +51,30 @@ else
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
-let g:ctrlp_buffer_func = {
-      \ 'enter': 'DisableStatusLine',
-      \ 'exit':  'EnableStatusLine',
+let g:airline_theme='luna'
+let g:airline_powerline_fonts=1
+let g:airline_enable_branch=1
+let g:airline_enable_syntastic=1
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_linecolumn_prefix = '␊ '
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_branch_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+let g:airline_paste_symbol = 'Þ'
+let g:airline_paste_symbol = '∥'
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_mode_map = {
+      \ 'n' : 'N',
+      \ 'i' : 'I',
+      \ 'R' : 'REPLACE',
+      \ 'v' : 'V',
+      \ 'V' : 'V-LINE',
+      \ 'c' : 'CMD   ',
+      \ '': 'V-BLCK',
       \ }
-
-func! DisableStatusLine()
-  set laststatus=0
-endfunc
-
-func! EnableStatusLine()
-  set laststatus=2
-endfunc
 
 " No need for pressing shift
 nnoremap ; :
@@ -135,75 +147,6 @@ set softtabstop=2                   " Number of spaces in tab when editing
 set shiftwidth=2                    " An autoindent (with <<) is two space
 set listchars=tab:»·,trail:·,eol:¬  " Display extra whitespace
 set list                            " Always display whitespace
-
-" Define all the different modes
-let g:currentmodetext = {
-      \ 'n'  : 'NORMAL',
-      \ 'no' : 'NORMAL OPERATOR PENDING',
-      \ 'v'  : 'VISUAL',
-      \ 'V'  : 'VISUAL LINE',
-      \ '' : 'VISUAL BLOCK',
-      \ 's'  : 'SELECT',
-      \ 'S'  : 'SELECT Line',
-      \ '' : 'SELECT Block',
-      \ 'i'  : 'INSERT',
-      \ 'R'  : 'REPLACE',
-      \ 'Rv' : 'VISUAL REPLACE',
-      \ 'c'  : 'COMMAND',
-      \ 'cv' : 'VIM EX',
-      \ 'ce' : 'EX',
-      \ 'r'  : 'PROMPT',
-      \ 'rm' : 'MORE',
-      \ 'r?' : 'CONFIRM',
-      \ '!'  : 'SHELL'
-      \}
-
-" Possible choices:
-" http://vimdoc.sourceforge.net/htmldoc/syntax.html#cterm-colors
-" NR-16   NR-8    COLOR NAME
-" 0       0       Black
-" 1       4       DarkBlue
-" 2       2       DarkGreen
-" 3       6       DarkCyan
-" 4       1       DarkRed
-" 5       5       DarkMagenta
-" 6       3       Brown, DarkYellow
-" 7       7       LightGray, LightGrey, Gray, Grey
-" 8       0*      DarkGray, DarkGrey
-" 9       4*      Blue, LightBlue
-" 10      2*      Green, LightGreen
-" 11      6*      Cyan, LightCyan
-" 12      1*      Red, LightRed
-" 13      5*      Magenta, LightMagenta
-" 14      3*      Yellow, LightYellow
-" 15      7*      White
-let g:currentmodecolour = {
-      \ 'n'  : 'darkgray',
-      \ 'no' : 'darkgray',
-      \ 'v'  : 'yellow',
-      \ 'V'  : 'yellow',
-      \ '' : 'yellow',
-      \ 's'  : 'yellow',
-      \ 'S'  : 'yellow',
-      \ '' : 'yellow',
-      \ 'i'  : 'green',
-      \ 'R'  : 'red',
-      \ 'Rv' : 'red',
-      \ 'c'  : 'magenta',
-      \ 'cv' : 'magenta',
-      \ 'ce' : 'magenta',
-      \ 'r'  : 'magenta',
-      \ 'rm' : 'magenta',
-      \ 'r?' : 'magenta',
-      \ '!'  : 'magenta'
-      \}
-
-" Mode Indication
-" Returns mode and sets color based on mode
-function! SetStatusLineColor()
-  execute 'hi statusline ctermfg='.g:currentmodecolour[mode()]
-  return g:currentmodetext[mode()]
-endfunction
 
 set laststatus=2 "always enable status line
 
