@@ -137,20 +137,6 @@ set list                            " Always display whitespace
 
 set laststatus=2 "always enable status line
 
-set statusline=[%{SetStatusLineColor()}]
-set statusline+=\       "seperator
-set statusline+=%t      "tail of the filename
-set statusline+=\       "seperator
-set statusline+=%m      "modified flag
-set statusline+=%r      "read only flag
-set statusline+=%=      "left/right separator
-set statusline+=%h      "help file flag
-set statusline+=\       "seperator
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}] "file encoding
-set statusline+=\       "seperator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-
 set number          " Show line numers
 set numberwidth=2   " Line numbers max to two digits
 set showcmd         " show command in bottom bar
