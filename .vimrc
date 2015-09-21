@@ -124,6 +124,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+
+" Highlight trailing whitespace
+match ErrorMsg '\s\s+%'
 " Automatic removal of trailing whitespaces
 autocmd FileType * autocmd BufWritePre <buffer> StripWhitespace
 
