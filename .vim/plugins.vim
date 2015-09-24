@@ -37,6 +37,7 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
 Plug 'rizzatti/dash.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Interface
 Plug 'AndrewRadev/splitjoin.vim'
