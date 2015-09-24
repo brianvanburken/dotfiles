@@ -68,6 +68,9 @@ let g:airline#extensions#tabline#enabled = 0
 " Dash.app
 nnoremap <Leader>d :Dash<CR>
 
+" JavaScript libraries
+let g:used_javascript_libs = 'react,flux'
+
 " No need for pressing shift
 nnoremap ; :
 
