@@ -56,12 +56,17 @@ else
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
+" Airline
+
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {}
 let g:airline#extensions#branch = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 0
+
+" Dash.app
+nnoremap <Leader>d :Dash<CR>
 
 " No need for pressing shift
 nnoremap ; :
