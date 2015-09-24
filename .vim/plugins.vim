@@ -1,24 +1,25 @@
 call plug#begin()
 
 " Languages
-Plug 'othree/html5.vim',             { 'for': 'html' }
+Plug 'othree/html5.vim',                       { 'for': 'html' }
 
-Plug 'cakebaker/scss-syntax.vim',    { 'for': 'scss' }
-Plug 'hail2u/vim-css3-syntax',       { 'for': ['css', 'scss'] }
-Plug 'JulesWang/css.vim',            { 'for': ['css', 'scss'] }
-Plug 'ap/vim-css-color',             { 'for': ['css', 'scss', 'sass'] }
+Plug 'cakebaker/scss-syntax.vim',              { 'for': 'scss' }
+Plug 'hail2u/vim-css3-syntax',                 { 'for': ['css', 'scss'] }
+Plug 'JulesWang/css.vim',                      { 'for': ['css', 'scss'] }
+Plug 'ap/vim-css-color',                       { 'for': ['css', 'scss'] }
 
-Plug 'vim-ruby/vim-ruby',            { 'for': 'ruby' }
-Plug 'tpope/vim-rails',              { 'for': 'ruby' }
-Plug 'keith/rspec.vim',              { 'for': 'ruby' }
-Plug 'tpope/vim-cucumber',           { 'for': ['ruby', 'cucumber'] }
-Plug 'slim-template/vim-slim',       { 'for': 'slim' }
+Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
+Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
+Plug 'keith/rspec.vim',                        { 'for': 'ruby' }
+Plug 'tpope/vim-cucumber',                     { 'for': ['ruby', 'cucumber'] }
+Plug 'slim-template/vim-slim',                 { 'for': 'slim' }
 
-Plug 'pangloss/vim-javascript',      { 'for': 'javascript' }
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-Plug 'moll/vim-node',                { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax',           { 'for': 'javascript' }
+Plug 'moll/vim-node',                          { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
-Plug 'elixir-lang/vim-elixir',       { 'for': ['erlang', 'elixir'] }
+Plug 'elixir-lang/vim-elixir',                 { 'for': ['erlang', 'elixir'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
