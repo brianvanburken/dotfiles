@@ -41,15 +41,15 @@ v () { vim ${1:-.}; }
 
 # Update software
 updatify() {
-  read -p "Do you want to search for Applestore updates? " -n 1 -r
-  echo    # (optional) move to a new line
+  read -q "REPLY?Do you want to search for Applestore updates? "
+  echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     sudo softwareupdate -i -a;
   fi
 
-  read -p "Do you want to update brew and its packages? " -n 1 -r
-  echo    # (optional) move to a new line
+  read -q "REPLY?\nDo you want to update brew and its packages? "
+  echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     brew update;
@@ -61,23 +61,23 @@ updatify() {
     brew doctor;
   fi
 
-  read -p "Do you want to update NPM and its packages? " -n 1 -r
-  echo    # (optional) move to a new line
+  read -q "REPLY?\nDo you want to update NPM and its packages? "
+  echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     npm update npm -g;
     npm update -g;
   fi
 
-  read -p "Do you want to update all the gems? " -n 1 -r
-  echo    # (optional) move to a new line
+  read -q "REPLY?\nDo you want to update all the gems? "
+  echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     gem update;
   fi
 
-  read -p "Do you want to update Vim? " -n 1 -r
-  echo    # (optional) move to a new line
+  read -p "Do you want to update Vim? "
+  echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     if [ ! -d "~/Developer/vim" ]; then
