@@ -48,7 +48,7 @@ updatify() {
     sudo softwareupdate -i -a;
   fi
 
-  read -q "REPLY?\nDo you want to update brew and its packages? "
+  read -q "REPLY?Do you want to update brew and its packages? "
   echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
@@ -61,7 +61,7 @@ updatify() {
     brew doctor;
   fi
 
-  read -q "REPLY?\nDo you want to update NPM and its packages? "
+  read -q "REPLY?Do you want to update NPM and its packages? "
   echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
@@ -69,17 +69,18 @@ updatify() {
     npm update -g;
   fi
 
-  read -q "REPLY?\nDo you want to update all the gems? "
+  read -q "REPLY?Do you want to update all the gems? "
   echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     gem update;
   fi
 
-  read -p "Do you want to update Vim? "
+  read -q "REPLY?Do you want to update Vim? "
   echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
+    working_dir=$(pwd);
     if [ ! -d "~/Developer/vim" ]; then
       echo "Vim directory not found. Creating one..."
       mkdir -p ~/Developer;
@@ -100,6 +101,7 @@ updatify() {
     git pull;
     sudo make;
     sudo make install;
+    cd working_dir;
   fi
 }
 
