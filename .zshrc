@@ -41,7 +41,14 @@ v () { vim ${1:-.}; }
 
 # Update software
 updatify() {
-  read -q "REPLY?Do you want to search for Applestore updates? "
+  read -q "REPLY?Do you want to upgrade oh-my-zsh? "
+  echo # Move to next line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    upgrade_oh_my_zsh
+  fi
+
+  read -q "REPLY?Do you want to install Applestore updates? "
   echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
