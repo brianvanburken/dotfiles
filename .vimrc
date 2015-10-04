@@ -43,7 +43,7 @@ let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 4
 let g:ctrlp_use_caching = 0            " don't cache, we want new list immediately each time
 let g:ctrlp_max_files = 0              " no restriction on results/file list
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.(git|hg|svn|bundle)|coverage|dist|tmp|log|bower_components|vendor|node_modules)$',
+      \ 'dir':  '\v[\/](\.(git|hg|svn|bundle)|coverage|dist|tmp|log|bower_components|vendor|node_modules|_build|deps)$',
       \ 'file': '\v\.(swp|DS_Store|png|jpg|jpeg|ico|svg|gif|eot|ttf|woff)$'
       \ }
 
@@ -111,7 +111,7 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 0
 let g:netrw_altv = 0
 let g:netrw_banner = 1
-let g:netrw_list_hide = '.git/,.DS_Store,tmp/,node_modules/,bower_components/,bin/,dist/,log/'
+let g:netrw_list_hide = '.git/,.DS_Store,tmp/,node_modules/,bower_components/,bin/,dist/,log/,_build/,deps/'
 let g:netrw_localrmdir='rm -r'
 let g:netrw_dirhistmax = 0 " Disable .netrwhist/.netrwbook
 
