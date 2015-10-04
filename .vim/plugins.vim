@@ -48,6 +48,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-expand-region'
 Plug 'unblevable/quick-scope'
 Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
 
 " Commands
 Plug 'tpope/vim-commentary'
