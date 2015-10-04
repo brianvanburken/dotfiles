@@ -20,6 +20,7 @@ Plug 'moll/vim-node',                          { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 Plug 'elixir-lang/vim-elixir',                 { 'for': ['erlang', 'elixir'] }
+Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
