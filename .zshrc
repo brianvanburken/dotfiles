@@ -83,6 +83,13 @@ updatify() {
     gem update;
   fi
 
+  read -q "REPLY?Do you want to update mix?  "
+  echo # Move to next line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    mix local.hex;
+  fi
+
   read -q "REPLY?Do you want to update Vim? "
   echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
