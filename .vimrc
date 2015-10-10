@@ -180,3 +180,7 @@ endfunction
 
 nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
+
+" Disable left and right
+noremap h <NOP>
+noremap l <NOP>
