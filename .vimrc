@@ -1,21 +1,70 @@
 autocmd!
-let mapleader = " "
 
-" This loads all the plugins specified in ~/.vim/plugins.vim
-" Use Vim-plug plugin to manage all other plugins
-if filereadable(expand("~/.vim/plugins.vim"))
-  source ~/.vim/plugins.vim
-endif
+call plug#begin()
+
+" Languages
+Plug 'othree/html5.vim',                       { 'for': 'html' }
+
+Plug 'cakebaker/scss-syntax.vim',              { 'for': 'scss' }
+Plug 'hail2u/vim-css3-syntax',                 { 'for': ['css', 'scss'] }
+Plug 'JulesWang/css.vim',                      { 'for': ['css', 'scss'] }
+Plug 'ap/vim-css-color',                       { 'for': ['css', 'scss'] }
+
+Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
+Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
+Plug 'keith/rspec.vim',                        { 'for': 'ruby' }
+Plug 'tpope/vim-cucumber',                     { 'for': ['ruby', 'cucumber'] }
+Plug 'slim-template/vim-slim',                 { 'for': 'slim' }
+
+Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax',           { 'for': 'javascript' }
+Plug 'moll/vim-node',                          { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+
+Plug 'elixir-lang/vim-elixir',                 { 'for': ['erlang', 'elixir'] }
+Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
+
+" Code Display
+Plug 'morhetz/gruvbox'
+Plug 'kien/rainbow_parentheses.vim'
+
+" Intergrations
+Plug 'scrooloose/syntastic', { 'for': ['javascript', 'css', 'scss', 'sass', 'ruby'] }
+Plug 'airblade/vim-gitgutter'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'osyo-manga/vim-over'
+
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+Plug 'rizzatti/dash.vim'
+Plug 'editorconfig/editorconfig-vim'
+
+" Interface
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'junegunn/vim-easy-align'
+Plug 'terryma/vim-expand-region'
+Plug 'unblevable/quick-scope'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
+
+" Commands
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+call plug#end()
+
+let mapleader = " "
 
 "" Backup and swap files
 " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set noswapfile
 set nowritebackup
 set nobackup
-set viminfo=
-
-" Disable netrw history
-let g:netrw_dirhistmax = 0
 
 set background=dark
 colorscheme gruvbox
@@ -23,17 +72,11 @@ colorscheme gruvbox
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 set termencoding=utf-8
 set encoding=utf-8      " Set default encoding to UTF-8
 set colorcolumn=80
 
 " CtrlP
-if exists("g:ctrlp_user_command")
-  unlet g:ctrlp_user_command
-endif
 let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
 let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
 let g:ctrlp_use_caching = 0
@@ -42,6 +85,7 @@ let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
 let g:ctrlp_use_caching = 0            " don't cache, we want new list immediately each time
 let g:ctrlp_max_files = 0              " no restriction on results/file list
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/](\.(git|hg|svn|bundle)|coverage|dist|tmp|log|bower_components|vendor|node_modules|_build|deps)$',
       \ 'file': '\v\.(swp|DS_Store|png|jpg|jpeg|ico|svg|gif|eot|ttf|woff)$'
@@ -50,14 +94,7 @@ let g:ctrlp_custom_ignore = {
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
 
-if !has('python')
-  echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
-
 " Airline
-
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {}
@@ -71,30 +108,15 @@ nnoremap <Leader>d :Dash<CR>
 " JavaScript libraries
 let g:used_javascript_libs = 'react,flux'
 
-" No need for pressing shift
-nnoremap ; :
-
 " Force the use of Vim movement
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Quicker navigation between panes
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-nnoremap <Leader>w <C-w>w<CR>
-nnoremap <Leader>wv <C-w>v<CR>
-nnoremap <Leader>ws <C-w>s<CR>
-
-" Yank till end
-nnoremap Y y$
-
-" Use w!! to save a file with privileges if forgotten to sudo it
-cmap w!! w !sudo tee % >/dev/null
+" Disable left and right
+noremap h <NOP>
+noremap l <NOP>
 
 " Exclude files from autocomplete
 set wildignore += "*/.git/*"
@@ -141,8 +163,6 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Highlight trailing whitespace
 match ErrorMsg '\s\s+%'
-" Automatic removal of trailing whitespaces
-autocmd FileType * autocmd BufWritePre <buffer> StripWhitespace
 
 set nowrap                          " Set no line wrap
 set expandtab                       " Use spaces not tabs
@@ -151,15 +171,13 @@ set softtabstop=2                   " Number of spaces in tab when editing
 set shiftwidth=2                    " An autoindent (with <<) is two space
 set listchars=tab:»·,trail:·,eol:¬  " Display extra whitespace
 set list                            " Always display whitespace
-
-set laststatus=2 "always enable status line
-
-set number          " Show line numers
-set numberwidth=2   " Line numbers max to two digits
-set showcmd         " show command in bottom bar
-set cursorline      " highlight current line
-filetype indent on  " load filetype-specific indent files
-set lazyredraw          " redraw only when we need to.
+set laststatus=2                    " Always enable status line
+set number                          " Show line numers
+set numberwidth=2                   " Line numbers max to two digits
+set showcmd                         " Show command in bottom bar
+set cursorline                      " Highlight current line
+filetype indent on                  " Load filetype-specific indent files
+set lazyredraw                      " Redraw only when we need to.
 " Vim loves to redraw the screen during things it probably doesn't need to—like
 " in the middle of macros. This tells Vim not to bother redrawing during these
 " scenarios, leading to faster macros.
@@ -181,6 +199,3 @@ endfunction
 nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
-" Disable left and right
-noremap h <NOP>
-noremap l <NOP>
