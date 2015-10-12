@@ -1,7 +1,6 @@
 source ~/.profile
 source ~/.bash_aliases
 
-
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
