@@ -115,8 +115,8 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Disable left and right
-noremap h <NOP>
-noremap l <NOP>
+" noremap h <NOP>
+" noremap l <NOP>
 
 " Exclude files from autocomplete
 set wildignore += "*/.git/*"
