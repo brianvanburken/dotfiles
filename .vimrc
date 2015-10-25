@@ -184,7 +184,7 @@ set lazyredraw                      " Redraw only when we need to.
 set showmatch        " highlight matching [{()}]
 set laststatus=2     " Always show the statusbar
 set clipboard=unnamed " Share Clipboard with OS
-set so=7 " Set 7 lines to the cursor - when moving vertically using j/
+" set so=7 " Set 7 lines to the cursor - when moving vertically using j/
 
 function! VisualFindAndReplace()
     :OverCommandLine%s/
