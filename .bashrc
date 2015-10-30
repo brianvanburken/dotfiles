@@ -1,12 +1,10 @@
 source ~/.profile
 source ~/.bash_aliases
 
+export TERM=xterm-256color
 
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
-
-# Fix rendering issues with Tmux
-[ -n "$TMUX" ] && export TERM=screen-256color
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
