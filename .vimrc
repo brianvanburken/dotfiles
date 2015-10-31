@@ -199,3 +199,7 @@ endfunction
 nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
+" Switching between buffers
+nnoremap <Leader>bn :bn<cr>
+nnoremap <Leader>bp :bp<cr>
+nnoremap <Leader>bd :bd<cr>
