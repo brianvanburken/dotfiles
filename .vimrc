@@ -49,7 +49,7 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-expand-region'
 Plug 'unblevable/quick-scope'
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 
 " Commands
@@ -61,11 +61,11 @@ call plug#end()
 let mapleader = " "
 
 "" Backup and swap files
-" http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set noswapfile
 set nowritebackup
 set nobackup
 
+set t_Co=256
 set background=dark
 colorscheme gruvbox
 
@@ -80,33 +80,22 @@ set colorcolumn=80
 let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
 let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
 let g:ctrlp_use_caching = 0
-let g:ctrlp_showhidden = 0             " do not show hidden files in match list
+let g:ctrlp_showhidden = 1             " do not show hidden files in match list
 let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
 let g:ctrlp_use_caching = 0            " don't cache, we want new list immediately each time
 let g:ctrlp_max_files = 0              " no restriction on results/file list
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.(git|hg|svn|bundle)|coverage|dist|tmp|log|bower_components|vendor|node_modules|_build|deps)$',
-      \ 'file': '\v\.(swp|DS_Store|png|jpg|jpeg|ico|svg|gif|eot|ttf|woff)$'
-      \ }
+  \ 'dir':  '\v[\/](\.(git|hg|svn|bundle)|coverage|dist|tmp|log|bower_components|vendor|node_modules|_build|deps)$',
+  \ 'file': '\v\.(swp|DS_Store|png|jpg|jpeg|ico|svg|gif|eot|ttf|woff)$'
+  \ }
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
 
-" Airline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols = {}
-let g:airline#extensions#branch = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tabline#enabled = 0
-
 " Dash.app
 nnoremap <Leader>d :Dash<CR>
-
-" JavaScript libraries
-let g:used_javascript_libs = 'react,flux'
 
 " Force the use of Vim movement
 nnoremap <Left> :echoe "Use h"<CR>
@@ -114,22 +103,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Disable left and right
-" noremap h <NOP>
-" noremap l <NOP>
-
-" Exclude files from autocomplete
-set wildignore += "*/.git/*"
-set wildignore += "*/.DS_Store"
-set wildignore += "*/bin/*"
-set wildignore += "*/node_modules/*"
-set wildignore += "*/bower_components/*"
-set wildignore += "*/coverage/*"
-set wildignore += "*/tmp/*"
-set wildignore += "*/log/*"
-set wildignore += "*/dist/*"
-
-" Ctrl+n to toggle NerdTree
+" <leader>+n to toggle NerdTree
 nnoremap <Leader>n :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
@@ -200,6 +174,6 @@ nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
 " Switching between buffers
-nnoremap <Leader>bn :bn<cr>
-nnoremap <Leader>bp :bp<cr>
-nnoremap <Leader>bd :bd<cr>
+nnoremap <Leader>bn :bn<cr> " Next buffer
+nnoremap <Leader>bp :bp<cr> " Previous buffer
+nnoremap <Leader>bd :bd<cr> " Buffer delete
