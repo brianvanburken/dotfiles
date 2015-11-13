@@ -1,14 +1,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
+export PATH="/Users/Brian/.rbenv/shims:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/share/npm/sbin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Brian/.rbenv/shims:~/bin"
 
 ZSH_THEME="robbyrussell"
 
 plugins=(git osx rails ruby npm brew)
 
-export PATH="/Users/Brian/.rbenv/shims:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/share/npm/sbin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Brian/.rbenv/shims:~/bin"
-
 source $ZSH/oh-my-zsh.sh
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Shortkeys to make live easier
 alias q='exit'
