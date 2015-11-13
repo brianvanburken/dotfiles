@@ -138,6 +138,9 @@ au Syntax * RainbowParenthesesLoadBraces
 " Highlight trailing whitespace
 match ErrorMsg '\s\s+%'
 
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
 set nowrap                          " Set no line wrap
 set expandtab                       " Use spaces not tabs
 set tabstop=2                       " A tab is two space
