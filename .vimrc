@@ -180,3 +180,6 @@ xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 nnoremap <Leader>bn :bn<cr> " Next buffer
 nnoremap <Leader>bp :bp<cr> " Previous buffer
 nnoremap <Leader>bd :bd<cr> " Buffer delete
+
+" Set gruvbox contrast
+let g:gruvbox_contrast_dark='hard'
