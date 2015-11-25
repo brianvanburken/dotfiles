@@ -76,6 +76,9 @@ set termencoding=utf-8
 set encoding=utf-8      " Set default encoding to UTF-8
 set colorcolumn=80
 
+" Syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+
 " CtrlP
 let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
 let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
