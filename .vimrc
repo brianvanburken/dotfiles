@@ -78,6 +78,11 @@ set colorcolumn=80
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
+function! ESLintArgs()
+    let rules = findfile('.eslintrules', '.;')
+    return rules != '' ? '--rulesdir ' . shellescape(fnamemodify(rules, ':p:h')) : ''
+endfunction
+autocmd FileType javascript let b:syntastic_javascript_eslint_args = ESLintArgs()
 
 " CtrlP
 let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
