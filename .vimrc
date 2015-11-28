@@ -46,11 +46,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-expand-region'
 Plug 'unblevable/quick-scope'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
 
 " Commands
 Plug 'tpope/vim-commentary'
@@ -101,6 +99,8 @@ let g:ctrlp_custom_ignore = {
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
+" the next line is to force CtrlP instead of NERDTree because of memory muscle
+nnoremap <Leader>n :CtrlP<CR>
 
 " Dash.app
 nnoremap <Leader>d :Dash<CR>
@@ -122,24 +122,6 @@ nnoremap <C-H> <C-W><C-H>
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally#more-natural-split-opening
 set splitbelow
 set splitright
-
-" <leader>+n to toggle NerdTree
-nnoremap <Leader>n :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = [
-      \ '\.git$',
-      \ '\.DS_Store',
-      \ 'bin$',
-      \ 'node_modules$',
-      \ 'bower_components$',
-      \ 'coverage$',
-      \ 'tmp$',
-      \ 'log$',
-      \ 'dist$',
-      \ '_build$',
-      \ 'deps$' ]
-
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
