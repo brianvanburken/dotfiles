@@ -38,8 +38,9 @@ alias tma='tmux attach -d -t'
 alias tmn='tmux new -s'
 
 # Vim
+alias vim='nvim'
 alias vi='vim'
-v () { vim ${1:-.}; }
+alias v='vim'
 
 # Update software
 updatify() {
