@@ -12,8 +12,6 @@ Plug 'ap/vim-css-color',                       { 'for': ['css', 'scss'] }
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
-Plug 'keith/rspec.vim',                        { 'for': 'ruby' }
-Plug 'tpope/vim-cucumber',                     { 'for': ['ruby', 'cucumber'] }
 Plug 'slim-template/vim-slim',                 { 'for': 'slim' }
 
 Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
