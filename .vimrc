@@ -58,6 +58,7 @@ set nobackup
 set t_Co=256
 set background=dark
 colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -161,6 +162,3 @@ xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 nnoremap <Leader>bn :bn<cr> " Next buffer
 nnoremap <Leader>bp :bp<cr> " Previous buffer
 nnoremap <Leader>bd :bd<cr> " Buffer delete
-
-" Set gruvbox contrast
-let g:gruvbox_contrast_dark='hard'
