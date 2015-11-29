@@ -26,17 +26,12 @@ Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
-Plug 'kien/rainbow_parentheses.vim'
 
 " Intergrations
-Plug 'scrooloose/syntastic', { 'for': ['javascript', 'css', 'scss', 'sass', 'ruby'] }
 Plug 'airblade/vim-gitgutter'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-over'
 
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
 Plug 'rizzatti/dash.vim'
@@ -73,14 +68,6 @@ set termencoding=utf-8
 set encoding=utf-8      " Set default encoding to UTF-8
 set colorcolumn=80
 
-" Syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-function! ESLintArgs()
-    let rules = findfile('.eslintrules', '.;')
-    return rules != '' ? '--rulesdir ' . shellescape(fnamemodify(rules, ':p:h')) : ''
-endfunction
-autocmd FileType javascript let b:syntastic_javascript_eslint_args = ESLintArgs()
-
 " CtrlP
 let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
 let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
@@ -89,9 +76,9 @@ let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
 let g:ctrlp_max_files = 0              " no restriction on results/file list
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
+  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
@@ -100,14 +87,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-" let g:ctrlp_showhidden = 1             " do not show hidden files in match list
-" let g:ctrlp_use_caching = 0            " don't cache, we want new list immediately each time
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\v[\/](\.(git|hg|svn|bundle)|coverage|dist|tmp|log|bower_components|vendor|node_modules|_build|deps)$',
-"   \ 'file': '\v\.(swp|DS_Store|png|jpg|jpeg|ico|svg|gif|eot|ttf|woff)$'
-  \ }
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
@@ -142,18 +121,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 " one or manually stop highlighting the old search with :nohlsearch. I find
 " myself running this all the time so I've mapped it to ,<space>.
 
-" Rainbow-parenthsis
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-
 " Highlight trailing whitespace
-match ErrorMsg '\s\s+%'
-
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+match ErrorMsg /\s\+$/
 
 set nowrap                          " Set no line wrap
 set expandtab                       " Use spaces not tabs
