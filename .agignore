@@ -1,8 +1,6 @@
 log/
 logs/
 images/
-javascripts/
-stylesheets/
 node_modules/
 bower_components/
 tmp/
@@ -14,15 +12,9 @@ vendor/
 *.csv
 *.tsv
 *.tmp*
-*.js
-*.css
-*.scss
 *.old
 *.json
-*.xml
-*.html
 *.plist
 *.pdf
-*.md
 *.log
 .DS_Store
