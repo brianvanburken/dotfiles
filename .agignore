@@ -13,7 +13,6 @@ vendor/
 *.tsv
 *.tmp*
 *.old
-*.json
 *.plist
 *.pdf
 *.log
