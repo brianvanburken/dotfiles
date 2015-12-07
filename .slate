@@ -1,5 +1,5 @@
 # Config
-config windowHintsShowIcons true
+config windowHintsShowIcons false
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 config windowHintsIconAlpha 0.5
