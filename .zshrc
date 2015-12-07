@@ -38,7 +38,6 @@ alias tma='tmux attach -d -t'
 alias tmn='tmux new -s'
 
 # Vim
-alias vim='nvim'
 alias vi='vim'
 alias v='vim'
 
