@@ -108,6 +108,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Create window splits easier.
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
 " More natural split opening
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally#more-natural-split-opening
 set splitbelow
