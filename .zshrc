@@ -124,3 +124,4 @@ updatify() {
     cd working_dir;
   fi
 }
+alias ctags="/usr/local/bin/ctags"
