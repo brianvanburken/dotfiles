@@ -41,6 +41,10 @@ alias tmn='tmux new -s'
 alias vi='vim'
 alias v='vim'
 
+# Lock the screen (when going AFK)
+# source: https://github.com/Fabriquartz/laptop-install/blob/master/dotfiles/aliases
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
 # Update software
 updatify() {
   read -q "REPLY?Do you want to upgrade oh-my-zsh? "
