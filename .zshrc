@@ -14,7 +14,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Shortkeys to make live easier
 alias q='exit'
 alias ll='ls -lahL'
-alias mine='sudo chown -R `whoami`'
+alias mine='sudo chown -R $USER '
 
 alias home='cd ~/'
 alias root='cd ~/'
