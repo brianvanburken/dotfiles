@@ -5,6 +5,7 @@ node_modules/
 bower_components/
 tmp/
 vendor/
+_build/
 .git
 *.sql
 *.tags*
