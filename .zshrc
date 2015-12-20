@@ -88,13 +88,6 @@ updatify() {
   then
     gem update;
   fi
-
-  read -q "REPLY?Do you want to update mix?  "
-  echo # Move to next line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    mix local.hex;
-  fi
 }
 
 alias ctags="/usr/local/bin/ctags"
