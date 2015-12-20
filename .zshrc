@@ -95,33 +95,6 @@ updatify() {
   then
     mix local.hex;
   fi
-
-  read -q "REPLY?Do you want to update Vim? "
-  echo # Move to next line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    working_dir=$(pwd);
-    if [ ! -d "~/Developer/vim" ]; then
-      echo "Vim directory not found. Creating one..."
-      mkdir -p ~/Developer;
-      cd ~/Developer;
-      git clone git@github.com:vim/vim.git;
-      cd vim;
-      ./configure --with-features=huge \
-        --prefix=/usr/local/ \
-        --enable-multibyte \
-        --enable-rubyinterp \
-        --with-ruby-command=/usr/bin/ruby \
-        --enable-pythoninterp \
-        --with-python-config-dir=/usr/lib/python2.7/config \
-        --enable-gui=no
-    else
-      cd ~/Developer/vim
-    fi
-    git pull;
-    sudo make;
-    sudo make install;
-    cd working_dir;
-  fi
 }
+
 alias ctags="/usr/local/bin/ctags"
