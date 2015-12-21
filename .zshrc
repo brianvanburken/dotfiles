@@ -37,6 +37,9 @@ alias gs='git status'
 alias tma='tmux attach -d -t'
 alias tmn='tmux new -s'
 
+# NPM
+alias npmci='rm -rf node_modules/ && echo "Removed node_modules" && npm cache clear && echo "Cleared NPM cache" && npm install'
+
 # Vim
 alias vi='vim'
 alias v='vim'
