@@ -207,3 +207,6 @@ tmp/*
 .rspec
 .agignore
 annotations.xml
+
+### CTags ###
+tags
