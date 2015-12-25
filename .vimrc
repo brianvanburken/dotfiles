@@ -35,6 +35,8 @@ Plug 'honza/vim-snippets'
 Plug 'rizzatti/dash.vim'
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'scrooloose/syntastic'
+
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-expand-region'
