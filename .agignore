@@ -18,3 +18,4 @@ _build/
 *.pdf
 *.log
 .DS_Store
+.gitkeep
