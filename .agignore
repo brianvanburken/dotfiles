@@ -19,3 +19,5 @@ _build/
 *.log
 .DS_Store
 .gitkeep
+*.beam
+source_code/
