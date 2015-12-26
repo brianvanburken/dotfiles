@@ -210,3 +210,7 @@ annotations.xml
 
 ### CTags ###
 tags
+
+### Elixir ###
+*.beam
+source_code/
