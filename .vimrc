@@ -23,7 +23,7 @@ Plug 'elixir-lang/vim-elixir',                 { 'for': ['erlang', 'elixir'] }
 Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
 
 " Code Display
-Plug 'morhetz/gruvbox'
+Plug 'w0ng/vim-hybrid'
 
 " Intergrations
 Plug 'airblade/vim-gitgutter'
@@ -57,8 +57,7 @@ set nobackup
 
 set t_Co=256
 set background=dark
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
+colorscheme hybrid
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
