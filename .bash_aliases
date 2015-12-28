@@ -20,7 +20,7 @@ o () { open ${1:-.}; }
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
 alias grep='ag'
-alias mine='sudo chown -R `whoami` '
+alias mine='sudo chown -R $(whoami):admin '
 
 # NPM
 alias npmci='rm -rf node_modules/ && echo "Removed node_modules" && npm cache clear && echo "Cleared NPM cache" && npm install'
