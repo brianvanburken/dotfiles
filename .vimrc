@@ -23,7 +23,7 @@ Plug 'elixir-lang/vim-elixir',                 { 'for': ['erlang', 'elixir'] }
 Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
 
 " Code Display
-Plug 'w0ng/vim-hybrid'
+Plug 'brianvanburken/vim-hybrid'
 
 " Intergrations
 Plug 'airblade/vim-gitgutter'
