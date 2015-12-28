@@ -1,52 +1,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export TERM=xterm-256color
-export PATH="/Users/Brian/.rbenv/shims:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/share/npm/sbin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Brian/.rbenv/shims:~/bin"
+export ZSH_THEME="robbyrussell"
 
-ZSH_THEME="robbyrussell"
-
-plugins=(git osx rails ruby npm brew)
+plugins=(git git-flow osx rails ruby npm brew)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.profile
+source $HOME/.bash_aliases
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# Shortkeys to make live easier
-alias q='exit'
-alias ll='ls -lahL'
-alias mine='sudo chown -R $USER '
-
-alias home='cd ~/'
-alias root='cd ~/'
-alias desk='cd ~/Desktop'
-alias dev='cd ~/Developer/'
-alias dot='cd ~/.dotfiles/'
-
-o () { open ${1:-.}; }
-
-alias kill_ds="find . -name .DS_Store -type f -delete"
-alias mkdir='mkdir -p'
-alias grep='ag'
-
-# Git
-alias gap='git add --patch'
-alias gunstage='git reset HEAD'
-alias gs='git status'
-
-# Tmux
-alias tma='tmux attach -d -t'
-alias tmn='tmux new -s'
-
-# NPM
-alias npmci='rm -rf node_modules/ && echo "Removed node_modules" && npm cache clear && echo "Cleared NPM cache" && npm install'
-
-# Vim
-alias vi='vim'
-alias v='vim'
-
-# Lock the screen (when going AFK)
-# source: https://github.com/Fabriquartz/laptop-install/blob/master/dotfiles/aliases
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Update software
 updatify() {
@@ -73,8 +35,8 @@ updatify() {
     brew prune;
     brew cleanup --force;
     brew cask cleanup;
-    rm -f -r /Library/Caches/Homebrew/*;
     brew doctor;
+    rm -f -r /Library/Caches/Homebrew/*;
   fi
 
   read -q "REPLY?Do you want to update NPM and its packages? "
@@ -92,5 +54,3 @@ updatify() {
     gem update;
   fi
 }
-
-alias ctags="/usr/local/bin/ctags"

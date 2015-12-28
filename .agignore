@@ -21,3 +21,4 @@ _build/
 .gitkeep
 *.beam
 source_code/
+.vim/
