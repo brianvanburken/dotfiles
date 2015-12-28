@@ -73,6 +73,9 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
 let g:ctrlp_max_files = 0              " no restriction on results/file list
+let g:ctrlp_jump_to_buffer = 2         " Jump to tab AND buffer if already open
+let g:ctrlp_open_new_file = 'v'        " open selections in a vertical split
+let g:ctrlp_open_multiple_files = 'vr' " opens multiple selections in vertical splits to the right
 
 if executable('ag')
   " Use Ag over Grep
