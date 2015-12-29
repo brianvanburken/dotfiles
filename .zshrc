@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="robbyrussell"
 
-plugins=(git git-flow osx rails ruby npm brew)
+plugins=(git git-flow osx rails ruby npm brew elixir)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
