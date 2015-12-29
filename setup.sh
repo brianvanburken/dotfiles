@@ -88,7 +88,7 @@ brew cask cleanup >> out.log 2>&1
 fancy_echo "Symlinking dotfiles."
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .csscomb.json
         .gemrc .gitconfig .gitignore_global .hushlogin .powconfig .profile
-        .slate .tmux.conf .vim .vimrc .zshrc)
+        .slate .tmux.conf .vimrc .zshrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
@@ -128,6 +128,7 @@ git config --global user.name "$full_name"
 git config --global user.email "$email_address"
 
 fancy_echo "Installing vim plugins"
+mkdir -p ~/.vim/autoload/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
 
