@@ -130,14 +130,6 @@ git config --global user.email "$email_address"
 fancy_echo "Installing vim plugins"
 vim +PlugInstall +qall
 
-fancy_echo "Changing system Bash to ZSH with oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo rm -rf ~/.zshrc && ln -s ${dir}.zshrc ~/.zshrc
-
-fancy_echo "Reloading shell"
-chsh -s /bin/zsh
-
-
 fancy_echo 'Setup OS X configuration'
 # Original script by Mathias Bynens (http://mths.be/osx)
 
@@ -289,10 +281,18 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
 for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
   "Mail" "Safari"  "SystemUIServer" "Terminal" "iCal"
-  #"Twitter" "SizeUp"
 do
   killall "$app" > /dev/null 2>&1
 done
 
 fancy_echo "Done configuring OSX"
+
+fancy_echo "Changing system Bash to ZSH with oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo rm -rf ~/.zshrc && ln -s ${dir}.zshrc ~/.zshrc
+
+fancy_echo "Reloading shell"
+chsh -s /bin/zsh
+
+fancy_echo "Done running script"
 fancy_echo "Note that some of these changes require a logout/restart to take effect."
