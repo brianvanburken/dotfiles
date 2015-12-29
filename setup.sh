@@ -80,6 +80,9 @@ brew_install 'openssl'
 brew unlink openssl       >> out.log 2>&1
 brew link openssl --force >> out.log 2>&1
 
+fancy_echo "Adding brew services"
+brew services
+
 fancy_echo "Updating misc Brew packages (if any)"
 brew upgrade >> out.log 2>&1
 
