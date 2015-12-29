@@ -128,7 +128,7 @@ git config --global user.name "$full_name"
 git config --global user.email "$email_address"
 
 fancy_echo "Installing vim plugins"
-mkdir -p ~/.vim/autoload/
+mkdir -p ~/.vim/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
 
