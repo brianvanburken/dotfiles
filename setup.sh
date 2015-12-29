@@ -282,7 +282,7 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 ###############################################################################
 
 for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
-  "Mail" "Safari"  "SystemUIServer" "Terminal" "iCal"
+  "Mail" "Safari"  "SystemUIServer" "iCal"
 do
   killall "$app" > /dev/null 2>&1
 done
