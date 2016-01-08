@@ -167,3 +167,5 @@ xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 nnoremap <Leader>bn :bn<cr> " Next buffer
 nnoremap <Leader>bp :bp<cr> " Previous buffer
 nnoremap <Leader>bd :bd<cr> " Buffer delete
+nnoremap <Leader>bl :buffers
+nnoremap <Leader>bb :b
