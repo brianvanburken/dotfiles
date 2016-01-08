@@ -64,7 +64,6 @@ brew_install 'git-flow'
 brew_install 'vim'
 brew_install 'the_silver_searcher'
 brew_install 'watchman'
-brew_install 'nvm'
 brew_install 'erlang'
 brew_install 'elixir'
 brew_install 'postgresql'
@@ -102,6 +101,8 @@ done
 fancy_echo "Done symlinking dotfiles."
 
 fancy_echo "Installing node."
+mkdir -p ~/.nvm/
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash
 . ~/.nvm/nvm.sh
 nvm install 4.2.4
 
