@@ -64,7 +64,7 @@ brew_install 'git-flow'
 brew_install 'vim'
 brew_install 'the_silver_searcher'
 brew_install 'watchman'
-brew_install 'node'
+brew_install 'nvm'
 brew_install 'erlang'
 brew_install 'elixir'
 brew_install 'postgresql'
@@ -100,6 +100,10 @@ for i in ${files[@]}; do
   sudo rm -rf ~/${i} && ln -s ${dir}${i} ~/${i}
 done
 fancy_echo "Done symlinking dotfiles."
+
+fancy_echo "Installing node."
+. ~/.nvm/nvm.sh
+nvm install 4.2.4
 
 npm_install() {
   printf "Installing %s ...\n" "$1"
