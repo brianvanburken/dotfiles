@@ -6,3 +6,4 @@ export CC=gcc
 export EDITOR='vim'
 export CLICOLOR=1
 export TERM="xterm-256color"
+export NVM_DIR=~/.nvm
