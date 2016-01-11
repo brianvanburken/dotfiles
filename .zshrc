@@ -7,6 +7,7 @@ plugins=(git git-flow osx rails ruby npm brew elixir)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source $HOME/.bash_aliases
+source $NVM_DIR/nvm.sh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -54,6 +55,3 @@ updatify() {
     gem update;
   fi
 }
-
-export NVM_DIR=~/.nvm
-. $NVM_DIR/nvm.sh
