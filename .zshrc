@@ -40,11 +40,10 @@ updatify() {
     rm -f -r /Library/Caches/Homebrew/*;
   fi
 
-  read -q "REPLY?Do you want to update NPM and its packages? "
+  read -q "REPLY?Do you want to update global NPM packages? "
   echo # Move to next line
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    npm update npm -g;
     npm update -g;
   fi
 
