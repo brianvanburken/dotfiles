@@ -39,7 +39,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-expand-region'
 
-Plug 'unblevable/quick-scope'
 Plug 'itchyny/lightline.vim'
 
 " Commands
@@ -141,7 +140,9 @@ set numberwidth=2                   " Line numbers max to two digits
 set showcmd                         " Show command in bottom bar
 set cursorline                      " Highlight current line
 filetype indent on                  " Load filetype-specific indent files
-set lazyredraw                      " Redraw only when we need to.
+set ttyfast " Sent more characters because we are on a fast terminal connection
+set scrolljump=5        " Scroll 8 lines at a time at bottom/top
+let html_no_rendering=1 " Don't render italic, bold, links in HTML
 " Vim loves to redraw the screen during things it probably doesn't need to—like
 " in the middle of macros. This tells Vim not to bother redrawing during these
 " scenarios, leading to faster macros.
