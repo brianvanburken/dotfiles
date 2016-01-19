@@ -7,17 +7,14 @@ Plug 'othree/html5.vim',                       { 'for': 'html' }
 
 Plug 'cakebaker/scss-syntax.vim',              { 'for': 'scss' }
 Plug 'hail2u/vim-css3-syntax',                 { 'for': ['css', 'scss'] }
-Plug 'JulesWang/css.vim',                      { 'for': ['css', 'scss'] }
 Plug 'ap/vim-css-color',                       { 'for': ['css', 'scss'] }
 
 Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
-Plug 'slim-template/vim-slim',                 { 'for': 'slim' }
 
 Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax',           { 'for': 'javascript' }
 Plug 'moll/vim-node',                          { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 Plug 'elixir-lang/vim-elixir',                 { 'for': ['erlang', 'elixir'] }
 Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
@@ -27,13 +24,10 @@ Plug 'brianvanburken/vim-hybrid'
 
 " Intergrations
 Plug 'airblade/vim-gitgutter'
-Plug 'osyo-manga/vim-over'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-
-Plug 'rizzatti/dash.vim'
-Plug 'editorconfig/editorconfig-vim'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
@@ -160,9 +154,6 @@ function! VisualFindAndReplaceWithSelection() range
     :'<,'>OverCommandLine s/
     :w
 endfunction
-
-nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
-xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
 " Switching between buffers
 nnoremap <Leader>bn :bn<cr> " Next buffer
