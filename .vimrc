@@ -15,6 +15,7 @@ Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
 Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax',           { 'for': 'javascript' }
 Plug 'moll/vim-node',                          { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 Plug 'elixir-lang/vim-elixir',                 { 'for': ['erlang', 'elixir'] }
 Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
