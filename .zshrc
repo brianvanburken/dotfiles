@@ -7,9 +7,7 @@ plugins=(git git-flow osx rails ruby npm brew elixir)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source $HOME/.bash_aliases
-source $NVM_DIR/nvm.sh
-
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+source $HOME/.asdf/asdf.sh
 
 # Update software
 updatify() {
