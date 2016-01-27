@@ -38,6 +38,7 @@ alias e="$EDITOR"
 alias gap='git add --patch'
 alias gunstage='git reset HEAD'
 alias gs='git status'
+gbd () { git branch -D `git branch | ag ${1}` }
 
 # Open all merge conflicts or currently changed files in Vim
 alias fix="git diff --name-only | uniq | xargs -o vim"
