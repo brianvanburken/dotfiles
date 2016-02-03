@@ -9,7 +9,6 @@ Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
 Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
 
 Plug 'moll/vim-node',                          { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 Plug 'sheerun/vim-polyglot'
 
