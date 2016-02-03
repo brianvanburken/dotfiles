@@ -3,16 +3,17 @@ autocmd!
 call plug#begin()
 
 " Languages
-Plug 'ap/vim-css-color',                       { 'for': ['css', 'scss'] }
+Plug 'ap/vim-css-color',        { 'for': ['css', 'scss'] }
 
-Plug 'vim-ruby/vim-ruby',                      { 'for': 'ruby' }
-Plug 'tpope/vim-rails',                        { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby',       { 'for': 'ruby' }
+Plug 'tpope/vim-rails',         { 'for': 'ruby' }
 
-Plug 'moll/vim-node',                          { 'for': 'javascript' }
+Plug 'moll/vim-node',           { 'for': 'javascript' }
+Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript' }
+
+Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir'] }
 
 Plug 'sheerun/vim-polyglot'
-
-Plug 'avdgaag/vim-phoenix',                    { 'for': ['erlang', 'elixir'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
