@@ -156,3 +156,7 @@ nnoremap <Leader>bp :bp<cr> " Previous buffer
 nnoremap <Leader>bd :bd<cr> " Buffer delete
 nnoremap <Leader>bl :buffers
 nnoremap <Leader>bb :b
+
+" Faster redraw
+set lazyredraw
+set ttyfast
