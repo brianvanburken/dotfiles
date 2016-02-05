@@ -3,9 +3,6 @@ config windowHintsShowIcons false
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 config windowHintsIconAlpha 0.5
-config windowHintsSpreadSearchWidth 80
-config windowHintsSpreadSearchHeight 80
-config windowHintsSpreadPadding 40
 
 # Alias
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
