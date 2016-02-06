@@ -79,11 +79,6 @@ endif
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
-" the next line is to force CtrlP instead of NERDTree because of memory muscle
-nnoremap <Leader>n :CtrlP<CR>
-
-" Dash.app
-nnoremap <Leader>d :Dash<CR>
 
 " Force the use of Vim movement
 nnoremap <Left> :echoe "Use h"<CR>
@@ -140,16 +135,6 @@ set showmatch        " highlight matching [{()}]
 set laststatus=2     " Always show the statusbar
 set clipboard=unnamed " Share Clipboard with OS
 " set so=7 " Set 7 lines to the cursor - when moving vertically using j/
-
-function! VisualFindAndReplace()
-    :OverCommandLine%s/
-    :w
-endfunction
-
-function! VisualFindAndReplaceWithSelection() range
-    :'<,'>OverCommandLine s/
-    :w
-endfunction
 
 " Switching between buffers
 nnoremap <Leader>bn :bn<cr> " Next buffer
