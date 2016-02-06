@@ -64,15 +64,11 @@ brew_install 'git-flow'
 brew_install 'vim'
 brew_install 'the_silver_searcher'
 brew_install 'watchman'
-brew_install 'erlang'
-brew_install 'elixir'
 brew_install 'postgresql'
 brew_install 'rabbitmq'
 brew_install 'mongodb'
 brew_install 'redis'
 brew_install 'ctags'
-brew_install 'rbenv'
-brew_install 'ruby-build'
 brew_install 'heroku-toolbelt'
 
 brew_install 'openssl'
@@ -92,7 +88,7 @@ brew cask cleanup >> out.log 2>&1
 fancy_echo "Symlinking dotfiles."
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .csscomb.json
         .gemrc .gitconfig .gitignore_global .hushlogin .powconfig .profile
-        .slate .tmux.conf .vimrc .zshrc)
+        .slate .tmux.conf .tool-version .vimrc .zshrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
@@ -112,15 +108,11 @@ npm_install() {
 }
 
 fancy_echo "Installing NPM packages"
-npm_install 'npm'
-npm_install 'bower'
-npm_install 'phantomjs'
 npm_install 'gulp'
 npm_install 'npm-check-updates'
 
 fancy_echo "Creating folder ~/Developer"
 mkdir -p ~/Developer
-
 
 if [ -f ~/.ssh/id_rsa ]
 then
