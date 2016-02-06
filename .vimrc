@@ -25,6 +25,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'jadercorrea/smartest.vim'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
@@ -142,6 +143,10 @@ nnoremap <Leader>bp :bp<cr> " Previous buffer
 nnoremap <Leader>bd :bd<cr> " Buffer delete
 nnoremap <Leader>bl :buffers
 nnoremap <Leader>bb :b
+
+" Maps for running tests
+map <leader>t :call RunTestFile()<cr>
+map <leader>r :call RunNearestTest()<cr>
 
 " Faster redraw
 set lazyredraw
