@@ -12,6 +12,7 @@ Plug 'moll/vim-node',           { 'for': 'javascript' }
 Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript' }
 
 Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir'] }
+Plug 'mattreduce/vim-mix',      { 'for': ['erlang', 'elixir'] }
 
 Plug 'sheerun/vim-polyglot'
 
