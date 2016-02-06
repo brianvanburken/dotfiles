@@ -96,11 +96,21 @@ for i in ${files[@]}; do
 done
 fancy_echo "Done symlinking dotfiles."
 
-fancy_echo "Installing node."
-mkdir -p ~/.nvm/
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install 4.2.4
+fancy_echo "Installing asdf plugin manager."
+git clone https://github.com/HashNuke/asdf.git ~/.asdf
+source $HOME/.asdf/asdf.sh
+
+fancy_echo "Installing Node.js with asdf plugin."
+asdf plugin-add nodejs https://github.com/HashNuke/asdf-nodejs.git
+asdf install nodejs $(cat ~/.tool-versions | grep nodejs | tr -dc '0-9\.')
+
+fancy_echo "Installing Ruby with asdf plugin."
+asdf plugin-add ruby https://github.com/HashNuke/asdf-ruby.git
+asdf install ruby $(cat ~/.tool-versions | grep ruby | tr -dc '0-9\.')
+
+fancy_echo "Installing Elixir with asdf plugin."
+asdf plugin-add elixir https://github.com/HashNuke/asdf-elixir.git
+asdf install elixir $(cat ~/.tool-versions | grep elixir | tr -dc '0-9\.')
 
 npm_install() {
   printf "Installing %s ...\n" "$1"
