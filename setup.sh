@@ -92,7 +92,7 @@ files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .csscomb.json
 dir="$PWD/"
 
 for i in ${files[@]}; do
-  sudo rm -rf ~/${i} && ln -s ${dir}${i} ~/${i}
+  ln -sFfv ${dir}${i} ~/${i}
 done
 fancy_echo "Done symlinking dotfiles."
 
