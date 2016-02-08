@@ -26,6 +26,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'jadercorrea/smartest.vim'
+Plug 'rizzatti/dash.vim'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
@@ -82,6 +83,9 @@ endif
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
+
+
+nnoremap <Leader>d :Dash<CR>
 
 " Force the use of Vim movement
 nnoremap <Left> :echoe "Use h"<CR>
