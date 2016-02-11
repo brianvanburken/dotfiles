@@ -32,7 +32,6 @@ Plug 'rizzatti/dash.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'terryma/vim-expand-region'
-Plug 'terryma/vim-multiple-cursors'
 
 Plug 'itchyny/lightline.vim'
 
