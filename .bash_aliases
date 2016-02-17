@@ -8,7 +8,7 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ln='ln -i'
-alias ll='ls -lahL'
+alias ll='ls -lahg'
 alias mkdir='mkdir -p'
 
 alias home='cd ~/'
