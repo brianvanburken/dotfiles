@@ -7,7 +7,6 @@ plugins=(git git-flow osx rails ruby npm brew elixir)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source $HOME/.bash_aliases
-source $HOME/.asdf/asdf.sh
 
 # Update software
 updatify() {
