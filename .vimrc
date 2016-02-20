@@ -4,6 +4,8 @@ call plug#begin()
 
 " Languages
 Plug 'ap/vim-css-color',        { 'for': ['css', 'scss'] }
+Plug 'hail2u/vim-css3-syntax',  { 'for': ['css', 'scss'] }
+Plug 'JulesWang/css.vim',       { 'for': ['css', 'scss'] }
 
 Plug 'vim-ruby/vim-ruby',       { 'for': 'ruby' }
 Plug 'tpope/vim-rails',         { 'for': 'ruby' }
@@ -82,7 +84,6 @@ endif
 
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>p :CtrlP<CR>
-
 
 nnoremap <Leader>d :Dash<CR>
 
