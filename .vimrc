@@ -15,6 +15,7 @@ Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript' }
 
 Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir'] }
 Plug 'mattreduce/vim-mix',      { 'for': ['erlang', 'elixir'] }
+Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir'] }
 
 Plug 'sheerun/vim-polyglot'
 
@@ -32,9 +33,8 @@ Plug 'rizzatti/dash.vim'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'terryma/vim-expand-region'
-
+Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'itchyny/lightline.vim'
 
 " Commands
