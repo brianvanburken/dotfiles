@@ -8,6 +8,11 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source $HOME/.bash_aliases
 
+if [ -f $HOME/.shell_local ]
+then
+  source $HOME/.shell_local
+fi
+
 # Update software
 updatify() {
   read -q "REPLY?Do you want to upgrade oh-my-zsh? "
