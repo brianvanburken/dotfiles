@@ -2,22 +2,13 @@ autocmd!
 
 call plug#begin()
 
-" Languages
-Plug 'ap/vim-css-color',        { 'for': ['css', 'scss'] }
-Plug 'hail2u/vim-css3-syntax',  { 'for': ['css', 'scss'] }
-Plug 'JulesWang/css.vim',       { 'for': ['css', 'scss'] }
-
-Plug 'vim-ruby/vim-ruby',       { 'for': 'ruby' }
-Plug 'tpope/vim-rails',         { 'for': 'ruby' }
-
 Plug 'moll/vim-node',           { 'for': 'javascript' }
 Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript' }
 
-Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir'] }
-Plug 'mattreduce/vim-mix',      { 'for': ['erlang', 'elixir'] }
-Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir'] }
-
-Plug 'sheerun/vim-polyglot'
+Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir', 'eelixir'] }
+Plug 'mattreduce/vim-mix',      { 'for': ['erlang', 'elixir', 'eelixir'] }
+Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir', 'eelixir'] }
+Plug 'elixir-lang/vim-elixir', { 'for' : ['erlang', 'elixir', 'eelixir'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
@@ -28,13 +19,11 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'jadercorrea/smartest.vim'
 Plug 'rizzatti/dash.vim'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-expand-region'
-Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'itchyny/lightline.vim'
 
 " Commands
@@ -149,10 +138,6 @@ nnoremap <Leader>bp :bp<cr> " Previous buffer
 nnoremap <Leader>bd :bd<cr> " Buffer delete
 nnoremap <Leader>bl :buffers
 nnoremap <Leader>bb :b
-
-" Maps for running tests
-map <leader>t :call RunTestFile()<cr>
-map <leader>r :call RunNearestTest()<cr>
 
 " Faster redraw
 set lazyredraw
