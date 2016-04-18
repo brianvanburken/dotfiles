@@ -16,7 +16,7 @@ Plug 'morhetz/gruvbox'
 " Intergrations
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
-
+Plug 'janko-m/vim-test'
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'rizzatti/dash.vim'
@@ -154,3 +154,10 @@ function s:Mkdir()
 endfunction
 
 autocmd BufWritePre * call s:Mkdir()
+
+" Mappings for vim-test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
