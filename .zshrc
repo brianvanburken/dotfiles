@@ -22,44 +22,11 @@ function t() {
 
 # Update software
 updatify() {
-  read -q "REPLY?Do you want to upgrade oh-my-zsh? "
-  echo # Move to next line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    upgrade_oh_my_zsh
-  fi
-
-  read -q "REPLY?Do you want to install Applestore updates? "
-  echo # Move to next line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    sudo softwareupdate -i -a;
-  fi
-
-  read -q "REPLY?Do you want to update brew and its packages? "
-  echo # Move to next line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    brew update;
-    brew upgrade;
-    brew prune;
-    brew cleanup --force;
-    brew cask cleanup;
-    brew doctor;
-    rm -f -r /Library/Caches/Homebrew/*;
-  fi
-
-  read -q "REPLY?Do you want to update global NPM packages? "
-  echo # Move to next line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    npm update -g;
-  fi
-
-  read -q "REPLY?Do you want to update all the gems? "
-  echo # Move to next line
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    gem update;
-  fi
+  brew update;
+  brew upgrade;
+  brew prune;
+  brew cleanup --force;
+  brew cask cleanup;
+  brew doctor;
+  rm -f -r /Library/Caches/Homebrew/*;
 }
