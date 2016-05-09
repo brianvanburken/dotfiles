@@ -71,8 +71,8 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 endif
 
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>o :CtrlP ./<CR>
+nnoremap <Leader>p :CtrlP ./<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
