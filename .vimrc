@@ -2,13 +2,10 @@ autocmd!
 
 call plug#begin()
 
-Plug 'moll/vim-node',           { 'for': 'javascript' }
-Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript' }
-
 Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'mattreduce/vim-mix',      { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir', 'eelixir'] }
-Plug 'elixir-lang/vim-elixir', { 'for' : ['erlang', 'elixir', 'eelixir'] }
+Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
@@ -16,14 +13,12 @@ Plug 'morhetz/gruvbox'
 " Intergrations
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'janko-m/vim-test'
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'rizzatti/dash.vim'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'terryma/vim-expand-region'
 Plug 'itchyny/lightline.vim'
 
 " Commands
@@ -89,21 +84,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Create window splits easier.
-nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
-
-" More natural split opening
-" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally#more-natural-split-opening
-set splitbelow
-set splitright
-
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 nnoremap <leader><space> :nohlsearch<CR>
 " Vim will keep highlighted matches from searches until you either run a new
 " one or manually stop highlighting the old search with :nohlsearch. I find
-" myself running this all the time so I've mapped it to ,<space>.
+" myself running this all the time so I've mapped it to <leader><space>.
 
 " Highlight trailing whitespace
 match ErrorMsg /\s\+$/
@@ -130,18 +116,7 @@ let html_no_rendering=1 " Don't render italic, bold, links in HTML
 set showmatch        " highlight matching [{()}]
 set laststatus=2     " Always show the statusbar
 set clipboard=unnamed " Share Clipboard with OS
-" set so=7 " Set 7 lines to the cursor - when moving vertically using j/
-
-" Switching between buffers
-nnoremap <Leader>bn :bn<cr> " Next buffer
-nnoremap <Leader>bp :bp<cr> " Previous buffer
-nnoremap <Leader>bd :bd<cr> " Buffer delete
-nnoremap <Leader>bl :buffers
-nnoremap <Leader>bb :b
-
-" Faster redraw
 set lazyredraw
-set ttyfast
 
 " Make directories that not exist on write
 function s:Mkdir()
@@ -154,10 +129,3 @@ function s:Mkdir()
 endfunction
 
 autocmd BufWritePre * call s:Mkdir()
-
-" Mappings for vim-test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
