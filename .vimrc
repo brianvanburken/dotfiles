@@ -20,6 +20,7 @@ Plug 'rizzatti/dash.vim'
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'Yggdroot/indentLine'
 
 " Commands
 Plug 'tpope/vim-commentary'
