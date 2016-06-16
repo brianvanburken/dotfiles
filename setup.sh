@@ -81,9 +81,9 @@ brew cleanup >> out.log 2>&1
 brew cask cleanup >> out.log 2>&1
 
 fancy_echo "Symlinking dotfiles."
-files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .csscomb.json
-        .gemrc .gitconfig .gitignore_global .hushlogin .powconfig .profile
-        .slate .tmux.conf .tool-version .vimrc .zshrc)
+files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .ctags .gemrc
+      .gitconfig .gitignore_global .hushlogin .profile .slate .tmux.conf
+      .tool-versions .vimrc .vim .zshrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
