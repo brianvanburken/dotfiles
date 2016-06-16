@@ -228,6 +228,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# Show hidden files in Finder
+defaults write com.apple.finder AppleShowAllFiles YES
+
 ###############################################################################
 # Dock & hot corners                                                          #
 ###############################################################################
