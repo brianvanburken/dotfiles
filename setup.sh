@@ -262,7 +262,6 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 # Don’t show Dashboard as a Space and remove the dashboard
 defaults write com.apple.dock dashboard-in-overlay -bool true
 defaults write com.apple.dashboard mcx-disabled -boolean YES
-killall Dock
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.Dock autohide-delay -float 0
@@ -277,7 +276,6 @@ defaults write com.apple.dock static-only -bool TRUE
 
 # Position dock on the left
 defaults write com.apple.dock orientation left
-killall Dock
 
 ###############################################################################
 # Safari & WebKit                                                             #
