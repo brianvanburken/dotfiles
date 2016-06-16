@@ -95,16 +95,22 @@ fancy_echo "Installing asdf plugin manager."
 git clone https://github.com/HashNuke/asdf.git ~/.asdf
 source $HOME/.asdf/asdf.sh
 
-fancy_echo "Installing Node.js with asdf plugin."
+fancy_echo "Adding node.js, ruby, erlang and elixir plugins to asdf plugin manager"
 asdf plugin-add nodejs https://github.com/HashNuke/asdf-nodejs.git
+asdf plugin-add ruby   https://github.com/HashNuke/asdf-ruby.git
+asdf plugin-add erlang https://github.com/HashNuke/asdf-erlang.git
+asdf plugin-add elixir https://github.com/HashNuke/asdf-elixir.git
+
+fancy_echo "Installing Node.js with asdf plugin."
 asdf install nodejs $(cat ~/.tool-versions | grep nodejs | tr -dc '0-9\.')
 
 fancy_echo "Installing Ruby with asdf plugin."
-asdf plugin-add ruby https://github.com/HashNuke/asdf-ruby.git
 asdf install ruby $(cat ~/.tool-versions | grep ruby | tr -dc '0-9\.')
 
+fancy_echo "Installing Erlang with asdf plugin."
+asdf install erlang $(cat ~/.tool-versions | grep erlang | tr -dc '0-9\.')
+
 fancy_echo "Installing Elixir with asdf plugin."
-asdf plugin-add elixir https://github.com/HashNuke/asdf-elixir.git
 asdf install elixir $(cat ~/.tool-versions | grep elixir | tr -dc '0-9\.')
 
 npm_install() {
