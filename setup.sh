@@ -64,17 +64,11 @@ brew_install 'git'
 brew_install 'git-flow'
 brew_install 'vim'
 brew_install 'the_silver_searcher'
-brew_install 'watchman'
 brew_install 'postgresql'
 brew_install 'rabbitmq'
 brew_install 'mongodb'
-brew_install 'redis'
 brew_install 'ctags'
 brew_install 'heroku-toolbelt'
-
-brew_install 'openssl'
-brew unlink openssl       >> out.log 2>&1
-brew link openssl --force >> out.log 2>&1
 
 fancy_echo "Adding brew services"
 brew services
