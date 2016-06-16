@@ -171,6 +171,9 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Restart automatically if the computer freezes
 systemsetup -setrestartfreeze on
 
+# The keyboard react faster to keystrokes
+defaults write NSGlobalDomain KeyRepeat -int 0
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
@@ -231,6 +234,18 @@ chflags nohidden ~/Library
 # Show hidden files in Finder
 defaults write com.apple.finder AppleShowAllFiles YES
 
+# Disable animations when opening and closing windows.
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# Disable animations when opening a Quick Look window.
+defaults write -g QLPanelAnimationDuration -float 0
+
+# Disable animation when opening the Info window in OS X Finder (CMD⌘ + i).
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Disable animations when you open an application from the Dock.
+defaults write com.apple.dock launchanim -bool false
+
 ###############################################################################
 # Dock & hot corners                                                          #
 ###############################################################################
@@ -267,6 +282,9 @@ killall Dock
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
+
+# Disable the standard delay in rendering a Web page.
+defaults write com.apple.Safari WebKitInitialTimedLayoutDelay 0.25
 
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
