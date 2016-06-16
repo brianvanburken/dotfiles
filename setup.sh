@@ -62,6 +62,7 @@ brew_cask_install() {
 
 brew_install 'git'
 brew_install 'git-flow'
+brew_install 'tmux'
 brew_install 'vim'
 brew_install 'the_silver_searcher'
 brew_install 'postgresql'
