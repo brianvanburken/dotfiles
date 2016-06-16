@@ -84,7 +84,7 @@ brew cask cleanup >> out.log 2>&1
 fancy_echo "Symlinking dotfiles."
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .ctags .gemrc
       .gitconfig .gitignore_global .hushlogin .profile .slate .tmux.conf
-      .tool-versions .vimrc .vim .zshrc)
+      .tool-versions .vimrc .vim)
 dir="$PWD/"
 
 for i in ${files[@]}; do
@@ -305,7 +305,8 @@ fancy_echo "Done configuring OSX"
 
 fancy_echo "Changing system Bash to ZSH with oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo rm -rf ~/.zshrc && ln -s ${dir}.zshrc ~/.zshrc
+sudo rm -rf ~/.zshrc
+ln -sFfv ${dir}.zshrc ~/.zshrc
 
 fancy_echo "Reloading shell"
 chsh -s /bin/zsh
