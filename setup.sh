@@ -324,7 +324,7 @@ fancy_echo "Done configuring OSX"
 fancy_echo "Changing system Bash to ZSH with oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo rm -rf ~/.zshrc
-ln -sFfv ${dir}.zshrc ~/.zshrc
+ln -sFfv ${pwd}.zshrc ~/.zshrc
 
 fancy_echo "Reloading shell"
 chsh -s /bin/zsh
