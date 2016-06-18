@@ -28,8 +28,7 @@ if ! command -v brew >/dev/null; then
   fancy_echo "Installing Brew"
   export HOMEBREW_PREFIX=~/.homebrew
   mkdir -p $HOMEBREW_PREFIX
-  curl -fsS \
-    'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+  git clone https://github.com/Homebrew/homebrew.git $HOMEBREW_PREFIX
 else
   fancy_echo "Updating Brew ..."
   brew update >> out.log
