@@ -83,7 +83,7 @@ brew cask cleanup >> out.log 2>&1
 fancy_echo "Symlinking dotfiles."
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .ctags .gemrc
       .gitconfig .gitignore_global .hushlogin .profile .slate .tmux.conf
-      .tool-versions .vimrc .vim)
+      .tool-versions .vimrc .vim .zshrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
@@ -327,7 +327,7 @@ sudo rm -rf ~/.zshrc
 ln -sFfv ${pwd}.zshrc ~/.zshrc
 
 fancy_echo "Reloading shell"
-chsh -s /bin/zsh
+chsh -s $(which zsh)
 
 fancy_echo "Done running script"
 fancy_echo "Note that some of these changes require a logout/restart to take effect."
