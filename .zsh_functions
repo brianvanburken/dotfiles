@@ -1,0 +1,2 @@
+o () { open ${1:-.}; }
+gbd () { git branch -D `git branch | grep ${1}` }

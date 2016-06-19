@@ -7,6 +7,7 @@ plugins=(git git-flow osx rails ruby npm brew elixir)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.profile
 source $HOME/.bash_aliases
+source $HOME/.zsh_functions
 
 if [ -f $HOME/.shell_local ]
 then
