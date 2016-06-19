@@ -26,6 +26,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Brew"
+  sudo chown -R $(whoami):admin /usr/local/
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
   fancy_echo "Updating Brew ..."
