@@ -26,9 +26,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Brew"
-  export HOMEBREW_PREFIX=~/.homebrew
-  mkdir -p $HOMEBREW_PREFIX
-  git clone https://github.com/Homebrew/homebrew.git $HOMEBREW_PREFIX
+  export BREW_PATH=~/.homebrew
+  mkdir -p $BREW_PATH
+  git clone https://github.com/Homebrew/homebrew.git $BREW_PATH
+  export PATH="$BREW_PATH/bin:$PATH"
 else
   fancy_echo "Updating Brew ..."
   brew update >> out.log
