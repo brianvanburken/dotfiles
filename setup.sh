@@ -29,7 +29,7 @@ if ! command -v brew >/dev/null; then
   export BREW_PATH=~/.homebrew
   mkdir -p $BREW_PATH
   git clone https://github.com/Homebrew/homebrew.git $BREW_PATH
-  export PATH="$BREW_PATH/bin:$PATH"
+  source "$(pwd)/.profile"
 else
   fancy_echo "Updating Brew ..."
   brew update >> out.log
