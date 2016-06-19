@@ -79,10 +79,13 @@ fancy_echo "Cleaning up all the Brew spills"
 brew cleanup >> out.log 2>&1
 brew cask cleanup >> out.log 2>&1
 
+fancy_echo "Create local shell file."
+touch ~/.shell_local
+
 fancy_echo "Symlinking dotfiles."
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .ctags .gemrc
       .gitconfig .gitignore_global .hushlogin .profile .slate .tmux.conf
-      .tool-versions .vimrc .vim .zshrc)
+      .tool-versions .vimrc .vim .zsh_functions .zshrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
