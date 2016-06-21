@@ -118,15 +118,6 @@ asdf install erlang $(cat ~/.tool-versions | grep erlang | tr -dc '0-9\.')
 fancy_echo "Installing Elixir with asdf plugin."
 asdf install elixir $(cat ~/.tool-versions | grep elixir | tr -dc '0-9\.')
 
-npm_install() {
-  printf "Installing %s ...\n" "$1"
-  npm install -g "$@" >> out.log 2>&1
-}
-
-fancy_echo "Installing NPM packages"
-npm_install 'gulp'
-npm_install 'npm-check-updates'
-
 fancy_echo "Creating folder ~/Developer"
 mkdir -p ~/Developer
 
