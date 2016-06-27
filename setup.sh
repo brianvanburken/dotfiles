@@ -71,6 +71,7 @@ brew_install 'rabbitmq'
 brew_install 'mongodb'
 brew_install 'ctags'
 brew_install 'heroku-toolbelt'
+brew_install 'erlang'
 
 fancy_echo "Adding brew services"
 brew services
@@ -103,7 +104,6 @@ source $HOME/.asdf/asdf.sh
 fancy_echo "Adding node.js, ruby, erlang and elixir plugins to asdf plugin manager"
 asdf plugin-add nodejs https://github.com/HashNuke/asdf-nodejs.git
 asdf plugin-add ruby   https://github.com/HashNuke/asdf-ruby.git
-asdf plugin-add erlang https://github.com/HashNuke/asdf-erlang.git
 asdf plugin-add elixir https://github.com/HashNuke/asdf-elixir.git
 
 fancy_echo "Installing Node.js with asdf plugin."
@@ -111,9 +111,6 @@ asdf install nodejs $(cat ~/.tool-versions | grep nodejs | tr -dc '0-9\.')
 
 fancy_echo "Installing Ruby with asdf plugin."
 asdf install ruby $(cat ~/.tool-versions | grep ruby | tr -dc '0-9\.')
-
-fancy_echo "Installing Erlang with asdf plugin."
-asdf install erlang $(cat ~/.tool-versions | grep erlang | tr -dc '0-9\.')
 
 fancy_echo "Installing Elixir with asdf plugin."
 asdf install elixir $(cat ~/.tool-versions | grep elixir | tr -dc '0-9\.')
