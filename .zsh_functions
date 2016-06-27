@@ -12,10 +12,10 @@ function t() {
 # Update software
 updatify() {
   brew update;
-  brew upgrade;
+  brew upgrade --cleanup;
   brew prune;
   brew cleanup --force;
   brew cask cleanup;
   brew doctor;
-  rm -f -r /Library/Caches/Homebrew/*;
+  rm -rf "$(brew --cache)/*"
 }
