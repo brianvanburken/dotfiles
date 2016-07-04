@@ -122,6 +122,13 @@ asdf install ruby $(cat ~/.tool-versions | grep ruby | tr -dc '0-9\.')
 fancy_echo "Installing Elixir with asdf plugin."
 asdf install elixir $(cat ~/.tool-versions | grep elixir | tr -dc '0-9\.')
 
+
+fancy_echo "Update Ruby gem system."
+gem update --system
+
+fancy_echo "Installing bundler and Rails."
+gem install bundler rails
+
 fancy_echo "Creating folder ~/Developer"
 mkdir -p ~/Developer
 
