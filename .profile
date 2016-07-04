@@ -1,4 +1,4 @@
-export EDITOR='vim'
+export EDITOR="vim"
 export TERM="xterm-256color"
-export BREW_PATH=$HOME/.homebrew
+export BREW_PATH="$HOME/.homebrew"
 export PATH="$BREW_PATH/bin:$BREW_PATH/sbin:$PATH"
