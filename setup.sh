@@ -73,6 +73,13 @@ brew_install 'ctags'
 brew_install 'heroku-toolbelt'
 brew_install 'erlang'
 
+brew_install 'openssl'
+brew_install 'readline'
+brew_install 'gdbm'
+brew_install 'libyaml'
+
+brew link openssl readline gdbm libyaml --force
+
 fancy_echo "Adding brew services"
 brew services
 
