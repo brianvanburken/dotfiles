@@ -10,7 +10,6 @@ alias dev='cd ~/Developer/'
 alias dot='cd ~/.dotfiles/'
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
-alias grep='ag'
 alias mine='sudo chown -R $(whoami):admin '
 
 # NPM
