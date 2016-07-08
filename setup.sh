@@ -129,6 +129,9 @@ gem update --system
 fancy_echo "Installing bundler and Rails."
 gem install bundler rails
 
+fancy_echo "Disabling NPM progress for faster installs."
+npm set progress=false
+
 fancy_echo "Updating NPM."
 npm install npm -g
 
