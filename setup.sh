@@ -129,6 +129,9 @@ gem update --system
 fancy_echo "Installing bundler and Rails."
 gem install bundler rails
 
+fancy_echo "Updating NPM."
+npm install npm -g
+
 fancy_echo "Creating folder ~/Developer"
 mkdir -p ~/Developer
 
