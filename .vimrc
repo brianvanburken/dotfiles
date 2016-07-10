@@ -128,3 +128,5 @@ function s:Mkdir()
 endfunction
 
 autocmd BufWritePre * call s:Mkdir()
+
+set viminfo='1000,<500,:500,/500
