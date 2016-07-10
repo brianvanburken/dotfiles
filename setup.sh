@@ -138,6 +138,12 @@ npm install npm -g
 fancy_echo "Creating folder ~/Developer"
 mkdir -p ~/Developer
 
+fancy_echo "Upgrading Hex."
+mix local.hex
+
+fancy_echo "Install Phoenix"
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+
 if [ -f ~/.ssh/id_rsa ]
 then
   fancy_echo "Skipping SSH key generation, you already have one"
