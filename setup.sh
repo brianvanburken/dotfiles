@@ -95,7 +95,7 @@ touch ~/.shell_local
 fancy_echo "Symlinking dotfiles."
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .ctags .gemrc
       .gitconfig .gitignore_global .hushlogin .profile .slate .tmux.conf
-      .tool-versions .vimrc .vim .zsh_functions .zshrc)
+      .tool-versions .vimrc .zsh_functions .zshrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
