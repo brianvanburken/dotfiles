@@ -36,6 +36,7 @@ set t_Co=256
 set background=dark
 colorscheme gruvbox
 let g:gruvbox_termcolors=16
+let g:gruvbox_contrast_dark='hard'
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
