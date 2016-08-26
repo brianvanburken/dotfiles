@@ -15,7 +15,6 @@ Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
-Plug 'scrooloose/syntastic'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
@@ -119,6 +118,7 @@ set showmatch        " highlight matching [{()}]
 set laststatus=2     " Always show the statusbar
 set clipboard=unnamed " Share Clipboard with OS
 set lazyredraw
+set shell=/bin/zsh
 
 " Make directories that not exist on write
 function s:Mkdir()
@@ -138,13 +138,4 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_elixir_checker = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-
 let g:elm_format_autosave = 1
-let g:elm_syntastic_show_warnings = 1
