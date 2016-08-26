@@ -13,6 +13,7 @@ Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
+Plug 'scrooloose/syntastic'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
@@ -130,3 +131,12 @@ endfunction
 autocmd BufWritePre * call s:Mkdir()
 
 set viminfo='1000,<500,:500,/500
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
