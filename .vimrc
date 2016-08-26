@@ -6,7 +6,7 @@ call plug#begin()
 Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
-Plug 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
 
 " Code Display
 Plug 'morhetz/gruvbox'
