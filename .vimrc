@@ -143,6 +143,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_elixir_checker = 1
+let g:syntastic_javascript_checkers = ['eslint']
 
 let g:elm_format_autosave = 1
 let g:elm_syntastic_show_warnings = 1
