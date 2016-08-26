@@ -2,9 +2,11 @@ autocmd!
 
 call plug#begin()
 
+" Languages and frameworks
 Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
+Plug 'elmcast/elm-vim'
 
 " Code Display
 Plug 'morhetz/gruvbox'
@@ -140,3 +142,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:elm_format_autosave = 1
+let g:elm_syntastic_show_warnings = 1
