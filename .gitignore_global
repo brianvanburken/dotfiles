@@ -4,5 +4,7 @@
 .DS_Store
 .agignore
 
+.idea/
+
 ### CTags ###
 tags
