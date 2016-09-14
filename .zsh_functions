@@ -19,3 +19,8 @@ updatify() {
   brew doctor;
   rm -rf "$(brew --cache)/*"
 }
+
+mcdir () {
+  mkdir -p "$1"
+  cd "$1"
+}
