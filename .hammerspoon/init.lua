@@ -2,16 +2,16 @@
 -- Set up
 -----------------------------------------------
 
-local hyper = {"shift", "cmd", "alt", "ctrl"}
 hs.window.animationDuration = 0
 
 require("hs.application")
 require("hs.window")
 
------------------------------------------------
--- left one half window
------------------------------------------------
-
+-- +--------------------+
+-- |         |          |
+-- |  HERE   |          |
+-- |         |          |
+-- +--------------------+
 hs.hotkey.bind({"ctrl", "cmd"}, 'u', function()
     if hs.window.focusedWindow() then
         local win = hs.window.focusedWindow()
@@ -29,10 +29,11 @@ hs.hotkey.bind({"ctrl", "cmd"}, 'u', function()
     end
 end)
 
------------------------------------------------
--- right one half window
------------------------------------------------
-
+-- +--------------------+
+-- |         |          |
+-- |         |   HERE   |
+-- |         |          |
+-- +--------------------+
 hs.hotkey.bind({"ctrl", "cmd"}, 'i', function()
     if hs.window.focusedWindow() then
         local win = hs.window.focusedWindow()
@@ -50,10 +51,11 @@ hs.hotkey.bind({"ctrl", "cmd"}, 'i', function()
     end
 end)
 
------------------------------------------------
--- fullscreen
------------------------------------------------
-
+-- +--------------------+
+-- |                    |
+-- |        HERE        |
+-- |                    |
+-- +--------------------+
 hs.hotkey.bind({"ctrl","cmd"}, 'f', function()
     if hs.window.focusedWindow() then
         local win = hs.window.focusedWindow()
@@ -71,10 +73,11 @@ hs.hotkey.bind({"ctrl","cmd"}, 'f', function()
     end
 end)
 
------------------------------------------------
--- left third
------------------------------------------------
-
+-- +--------------------+
+-- |      |      |      |
+-- | HERE |      |      |
+-- |      |      |      |
+-- +--------------------+
 hs.hotkey.bind({"ctrl","cmd"}, 'j', function()
     if hs.window.focusedWindow() then
         local win = hs.window.focusedWindow()
@@ -92,10 +95,11 @@ hs.hotkey.bind({"ctrl","cmd"}, 'j', function()
     end
 end)
 
------------------------------------------------
--- middle third
------------------------------------------------
-
+-- +--------------------+
+-- |      |      |      |
+-- |      | HERE |      |
+-- |      |      |      |
+-- +--------------------+
 hs.hotkey.bind({"ctrl","cmd"}, 'k', function()
     if hs.window.focusedWindow() then
         local win = hs.window.focusedWindow()
@@ -113,10 +117,11 @@ hs.hotkey.bind({"ctrl","cmd"}, 'k', function()
     end
 end)
 
------------------------------------------------
--- right third
------------------------------------------------
-
+-- +--------------------+
+-- |      |      |      |
+-- |      |      | HERE |
+-- |      |      |      |
+-- +--------------------+
 hs.hotkey.bind({"ctrl","cmd"}, 'l', function()
     if hs.window.focusedWindow() then
         local win = hs.window.focusedWindow()
@@ -155,7 +160,7 @@ end)
 -----------------------------------------------
 -- Hyper hjkl to switch window focus
 -----------------------------------------------
-
+-- local hyper = {"shift", "cmd", "alt", "ctrl"}
 -- hs.hotkey.bind(hyper, 'k', function()
 --     if hs.window.focusedWindow() then
 --         hs.window.focusedWindow():focusWindowNorth()
