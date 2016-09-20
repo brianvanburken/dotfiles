@@ -153,7 +153,7 @@ hs.alert.show("Config loaded")
 -- show window hints
 -----------------------------------------------
 
-hs.hotkey.bind({"shift","cmd"}, 'i', function()
+hs.hotkey.bind({"cmd"}, 'escape', function()
     hs.hints.windowHints()
 end)
 
