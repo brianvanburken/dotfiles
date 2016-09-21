@@ -152,7 +152,7 @@ hs.alert.show("Config loaded")
 -----------------------------------------------
 -- show window hints
 -----------------------------------------------
-
+hs.hints.showTitleThresh = 0
 hs.hotkey.bind({"cmd"}, 'escape', function()
     hs.hints.windowHints()
 end)
