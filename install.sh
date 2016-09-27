@@ -1,41 +1,9 @@
 # This script is based on the script from Fabriquartz:
 # https://github.com/Fabriquartz/laptop-install/blob/master/install.sh
-# TODO: Download apps like Alfred, Slate, Chrome, Flux
 fancy_echo() {
   local fmt="$1"; shift
   printf "\n$fmt\n" "$@"
 }
-
-fancy_echo "This script will setup your laptop"
-
-# Get name and email
-fancy_echo "Before we start we need some basic details of you"
-read -p "What is your full name? (e.g. Johny Appleseed): " full_name
-read -p "What is your email address? (e.g. johny.appleseed@fabriquartz.com): " email_address
-
-fancy_echo "Hello $full_name <$email_address>"
-
-fancy_echo "Install all AppStore Apps at first!"
-fancy_echo "Press any key to start the installation process, press <CTRL + C> to cancel"
-read
-
-fancy_echo "We need your sudo password to do a few things"
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-if ! command -v brew >/dev/null; then
-  fancy_echo "Installing Brew"
-  source .profile
-  brew_path=$HOME/.homebrew
-  mkdir -p ${brew_path}
-  chown -R $(whoami) ${brew_path}
-  curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C ${brew_path}
-else
-  fancy_echo "Updating Brew ..."
-  brew update >> out.log
-fi
-
-fancy_echo "Installing Brew formulas!"
 
 brew_install() {
   if brew list -1 | grep -Fqx "$1"; then
@@ -60,6 +28,36 @@ brew_cask_install() {
   fi
 }
 
+fancy_echo "This script will setup your laptop"
+
+# Get name and email
+fancy_echo "Before we start we need some basic details of you"
+read -p "What is your full name? (e.g. Johny Appleseed): " full_name
+read -p "What is your email address? (e.g. johny.appleseed@fabriquartz.com): " email_address
+
+fancy_echo "Hello $full_name <$email_address>"
+
+fancy_echo "Press any key to start the installation process, press <CTRL + C> to cancel"
+read
+
+fancy_echo "We need your sudo password to do a few things"
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+if ! command -v brew >/dev/null; then
+  fancy_echo "Installing Brew"
+  source .profile
+  brew_path=$HOME/.homebrew
+  mkdir -p ${brew_path}
+  chown -R $(whoami) ${brew_path}
+  curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C ${brew_path}
+else
+  fancy_echo "Updating Brew ..."
+  brew update >> out.log
+fi
+
+fancy_echo "Installing Brew formulas!"
+
 brew_install 'git'
 brew_install 'git-flow'
 brew_install 'tmux'
@@ -70,7 +68,7 @@ brew_install 'rabbitmq'
 brew_install 'mongodb'
 brew_install 'ctags'
 brew_install 'heroku-toolbelt'
-brew_install 'erlang'
+brew_install 'mas'
 
 brew_install 'openssl'
 brew_install 'readline'
@@ -162,6 +160,22 @@ fancy_echo "Installing vim plugins"
 mkdir -p ~/.vim/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
+
+fancy_echo 'Installing apps'
+
+brew_cask_install "alfred"
+brew_cask_install "hammerspoon"
+brew_cask_install "flux"
+brew_cask_install "omnifocus"
+brew_cask_install "dash"
+brew_cask_install "the-unarchiver"
+brew_cask_install "franz"
+
+fancy_echo 'Install MAS apps'
+
+mas install 918858936 # Airmail
+mas install 443987910 # 1Password
+mas install 497799835 # Xcode
 
 fancy_echo 'Setup OS X configuration'
 # Original script by Mathias Bynens (http://mths.be/osx)
