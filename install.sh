@@ -138,7 +138,7 @@ fancy_echo "Update Ruby gem system."
 gem update --system
 
 fancy_echo "Installing bundler and Rails."
-gem install bundler rails --no-document
+gem install bundler rails --no-rdoc --no-ri --no-document
 
 fancy_echo "Disabling NPM progress for faster installs."
 npm set progress=false
