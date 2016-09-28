@@ -110,6 +110,7 @@ fancy_echo "Adding node.js, ruby, erlang and elixir plugins to asdf plugin manag
 asdf plugin-add nodejs https://github.com/HashNuke/asdf-nodejs.git
 asdf plugin-add ruby   https://github.com/HashNuke/asdf-ruby.git
 asdf plugin-add elixir https://github.com/HashNuke/asdf-elixir.git
+asdf plugin-add erlang https://github.com/HashNuke/asdf-erlang.git
 
 fancy_echo "Installing Node.js with asdf plugin."
 asdf install nodejs $(cat ~/.tool-versions | grep nodejs | tr -dc '0-9\.')
@@ -120,6 +121,8 @@ asdf install ruby $(cat ~/.tool-versions | grep ruby | tr -dc '0-9\.')
 fancy_echo "Installing Elixir with asdf plugin."
 asdf install elixir $(cat ~/.tool-versions | grep elixir | tr -dc '0-9\.')
 
+fancy_echo "Installing Erlang with asdf plugin."
+asdf install erlang $(cat ~/.tool-versions | grep erlang | tr -dc '0-9\.')
 
 fancy_echo "Update Ruby gem system."
 gem update --system
