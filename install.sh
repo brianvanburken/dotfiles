@@ -40,6 +40,8 @@ fancy_echo "Hello $full_name <$email_address>"
 fancy_echo "Press any key to start the installation process, press <CTRL + C> to cancel"
 read
 
+cd $HOME
+
 fancy_echo "We need your sudo password to do a few things"
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -87,16 +89,10 @@ brew cask cleanup >> out.log 2>&1
 fancy_echo "Create local shell file."
 touch ~/.shell_local
 
-fancy_echo "Symlinking dotfiles."
-files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .ctags .gemrc
-       .gitconfig .gitignore_global .hammerspoon .hushlogin .profile .slate
-       .tmux.conf .tool-versions .vimrc .zpreztorc .zsh_functions .zshrc)
-dir="$PWD/"
-
-for i in ${files[@]}; do
-  ln -sFfv ${dir}${i} ~/${i}
-done
-fancy_echo "Done symlinking dotfiles."
+fancy_echo "Cloning git repository for dotfiles"
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:brianvanburken/dotfiles.git $HOME
+alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+config config status.showUntrackedFiles no
 
 fancy_echo "Installing asdf plugin manager."
 git clone https://github.com/HashNuke/asdf.git ~/.asdf

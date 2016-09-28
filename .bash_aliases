@@ -28,3 +28,6 @@ alias gix='git clean -ix'
 
 # Open all merge conflicts or currently changed files in Vim
 alias fix="git diff --name-only | uniq | xargs -o vim"
+
+# Work with dotfiles
+alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
