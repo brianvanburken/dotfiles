@@ -71,6 +71,7 @@ brew_install 'openssl'
 brew_install 'readline'
 brew_install 'gdbm'
 brew_install 'libyaml'
+brew_install 'z'
 
 brew_install 'elm'
 
