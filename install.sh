@@ -91,7 +91,9 @@ fancy_echo "Create local shell file."
 touch ~/.shell_local
 
 fancy_echo "Cloning git repository for dotfiles"
-git clone --separate-git-dir=$HOME/.dotfiles git@github.com:brianvanburken/dotfiles.git $HOME
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:brianvanburken/dotfiles.git $HOME/.dotfiles-tmp
+cp ~/.dotfiles-tmp/.gitmodules ~
+rm -rf ~/.dotfiles-tmp
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 config config status.showUntrackedFiles no
 
