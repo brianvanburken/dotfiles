@@ -1,6 +1,4 @@
 export EDITOR="vim"
 export TERM="xterm-256color"
-export BREW_PATH="$HOME/.homebrew"
-export PATH="$BREW_PATH/bin:$BREW_PATH/sbin:$PATH"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
