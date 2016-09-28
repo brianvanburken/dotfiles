@@ -106,7 +106,7 @@ git config --global user.name "$full_name"
 git config --global user.email "$email_address"
 
 fancy_echo "Cloning git repository for dotfiles"
-git clone --separate-git-dir=$HOME/.dotfiles git@github.com:brianvanburken/dotfiles.git $HOME/.dotfiles-tmp
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/brianvanburken/dotfiles.git $HOME/.dotfiles-tmp
 cp ~/.dotfiles-tmp/.gitmodules ~
 rm -rf ~/.dotfiles-tmp
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
