@@ -90,6 +90,21 @@ brew cask cleanup >> out.log 2>&1
 fancy_echo "Create local shell file."
 touch ~/.shell_local
 
+if [ -f ~/.ssh/id_rsa ]
+then
+  fancy_echo "Skipping SSH key generation, you already have one"
+else
+  fancy_echo "Generating SSH key"
+  ssh-keygen -q -t rsa -b 4096 -C "$email_address" -N "" -f ~/.ssh/id_rsa
+fi
+
+cat ~/.ssh/id_rsa.pub | pbcopy
+fancy_echo "\nCopyied public key to clipboard, please add it to your Github account."
+
+fancy_echo "Configuring name and email in .gitconfig"
+git config --global user.name "$full_name"
+git config --global user.email "$email_address"
+
 fancy_echo "Cloning git repository for dotfiles"
 git clone --separate-git-dir=$HOME/.dotfiles git@github.com:brianvanburken/dotfiles.git $HOME/.dotfiles-tmp
 cp ~/.dotfiles-tmp/.gitmodules ~
@@ -139,21 +154,6 @@ mix local.hex
 
 fancy_echo "Install Phoenix"
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
-
-if [ -f ~/.ssh/id_rsa ]
-then
-  fancy_echo "Skipping SSH key generation, you already have one"
-else
-  fancy_echo "Generating SSH key"
-  ssh-keygen -q -t rsa -b 4096 -C "$email_address" -N "" -f ~/.ssh/id_rsa
-fi
-
-cat ~/.ssh/id_rsa.pub | pbcopy
-fancy_echo "\nCopyied public key to clipboard, please add it to your Github account."
-
-fancy_echo "Configuring name and email in .gitconfig"
-git config --global user.name "$full_name"
-git config --global user.email "$email_address"
 
 fancy_echo "Installing vim plugins"
 mkdir -p ~/.vim/
