@@ -93,7 +93,7 @@ touch ~/.shell_local
 fancy_echo "Symlinking dotfiles."
 files=(.agignore .bash_aliases .bash_profile .bashrc .bundle .ctags .gemrc
        .gitconfig .gitignore_global .hammerspoon .hushlogin .profile .slate
-       .tmux.conf .tool-versions .vimrc .zsh_functions .zshrc)
+       .tmux.conf .tool-versions .vimrc .zpreztorc .zsh_functions .zshrc)
 dir="$PWD/"
 
 for i in ${files[@]}; do
@@ -353,10 +353,12 @@ done
 
 fancy_echo "Done configuring OSX"
 
-fancy_echo "Changing system Bash to ZSH with oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo rm -rf ~/.zshrc
-ln -sFfv ${pwd}.zshrc ~/.zshrc
+fancy_echo "Changing system Bash to ZSH with Prezto"
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+ln -sFfv $HOME/.zprezto/runcoms/zlogin ~/.zlogin
+ln -sFfv $HOME/.zprezto/runcoms/zlogout ~/.zlogout
+ln -sFfv $HOME/.zprezto/runcoms/zprofile ~/.zprofile
+ln -sFfv $HOME/.zprezto/runcoms/zshenv ~/.zshenv
 
 fancy_echo "Reloading shell"
 chsh -s $(which zsh)
