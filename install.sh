@@ -69,11 +69,12 @@ brew_install 'mongodb'
 brew_install 'ctags'
 brew_install 'heroku-toolbelt'
 brew_install 'mas'
-
 brew_install 'openssl'
 brew_install 'readline'
 brew_install 'gdbm'
 brew_install 'libyaml'
+
+brew_install 'elm'
 
 brew link openssl readline gdbm libyaml --force
 
