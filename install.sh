@@ -171,7 +171,7 @@ brew_cask_install "franz"
 
 fancy_echo 'Install MAS apps'
 
-mas login "$email_address"
+mas signin "$email_address"
 mas install 918858936 # Airmail
 mas install 443987910 # 1Password
 mas install 497799835 # Xcode
