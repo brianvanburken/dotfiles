@@ -353,11 +353,13 @@ done
 fancy_echo "Done configuring OSX"
 
 fancy_echo "Changing system Bash to ZSH with Prezto"
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-ln -sFfv $HOME/.zprezto/runcoms/zlogin ~/.zlogin
-ln -sFfv $HOME/.zprezto/runcoms/zlogout ~/.zlogout
-ln -sFfv $HOME/.zprezto/runcoms/zprofile ~/.zprofile
-ln -sFfv $HOME/.zprezto/runcoms/zshenv ~/.zshenv
+git clone --recursive https://github.com/Eriner/zim.git ${ZDOTDIR:-${HOME}}/.zim
+setopt EXTENDED_GLOB
+for template_file ( ${ZDOTDIR:-${HOME}}/.zim/templates/* ); do
+  user_file="${ZDOTDIR:-${HOME}}/.${template_file:t}"
+  touch ${user_file}
+  ( print -rn "$(<${template_file})$(<${user_file})" >! ${user_file} ) 2>/dev/null
+done
 
 fancy_echo "Reloading shell"
 chsh -s $(which zsh)
