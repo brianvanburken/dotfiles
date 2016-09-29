@@ -203,6 +203,7 @@ systemsetup -setrestartfreeze on
 
 # The keyboard react faster to keystrokes
 defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
