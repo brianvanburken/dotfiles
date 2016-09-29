@@ -3,8 +3,7 @@
 fancy_echo() {
   local fmt="$1"; shift
   printf "\n$fmt\n" "$@"
-}
-
+} 
 brew_install() {
   if brew list -1 | grep -Fqx "$1"; then
     if ! brew outdated --quiet "$1" >/dev/null; then
@@ -172,6 +171,7 @@ brew_cask_install "franz"
 
 fancy_echo 'Install MAS apps'
 
+mas login "$email_address"
 mas install 918858936 # Airmail
 mas install 443987910 # 1Password
 mas install 497799835 # Xcode
