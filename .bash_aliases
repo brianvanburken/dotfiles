@@ -3,7 +3,6 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ln='ln -i'
-alias ll='ls -lahg'
 alias mkdir='mkdir -p'
 
 alias dev='cd ~/Developer/'
@@ -18,13 +17,13 @@ alias npmci='rm -rf node_modules/ && echo "Removed node_modules" && npm cache cl
 # Vim
 alias vi='vim'
 alias v='vim'
-alias e="$EDITOR"
+alias e='vim'
 
 # Git
-alias gap='git add --patch'
 alias gunstage='git reset HEAD'
+alias gap='git add --patch'
 alias gs='git status'
-alias gix='git clean -ix'
+alias gcix='git clean -ix'
 
 # Open all merge conflicts or currently changed files in Vim
 alias fix="git diff --name-only | uniq | xargs -o vim"
