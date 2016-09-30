@@ -169,9 +169,10 @@ brew_cask_install "dash"
 brew_cask_install "the-unarchiver"
 brew_cask_install "franz"
 
-fancy_echo 'Install MAS apps'
+fancy_echo 'Installing MAS apps'
+read -p "What is your Apple ID?: " apple_id
 
-mas signin "$email_address"
+mas signin "$apple_id"
 mas install 918858936 # Airmail
 mas install 443987910 # 1Password
 mas install 497799835 # Xcode
