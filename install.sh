@@ -109,6 +109,7 @@ fancy_echo "Cloning git repository for dotfiles"
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/brianvanburken/dotfiles.git
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 config config status.showUntrackedFiles no
+config reset --hard
 
 fancy_echo "Installing asdf plugin manager."
 git clone https://github.com/HashNuke/asdf.git ~/.asdf
