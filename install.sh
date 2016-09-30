@@ -3,7 +3,8 @@
 fancy_echo() {
   local fmt="$1"; shift
   printf "\n$fmt\n" "$@"
-} 
+}
+
 brew_install() {
   if brew list -1 | grep -Fqx "$1"; then
     if ! brew outdated --quiet "$1" >/dev/null; then
@@ -105,9 +106,7 @@ git config --global user.name "$full_name"
 git config --global user.email "$email_address"
 
 fancy_echo "Cloning git repository for dotfiles"
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/brianvanburken/dotfiles.git $HOME/.dotfiles-tmp
-cp ~/.dotfiles-tmp/.gitmodules ~
-rm -rf ~/.dotfiles-tmp
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/brianvanburken/dotfiles.git
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 config config status.showUntrackedFiles no
 
