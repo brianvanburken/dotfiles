@@ -4,3 +4,4 @@
 [[ -r $HOME/.asdf/asdf.sh     ]] && source $HOME/.asdf/asdf.sh
 [[ -r $HOME/.zsh_functions    ]] && source $HOME/.zsh_functions
 [[ -r $HOME/.shell_local      ]] && source $HOME/.shell_local
+[[ -f $(brew --prefix)/etc/profile.d/z.sh ]] && source $(brew --prefix)/etc/profile.d/z.sh
