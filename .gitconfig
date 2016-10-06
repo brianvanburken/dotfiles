@@ -18,3 +18,5 @@
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [diff]
 	compactionHeuristic = true
+[alias]
+	all = "!f() { ls | xargs -P10 -I{} git -C {} $1; }; f"
