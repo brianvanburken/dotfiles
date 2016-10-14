@@ -1,6 +1,7 @@
 [user]
 	name = Brian van Burken
 	email = brianvanburken@outlook.com
+	signingkey = EFAC8838
 [credential]
 	helper = osxkeychain
 [color]
@@ -20,3 +21,7 @@
 	compactionHeuristic = true
 [alias]
 	all = "!f() { ls | xargs -P10 -I{} git -C {} $1; }; f"
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
