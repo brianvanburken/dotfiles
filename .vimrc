@@ -40,9 +40,6 @@ colorscheme gruvbox
 let g:gruvbox_termcolors=16
 let g:gruvbox_contrast_dark='hard'
 
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-
 set termencoding=utf-8
 set encoding=utf-8      " Set default encoding to UTF-8
 set colorcolumn=80
@@ -78,19 +75,12 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Easier split navigations
-" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally#easier-split-navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
-nnoremap <leader><space> :nohlsearch<CR>
 " Vim will keep highlighted matches from searches until you either run a new
 " one or manually stop highlighting the old search with :nohlsearch. I find
 " myself running this all the time so I've mapped it to <leader><space>.
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Highlight trailing whitespace
 match ErrorMsg /\s\+$/
@@ -131,11 +121,5 @@ function s:Mkdir()
 endfunction
 
 autocmd BufWritePre * call s:Mkdir()
-
-set viminfo='1000,<500,:500,/500
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:elm_format_autosave = 1
