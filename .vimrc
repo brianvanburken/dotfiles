@@ -15,6 +15,7 @@ Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
