@@ -29,3 +29,6 @@ alias fix="git diff --name-only | uniq | xargs -o vim"
 
 # Work with dotfiles
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Fix ctags on macOS/OS X
+alias ctags="`brew --prefix`/bin/ctags"
