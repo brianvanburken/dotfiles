@@ -111,7 +111,7 @@ set clipboard=unnamed " Share Clipboard with OS
 set lazyredraw
 set shell=/bin/zsh
 set autoread " Refresh files automatically
-set conceallevel=0 " Vim hides quotes for JSON files. This fixes that annoyance
+au BufNewFile,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
 " Make directories that not exist on write
 function s:Mkdir()
