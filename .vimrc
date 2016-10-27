@@ -110,6 +110,7 @@ set laststatus=2     " Always show the statusbar
 set clipboard=unnamed " Share Clipboard with OS
 set lazyredraw
 set shell=/bin/zsh
+set autoread " Refresh files automatically
 
 " Make directories that not exist on write
 function s:Mkdir()
