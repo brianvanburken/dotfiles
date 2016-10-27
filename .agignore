@@ -22,3 +22,4 @@ _build/
 source_code/
 .vim/
 deps/
+elm-stuff/
