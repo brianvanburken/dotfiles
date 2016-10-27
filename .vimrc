@@ -15,6 +15,8 @@ Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'craigemery/vim-autotag'
 
 " Interface
 Plug 'ctrlpvim/ctrlp.vim'
@@ -110,6 +112,8 @@ set laststatus=2     " Always show the statusbar
 set clipboard=unnamed " Share Clipboard with OS
 set lazyredraw
 set shell=/bin/zsh
+set autoread " Refresh files automatically
+au BufNewFile,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
 " Make directories that not exist on write
 function s:Mkdir()
