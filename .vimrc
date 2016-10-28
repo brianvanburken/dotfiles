@@ -73,13 +73,6 @@ nnoremap <Leader>p :CtrlP ./<CR>
 nnoremap <Leader>d :Dash<CR>
 
 " Force the use of Vim movement
-inoremap <C-c> <Esc>
-nnoremap <C-c> <Esc>
-vnoremap <C-c> <Esc>
-
-inoremap <Esc>   <NOP>
-vnoremap <Esc>   <NOP>
-
 inoremap <Left>  <NOP>
 nnoremap <Left>  <NOP>
 vnoremap <Left>  <NOP>
