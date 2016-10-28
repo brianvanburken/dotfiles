@@ -73,15 +73,21 @@ nnoremap <Leader>p :CtrlP ./<CR>
 nnoremap <Leader>d :Dash<CR>
 
 " Force the use of Vim movement
-inoremap <esc> :echoe "Use Ctrl-[ or Ctrl-c"<CR>
+inoremap <esc>   <NOP>
+vnoremap <esc>   <NOP>
+
 inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
 nnoremap <Left>  <NOP>
+vnoremap <Left>  <NOP>
+inoremap <Right> <NOP>
 nnoremap <Right> <NOP>
+vnoremap <Right> <NOP>
+inoremap <Up>    <NOP>
 nnoremap <Up>    <NOP>
+vnoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
 nnoremap <Down>  <NOP>
+vnoremap <Down>  <NOP>
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
