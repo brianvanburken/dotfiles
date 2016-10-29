@@ -241,7 +241,7 @@ end)
 -- show window hints
 -----------------------------------------------
 hs.hints.showTitleThresh = 0
-hs.hotkey.bind({"cmd"}, 'escape', function()
+hs.hotkey.bind({"cmd"}, '[', function()
     hs.hints.windowHints()
 end)
 
