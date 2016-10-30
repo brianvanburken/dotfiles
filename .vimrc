@@ -127,6 +127,5 @@ if executable('ag')
 endif
 
 nnoremap <Leader>o :CtrlP ./<CR>
-nnoremap <Leader>p :CtrlP ./<CR>
 
 nnoremap <Leader>d :Dash<CR>
