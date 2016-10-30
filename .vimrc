@@ -60,7 +60,7 @@ set t_Co=256
 set background=dark
 set termguicolors
 set termencoding=utf-8
-set colorcolumn=80
+set colorcolumn=81
 set encoding=utf-8                 " Set default encoding to UTF-8
 set nowrap                         " Set no line wrap
 set expandtab                      " Use spaces not tabs
