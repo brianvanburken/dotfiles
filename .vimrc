@@ -32,6 +32,10 @@ call plug#end()
 
 " ---------- SYSTEM
 
+nnoremap <Esc> <NOP>
+inoremap <Esc> <NOP>
+vnoremap <Esc> <NOP>
+
 " Force the use of Vim movement
 nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
