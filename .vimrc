@@ -16,7 +16,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'craigemery/vim-autotag'
+Plug 'ludovicchabant/vim-gutentags'
 
 " " Interface
 Plug 'ctrlpvim/ctrlp.vim'
