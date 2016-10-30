@@ -105,8 +105,9 @@ silent! colorscheme gruvbox
 let g:gruvbox_termcolors=16
 let g:gruvbox_contrast_dark='hard'
 
-let g:loaded_netrw       = 1
+let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+let g:loaded_vimballPlugin = 1
 
 let g:elm_format_autosave = 1
 
