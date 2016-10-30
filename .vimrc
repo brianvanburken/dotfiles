@@ -26,7 +26,6 @@ Plug 'Yggdroot/indentLine'
 " " Commands
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
 
 call plug#end()
 
