@@ -96,6 +96,14 @@ endfunction
 au BufWritePre * call s:Mkdir()
 au BufNewFile,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
+" Delete trailing white space on save
+func! DeleteTrailingWhiteSpace()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+au BufWrite * silent call DeleteTrailingWhiteSpace()
+
 " ---------- PLUGINS
 
 silent! colorscheme gruvbox
