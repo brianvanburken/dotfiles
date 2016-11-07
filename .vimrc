@@ -80,13 +80,13 @@ set clipboard=unnamed              " Share Clipboard with OS
 set autoread                       " Refresh files automatically
 set incsearch                      " search as characters are entered
 set hlsearch                       " highlight matches
+set iskeyword+=-                   " Makes foo-bar considered one word
 set lazyredraw
 set shell=/bin/zsh
 
 " Make directories that not exist on write
 function s:Mkdir()
   let dir = expand('%:p:h')
-
   if !isdirectory(dir)
     call mkdir(dir, 'p')
     echo 'Created non-existing directory: '.dir
