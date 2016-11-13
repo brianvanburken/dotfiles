@@ -85,7 +85,7 @@ set lazyredraw
 set shell=/bin/zsh
 
 " Make directories that not exist on write
-func s:Mkdir()
+func! s:Mkdir()
   let dir = expand('%:p:h')
   if !isdirectory(dir)
     call mkdir(dir, 'p')
@@ -100,9 +100,9 @@ func! s:DeleteTrailingWhiteSpace()
   exe "normal `z"
 endfunc
 
-au BufWrite * silent call s:DeleteTrailingWhiteSpace()
-au BufWritePre * call s:Mkdir()
-au BufNewFile,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
+au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
+au! BufWritePre * call s:Mkdir()
+au! BufNewFile,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
 " ---------- PLUGINS
 
