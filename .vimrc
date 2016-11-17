@@ -45,7 +45,7 @@ nnoremap <Down>  <NOP>
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Highlight trailing whitespace
-match ErrorMsg /\s\+$/
+match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
 
 filetype indent on                 " Load filetype-specific indent files
 
