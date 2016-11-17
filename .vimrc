@@ -8,6 +8,7 @@ Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
 Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
 
 " " Code Display
 Plug 'morhetz/gruvbox'
