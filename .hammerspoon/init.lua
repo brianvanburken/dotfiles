@@ -246,6 +246,22 @@ hs.hotkey.bind({"cmd"}, '[', function()
 end)
 
 -----------------------------------------------
+-- audio control
+-----------------------------------------------
+hs.hotkey.bind(hyper, '[', function()
+  hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume - 5)
+end)
+
+hs.hotkey.bind(hyper, ']', function()
+  hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume + 5)
+end)
+
+hs.hotkey.bind(hyper, 'p',     hs.spotify.play)
+hs.hotkey.bind(hyper, 'o',     hs.spotify.pause)
+hs.hotkey.bind(hyper, 'n',     hs.spotify.next)
+hs.hotkey.bind(hyper, 'i',     hs.spotify.previous)
+
+-----------------------------------------------
 -- Hyper hjkl to switch window focus
 -----------------------------------------------
 local hyper = {"shift", "cmd"}
