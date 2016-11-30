@@ -19,6 +19,7 @@ alias y='yarn'
 alias ya='yarn add'
 alias yi='yarn init'
 alias yu='yarn upgrade'
+alias yg='yarn global'
 alias yv='yarn --version'
 alias yci='rm -rf node_modules/ && yarn'
 
