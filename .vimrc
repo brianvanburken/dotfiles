@@ -59,9 +59,9 @@ set nobackup
 set t_Co=256
 set background=dark
 set termguicolors
-set termencoding=utf-8
-set colorcolumn=81
+set termencoding=utf-8             " Set encoding to UTF-8
 set encoding=utf-8                 " Set default encoding to UTF-8
+set colorcolumn=81                 " Show column on 81 character for limit reference
 set nowrap                         " Set no line wrap
 set expandtab                      " Use spaces not tabs
 set tabstop=2                      " A tab is two space
@@ -80,12 +80,16 @@ let html_no_rendering=1            " Don't render italic, bold, links in HTML
 set showmatch                      " highlight matching [{()}]
 set laststatus=2                   " Always show the statusbar
 set clipboard=unnamed              " Share Clipboard with OS
-set autoread                       " Refresh files automatically
 set incsearch                      " search as characters are entered
 set hlsearch                       " highlight matches
 set iskeyword+=-                   " Makes foo-bar considered one word
 set lazyredraw
 set shell=/bin/zsh
+
+" Refresh files automatically
+" http://stackoverflow.com/a/18866818
+set autoread
+au CursorHold * checktime
 
 " Make directories that not exist on write
 func! s:Mkdir()
@@ -95,6 +99,7 @@ func! s:Mkdir()
     echo 'Created non-existing directory: '.dir
   endif
 endfunc
+au! BufWritePre * call s:Mkdir()
 
 " Delete trailing white space on save
 func! s:DeleteTrailingWhiteSpace()
@@ -102,9 +107,8 @@ func! s:DeleteTrailingWhiteSpace()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-
 au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
-au! BufWritePre * call s:Mkdir()
+
 au! BufNewFile,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
 " ---------- PLUGINS
