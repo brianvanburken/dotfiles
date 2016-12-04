@@ -44,7 +44,7 @@ nnoremap <Down>  <NOP>
 " Vim will keep highlighted matches from searches until you either run a new
 " one or manually stop highlighting the old search with :nohlsearch. I find
 " myself running this all the time so I've mapped it to <leader><space>.
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <space><space> :nohlsearch<CR>
 
 " Highlight trailing whitespace
 match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
