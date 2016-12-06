@@ -109,7 +109,7 @@ func! s:DeleteTrailingWhiteSpace()
 endfunc
 au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
 
-au! BufNewFile,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
+au! BufNewFile,BufFilePre,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
 " ---------- PLUGINS
 
