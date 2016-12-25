@@ -58,7 +58,6 @@ set nowritebackup
 set nobackup
 set t_Co=256
 set background=dark
-set termguicolors
 set termencoding=utf-8             " Set encoding to UTF-8
 set encoding=utf-8                 " Set default encoding to UTF-8
 set colorcolumn=81                 " Show column on 81 character for limit reference
