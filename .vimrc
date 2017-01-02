@@ -7,6 +7,7 @@ Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
 Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
+Plug 'mxw/vim-jsx',             { 'for': ['javascript'] }
 
 " Code display
 Plug 'morhetz/gruvbox'
@@ -141,3 +142,5 @@ nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
 
 nnoremap <Leader>d :Dash<CR>
+
+let g:jsx_ext_required = 0
