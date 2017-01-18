@@ -4,7 +4,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias ln='ln -i'
 alias mkdir='mkdir -p'
-
+alias cls='clear'
 alias dev='cd ~/Developer/'
 alias dot='cd ~/.dotfiles/'
 
