@@ -91,16 +91,6 @@ set shell=/bin/zsh
 set autoread
 au CursorHold * checktime
 
-" Make directories that not exist on write
-func! s:Mkdir()
-  let dir = expand('%:p:h')
-  if !isdirectory(dir)
-    call mkdir(dir, 'p')
-    echo 'Created non-existing directory: '.dir
-  endif
-endfunc
-au! BufWritePre * call s:Mkdir()
-
 " Delete trailing white space on save
 func! s:DeleteTrailingWhiteSpace()
   exe "normal mz"
@@ -112,11 +102,11 @@ au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
 au! BufNewFile,BufFilePre,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
 " ---------- PLUGINS
-
 silent! colorscheme gruvbox
 let g:gruvbox_termcolors=16
 let g:gruvbox_contrast_dark='hard'
 
+" Disable netrw and vimball plugins
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_vimballPlugin = 1
