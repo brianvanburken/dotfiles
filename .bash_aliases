@@ -41,3 +41,11 @@ alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Fix ctags on macOS/OS X
 alias ctags="`brew --prefix`/bin/ctags"
+
+function replace() {
+  find_this="$1"
+  shift
+  replace_with="$1"
+  shift
+  ag -l --nocolor "${find_this}" $* | xargs sed -i "" -e "s/${find_this}/${replace_with}/g"
+}
