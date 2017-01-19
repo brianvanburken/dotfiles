@@ -15,7 +15,6 @@ Plug 'Yggdroot/indentLine'
 
 " Integrations
 Plug 'rizzatti/dash.vim'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
