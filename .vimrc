@@ -82,7 +82,6 @@ set clipboard=unnamed              " Share Clipboard with OS
 set incsearch                      " search as characters are entered
 set hlsearch                       " highlight matches
 set iskeyword+=-                   " Makes foo-bar considered one word
-set lazyredraw
 set shell=/bin/zsh
 
 " Refresh files automatically
