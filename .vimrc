@@ -72,7 +72,6 @@ set laststatus=2                   " Always enable status line
 set number                         " Show line numers
 set numberwidth=2                  " Line numbers max to two digits
 set showcmd                        " Show command in bottom bar
-set cursorline                     " Highlight current line
 set ttyfast                        " Sent more characters because we are on a fast terminal connection
 set scrolljump=5                   " Scroll 8 lines at a time at bottom/top
 let html_no_rendering=1            " Don't render italic, bold, links in HTML
@@ -83,6 +82,9 @@ set incsearch                      " search as characters are entered
 set hlsearch                       " highlight matches
 set iskeyword+=-                   " Makes foo-bar considered one word
 set shell=/bin/zsh
+set lazyredraw
+set synmaxcol=128 " Highlight syntax till 128 column
+set ttyscroll=3
 
 " Refresh files automatically
 " http://stackoverflow.com/a/18866818
