@@ -14,7 +14,6 @@ Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 
 " Integrations
-Plug 'rizzatti/dash.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
@@ -130,7 +129,5 @@ endif
 
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
-
-nnoremap <Leader>d :Dash<CR>
 
 let g:jsx_ext_required = 0
