@@ -29,7 +29,6 @@ alias v='vim'
 alias e='vim'
 
 # Git
-alias gunstage='git reset HEAD'
 alias gap='git add --patch'
 alias gs='git status'
 
