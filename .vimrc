@@ -19,16 +19,11 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
 
 " Interface
-Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 
 " Commands
 Plug 'tpope/vim-surround'
-
-" Other
-Plug 'avdgaag/vim-phoenix',     { 'for': ['erlang', 'elixir', 'eelixir'] }
-Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'elixir', 'eelixir'] }
 
 call plug#end()
 

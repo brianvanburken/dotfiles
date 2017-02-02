@@ -31,6 +31,7 @@ alias e='vim'
 # Git
 alias gap='git add --patch'
 alias gs='git status'
+alias gbr='git branch | grep -v "master" | xargs git branch -D'
 
 # Open all merge conflicts or currently changed files in Vim
 alias fix="git diff --name-only | uniq | xargs -o vim"
