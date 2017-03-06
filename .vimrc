@@ -80,11 +80,6 @@ set lazyredraw
 set synmaxcol=128 " Highlight syntax till 128 column
 set ttyscroll=3
 
-" Refresh files automatically
-" http://stackoverflow.com/a/18866818
-set autoread
-au CursorHold * checktime
-
 " Delete trailing white space on save
 func! s:DeleteTrailingWhiteSpace()
   exe "normal mz"
