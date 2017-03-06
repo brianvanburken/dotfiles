@@ -7,7 +7,6 @@ Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
 Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
-Plug 'mxw/vim-jsx',             { 'for': ['javascript'] }
 
 " Code display
 Plug 'morhetz/gruvbox'
@@ -93,7 +92,6 @@ au! BufNewFile,BufFilePre,BufRead *.json set ft=javascript " Vim hides quotes fo
 " ---------- PLUGINS
 silent! colorscheme gruvbox
 let g:gruvbox_termcolors=16
-let g:gruvbox_contrast_dark='hard'
 
 " Disable netrw and vimball plugins
 let g:loaded_netrw = 1
@@ -119,5 +117,3 @@ endif
 
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
-
-let g:jsx_ext_required = 0
