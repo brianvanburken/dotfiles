@@ -27,13 +27,6 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " ---------- SYSTEM
-
-" Force the use of Vim movement
-nnoremap <Left>  <NOP>
-nnoremap <Right> <NOP>
-nnoremap <Up>    <NOP>
-nnoremap <Down>  <NOP>
-
 " Vim will keep highlighted matches from searches until you either run a new
 " one or manually stop highlighting the old search with :nohlsearch. I find
 " myself running this all the time so I've mapped it to <leader><space>.
