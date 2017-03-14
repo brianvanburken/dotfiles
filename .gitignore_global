@@ -8,5 +8,7 @@
 
 ### CTags ###
 tags
+tags.lock
+tags.temp
 
 npm-debug.log
