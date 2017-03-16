@@ -9,7 +9,7 @@ Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
 
 " Code display
-Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 Plug 'Yggdroot/indentLine'
 
 " Integrations
@@ -77,7 +77,9 @@ au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
 au! BufNewFile,BufFilePre,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
 
 " ---------- PLUGINS
-silent! colorscheme gruvbox
+set termguicolors     " enable true colors support
+let ayucolor="dark"
+silent! colorscheme ayu
 
 " Disable netrw and vimball plugins
 let g:loaded_netrw = 1
