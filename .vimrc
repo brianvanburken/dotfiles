@@ -106,3 +106,7 @@ endif
 
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
+
+" Override default indentation widths for certain files
+au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
