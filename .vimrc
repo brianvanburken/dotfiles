@@ -1,7 +1,6 @@
 autocmd!
 
 call plug#begin()
-
 " Language
 Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
@@ -28,7 +27,7 @@ call plug#end()
 
 " ---------- SYSTEM
 " Toggle highlighted matches
-nnoremap <space><space> :nohlsearch<CR>
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Highlight trailing whitespace
 match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
@@ -66,16 +65,6 @@ set termencoding=utf-8             " Set encoding to UTF-8
 set ttyfast                        " Sent more characters because we are on a fast terminal connection
 set ttyscroll=3
 
-" Delete trailing white space on save
-func! s:DeleteTrailingWhiteSpace()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
-
-au! BufNewFile,BufFilePre,BufRead *.json set ft=javascript " Vim hides quotes for JSON files. This fixes that annoyance
-
 " ---------- PLUGINS
 set termguicolors     " enable true colors support
 let ayucolor="dark"
@@ -107,6 +96,20 @@ endif
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
 
-" Override default indentation widths for certain files
-au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
-au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+func! s:DeleteTrailingWhiteSpace()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+
+augroup filetypes
+  " Delete trailing white space on save
+  au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
+
+  " Vim hides quotes for JSON files. This fixes that annoyance
+  au! BufNewFile,BufFilePre,BufRead *.json set ft=javascript
+
+  " Override default indentation widths for certain files
+  au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+augroup END
