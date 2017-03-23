@@ -26,16 +26,6 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " ---------- SYSTEM
-" Toggle highlighted matches
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Highlight trailing whitespace
-match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
-
-filetype indent on                 " Load filetype-specific indent files
-
-let mapleader = " "
-
 set clipboard=unnamed              " Share Clipboard with OS
 set colorcolumn=81                 " Show column on 81 character for limit reference
 set encoding=utf-8                 " Set default encoding to UTF-8
@@ -62,11 +52,19 @@ set softtabstop=2                  " Number of spaces in tab when editing
 set synmaxcol=128                  " Highlight syntax till 128 column
 set tabstop=2                      " A tab is two space
 set termencoding=utf-8             " Set encoding to UTF-8
+set termguicolors                  " enable true colors support
 set ttyfast                        " Sent more characters because we are on a fast terminal connection
 set ttyscroll=3
 
-" ---------- PLUGINS
-set termguicolors     " enable true colors support
+" ---------- OTHER
+
+" Highlight trailing whitespace
+match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
+
+filetype indent on " Load filetype-specific indent files
+
+let mapleader = " "
+
 let ayucolor="dark"
 silent! colorscheme ayu
 
@@ -95,6 +93,9 @@ endif
 
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
+
+" Toggle highlighted matches
+nnoremap <leader>n :nohlsearch<CR>
 
 func! s:DeleteTrailingWhiteSpace()
   exe "normal mz"
