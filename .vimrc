@@ -108,10 +108,10 @@ augroup filetypes
   " Delete trailing white space on save
   au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
 
-  " Vim hides quotes for JSON files. This fixes that annoyance
-  au BufNewFile,BufRead,BufRead *.json setfiletype json syntax=javascript
+  " Treat .json files as JavaScript (Vim hides quotes for JSON files)
+  au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
   " Treat .md files as Markdown
-  au BufNewFile,BufRead,BufRead *.md setlocal filetype=markdown
+  au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
 
   " Override default indentation widths for certain files
   au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
