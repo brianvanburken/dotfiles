@@ -5,7 +5,7 @@ call plug#begin()
 Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
 Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript'] }
+Plug 'pangloss/vim-javascript', { 'for': ['html', 'eelixir', 'javascript'] }
 
 " Code display
 Plug 'ayu-theme/ayu-vim'
@@ -27,8 +27,8 @@ call plug#end()
 
 " ---------- SYSTEM
 set clipboard=unnamed              " Share Clipboard with OS
-set colorcolumn=81                 " Show column on 81 character for limit reference
-set encoding=utf-8                 " Set default encoding to UTF-8
+set colorcolumn=80                 " Show column on 80 character for limit reference
+set encoding=utf-8 nobomb          " Set default encoding to UTF-8
 set expandtab                      " Use spaces not tabs
 set hlsearch                       " highlight matches
 set incsearch                      " search as characters are entered
@@ -36,7 +36,7 @@ set iskeyword+=-                   " Makes foo-bar considered one word
 set laststatus=2                   " Always enable status line
 set lazyredraw
 set list                           " Always display whitespace
-set listchars=tab:»·,trail:·,eol:¬ " Display extra whitespace
+set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
 set nobackup
 set noswapfile
 set nowrap                         " Set no line wrap
@@ -55,6 +55,7 @@ set termencoding=utf-8             " Set encoding to UTF-8
 set termguicolors                  " enable true colors support
 set ttyfast                        " Sent more characters because we are on a fast terminal connection
 set ttyscroll=3
+set scrolloff=3                   " Start scrolling three lines before the horizontal window border
 
 " ---------- OTHER
 
@@ -108,7 +109,9 @@ augroup filetypes
   au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
 
   " Vim hides quotes for JSON files. This fixes that annoyance
-  au! BufNewFile,BufFilePre,BufRead *.json set ft=javascript
+  au BufNewFile,BufRead,BufRead *.json setfiletype json syntax=javascript
+  " Treat .md files as Markdown
+  au BufNewFile,BufRead,BufRead *.md setlocal filetype=markdown
 
   " Override default indentation widths for certain files
   au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
