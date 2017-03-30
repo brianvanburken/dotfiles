@@ -95,9 +95,6 @@ endif
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
 
-" Toggle highlighted matches
-nnoremap <leader>n :nohlsearch<CR>
-
 " Delete trailing whitespace
 fun! StripTrailingWhitespace()
   if &ft =~ 'markdown' " Don't strip on these filetypes
