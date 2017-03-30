@@ -98,15 +98,16 @@ nnoremap <Leader>o :CtrlP ./<CR>
 " Toggle highlighted matches
 nnoremap <leader>n :nohlsearch<CR>
 
-func! s:DeleteTrailingWhiteSpace()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
+" Delete trailing whitespace
+fun! StripTrailingWhitespace()
+  if &ft =~ 'markdown' " Don't strip on these filetypes
+    return
+  endif
+  %s/\s\+$//e
+endfun
 
 augroup filetypes
-  " Delete trailing white space on save
-  au! BufWrite * silent call s:DeleteTrailingWhiteSpace()
+  au! BufWritePre * silent call StripTrailingWhitespace()
 
   " Treat .json files as JavaScript (Vim hides quotes for JSON files)
   au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
