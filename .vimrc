@@ -77,23 +77,25 @@ let html_no_rendering = 1 " Don't render italic, bold, links in HTML
 
 let g:elm_format_autosave = 1
 
-let g:ctrlp_jump_to_buffer = 2         " Jump to tab AND buffer if already open
-let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
-let g:ctrlp_max_files = 0              " no restriction on results/file list
-let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
-let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
-let g:ctrlp_open_multiple_files = 'vr' " opens multiple selections in vertical splits to the right
-let g:ctrlp_open_new_file = 'v'        " open selections in a vertical split
-let g:ctrlp_split_window = 0
-let g:ctrlp_use_caching = 0
+if exists(':CtrlP')
+  let g:ctrlp_jump_to_buffer = 2         " Jump to tab AND buffer if already open
+  let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
+  let g:ctrlp_max_files = 0              " no restriction on results/file list
+  let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
+  let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
+  let g:ctrlp_open_multiple_files = 'vr' " opens multiple selections in vertical splits to the right
+  let g:ctrlp_open_new_file = 'v'        " open selections in a vertical split
+  let g:ctrlp_split_window = 0
+  let g:ctrlp_use_caching = 0
 
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+  endif
+
+  nnoremap <Leader>t :CtrlPTag<CR>
+  nnoremap <Leader>o :CtrlP ./<CR>
 endif
-
-nnoremap <Leader>t :CtrlPTag<CR>
-nnoremap <Leader>o :CtrlP ./<CR>
 
 " Delete trailing whitespace
 fun! StripTrailingWhitespace()
