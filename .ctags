@@ -8,6 +8,7 @@
 --exclude=bower_components
 --exclude=node_modules
 --exclude=public/assets
+--exclude=coverage
 --exclude=_build
 --extra=+f
 --append
