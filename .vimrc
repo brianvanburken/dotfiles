@@ -1,5 +1,3 @@
-autocmd!
-
 call plug#begin()
 " Language
 Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
