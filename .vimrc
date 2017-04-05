@@ -75,25 +75,23 @@ let html_no_rendering = 1 " Don't render italic, bold, links in HTML
 
 let g:elm_format_autosave = 1
 
-if exists(':CtrlP')
-  let g:ctrlp_jump_to_buffer = 2         " Jump to tab AND buffer if already open
-  let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
-  let g:ctrlp_max_files = 0              " no restriction on results/file list
-  let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
-  let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
-  let g:ctrlp_open_multiple_files = 'vr' " opens multiple selections in vertical splits to the right
-  let g:ctrlp_open_new_file = 'v'        " open selections in a vertical split
-  let g:ctrlp_split_window = 0
-  let g:ctrlp_use_caching = 0
+let g:ctrlp_jump_to_buffer = 2         " Jump to tab AND buffer if already open
+let g:ctrlp_match_window_bottom = 1    " Show at bottom of window
+let g:ctrlp_max_files = 0              " no restriction on results/file list
+let g:ctrlp_max_height = 40            " restrict match list to a maxheight of 40
+let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
+let g:ctrlp_open_multiple_files = 'vr' " opens multiple selections in vertical splits to the right
+let g:ctrlp_open_new_file = 'v'        " open selections in a vertical split
+let g:ctrlp_split_window = 0
+let g:ctrlp_use_caching = 0
 
-  if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-  endif
-
-  nnoremap <Leader>t :CtrlPTag<CR>
-  nnoremap <Leader>o :CtrlP ./<CR>
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 endif
+
+nnoremap <Leader>t :CtrlPTag<CR>
+nnoremap <Leader>o :CtrlP ./<CR>
 
 " Delete trailing whitespace
 fun! StripTrailingWhitespace()
@@ -103,16 +101,14 @@ fun! StripTrailingWhitespace()
   %s/\s\+$//e
 endfun
 
-augroup filetypes
-  au! BufWritePre * silent call StripTrailingWhitespace()
+au! BufWritePre * silent call StripTrailingWhitespace()
 
-  " Treat .json files as JavaScript (Vim hides quotes for JSON files)
-  au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
-  " Treat .md files as Markdown
-  au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
+" Treat .json files as JavaScript (Vim hides quotes for JSON files)
+au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
+" Treat .md files as Markdown
+au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
 
-  " Override default indentation widths for certain files
-  au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  au FileType json       setlocal shiftwidth=4 tabstop=4 softtabstop=4
-augroup END
+" Override default indentation widths for certain files
+au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au FileType json       setlocal shiftwidth=4 tabstop=4 softtabstop=4
