@@ -17,7 +17,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
 
 " Interface
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPTag'] }
 Plug 'itchyny/lightline.vim'
 
 " Commands
