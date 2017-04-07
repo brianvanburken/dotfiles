@@ -1,5 +1,3 @@
-autocmd!
-
 call plug#begin()
 " Language
 Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
@@ -17,7 +15,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
 
 " Interface
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPTag'] }
 Plug 'itchyny/lightline.vim'
 
 " Commands
@@ -103,16 +101,14 @@ fun! StripTrailingWhitespace()
   %s/\s\+$//e
 endfun
 
-augroup filetypes
-  au! BufWritePre * silent call StripTrailingWhitespace()
+au! BufWritePre * silent call StripTrailingWhitespace()
 
-  " Treat .json files as JavaScript (Vim hides quotes for JSON files)
-  au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
-  " Treat .md files as Markdown
-  au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
+" Treat .json files as JavaScript (Vim hides quotes for JSON files)
+au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
+" Treat .md files as Markdown
+au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
 
-  " Override default indentation widths for certain files
-  au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  au FileType json       setlocal shiftwidth=4 tabstop=4 softtabstop=4
-augroup END
+" Override default indentation widths for certain files
+au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au FileType json       setlocal shiftwidth=4 tabstop=4 softtabstop=4
