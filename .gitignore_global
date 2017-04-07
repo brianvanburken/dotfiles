@@ -12,3 +12,5 @@ tags.lock
 tags.temp
 
 npm-debug.log
+
+*.tar.gz
