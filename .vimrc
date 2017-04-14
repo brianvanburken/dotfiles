@@ -114,8 +114,3 @@ au! BufWritePre * silent call StripTrailingWhitespace()
 au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
 " Treat .md files as Markdown
 au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
-
-" Override default indentation widths for certain files
-au FileType elm        setlocal shiftwidth=4 tabstop=4 softtabstop=4
-au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-au FileType json       setlocal shiftwidth=4 tabstop=4 softtabstop=4
