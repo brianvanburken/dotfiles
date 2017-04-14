@@ -57,7 +57,6 @@ set ttyscroll=3
 set scrolloff=3                   " Start scrolling three lines before the horizontal window border
 
 " ---------- OTHER
-
 " Highlight trailing whitespace
 match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
 
@@ -95,6 +94,11 @@ endif
 
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
+
+if executable('prettier')
+  au FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
+  au BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
+endif
 
 " Delete trailing whitespace
 fun! StripTrailingWhitespace()
