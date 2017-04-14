@@ -4,6 +4,7 @@ Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
 Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'eelixir', 'javascript'] }
+Plug 'mxw/vim-jsx',             { 'for': ['javascript'] }
 
 " Code display
 Plug 'ayu-theme/ayu-vim'
@@ -72,6 +73,8 @@ let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_vimballPlugin = 1
 let html_no_rendering = 1 " Don't render italic, bold, links in HTML
+
+let g:jsx_ext_required = 0
 
 let g:elm_format_autosave = 1
 
