@@ -23,3 +23,10 @@ source_code/
 .vim/
 deps/
 elm-stuff/
+*.otf
+*.ttf
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
