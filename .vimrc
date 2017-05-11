@@ -48,7 +48,6 @@ set shiftwidth=2                   " An autoindent (with <<) is two space
 set showcmd                        " Show command in bottom bar
 set showmatch                      " highlight matching [{()}]
 set softtabstop=2                  " Number of spaces in tab when editing
-set synmaxcol=128                  " Highlight syntax till 128 column
 set tabstop=2                      " A tab is two space
 set termencoding=utf-8             " Set encoding to UTF-8
 set termguicolors                  " enable true colors support
