@@ -22,6 +22,7 @@
 	compactionHeuristic = true
 [alias]
 	all = "!f() { ls | xargs -P10 -I{} git -C {} $1; }; f"
+	rekt = push --force
 	lastchange = log -p --follow -n 1
 [commit]
 	gpgsign = true
