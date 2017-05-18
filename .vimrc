@@ -94,11 +94,6 @@ endif
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
 
-if executable('prettier')
-  au FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
-  au BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
-endif
-
 " Delete trailing whitespace
 fun! StripTrailingWhitespace()
   if &ft =~ 'markdown' " Don't strip on these filetypes
