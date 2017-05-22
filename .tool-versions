@@ -1,6 +1,6 @@
 ruby 2.4.1
-nodejs 7.7.4
+nodejs 7.10.0
 erlang 19.3
-elixir 1.4.2
+elixir 1.4.4
 elm 0.18.0
 haskell 8.0.2
