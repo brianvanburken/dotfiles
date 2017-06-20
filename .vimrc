@@ -31,7 +31,6 @@ set encoding=utf-8 nobomb          " Set default encoding to UTF-8
 set expandtab                      " Use spaces not tabs
 set hlsearch                       " highlight matches
 set incsearch                      " search as characters are entered
-set iskeyword+=-                   " Makes foo-bar considered one word
 set laststatus=2                   " Always enable status line
 set lazyredraw
 set list                           " Always display whitespace
