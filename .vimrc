@@ -93,16 +93,6 @@ endif
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlP ./<CR>
 
-" Delete trailing whitespace
-fun! StripTrailingWhitespace()
-  if &ft =~ 'markdown' " Don't strip on these filetypes
-    return
-  endif
-  %s/\s\+$//e
-endfun
-
-au! BufWritePre * silent call StripTrailingWhitespace()
-
 " Treat .json files as JavaScript (Vim hides quotes for JSON files)
 au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
 " Treat .md files as Markdown
