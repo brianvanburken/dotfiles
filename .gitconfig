@@ -16,7 +16,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
-	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
 	attributesfile = ~/.gitattributes-global
 [diff]
 	compactionHeuristic = true
@@ -28,3 +28,5 @@
 	gpgsign = true
 [gpg]
 	program = gpg2
+[apply]
+  whitespace = fix
