@@ -6,13 +6,14 @@ alias ln='ln -i'
 alias mkdir='mkdir -p'
 alias cls='clear'
 alias dev='cd ~/Developer/'
-alias dot='cd ~/.dotfiles/'
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
 alias mine='sudo chown -R $(whoami):admin '
 
+alias greg='ag'
+
 # NPM
-alias npmci='rm -rf node_modules/ && echo "Removed node_modules" && npm cache clear && echo "Cleared NPM cache" && npm install'
+alias npmci='rm -rf node_modules/ && npm install'
 
 # Yarn
 alias y='yarn'
@@ -21,7 +22,7 @@ alias yi='yarn init'
 alias yu='yarn upgrade'
 alias yg='yarn global'
 alias yv='yarn --version'
-alias yci='rm -rf node_modules/ && yarn'
+alias yci='rm -rf node_modules/ && yarn install'
 
 # Vim
 alias vi='vim'
@@ -41,11 +42,3 @@ alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Fix ctags on macOS/OS X
 alias ctags="`brew --prefix`/bin/ctags"
-
-function replace() {
-  find_this="$1"
-  shift
-  replace_with="$1"
-  shift
-  ag -l --nocolor "${find_this}" $* | xargs sed -i "" -e "s/${find_this}/${replace_with}/g"
-}

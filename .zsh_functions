@@ -26,3 +26,11 @@ mcdir () {
   mkdir -p "$1"
   cd "$1"
 }
+
+replace() {
+  find_this="$1"
+  shift
+  replace_with="$1"
+  shift
+  ag -l --nocolor "${find_this}" $* | xargs sed -i "" -e "s/${find_this}/${replace_with}/g"
+}
