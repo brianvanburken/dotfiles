@@ -9,7 +9,6 @@ _build/
 *.sql
 *.tags*
 *.gemtags*
-*.csv
 *.tsv
 *.tmp*
 *.old
