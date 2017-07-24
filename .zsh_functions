@@ -20,6 +20,7 @@ updatify() {
   brew doctor;
   rm -rf "$(brew --cache)/*"
   zmanage update # Update Zim
+  sudo softwareupdate -ia && sudo reboot
 }
 
 mcdir () {
