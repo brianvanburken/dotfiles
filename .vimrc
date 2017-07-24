@@ -81,7 +81,6 @@ let g:ctrlp_mru_files = 1              " Enable Most Recently Used files feature
 let g:ctrlp_open_multiple_files = 'vr' " opens multiple selections in vertical splits to the right
 let g:ctrlp_open_new_file = 'v'        " open selections in a vertical split
 let g:ctrlp_split_window = 0
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
