@@ -18,9 +18,10 @@ updatify() {
   brew cleanup --force;
   brew cask cleanup;
   brew doctor;
-  rm -rf "$(brew --cache)/*"
-  zmanage update # Update Zim
-  sudo softwareupdate -ia && sudo reboot
+  brew cask cleanup;
+  rm -rf "$(brew --cache)/*";
+  zmanage update; # Update Zim
+  sudo softwareupdate -iva;
 }
 
 mcdir () {
