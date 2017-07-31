@@ -19,9 +19,11 @@ updatify() {
   brew cask cleanup;
   brew doctor;
   brew cask cleanup;
+  brew cask doctor;
+  brew cask outdated;
   rm -rf "$(brew --cache)/*";
   zmanage update; # Update Zim
-  sudo softwareupdate -iva;
+  sudo softwareupdate -ia --verbose;
 }
 
 mcdir () {
