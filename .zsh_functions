@@ -9,8 +9,7 @@ t() {
   tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst -L $levels -aC $@
 }
 
-# Update software
-updatify() {
+update_brew() {
   # Update packages
   brew update;
   brew upgrade --cleanup;
@@ -21,8 +20,27 @@ updatify() {
   brew cask doctor;
   brew cask outdated;
   rm -rf "$(brew --cache)/*";
-  zmanage update; # Update Zim
+}
+
+update_npm() {
+  npm -gp outdated | cut -d: -f4
+  npm -gp outdated | cut -d: -f4 | xargs -n1 npm -g install
+}
+
+update_zim() {
+  zmanage update;
+}
+
+update_os() {
   sudo softwareupdate -ia --verbose;
+}
+
+# Update software
+updatify() {
+  update_brew
+  update_npm
+  update_zim
+  update_os
 }
 
 mcdir () {
