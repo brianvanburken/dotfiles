@@ -16,7 +16,6 @@ updatify() {
   brew upgrade --cleanup;
   brew prune;
   brew cleanup --force;
-  brew cask cleanup;
   brew doctor;
   brew cask cleanup;
   brew cask doctor;
