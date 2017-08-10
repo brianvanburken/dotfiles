@@ -16,10 +16,12 @@ update_brew() {
   brew prune;
   brew cleanup --force;
   brew doctor;
-  brew cask cleanup;
-  brew cask doctor;
-  brew cask outdated;
   rm -rf "$(brew --cache)/*";
+}
+
+update_brew_cask() {
+  brew cu;
+  brew cask cleanup;
 }
 
 update_npm() {
