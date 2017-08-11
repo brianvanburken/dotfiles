@@ -1,11 +1,11 @@
+require("hs.application")
+require("hs.window")
+
 -----------------------------------------------
 -- Global configurations
 -----------------------------------------------
 hs.window.animationDuration = 0
 hs.hints.showTitleThresh = 0
-
-require("hs.application")
-require("hs.window")
 
 -----------------------------------------------
 -- Reload config on write
@@ -16,72 +16,15 @@ end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
 hs.alert.show("Config loaded")
 
------------------------------------------------
--- Mouse management
------------------------------------------------
--- TODO: mouse movement
--- Example: https://github.com/ashfinal/awesome-hammerspoon/blob/255e11ab964de00c7a35286158ca3460a06a66f9/modes/basicmode.lua
 
 -----------------------------------------------
 -- Window management
 -----------------------------------------------
--- Start mode with ⌥  + R
--- Exit mode with escape
---
--- Use ; to display hints for active windows.
--- Use [/] to cycle through active windows.
--- Use H/J/K/L to resize windows to 1/2 of screen.
--- Use Y/U/I/O to resize windows to 1/4 of screen.
--- Use ⇧  + H/J/K/L to move windows around.
--- Use ⇧  + Y/U/I/O to resize windows.
--- Use =, - to expand/shrink the window size.
--- Use F to put windows to fullscreen
--- Use C to put windows to center of screen
-
--- Use ⇧  + C to resize windows to predefined size and center them.
-
-wm = hs.hotkey.modal.new('alt', 'r')
-function wm:entered() hs.alert 'Entered resize mode' end
-function wm:exited()  hs.alert 'Exited resize mode'  end
-wm:bind('', 'escape', function() wm:exit() end)
-
-wm:bind('', '[', 'Focus left',  function() cycle_wins_pre()  end, nil, function() cycle_wins_pre()  end)
-wm:bind('', ']', 'Focus right', function() cycle_wins_next() end, nil, function() cycle_wins_next() end)
-
-
-wm:bind('shift', 'Y', 'Shrink Leftward',     function () resize_win('left')       end, nil, function () resize_win('left')  end)
-wm:bind('shift', 'O', 'Stretch Rightward',   function () resize_win('right')      end, nil, function () resize_win('right') end)
-wm:bind('shift', 'U', 'Stretch Downward',    function () resize_win('down')       end, nil, function () resize_win('down')  end)
-wm:bind('shift', 'I', 'Shrink Upward',       function () resize_win('up')         end, nil, function () resize_win('up')    end)
-wm:bind('',      'F', 'Fullscreen',          function () resize_win('fullscreen') end, nil, nil)
-wm:bind('',      'C', 'Center Window',       function () resize_win('center')     end, nil, nil)
-wm:bind('shift', 'C', 'Resize & Center',     function () resize_win('fcenter')    end, nil, nil)
-wm:bind('',      'H', 'Lefthalf of Screen',  function () resize_win('halfleft')   end, nil, nil)
-wm:bind('',      'J', 'Downhalf of Screen',  function () resize_win('halfdown')   end, nil, nil)
-wm:bind('',      'K', 'Uphalf of Screen',    function () resize_win('halfup')     end, nil, nil)
-wm:bind('',      'L', 'Righthalf of Screen', function () resize_win('halfright')  end, nil, nil)
-wm:bind('',      'Y', 'NorthWest Corner',    function () resize_win('cornerNW')   end, nil, nil)
-wm:bind('',      'U', 'SouthWest Corner',    function () resize_win('cornerSW')   end, nil, nil)
-wm:bind('',      'I', 'SouthEast Corner',    function () resize_win('cornerSE')   end, nil, nil)
-wm:bind('',      'O', 'NorthEast Corner',    function () resize_win('cornerNE')   end, nil, nil)
-wm:bind('shift', 'H', 'Move Leftward',       function () resize_win('mleft')      end, nil, function () resize_win('mleft')  end)
-wm:bind('shift', 'L', 'Move Rightward',      function () resize_win('mright')     end, nil, function () resize_win('mright') end)
-wm:bind('shift', 'J', 'Move Downward',       function () resize_win('mdown')      end, nil, function () resize_win('mdown')  end)
-wm:bind('shift', 'K', 'Move Upward',         function () resize_win('mup')        end, nil, function () resize_win('mup')    end)
-wm:bind('',      '=', 'Stretch Outward',     function () resize_win('expand')     end, nil, function () resize_win('expand') end)
-wm:bind('',      '-', 'Shrink Inward',       function () resize_win('shrink')     end, nil, function () resize_win('shrink') end)
-
-function cycle_wins_next()
-    windows_list[resize_current_winnum]:focus()
-    resize_current_winnum = resize_current_winnum + 1
-    if resize_current_winnum > #windows_list then resize_current_winnum = 1 end
-end
-
-function cycle_wins_pre()
-    windows_list[resize_current_winnum]:focus()
-    resize_current_winnum = resize_current_winnum - 1
-    if resize_current_winnum < 1 then resize_current_winnum = #windows_list end
-end
+hs.hotkey.bind({"ctrl", "cmd"}, 'f', function () resize_win('native_fullscreen') end);
+hs.hotkey.bind({"ctrl", "cmd"}, 'c', function () resize_win('center')     end);
+hs.hotkey.bind({"ctrl", "cmd"}, 'h', function () resize_win('halfleft')   end);
+hs.hotkey.bind({"ctrl", "cmd"}, 'l', function () resize_win('halfright')  end);
+hs.hotkey.bind({"cmd"},         'escape', function() hs.hints.windowHints() end)
 
 function resize_win(direction)
     local win = hs.window.focusedWindow()
@@ -166,6 +109,9 @@ function resize_win(direction)
             localf.x = 0 localf.y = 0 localf.w = max.w localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
+        end
+        if direction == "native_fullscreen" then
+          win:toggleFullScreen()
         end
         if direction == "shrink" then
             localf.x = localf.x+stepw localf.y = localf.y+steph localf.w = localf.w-(stepw*2) localf.h = localf.h-(steph*2)
