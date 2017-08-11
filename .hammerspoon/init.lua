@@ -22,8 +22,14 @@ hs.alert.show("Config loaded")
 -----------------------------------------------
 hs.hotkey.bind({"ctrl", "cmd"}, 'f', function () resize_win('native_fullscreen') end);
 hs.hotkey.bind({"ctrl", "cmd"}, 'c', function () resize_win('center')     end);
+
 hs.hotkey.bind({"ctrl", "cmd"}, 'h', function () resize_win('halfleft')   end);
 hs.hotkey.bind({"ctrl", "cmd"}, 'l', function () resize_win('halfright')  end);
+
+hs.hotkey.bind({"ctrl", "cmd"}, 'b', function () resize_win('thirdleft')   end);
+hs.hotkey.bind({"ctrl", "cmd"}, 'n', function () resize_win('thirdmiddle')  end);
+hs.hotkey.bind({"ctrl", "cmd"}, 'm', function () resize_win('thirdright')  end);
+
 hs.hotkey.bind({"cmd"},         'escape', function() hs.hints.windowHints() end)
 
 function resize_win(direction)
@@ -72,6 +78,21 @@ function resize_win(direction)
         end
         if direction == "halfdown" then
             localf.x = 0 localf.y = max.h/2 localf.w = max.w localf.h = max.h/2
+            local absolutef = screen:localToAbsolute(localf)
+            win:setFrame(absolutef)
+        end
+        if direction == "thirdleft" then
+            localf.x = 0 localf.y = 0 localf.w = max.w/3 localf.h = max.h
+            local absolutef = screen:localToAbsolute(localf)
+            win:setFrame(absolutef)
+        end
+        if direction == "thirdmiddle" then
+            localf.x = max.w/3 localf.y = 0 localf.w = max.w/3 localf.h = max.h
+            local absolutef = screen:localToAbsolute(localf)
+            win:setFrame(absolutef)
+        end
+        if direction == "thirdright" then
+            localf.x = max.w/3 * 2 localf.y = 0 localf.w = max.w/3 localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
