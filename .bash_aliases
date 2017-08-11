@@ -13,15 +13,6 @@ alias mine='sudo chown -R $(whoami):admin '
 # NPM
 alias npmci='rm -rf node_modules/ && npm install'
 
-# Yarn
-alias y='yarn'
-alias ya='yarn add'
-alias yi='yarn init'
-alias yu='yarn upgrade'
-alias yg='yarn global'
-alias yv='yarn --version'
-alias yci='rm -rf node_modules/ && yarn install'
-
 # Vim
 alias vi='vim'
 alias v='vim'
