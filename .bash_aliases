@@ -10,8 +10,6 @@ alias dev='cd ~/Developer/'
 alias kill_ds="find . -name .DS_Store -type f -delete"
 alias mine='sudo chown -R $(whoami):admin '
 
-alias greg='ag'
-
 # NPM
 alias npmci='rm -rf node_modules/ && npm install'
 
