@@ -32,27 +32,21 @@ set expandtab                      " Use spaces not tabs
 set hlsearch                       " highlight matches
 set incsearch                      " search as characters are entered
 set laststatus=2                   " Always enable status line
-set lazyredraw
 set list                           " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
 set nobackup
 set noswapfile
-set nowrap                         " Set no line wrap
 set nowritebackup
 set number                         " Show line numers
 set numberwidth=2                  " Line numbers max to two digits
-set scrolljump=5                   " Scroll 8 lines at a time at bottom/top
-set shell=/bin/zsh
 set shiftwidth=2                   " An autoindent (with <<) is two space
-set showcmd                        " Show command in bottom bar
+set showcmd                        " Show typed command in bottom bar
 set showmatch                      " highlight matching [{()}]
 set softtabstop=2                  " Number of spaces in tab when editing
 set tabstop=2                      " A tab is two space
 set termencoding=utf-8             " Set encoding to UTF-8
-set termguicolors                  " enable true colors support
-set ttyfast                        " Sent more characters because we are on a fast terminal connection
-set ttyscroll=3
-set scrolloff=3                   " Start scrolling three lines before the horizontal window border
+set termguicolors
+set ttyfast
 
 " ---------- OTHER
 " Highlight trailing whitespace
