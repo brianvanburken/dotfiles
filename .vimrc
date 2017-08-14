@@ -66,6 +66,8 @@ let html_no_rendering = 1 " Don't render italic, bold, links in HTML
 
 let g:jsx_ext_required = 0
 
+let g:javascript_plugin_jsdoc = 1
+
 let g:elm_format_autosave = 1
 
 let g:ctrlp_jump_to_buffer = 2         " Jump to tab AND buffer if already open
