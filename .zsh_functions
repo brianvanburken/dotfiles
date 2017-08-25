@@ -25,8 +25,8 @@ update_brew_cask() {
 }
 
 update_npm() {
-  npm -gp outdated | cut -d: -f4
-  npm -gp outdated | cut -d: -f4 | xargs -n1 npm -g install
+  npm -gp outdated | cut -d: -f2
+  npm -gp outdated | cut -d: -f2 | xargs -n1 npm -g install
 }
 
 update_zim() {
