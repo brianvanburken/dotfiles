@@ -16,7 +16,8 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
 
 " Interface
-Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPTag'] }
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'wikitopian/hardmode'
 
@@ -86,8 +87,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-nnoremap <Leader>t :CtrlPTag<CR>
-nnoremap <Leader>o :CtrlP ./<CR>
+nnoremap <Leader>t :Tags<CR>
+nnoremap <Leader>o :Files<CR>
 
 " Treat .json files as JavaScript (Vim hides quotes for JSON files)
 au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
