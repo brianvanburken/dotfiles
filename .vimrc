@@ -14,6 +14,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
+Plug 'w0rp/ale'
 
 " Interface
 Plug '/usr/local/opt/fzf'
