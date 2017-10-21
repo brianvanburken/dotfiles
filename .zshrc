@@ -6,6 +6,9 @@
 [[ -r $(brew --prefix)/opt/asdf/asdf.sh ]] && source $(brew --prefix)/opt/asdf/asdf.sh
 [[ -f $(brew --prefix)/etc/profile.d/z.sh ]] && source $(brew --prefix)/etc/profile.d/z.sh
 
+# If FZF is installed and The Silver Searcher I configure fzf to use ag as the
+# default command. This makes it faster in searching and also makes use of the
+# .gitignore AND .agignore!
 if typeset -f fzf > /dev/null && typeset -f ag > /dev/null; then
   export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
