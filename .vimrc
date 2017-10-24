@@ -75,6 +75,7 @@ let g:elm_format_autosave = 1
 
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>o :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 " Treat .json files as JavaScript (Vim hides quotes for JSON files)
 au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
