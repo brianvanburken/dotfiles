@@ -61,10 +61,6 @@ filetype indent on " Load filetype-specific indent files
 let ayucolor="dark"
 silent! colorscheme ayu
 
-" Disable netrw and vimball plugins
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_vimballPlugin = 1
 let html_no_rendering = 1 " Don't render italic, bold, links in HTML
 
 let g:jsx_ext_required = 0
