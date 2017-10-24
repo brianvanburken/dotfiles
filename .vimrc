@@ -67,6 +67,7 @@ let g:jsx_ext_required = 0
 
 let g:javascript_plugin_jsdoc = 1
 
+let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
 
 nnoremap <Leader>t :Tags<CR>
