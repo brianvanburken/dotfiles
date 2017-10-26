@@ -85,3 +85,6 @@ au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
 " is an escape hatch with <leader>h!
 au VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
