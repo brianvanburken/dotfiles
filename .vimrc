@@ -15,6 +15,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
+Plug 'rizzatti/dash.vim'
 
 " Interface
 Plug '/usr/local/opt/fzf'
@@ -74,6 +75,8 @@ nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>o :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>a :Ag<CR>
+
+nnoremap <Leader>d :Dash<CR>
 
 " Treat .json files as JavaScript (Vim hides quotes for JSON files)
 au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
