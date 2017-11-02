@@ -4,7 +4,6 @@ Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
 Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
 Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'eelixir', 'javascript'] }
-Plug 'mxw/vim-jsx',             { 'for': ['javascript'] }
 
 " Code display
 Plug 'ayu-theme/ayu-vim'
@@ -63,8 +62,6 @@ let ayucolor="dark"
 silent! colorscheme ayu
 
 let html_no_rendering = 1 " Don't render italic, bold, links in HTML
-
-let g:jsx_ext_required = 0
 
 let g:javascript_plugin_jsdoc = 1
 
