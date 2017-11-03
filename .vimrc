@@ -88,3 +88,10 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
+
+augroup elm
+  autocmd!
+  autocmd BufNewFile,BufRead *.elm setlocal tabstop=4
+  autocmd BufNewFile,BufRead *.elm setlocal shiftwidth=4
+  autocmd BufNewFile,BufRead *.elm setlocal softtabstop=4
+augroup END
