@@ -2,58 +2,15 @@ o () { open ${1:-.}; }
 
 gbd () { git branch -D `git branch | grep ${1}` }
 
-t() {
-  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
-  # pass additional args after
-  local levels=${1:-3}; shift
-  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst -L $levels -aC $@
-}
-
-update_brew() {
-  # Update packages
-  brew update;
-  brew upgrade --cleanup;
+brew_clean() {
+  brew doctor;
   brew prune;
   brew cleanup --force;
-  brew doctor;
-  rm -rf "$(brew --cache)/*";
-}
-
-update_brew_cask() {
-  brew cu;
   brew cask cleanup;
-}
-
-update_npm() {
-  npm -gp outdated | cut -d: -f2
-  npm -gp outdated | cut -d: -f2 | xargs -n1 npm -g install
-}
-
-update_zim() {
-  zmanage update;
-}
-
-update_os() {
-  sudo softwareupdate -ia --verbose;
-}
-
-# Update software
-updatify() {
-  update_brew
-  update_npm
-  update_zim
-  update_os
+  rm -rf "$(brew --cache)/*";
 }
 
 mcdir () {
   mkdir -p "$1"
   cd "$1"
-}
-
-replace() {
-  find_this="$1"
-  shift
-  replace_with="$1"
-  shift
-  ag -l --nocolor "${find_this}" $* | xargs sed -i "" -e "s/${find_this}/${replace_with}/g"
 }
