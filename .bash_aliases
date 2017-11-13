@@ -35,3 +35,11 @@ alias ctags="`brew --prefix`/bin/ctags"
 # Shortcuts for checking NPM packages using npm-check
 alias ncu='npm-check -u --no-emoji'
 alias ncgu='npm-check -gu --no-emoji'
+
+# Elm shortcuts
+alias em='elm make'
+alias er='elm repl'
+alias et='elm test'
+alias el='elm live'
+alias ef='elm format'
+alias epi='elm-package install -y '
