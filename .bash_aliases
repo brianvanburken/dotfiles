@@ -31,3 +31,7 @@ alias dots='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Fix ctags on macOS/OS X
 alias ctags="`brew --prefix`/bin/ctags"
+
+# Shortcuts for checking NPM packages using npm-check
+alias ncu='npm-check -u --no-emoji'
+alias ncgu='npm-check -gu --no-emoji'
