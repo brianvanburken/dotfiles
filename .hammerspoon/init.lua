@@ -30,6 +30,9 @@ hs.hotkey.bind({"ctrl", "cmd"}, 'b', function () resize_win('thirdleft')   end);
 hs.hotkey.bind({"ctrl", "cmd"}, 'n', function () resize_win('thirdmiddle')  end);
 hs.hotkey.bind({"ctrl", "cmd"}, 'm', function () resize_win('thirdright')  end);
 
+hs.hotkey.bind({"ctrl", "cmd"}, 'i', function () resize_win('twothirdleft')   end);
+hs.hotkey.bind({"ctrl", "cmd"}, 'o', function () resize_win('twothirdright')  end);
+
 hs.hotkey.bind({"cmd"},         'escape', function() hs.hints.windowHints() end)
 
 function resize_win(direction)
@@ -93,6 +96,22 @@ function resize_win(direction)
         end
         if direction == "thirdright" then
             localf.x = max.w/3 * 2 localf.y = 0 localf.w = max.w/3 localf.h = max.h
+            local absolutef = screen:localToAbsolute(localf)
+            win:setFrame(absolutef)
+        end
+        if direction == "twothirdright" then
+            localf.x = max.w/3
+            localf.y = 0
+            localf.w = max.w/3 * 2
+            localf.h = max.h
+            local absolutef = screen:localToAbsolute(localf)
+            win:setFrame(absolutef)
+        end
+        if direction == "twothirdleft" then
+            localf.x = 0
+            localf.y = 0
+            localf.w = max.w/3 * 2
+            localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
