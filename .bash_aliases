@@ -12,6 +12,9 @@ alias mine='sudo chown -R $(whoami):admin '
 
 # NPM
 alias npmci='rm -rf node_modules/ package-lock.json && npm install'
+alias nr='npm run'
+alias ni='npm install'
+alias nt='npm test'
 
 # Vim
 alias vi='vim'
