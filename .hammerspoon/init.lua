@@ -35,6 +35,21 @@ hs.hotkey.bind({"ctrl", "cmd"}, 'o', function () resize_win('twothirdright')  en
 
 hs.hotkey.bind({"cmd"},         'escape', function() hs.hints.windowHints() end)
 
+hs.hotkey.bind({"ctrl", "cmd"}, '1', function ()
+  hs.layout.apply({
+    {"Safari", nil, screen, hs.layout.left50, nil, nil},
+    {"iTerm 2", nil, screen, hs.layout.right50, nil, nil}
+  })
+end);
+
+-- hs.hotkey.bind({"ctrl", "cmd"}, '2', function ()
+--   hs.layout.apply({
+--     {"Safari", nil, screen, hs.layout.left33, nil, nil},
+--     {"iTerm 2", nil, screen, hs.layout.mid33, nil, nil}
+--     {"Slack", nil, screen, hs.layout.right33, nil, nil}
+--   })
+-- end);
+
 function resize_win(direction)
     local win = hs.window.focusedWindow()
     if win then
