@@ -19,7 +19,6 @@ Plug 'rizzatti/dash.vim'
 " Interface
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
 
 " Commands
 Plug 'tpope/vim-surround'
@@ -49,6 +48,7 @@ set tabstop=2                      " A tab is two space
 set termencoding=utf-8             " Set encoding to UTF-8
 set termguicolors
 set ttyfast
+set lazyredraw
 
 " ---------- OTHER
 " Highlight trailing whitespace
@@ -58,6 +58,16 @@ filetype indent on " Load filetype-specific indent files
 
 let ayucolor="dark"
 silent! colorscheme ayu
+
+set statusline=
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\
 
 let html_no_rendering = 1 " Don't render italic, bold, links in HTML
 
