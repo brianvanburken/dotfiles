@@ -73,14 +73,15 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
-" Treat .json files as JavaScript (Vim hides quotes for JSON files)
-au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
-" Treat .md files as Markdown
-au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
+augroup file_types
+  " Treat .json files as JavaScript (Vim hides quotes for JSON files)
+  au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
+  au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
+augroup END
 
 augroup elm
-  autocmd!
-  autocmd BufNewFile,BufRead *.elm setlocal tabstop=4
-  autocmd BufNewFile,BufRead *.elm setlocal shiftwidth=4
-  autocmd BufNewFile,BufRead *.elm setlocal softtabstop=4
+  au!
+  au BufNewFile,BufRead *.elm setlocal tabstop=4
+  au BufNewFile,BufRead *.elm setlocal shiftwidth=4
+  au BufNewFile,BufRead *.elm setlocal softtabstop=4
 augroup END
