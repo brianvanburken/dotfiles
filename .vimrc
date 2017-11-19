@@ -67,7 +67,7 @@ set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
-set statusline+=\
+set statusline+=\ 
 
 let html_no_rendering = 1 " Don't render italic, bold, links in HTML
 
