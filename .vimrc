@@ -25,14 +25,12 @@ Plug 'tpope/vim-surround'
 
 call plug#end()
 
-" ---------- SYSTEM
 set clipboard=unnamed              " Share Clipboard with OS
 set colorcolumn=80                 " Show column on 80 character for limit reference
 set encoding=utf-8 nobomb          " Set default encoding to UTF-8
 set expandtab                      " Use spaces not tabs
 set hlsearch                       " highlight matches
 set incsearch                      " search as characters are entered
-set laststatus=2                   " Always enable status line
 set list                           " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
 set nobackup
@@ -50,7 +48,6 @@ set termguicolors
 set ttyfast
 set lazyredraw
 
-" ---------- OTHER
 " Highlight trailing whitespace
 match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
 
@@ -59,6 +56,7 @@ filetype indent on " Load filetype-specific indent files
 let ayucolor="dark"
 silent! colorscheme ayu
 
+set laststatus=2 " Always enable status line
 set statusline=
 set statusline+=\ %f
 set statusline+=%=
