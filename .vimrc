@@ -78,12 +78,6 @@ au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
 " Treat .md files as Markdown
 au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
 
-" Enable Vim hardmode by default for an experiment. This will force me to use
-" more of Vim's motion command than single character movement. Ofcouse there
-" is an escape hatch with <leader>h!
-au VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
 augroup elm
   autocmd!
   autocmd BufNewFile,BufRead *.elm setlocal tabstop=4
