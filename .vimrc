@@ -40,7 +40,6 @@ set number                         " Show line numers
 set numberwidth=2                  " Line numbers max to two digits
 set shiftwidth=2                   " An autoindent (with <<) is two space
 set showcmd                        " Show typed command in bottom bar
-set showmatch                      " highlight matching [{()}]
 set softtabstop=2                  " Number of spaces in tab when editing
 set tabstop=2                      " A tab is two space
 set termencoding=utf-8             " Set encoding to UTF-8
