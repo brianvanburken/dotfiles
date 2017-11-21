@@ -73,6 +73,7 @@ let g:javascript_plugin_jsdoc = 1
 
 let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
+let g:elm_detailed_complete = 1
 
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
