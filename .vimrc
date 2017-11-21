@@ -14,11 +14,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
-Plug 'rizzatti/dash.vim'
+Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 
 " Interface
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
+Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 
 " Commands
 Plug 'tpope/vim-surround'
