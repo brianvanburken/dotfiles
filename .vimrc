@@ -74,6 +74,8 @@ let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
 let g:elm_detailed_complete = 1
 
+let g:ale_lint_delay = 5000 " wait a bit before checking syntax in a file, if typing
+
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
