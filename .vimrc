@@ -56,15 +56,17 @@ let ayucolor="dark"
 silent! colorscheme ayu
 
 set laststatus=2 " Always enable status line
-set statusline=
-set statusline+=\ %f
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ 
+set statusline= " Empty current statusline to start anew
+set statusline=%t " Tail of the filename
+set statusline+=%m " Modified flag
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, " File encoding
+set statusline+=%{&ff}] " File format
+set statusline+=%h " Help file flag
+set statusline+=%r " Read only flag
+set statusline+=%y " Filetype
+set statusline+=%= " Left/right separator
+set statusline+=%l/%L: " Cursor line/total lines
+set statusline+=%c " Cursor column
 
 let html_no_rendering = 1 " Don't render italic, bold, links in HTML
 
