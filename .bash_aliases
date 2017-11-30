@@ -45,3 +45,6 @@ alias et='elm test'
 alias el='elm live'
 alias ef='elm format'
 alias epi='elm-package install'
+
+# The silver searcher
+alias af='ag -g'
