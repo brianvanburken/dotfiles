@@ -85,10 +85,3 @@ augroup file_types
   au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
   au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
 augroup END
-
-augroup elm
-  au!
-  au BufNewFile,BufRead *.elm setlocal tabstop=4
-  au BufNewFile,BufRead *.elm setlocal shiftwidth=4
-  au BufNewFile,BufRead *.elm setlocal softtabstop=4
-augroup END
