@@ -11,9 +11,9 @@ alias kill_ds="find . -name .DS_Store -type f -delete"
 alias mine='sudo chown -R $(whoami):admin '
 
 # NPM
-alias npmci='rm -rf node_modules/ package-lock.json && npm install'
 alias nr='npm run'
 alias ni='npm install'
+alias nci='rm -rf node_modules/ package-lock.json && npm install'
 alias nt='npm test'
 
 # Vim
