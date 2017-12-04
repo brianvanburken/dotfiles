@@ -56,7 +56,6 @@ let ayucolor="dark"
 silent! colorscheme ayu
 
 set laststatus=2 " Always enable status line
-set statusline= " Empty current statusline to start anew
 set statusline=%t " Tail of the filename
 set statusline+=%m " Modified flag
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}] " File encoding + format
@@ -67,7 +66,8 @@ set statusline+=%= " Left/right separator
 set statusline+=%l/%L: " Cursor line/total lines
 set statusline+=%c " Cursor column
 
-let html_no_rendering = 1 " Don't render italic, bold, links in HTML
+let g:html_no_rendering = 1 " Don't render italic, bold, links in HTML
+let g:loaded_matchparen = 0 " Don't highlight matching parens
 
 let g:javascript_plugin_jsdoc = 1
 
