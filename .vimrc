@@ -1,9 +1,7 @@
 call plug#begin()
 " Language
-Plug 'elixir-lang/vim-elixir',  { 'for': ['erlang', 'elixir', 'eelixir'] }
-Plug 'elmcast/elm-vim',         { 'for': ['elm'] }
-Plug 'othree/html5.vim',        { 'for': ['html', 'eelixir'] }
-Plug 'pangloss/vim-javascript', { 'for': ['html', 'eelixir', 'javascript'] }
+Plug 'elmcast/elm-vim', { 'for': ['elm'] }
+Plug 'sheerun/vim-polyglot'
 
 " Code display
 Plug 'ayu-theme/ayu-vim'
@@ -69,7 +67,7 @@ set statusline+=%c " Cursor column
 let g:html_no_rendering = 1 " Don't render italic, bold, links in HTML
 let g:loaded_matchparen = 0 " Don't highlight matching parens
 
-let g:javascript_plugin_jsdoc = 1
+let g:polyglot_disabled = ['elm']
 
 let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
