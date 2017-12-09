@@ -21,10 +21,6 @@ alias vi='vim'
 alias v='vim'
 alias e='vim'
 
-# Git
-alias gap='git add --patch'
-alias gs='git status'
-
 # Open all merge conflicts or currently changed files in Vim
 alias fix='git diff --name-only | uniq | xargs -o vim'
 
