@@ -9,9 +9,12 @@
 
 [core]
   editor = vim
-  excludesfile = ~/.gitignore_global
-  attributesfile = ~/.gitattributes_global
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
 
 [alias]
   lastchange = log -p -n 1
   trim = !git remote prune origin && git gc
+
+[include]
+  path = ~/.gitconfig.local
