@@ -1,0 +1,33 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.agignore:
+    ~/.bash_aliases:
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.bundle:
+    ~/.ctags:
+    ~/.gemrc:
+    ~/.gitattributes:
+    ~/.gitconfig:
+    ~/.gitignore:
+    ~/.hammerspoon:
+    ~/.hushlogin:
+    ~/.profile:
+    ~/.rsync_exclude:
+    ~/.tool-versions:
+    ~/.vimrc:
+    ~/.zimrc:
+    ~/.zsh_functions:
+    ~/.zshrc:
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [touch ~/.bashrc.local, Creating local bashrc file]
+  - [touch ~/.zshrc.local, Creating local zshrc file]
+  - [touch ~/.gitconfig.local, Creating local gitconfig file]
