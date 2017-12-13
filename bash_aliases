@@ -6,6 +6,7 @@ alias ln='ln -i'
 alias mkdir='mkdir -p'
 alias cls='clear'
 alias dev='cd ~/Developer/'
+alias dot='cd ~/.dotfiles/'
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
 alias mine='sudo chown -R $(whoami):admin '
@@ -23,9 +24,6 @@ alias e='vim'
 
 # Open all merge conflicts or currently changed files in Vim
 alias fix='git diff --name-only | uniq | xargs -o vim'
-
-# Work with dotfiles
-alias dot='~/.dotfiles'
 
 # Fix ctags on macOS/OS X
 alias ctags="`brew --prefix`/bin/ctags"
