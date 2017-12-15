@@ -8,11 +8,11 @@ brew "ctags"
 brew "exercism"
 brew "fzf"
 brew "git"
-brew "heroku-toolbelt"
 brew "mas"
 brew "rsync"
 brew "the_silver_searcher"
 brew "vim"
+brew "yarn", args: ["without-node"]
 brew "z"
 brew "zsh"
 
