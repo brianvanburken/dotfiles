@@ -32,9 +32,6 @@ set hlsearch                       " highlight matches
 set incsearch                      " search as characters are entered
 set list                           " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
-set nobackup
-set noswapfile
-set nowritebackup
 set number                         " Show line numers
 set numberwidth=2                  " Line numbers max to two digits
 set shiftwidth=2                   " An autoindent (with <<) is two space
