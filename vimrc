@@ -61,9 +61,6 @@ set statusline+=%= " Left/right separator
 set statusline+=%l/%L: " Cursor line/total lines
 set statusline+=%c " Cursor column
 
-let g:html_no_rendering = 1 " Don't render italic, bold, links in HTML
-let g:loaded_matchparen = 0 " Don't highlight matching parens
-
 let g:polyglot_disabled = ['elm']
 
 let g:elm_setup_keybindings = 0
