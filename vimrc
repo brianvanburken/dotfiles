@@ -43,7 +43,7 @@ set termguicolors
 set ttyfast
 
 " Highlight trailing whitespace
-match ErrorMsg /\\\@<![\u3000[:space:]]\+$/
+match Error /\\\@<![\u3000[:space:]]\+$/
 
 filetype indent on " Load filetype-specific indent files
 
