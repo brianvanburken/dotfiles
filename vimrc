@@ -41,6 +41,7 @@ set tabstop=2                      " A tab is two space
 set termencoding=utf-8             " Set encoding to UTF-8
 set termguicolors
 set ttyfast
+set nowrap
 
 " Highlight trailing whitespace
 match Error /\\\@<![\u3000[:space:]]\+$/
