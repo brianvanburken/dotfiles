@@ -13,6 +13,7 @@
     ~/.bashrc:
     ~/.bundle:
     ~/.ctags:
+    ~/.default-npm-packages:
     ~/.gemrc:
     ~/.gitattributes:
     ~/.gitconfig:
