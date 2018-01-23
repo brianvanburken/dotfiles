@@ -13,7 +13,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-Plug 'takac/vim-hardtime'
 
 " Interface
 Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
@@ -67,8 +66,6 @@ let g:polyglot_disabled = ['elm']
 let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
 let g:elm_detailed_complete = 1
-
-let g:hardtime_default_on = 1
 
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
