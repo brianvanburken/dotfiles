@@ -1,5 +1,7 @@
 elm
+elm-format@exp
 elm-live
 elm-oracle
-elm-format@exp
+elm-test
+elm-thanks
 npm-check
