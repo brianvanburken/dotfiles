@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+
+class PreCommit
+  attr_reader :files
+
+  def initialize()
+    @files = get_staged_git_files()
+  end
+
+  # This should run all "validators" like linters
+  def valid?
+    valid_elm?()
+  end
+
+  def valid_elm?()
+    @files
+      .select { |file| file.end_with? ".elm" }
+      .map { |file| `elm-format --validate #{file}` }
+      .select { |output| output.include? "File is not formatted" } # TODO: more robust checking for messages
+      .empty?
+  end
+
+  private
+  # Get all files staged for the commit and get only their name
+  # Also run a diff-filter to get all added (A), copied (C), modified (M), and
+  # renamed (R). https://stackoverflow.com/a/6879568
+  def get_staged_git_files
+    files = `git diff --cached --name-only --diff-filter=ACMR`
+    files.split("\n")
+  end
+
+end
+
+
+commit = PreCommit.new()
+
+unless commit.valid?
+  puts "---------------------------------------------------------------------"
+  puts "#{commit.files}"
+  puts "Elm files valid format: #{commit.valid_elm?()}"
+  puts "---------------------------------------------------------------------"
+end
+exit commit.valid?
+
+
+# Some things this could catch:
+# TODO: check for TODO/FIXME
+# TODO: format code by type
+# TODO: lint code by type
+# TODO: check commit messages for typo's
+# TODO: fix whitespace
+#
+#
+# Proposed structure;
+#
+# .git-templates/hooks/
+#    |_ pre-commit
+#    |_ linters/
+#       |_ elm.rb <-- checks if your app compiles
+#    |_ fixers/
+#       |_ elm.rb <-- runs elm-format, elm-analyse with fixes
+#
+# Other ideas:
+# Git checkout branch <- run a install of specific java/node version/npm modules

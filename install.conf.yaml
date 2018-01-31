@@ -15,6 +15,7 @@
     ~/.ctags:
     ~/.default-npm-packages:
     ~/.gemrc:
+    ~/.git-templates:
     ~/.gitattributes:
     ~/.gitconfig:
     ~/.gitignore:
