@@ -29,8 +29,10 @@ set encoding=utf-8 nobomb          " Set default encoding to UTF-8
 set expandtab                      " Use spaces not tabs
 set hlsearch                       " highlight matches
 set incsearch                      " search as characters are entered
+set lazyredraw
 set list                           " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
+set nowrap
 set number                         " Show line numers
 set numberwidth=2                  " Line numbers max to two digits
 set shiftwidth=2                   " An autoindent (with <<) is two space
@@ -39,8 +41,9 @@ set softtabstop=2                  " Number of spaces in tab when editing
 set tabstop=2                      " A tab is two space
 set termencoding=utf-8             " Set encoding to UTF-8
 set termguicolors
+set ttimeoutlen=100
 set ttyfast
-set nowrap
+set backspace=indent,eol,start
 
 " Highlight trailing whitespace
 match Error /\\\@<![\u3000[:space:]]\+$/
