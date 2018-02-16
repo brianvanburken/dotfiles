@@ -50,6 +50,7 @@ alias el='elm live'
 alias ef='elm format'
 alias epi='elm-package install'
 alias et='elm-thanks'
+alias eci='rm -rf elm-stuff/ && elm-package install -y'
 
 # The silver searcher
 alias af='ag -g'
