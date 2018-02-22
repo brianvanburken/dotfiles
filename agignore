@@ -30,3 +30,5 @@ elm-stuff/
 *.gif
 *.bmp
 target/
+dest/
+dist/
