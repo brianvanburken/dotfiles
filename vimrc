@@ -1,28 +1,21 @@
 call plug#begin()
-" Language
-Plug 'elmcast/elm-vim', { 'for': ['elm'] }
-Plug 'sheerun/vim-polyglot'
 
-" Code display
-Plug 'ayu-theme/ayu-vim'
-Plug 'Yggdroot/indentLine'
-
-" Integrations
-Plug 'editorconfig/editorconfig-vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'tpope/vim-commentary'
-Plug 'w0rp/ale'
-Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-
-" Interface
 Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
+Plug 'Yggdroot/indentLine'
+Plug 'ayu-theme/ayu-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elmcast/elm-vim', { 'for': ['elm'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
-
-" Commands
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 
 call plug#end()
 
+set backspace=indent,eol,start
 set clipboard=unnamed              " Share Clipboard with OS
 set colorcolumn=80                 " Show column on 80 character for limit reference
 set encoding=utf-8 nobomb          " Set default encoding to UTF-8
@@ -43,10 +36,8 @@ set termencoding=utf-8             " Set encoding to UTF-8
 set termguicolors
 set ttimeoutlen=100
 set ttyfast
-set backspace=indent,eol,start
 
-" Highlight trailing whitespace
-match Error /\\\@<![\u3000[:space:]]\+$/
+match Error /\\\@<![\u3000[:space:]]\+$/ " Highlight trailing whitespace
 
 filetype indent on " Load filetype-specific indent files
 
@@ -76,9 +67,3 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
-
-augroup file_types
-  " Treat .json files as JavaScript (Vim hides quotes for JSON files)
-  au! BufNewFile,BufFilePre,BufRead *.json setlocal filetype=javascript
-  au! BufNewFile,BufFilePre,BufRead *.md setlocal filetype=markdown
-augroup END
