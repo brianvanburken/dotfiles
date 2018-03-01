@@ -3,8 +3,9 @@ call plug#begin()
 Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/elm-vim if development resumes
+Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular', { 'on': ['Tab', 'Tabularize'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
@@ -69,3 +70,8 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
+
+nnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a: :Tabularize /:\zs<CR>
+nnoremap <Leader>a: :Tabularize /:\zs<CR>
