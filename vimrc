@@ -23,6 +23,7 @@ set encoding=utf-8 nobomb          " Set default encoding to UTF-8
 set expandtab                      " Use spaces not tabs
 set hlsearch                       " highlight matches
 set incsearch                      " search as characters are entered
+set iskeyword-=_                   " Enable word movement when word contains _
 set lazyredraw
 set list                           " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
