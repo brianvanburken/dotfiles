@@ -14,25 +14,3 @@ mcdir () {
   mkdir -p "$1"
   cd "$1"
 }
-
-# Creates a log documents for writing down a solution to a problem
-# I just solved.
-lg () {
-  dir=~/Documents/logs/
-  today=$(date +'%Y-%m-%d')
-  t=$(date +'%H%M')
-  file="$dir$today-$t.txt"
-
-  content="$today\n\n"
-  content+="# PROBLEM:\n\n"
-  content+="# HYPOTHESIS:\n\n"
-  content+="# EXPERIMENT:\n\n"
-  content+="# RESULTS:\n\n"
-  content+="# CONCLUSION:\n\n"
-
-  mkdir -p $dir
-
-  echo $content > $file
-
-  vim $file
-}
