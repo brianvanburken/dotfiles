@@ -71,8 +71,3 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
-
-nnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a: :Tabularize /:\zs<CR>
-nnoremap <Leader>a: :Tabularize /:\zs<CR>
