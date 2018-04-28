@@ -55,3 +55,5 @@ alias eci='rm -rf elm-stuff/ && elm-package install -y'
 
 # The silver searcher
 alias af='ag -g'
+
+alias emin="uglifyjs -mc 'unsafe_comps=true,unsafe=true,pure_funcs=\"F2,F3,F4,F5,F6,F7,F8,F9\"' "
