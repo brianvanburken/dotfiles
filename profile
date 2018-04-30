@@ -10,3 +10,5 @@ export PATH="/usr/local/sbin:$PATH"
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export DOT_PATH="$(pwd)"
