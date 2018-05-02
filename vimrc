@@ -4,6 +4,7 @@ Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/elm-vim if development resumes
+Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell']}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular', { 'on': ['Tab', 'Tabularize'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
@@ -71,3 +72,8 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
+
+nnoremap <Leader> tw :GhcModTypeInsert<CR>
+nnoremap <Leader> ts :GhcModSplitFunCase<CR>
+nnoremap <Leader> tq :GhcModType<CR>
+nnoremap <Leader> te :GhcModTypeClear<CR>
