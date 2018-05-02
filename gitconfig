@@ -1,23 +1,25 @@
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 
 [color]
-  ui = true
+	ui = true
 
 [push]
-  default = current
+	default = current
 
 [core]
-  editor = vim
-  excludesfile = ~/.gitignore
-  attributesfile = ~/.gitattributes
+	editor = vim
+	excludesfile = ~/.gitignore
+	attributesfile = /Users/briburke/.gitattributes
 
 [alias]
-  lastchange = log -p -n 1
-  trim = !git remote prune origin && git gc
+	lastchange = log -p -n 1
+	trim = !git remote prune origin && git gc
 
 [include]
-  path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 
 [rebase]
-  autostash = true
+	autostash = true
+[diff "json"]
+	textconv = json_pp
