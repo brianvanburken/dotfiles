@@ -73,7 +73,7 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
-nnoremap <Leader> tw :GhcModTypeInsert<CR>
-nnoremap <Leader> ts :GhcModSplitFunCase<CR>
-nnoremap <Leader> tq :GhcModType<CR>
-nnoremap <Leader> te :GhcModTypeClear<CR>
+nnoremap <Leader>tw :GhcModTypeInsert<CR>
+nnoremap <Leader>ts :GhcModSplitFunCase<CR>
+nnoremap <Leader>tq :GhcModType<CR>
+nnoremap <Leader>te :GhcModTypeClear<CR>
