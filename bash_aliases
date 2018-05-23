@@ -49,10 +49,10 @@ alias er='elm repl'
 alias et='elm test'
 alias el='elm live'
 alias ef='elm format'
-alias epi='elm-package install'
+alias epi='elm install'
 alias et='elm-thanks'
 alias eci='rm -rf elm-stuff/ && elm-package install -y'
-alias emt='elm-make --docs=/dev/null --yes'
+alias emt='elm make --docs=/dev/null --yes'
 
 # The silver searcher
 alias af='ag -g'
