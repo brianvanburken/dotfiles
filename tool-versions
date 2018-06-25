@@ -2,7 +2,7 @@ ruby 2.5.1
 nodejs 10.5.0
 erlang 20.1
 elixir 1.6.0
-elm 0.19.0-alpha
+elm 0.19.0
 haskell 8.4.2
 java 10
 maven 3.5.2
