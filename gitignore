@@ -2,6 +2,7 @@
 **.swo
 **.orig
 *.iml
+**.bak
 .DS_Store
 .agignore
 
