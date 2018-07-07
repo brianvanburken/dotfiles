@@ -28,8 +28,8 @@ alias ygi='yarn global add'
 alias yci='rm -rf node_modules/ && yarn install'
 
 # Vim
-alias vi='vim'
-alias v='vim'
+alias vi='e'
+alias v='e'
 alias e='vim'
 
 # Open all merge conflicts or currently changed files in Vim
