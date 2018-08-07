@@ -16,3 +16,4 @@ tags.temp
 npm-debug.log
 
 *.tar.gz
+.vscode
