@@ -30,7 +30,7 @@ alias yci='rm -rf node_modules/ && yarn install'
 # Vim
 alias vi='echo "Use e"'
 alias v='echo "Use e"'
-alias e='code'
+alias e='vim'
 
 # Open all merge conflicts or currently changed files in Vim
 alias fix='git diff --name-only | uniq | xargs -o vim'
