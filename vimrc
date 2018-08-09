@@ -44,7 +44,7 @@ match Error /\\\@<![\u3000[:space:]]\+$/ " Highlight trailing whitespace
 
 filetype indent on " Load filetype-specific indent files
 
-let ayucolor="dark"
+let ayucolor="mirage"
 silent! colorscheme ayu
 
 set laststatus=2 " Always enable status line
