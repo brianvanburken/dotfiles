@@ -1,0 +1,7 @@
+source ~/.vimrc
+
+nmap <leader>f :action GotoFile<cr>
+nmap <leader>a :action GotoSymbol<cr>
+nmap <leader>n :action NewFile<cr>
+
+nmap <leader>r :action ReformatCode<cr>
