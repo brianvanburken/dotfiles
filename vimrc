@@ -70,3 +70,5 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
+
+autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
