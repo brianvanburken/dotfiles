@@ -1,10 +1,11 @@
 ruby 2.5.1
-nodejs 10.9.0
-erlang 21.0.8
-elixir 1.7.2
+nodejs 10.12.0
+erlang 21.0.9
+elixir 1.7.3
 elm 0.19.0
+haskell 8.4.3
 haskell 8.6.1
-java 10
+java oracle-8.181
 maven 3.5.2
 clojure 1.9.0
 python 3.7.0
