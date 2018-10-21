@@ -12,3 +12,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export DOT_PATH="$(pwd)"
+export KERL_CONFIGURE_OPTIONS="--with-ssl=/usr/local/opt/openssl"
