@@ -6,6 +6,7 @@ require("hs.window")
 -----------------------------------------------
 hs.window.animationDuration = 0
 hs.hints.showTitleThresh = 0
+hs.application.enableSpotlightForNameSearches(true)
 
 -----------------------------------------------
 -- Reload config on write
