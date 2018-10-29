@@ -16,39 +16,61 @@ end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
 hs.alert.show("Config loaded")
 
-
 -----------------------------------------------
 -- Window management
 -----------------------------------------------
-hs.hotkey.bind({"ctrl", "cmd"}, 'f', function () resize_win('native_fullscreen') end);
-hs.hotkey.bind({"ctrl", "cmd"}, 'c', function () resize_win('center')     end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'f', function () resize_win('native_fullscreen') end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'c', function () resize_win('center')     end);
 
-hs.hotkey.bind({"ctrl", "cmd"}, 'h', function () resize_win('halfleft')   end);
-hs.hotkey.bind({"ctrl", "cmd"}, 'l', function () resize_win('halfright')  end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'u', function () resize_win('halfleft')   end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'i', function () resize_win('halfright')  end);
 
-hs.hotkey.bind({"ctrl", "cmd"}, 'b', function () resize_win('thirdleft')   end);
-hs.hotkey.bind({"ctrl", "cmd"}, 'n', function () resize_win('thirdmiddle')  end);
-hs.hotkey.bind({"ctrl", "cmd"}, 'm', function () resize_win('thirdright')  end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'a', function () resize_win('thirdleft')   end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 's', function () resize_win('thirdmiddle')  end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'd', function () resize_win('thirdright')  end);
 
-hs.hotkey.bind({"ctrl", "cmd"}, 'i', function () resize_win('twothirdleft')   end);
-hs.hotkey.bind({"ctrl", "cmd"}, 'o', function () resize_win('twothirdright')  end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'n', function () resize_win('twothirdleft')   end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'm', function () resize_win('twothirdright')  end);
 
-hs.hotkey.bind({"cmd"},         'escape', function() hs.hints.windowHints() end)
+hs.hotkey.bind({        'cmd'}, 'escape', function() hs.hints.windowHints() end)
 
+local browser = "Google Chrome"
+local terminal = "iTerm"
+local ide = "IntelliJ IDEA"
+
+function get_application_path(app)
+  return "/Applications/" .. app .. ".app"
+end
+
+-- Develop/Design workflow with terminal and browser
 hs.hotkey.bind({"ctrl", "cmd"}, '1', function ()
+  hs.application.launchOrFocus(get_application_path(browser))
+  hs.application.launchOrFocus(get_application_path(terminal))
   hs.layout.apply({
-    {"Firefox", nil, screen, hs.layout.left50, nil, nil},
-    {"iTerm 2", nil, screen, hs.layout.right50, nil, nil}
+    {hs.application.find(terminal), nil, nil, hs.layout.left50, nil, nil},
+    {hs.application.find(browser), nil, nil, hs.layout.right50, nil, nil},
   })
 end);
 
--- hs.hotkey.bind({"ctrl", "cmd"}, '2', function ()
---   hs.layout.apply({
---     {"Safari", nil, screen, hs.layout.left33, nil, nil},
---     {"iTerm 2", nil, screen, hs.layout.mid33, nil, nil}
---     {"Slack", nil, screen, hs.layout.right33, nil, nil}
---   })
--- end);
+-- Test workflow with ide and terminal
+hs.hotkey.bind({"ctrl", "cmd"}, '2', function ()
+  hs.application.launchOrFocus(get_application_path(ide))
+  hs.application.launchOrFocus(get_application_path(terminal))
+  hs.layout.apply({
+    {hs.application.find(ide), nil, nil, hs.layout.left50, nil, nil},
+    {hs.application.find(terminal), nil, nil, hs.layout.right50, nil, nil},
+  })
+end);
+
+-- Develop/Design workflow with ide and browser
+hs.hotkey.bind({"ctrl", "cmd"}, '3', function ()
+  hs.application.launchOrFocus(get_application_path(browser))
+  hs.application.launchOrFocus(get_application_path(ide))
+  hs.layout.apply({
+    {hs.application.find(ide), nil, nil, hs.layout.left50, nil, nil},
+    {hs.application.find(browser), nil, nil, hs.layout.right50, nil, nil},
+  })
+end);
 
 function resize_win(direction)
     local win = hs.window.focusedWindow()
