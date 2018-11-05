@@ -21,13 +21,18 @@ alias nci='rm -rf node_modules/ && npm install'
 alias nt='npm test'
 
 # Yarn
+alias yr='yarn run'
 alias yi='yarn install'
 alias yis='yarn add --save'
 alias yiS='yarn add --save-dev'
 alias ygi='yarn global add'
 alias yci='rm -rf node_modules/ && yarn install'
+alias yt='yarn test'
 
-# Vim
+# NeoVim/Vim
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
 alias vi='echo "Use e"'
 alias v='echo "Use e"'
 alias e='vim'
