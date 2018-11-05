@@ -16,31 +16,39 @@ Plug 'w0rp/ale'
 call plug#end()
 
 set backspace=indent,eol,start
-set clipboard=unnamed              " Share Clipboard with OS
-set colorcolumn=80                 " Show column on 80 character for limit reference
-set encoding=utf-8 nobomb          " Set default encoding to UTF-8
-set expandtab                      " Use spaces not tabs
-set hlsearch                       " highlight matches
-set incsearch                      " search as characters are entered
-set iskeyword-=_                   " Enable word movement when word contains _
+set clipboard=unnamed " Share Clipboard with OS
+set colorcolumn=80 " Show column on 80 character for limit reference
+set encoding=utf-8 nobomb " Set default encoding to UTF-8
+set expandtab " Use spaces not tabs
+set hidden " Hide buffers instead of closing them
+set hlsearch " highlight matches
+set incsearch " search as characters are entered
+set iskeyword-=_ " Enable word movement when word contains _
 set lazyredraw
-set list                           " Always display whitespace
+set list " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
-set nowrap
-set number                         " Show line numers
-set numberwidth=2                  " Line numbers max to two digits
-set shiftwidth=2                   " An autoindent (with <<) is two space
-set showcmd                        " Show typed command in bottom bar
-set softtabstop=2                  " Number of spaces in tab when editing
-set tabstop=2                      " A tab is two space
-set termencoding=utf-8             " Set encoding to UTF-8
+set nobackup
+set nocompatible
+set noerrorbells " Don't beep
+set noswapfile
+set nowrap " Don't wrap lines
+set number " Show line numers
+set numberwidth=2 " Line numbers max to two digits
+set shiftwidth=2 " An autoindent (with <<) is two space
+set showcmd " Show typed command in bottom bar
+set smarttab " Insert tabs on the start of a line according to shiftwidth
+set softtabstop=2 " Number of spaces in tab when editing
+set tabstop=2 " A tab is two space
+set termencoding=utf-8 " Set encoding to UTF-8
 set termguicolors
+set title " Change the terminal's title
 set ttimeoutlen=100
 set ttyfast
+set visualbell " Don't beep
 
 match Error /\\\@<![\u3000[:space:]]\+$/ " Highlight trailing whitespace
 
-filetype indent on " Load filetype-specific indent files
+filetype plugin indent on " Load filetype-specific indent files
 
 let ayucolor="mirage" " light, mirage, or dark
 silent! colorscheme ayu
@@ -64,6 +72,8 @@ let g:elm_detailed_complete = 1
 
 let g:indentLine_setConceal = 0
 
+let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
+
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
@@ -71,4 +81,8 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
+" Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
+set viminfo='100,<9999,s100
+
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
