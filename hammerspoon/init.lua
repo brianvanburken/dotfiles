@@ -1,6 +1,19 @@
 require("hs.application")
 require("hs.window")
 
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 -----------------------------------------------
 -- Global configurations
 -----------------------------------------------
@@ -11,15 +24,38 @@ hs.application.enableSpotlightForNameSearches(true)
 -----------------------------------------------
 -- Reload config on write
 -----------------------------------------------
-function reload_config(files)
+hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", function (files)
     hs.reload()
-end
-hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
+end):start()
 hs.alert.show("Config loaded")
+
+----------------------------------------------
+-- Airplane mode
+-----------------------------------------------
+hs.hotkey.bind({'ctrl', 'shift', 'cmd'}, 'a', function ()
+  local wifiPower = hs.wifi.interfaceDetails().power
+  hs.wifi.setPower(not wifiPower);
+
+  local blueutil = "/usr/local/bin/blueutil"
+  local bluetoothPower = io.popen(blueutil .. " -p", 'r'):read() == "1" and true
+  if (bluetoothPower) then
+    os.execute(blueutil .. " -p 0")
+  else
+    os.execute(blueutil .. " -p 1")
+  end
+end);
 
 -----------------------------------------------
 -- Window management
 -----------------------------------------------
+local browser = "Google Chrome"
+local terminal = "iTerm"
+local ide = "IntelliJ IDEA"
+
+function get_application_path(app)
+  return "/Applications/" .. app .. ".app"
+end
+
 hs.hotkey.bind({'ctrl', 'cmd'}, 'f', function () resize_win('native_fullscreen') end);
 hs.hotkey.bind({'ctrl', 'cmd'}, 'c', function () resize_win('center')     end);
 
@@ -34,14 +70,6 @@ hs.hotkey.bind({'ctrl', 'cmd'}, 'n', function () resize_win('twothirdleft')   en
 hs.hotkey.bind({'ctrl', 'cmd'}, 'm', function () resize_win('twothirdright')  end);
 
 hs.hotkey.bind({        'cmd'}, 'escape', function() hs.hints.windowHints() end)
-
-local browser = "Google Chrome"
-local terminal = "iTerm"
-local ide = "IntelliJ IDEA"
-
-function get_application_path(app)
-  return "/Applications/" .. app .. ".app"
-end
 
 -- Develop/Design workflow with terminal and browser
 hs.hotkey.bind({"ctrl", "cmd"}, '1', function ()
