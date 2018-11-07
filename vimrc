@@ -85,4 +85,3 @@ nnoremap <Leader>d :Dash<CR>
 set viminfo='100,<9999,s100
 
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
