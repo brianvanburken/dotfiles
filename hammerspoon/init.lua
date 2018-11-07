@@ -57,17 +57,21 @@ function get_application_path(app)
 end
 
 hs.hotkey.bind({'ctrl', 'cmd'}, 'f', function () resize_win('native_fullscreen') end);
-hs.hotkey.bind({'ctrl', 'cmd'}, 'c', function () resize_win('center')     end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'g', function () resize_win('fullscreen') end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'c', function () resize_win('center') end);
 
-hs.hotkey.bind({'ctrl', 'cmd'}, 'u', function () resize_win('halfleft')   end);
-hs.hotkey.bind({'ctrl', 'cmd'}, 'i', function () resize_win('halfright')  end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'u', function () resize_win('halfleft') end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'i', function () resize_win('halfright') end);
 
-hs.hotkey.bind({'ctrl', 'cmd'}, 'a', function () resize_win('thirdleft')   end);
-hs.hotkey.bind({'ctrl', 'cmd'}, 's', function () resize_win('thirdmiddle')  end);
-hs.hotkey.bind({'ctrl', 'cmd'}, 'd', function () resize_win('thirdright')  end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 't', function () resize_win('halfup') end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'y', function () resize_win('halfdown') end);
 
-hs.hotkey.bind({'ctrl', 'cmd'}, 'n', function () resize_win('twothirdleft')   end);
-hs.hotkey.bind({'ctrl', 'cmd'}, 'm', function () resize_win('twothirdright')  end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'a', function () resize_win('thirdleft') end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 's', function () resize_win('thirdmiddle') end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'd', function () resize_win('thirdright') end);
+
+hs.hotkey.bind({'ctrl', 'cmd'}, 'n', function () resize_win('twothirdleft') end);
+hs.hotkey.bind({'ctrl', 'cmd'}, 'm', function () resize_win('twothirdright') end);
 
 hs.hotkey.bind({        'cmd'}, 'escape', function() hs.hints.windowHints() end)
 
@@ -108,32 +112,10 @@ function resize_win(direction)
         local screen = win:screen()
         local localf = screen:absoluteToLocal(f)
         local max = screen:fullFrame()
-        local stepw = max.w/100
-        local steph = max.h/100
-
-        if direction == "right" then
-            localf.w = localf.w+stepw
-            local absolutef = screen:localToAbsolute(localf)
-            win:setFrame(absolutef)
-        end
-
-        if direction == "left" then
-            localf.w = localf.w-stepw
-            local absolutef = screen:localToAbsolute(localf)
-            win:setFrame(absolutef)
-        end
-
-        if direction == "up" then
-            localf.h = localf.h-steph
-            local absolutef = screen:localToAbsolute(localf)
-            win:setFrame(absolutef)
-        end
-
-        if direction == "down" then
-            localf.h = localf.h+steph
-            local absolutef = screen:localToAbsolute(localf)
-            win:setFrame(absolutef)
-        end
+        -- Height of menubar in macOS is 22px this is used
+        -- to prevent certain windows without native titlebar to start behind
+        -- the menubar
+        local menubar = 22 -- pixels
 
         -- +--------+---------+
         -- |        |         |
@@ -141,7 +123,10 @@ function resize_win(direction)
         -- |        |         |
         -- +--------+---------+
         if direction == "halfright" then
-            localf.x = max.w/2 localf.y = 0 localf.w = max.w/2 localf.h = max.h
+            localf.x = max.w/2
+            localf.y = menubar
+            localf.w = max.w/2
+            localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -152,7 +137,10 @@ function resize_win(direction)
         -- |         |        |
         -- +---------+--------+
         if direction == "halfleft" then
-            localf.x = 0 localf.y = 0 localf.w = max.w/2 localf.h = max.h
+            localf.x = 0
+            localf.y = menubar
+            localf.w = max.w/2
+            localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -163,7 +151,10 @@ function resize_win(direction)
         -- |                  |
         -- +------------------+
         if direction == "halfup" then
-            localf.x = 0 localf.y = 0 localf.w = max.w localf.h = max.h/2
+            localf.x = 0
+            localf.y = menubar
+            localf.w = max.w
+            localf.h = max.h/2
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -174,7 +165,10 @@ function resize_win(direction)
         -- |        x         |
         -- +------------------+
         if direction == "halfdown" then
-            localf.x = 0 localf.y = max.h/2 localf.w = max.w localf.h = max.h/2
+            localf.x = 0
+            localf.y = max.h/2
+            localf.w = max.w
+            localf.h = max.h/2
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -185,7 +179,10 @@ function resize_win(direction)
         -- |     |            |
         -- +-----+------------+
         if direction == "thirdleft" then
-            localf.x = 0 localf.y = 0 localf.w = max.w/3 localf.h = max.h
+            localf.x = 0
+            localf.y = menubar
+            localf.w = max.w/3
+            localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -196,7 +193,10 @@ function resize_win(direction)
         -- |     |     |     |
         -- +-----+-----+-----+
         if direction == "thirdmiddle" then
-            localf.x = max.w/3 localf.y = 0 localf.w = max.w/3 localf.h = max.h
+            localf.x = max.w/3
+            localf.y = menubar
+            localf.w = max.w/3
+            localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -207,7 +207,10 @@ function resize_win(direction)
         -- |     |     |     |
         -- +-----+-----+-----+
         if direction == "thirdright" then
-            localf.x = max.w/3 * 2 localf.y = 0 localf.w = max.w/3 localf.h = max.h
+            localf.x = max.w/3 * 2
+            localf.y = menubar
+            localf.w = max.w/3
+            localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -219,7 +222,7 @@ function resize_win(direction)
         -- +-----+-----------+
         if direction == "twothirdright" then
             localf.x = max.w/3
-            localf.y = 0
+            localf.y = menubar
             localf.w = max.w/3 * 2
             localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
@@ -233,7 +236,7 @@ function resize_win(direction)
         -- +-----------+-----+
         if direction == "twothirdleft" then
             localf.x = 0
-            localf.y = 0
+            localf.y = menubar
             localf.w = max.w/3 * 2
             localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
@@ -246,7 +249,10 @@ function resize_win(direction)
         -- |                 |
         -- +-----------------+
         if direction == "cornerNE" then
-            localf.x = max.w/2 localf.y = 0 localf.w = max.w/2 localf.h = max.h/2
+            localf.x = max.w/2
+            localf.y = menubar
+            localf.w = max.w/2
+            localf.h = max.h/2
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -257,7 +263,10 @@ function resize_win(direction)
         -- |        |   x    |
         -- +--------+--------+
         if direction == "cornerSE" then
-            localf.x = max.w/2 localf.y = max.h/2 localf.w = max.w/2 localf.h = max.h/2
+            localf.x = max.w/2
+            localf.y = max.h/2
+            localf.w = max.w/2
+            localf.h = max.h/2
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -268,7 +277,10 @@ function resize_win(direction)
         -- |    x   |        |
         -- +--------+--------+
         if direction == "cornerSW" then
-            localf.x = 0 localf.y = max.h/2 localf.w = max.w/2 localf.h = max.h/2
+            localf.x = 0
+            localf.y = max.h/2
+            localf.w = max.w/2
+            localf.h = max.h/2
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -279,7 +291,10 @@ function resize_win(direction)
         -- |                 |
         -- +-----------------+
         if direction == "cornerNW" then
-            localf.x = 0 localf.y = 0 localf.w = max.w/2 localf.h = max.h/2
+            localf.x = 0
+            localf.y = menubar
+            localf.w = max.w/2
+            localf.h = max.h/2
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -290,13 +305,8 @@ function resize_win(direction)
         -- |    +-------+    |
         -- +-----------------+
         if direction == "center" then
-            localf.x = (max.w-localf.w)/2 localf.y = (max.h-localf.h)/2
-            local absolutef = screen:localToAbsolute(localf)
-            win:setFrame(absolutef)
-        end
-
-        if direction == "fcenter" then
-            localf.x = stepw*5 localf.y = steph*5 localf.w = stepw*20 localf.h = steph*20
+            localf.x = (max.w-localf.w)/2
+            localf.y = (max.h-localf.h)/2
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
@@ -307,7 +317,10 @@ function resize_win(direction)
         -- |                 |
         -- +-----------------+
         if direction == "fullscreen" then
-            localf.x = 0 localf.y = 0 localf.w = max.w localf.h = max.h
+            localf.x = 0
+            localf.y = menubar
+            localf.w = max.w
+            localf.h = max.h
             local absolutef = screen:localToAbsolute(localf)
             win:setFrame(absolutef)
         end
