@@ -86,3 +86,7 @@ nnoremap <Leader>d :Dash<CR>
 set viminfo='100,<9999,s100
 
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" Store folds on exit and load them back in when opening
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
