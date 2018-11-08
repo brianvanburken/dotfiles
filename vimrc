@@ -27,6 +27,7 @@ set iskeyword-=_ " Enable word movement when word contains _
 set lazyredraw
 set list " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
+set modelines=0 " Don't need modelines and the potential security hazard
 set nobackup
 set nocompatible
 set noerrorbells " Don't beep
@@ -40,7 +41,7 @@ set smarttab " Insert tabs on the start of a line according to shiftwidth
 set softtabstop=2 " Number of spaces in tab when editing
 set tabstop=2 " A tab is two space
 set termencoding=utf-8 " Set encoding to UTF-8
-set termguicolors
+set termguicolors " Enable true colors support
 set title " Change the terminal's title
 set ttimeoutlen=100
 set ttyfast
