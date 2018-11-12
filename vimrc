@@ -51,7 +51,7 @@ match Error /\\\@<![\u3000[:space:]]\+$/ " Highlight trailing whitespace
 
 filetype plugin indent on " Load filetype-specific indent files
 
-let ayucolor="mirage" " light, mirage, or dark
+let ayucolor="dark" " light, mirage, or dark
 silent! colorscheme ayu
 
 set laststatus=2 " Always enable status line
