@@ -3,6 +3,8 @@ export TERM="xterm-256color"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export HOMEBREW_NO_ANALYTICS=1 # Disable homebrew analytics
+
 # If FZF is installed and The Silver Searcher I configure fzf to use ag as the
 # default command. This makes it faster in searching and also makes use of the
 # .gitignore AND .agignore!
