@@ -10,6 +10,11 @@
 --exclude=public/assets
 --exclude=coverage
 --exclude=_build
+--exclude=build
+--exclude=dist
+--exclude=*.min.*
+--exclude=*.html
+--exclude=*.conf.*
 --extra=+f
 --append
 
