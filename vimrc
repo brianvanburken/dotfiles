@@ -13,6 +13,12 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 
+" I find normal vim to slow to handle deoplete. Thus I only use it with neovim
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
+endif
+
 call plug#end()
 
 set backspace=indent,eol,start
