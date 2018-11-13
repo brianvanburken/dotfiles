@@ -29,9 +29,8 @@ cask "iterm2"
 cask "keka"
 cask "omnifocus"
 cask "spotify"
-cask "torbrowser"
+cask "tor-browser-alpha"
 
-mas "1Password", id: 443987910
 mas "Keynote", id: 409183694
 mas "Negative", id: 1378123825
 mas "Numbers", id: 409203825
