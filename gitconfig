@@ -10,7 +10,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
-	attributesfile = /Users/briburke/.gitattributes
+	attributesfile = ~/.gitattributes
 
 [alias]
 	lastchange = log -p -n 1
@@ -21,6 +21,7 @@
 
 [rebase]
 	autostash = true
+
 [diff "json"]
 	textconv = json_pp
 
