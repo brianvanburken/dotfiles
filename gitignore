@@ -18,3 +18,4 @@ npm-debug.log
 *.tar.gz
 .vscode
 .env
+.envrc
