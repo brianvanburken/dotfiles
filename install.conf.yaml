@@ -8,7 +8,7 @@
 - link:
     ~/.agignore:
     ~/.asdfrc:
-    ~/.bash_aliases:
+    ~/.aliases:
     ~/.bash_profile:
     ~/.bashrc:
     ~/.bundle:
@@ -30,6 +30,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - [touch ~/.bashrc.local, Creating local bashrc file]
-  - [touch ~/.zshrc.local, Creating local zshrc file]
   - [touch ~/.gitconfig.local, Creating local gitconfig file]
