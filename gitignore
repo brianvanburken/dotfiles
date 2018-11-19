@@ -19,3 +19,5 @@ npm-debug.log
 .vscode
 .env
 .envrc
+
+__pycache__
