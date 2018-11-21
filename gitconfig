@@ -27,3 +27,5 @@
 
 [user]
 	name = Brian van Burken
+[url "git@github.com:"]
+	insteadOf = https://github.com/
