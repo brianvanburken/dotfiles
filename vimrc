@@ -12,13 +12,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'janko-m/vim-test'
-
-" I find normal vim to slow to handle deoplete. Thus I only use it with neovim
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -82,25 +76,15 @@ let g:indentLine_setConceal = 0
 
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
 
+let g:deoplete#enable_at_startup = 1
+
+" FZF commands
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
-" Run vim test commands
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
-
 nnoremap <Leader>d :Dash<CR>
 
 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
-
-autocmd BufRead,BufNewFile *.md set filetype=markdown
-
-" Store folds on exit and load them back in when opening
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
