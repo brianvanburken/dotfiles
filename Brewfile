@@ -21,7 +21,7 @@ cask "dash"
 cask "firefox"
 cask "flux"
 cask "focus"
-cask "google-chrome-beta"
+cask "google-chrome"
 cask "hammerspoon"
 cask "imagealpha"
 cask "imageoptim"
@@ -32,7 +32,6 @@ cask "spotify"
 cask "tor-browser"
 
 mas "Keynote", id: 409183694
-mas "Negative", id: 1378123825
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
