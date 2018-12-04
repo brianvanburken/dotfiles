@@ -2,7 +2,6 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
-brew "asdf"
 brew "ctags"
 brew "exercism"
 brew "fzf"
