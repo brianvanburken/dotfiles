@@ -93,7 +93,7 @@
 			<key>Elm</key>
 			<dict>
 				<key>date</key>
-				<date>2018-09-11T11:46:32Z</date>
+				<date>2018-12-05T07:11:36Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -324,7 +324,7 @@
 	<key>shouldSyncView</key>
 	<true/>
 	<key>showInDock</key>
-	<false/>
+	<true/>
 	<key>versionedDHCheatRepo</key>
 	<dict>
 		<key>installed</key>
