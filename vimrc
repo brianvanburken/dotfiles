@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
@@ -48,8 +49,6 @@ set ttimeoutlen=100
 set ttyfast
 set visualbell " Don't beep
 
-match Error /\\\@<![\u3000[:space:]]\+$/ " Highlight trailing whitespace
-
 filetype plugin indent on " Load filetype-specific indent files
 
 let ayucolor="dark" " light, mirage, or dark
@@ -77,6 +76,9 @@ let g:indentLine_setConceal = 0
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
 
 let g:deoplete#enable_at_startup = 1
+
+ let g:better_whitespace_enabled = 1
+ let g:strip_whitespace_on_save = 1
 
 " FZF commands
 nnoremap <Leader>a :Ag<CR>
