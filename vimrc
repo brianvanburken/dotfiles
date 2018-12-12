@@ -48,6 +48,7 @@ set title " Change the terminal's title
 set ttimeoutlen=100
 set ttyfast
 set visualbell " Don't beep
+set scrolloff=5 " Show lines below current line at all times while scrolling
 
 filetype plugin indent on " Load filetype-specific indent files
 
