@@ -3,6 +3,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 brew "ctags"
+brew "direnv"
 brew "exercism"
 brew "fzf"
 brew "git"
