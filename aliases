@@ -59,3 +59,7 @@ alias emt='elm make --docs=/dev/null --yes'
 
 # The silver searcher
 alias af='ag -g'
+
+# Other
+alias docker-refresh='docker-compose down && docker-compose up'
+alias serve-dir='python -m SimpleHTTPServer'
