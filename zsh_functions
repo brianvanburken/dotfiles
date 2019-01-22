@@ -4,7 +4,6 @@ gbd () { git branch -D `git branch | grep ${1}` }
 
 brew_clean() {
   brew doctor;
-  brew prune;
   brew cleanup;
   rm -rf "$(brew --cache)/*";
 }
