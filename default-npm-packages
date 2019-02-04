@@ -1,7 +1,11 @@
 elm-analyse
+elm-doc
+elm-doc-preview
 elm-format
 elm-oracle
+elm-test
 elm-thanks
+elm-verify-examples
 elm-xref
-npm-check
 neovim
+npm-check
