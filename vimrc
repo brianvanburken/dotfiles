@@ -37,6 +37,8 @@ set noswapfile
 set nowrap " Don't wrap lines
 set number " Show line numers
 set numberwidth=2 " Line numbers max to two digits
+set regexpengine=1
+set scrolloff=5 " Show lines below current line at all times while scrolling
 set shiftwidth=2 " An autoindent (with <<) is two space
 set showcmd " Show typed command in bottom bar
 set smarttab " Insert tabs on the start of a line according to shiftwidth
@@ -48,7 +50,6 @@ set title " Change the terminal's title
 set ttimeoutlen=100
 set ttyfast
 set visualbell " Don't beep
-set scrolloff=5 " Show lines below current line at all times while scrolling
 
 filetype plugin indent on " Load filetype-specific indent files
 
@@ -93,10 +94,3 @@ nnoremap <Leader>d :Dash<CR>
 set viminfo='100,<9999,s100
 
 autocmd BufRead,BufNewFile .envrc set filetype=sh
-
-" <leader>ij | Open in IntelliJ
-if s:darwin
-  nnoremap <silent> <leader>ij
-  \ :call job_start(['/Applications/IntelliJ IDEA.app/Contents/MacOS/idea', expand('%:p')],
-  \ {'in_io': 'null', 'out_io': 'null', 'err_io': 'null'})<cr>
-endif
