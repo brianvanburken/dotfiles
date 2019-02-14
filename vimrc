@@ -26,6 +26,7 @@ set hidden " Hide buffers instead of closing them
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
 set iskeyword-=_ " Enable word movement when word contains _
+set laststatus=2 " Always enable status line
 set lazyredraw
 set list " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
@@ -43,29 +44,28 @@ set shiftwidth=2 " An autoindent (with <<) is two space
 set showcmd " Show typed command in bottom bar
 set smarttab " Insert tabs on the start of a line according to shiftwidth
 set softtabstop=2 " Number of spaces in tab when editing
+set statusline+=%= " Left/right separator
+set statusline+=%c " Cursor column
+set statusline+=%h " Help file flag
+set statusline+=%l/%L: " Cursor line/total lines
+set statusline+=%m " Modified flag
+set statusline+=%r " Read only flag
+set statusline+=%y " Filetype
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}] " File encoding + format
+set statusline=%t " Tail of the filename
 set tabstop=2 " A tab is two space
 set termencoding=utf-8 " Set encoding to UTF-8
 set termguicolors " Enable true colors support
 set title " Change the terminal's title
 set ttimeoutlen=100
 set ttyfast
+set viminfo='100,<9999,s100 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
 set visualbell " Don't beep
 
 filetype plugin indent on " Load filetype-specific indent files
 
 let ayucolor="dark" " light, mirage, or dark
 silent! colorscheme ayu
-
-set laststatus=2 " Always enable status line
-set statusline=%t " Tail of the filename
-set statusline+=%m " Modified flag
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}] " File encoding + format
-set statusline+=%h " Help file flag
-set statusline+=%r " Read only flag
-set statusline+=%y " Filetype
-set statusline+=%= " Left/right separator
-set statusline+=%l/%L: " Cursor line/total lines
-set statusline+=%c " Cursor column
 
 let g:polyglot_disabled = ['elm']
 
@@ -79,8 +79,8 @@ let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags t
 
 let g:deoplete#enable_at_startup = 1
 
- let g:better_whitespace_enabled = 1
- let g:strip_whitespace_on_save = 1
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save = 1
 
 " FZF commands
 nnoremap <Leader>a :Ag<CR>
@@ -89,8 +89,5 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
-
-" Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
-set viminfo='100,<9999,s100
 
 autocmd BufRead,BufNewFile .envrc set filetype=sh
