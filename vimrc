@@ -93,3 +93,10 @@ nnoremap <Leader>d :Dash<CR>
 set viminfo='100,<9999,s100
 
 autocmd BufRead,BufNewFile .envrc set filetype=sh
+
+" <leader>ij | Open in IntelliJ
+if s:darwin
+  nnoremap <silent> <leader>ij
+  \ :call job_start(['/Applications/IntelliJ IDEA.app/Contents/MacOS/idea', expand('%:p')],
+  \ {'in_io': 'null', 'out_io': 'null', 'err_io': 'null'})<cr>
+endif
