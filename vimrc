@@ -91,3 +91,8 @@ nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>d :Dash<CR>
 
 autocmd BufRead,BufNewFile .envrc set filetype=sh
+
+" Spellcheck
+setlocal spell
+set spelllang=nl,en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
