@@ -2,7 +2,6 @@
 # Block websites that are sinkholes of time and I don't want to visit. I don't
 # trust myself so I'll block them.
 
-# 0.0.0.0 tweakers.net www.tweakers.net
 # 0.0.0.0 twitch.tv www.twitch.tv
 0.0.0.0 9gag.com www.9gag.com
 0.0.0.0 9to5google.com
@@ -15,5 +14,6 @@
 0.0.0.0 lobste.rs
 0.0.0.0 macrumors.com www.macrumors.com
 0.0.0.0 onemorething.nl www.onemorething.nl
+0.0.0.0 tweakers.net www.tweakers.net
 
 # End of custom host records.
