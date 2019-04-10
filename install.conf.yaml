@@ -7,8 +7,8 @@
 
 - link:
     ~/.agignore:
-    ~/.asdfrc:
     ~/.aliases:
+    ~/.asdfrc:
     ~/.bash_profile:
     ~/.bashrc:
     ~/.bundle:
@@ -20,6 +20,7 @@
     ~/.gitignore:
     ~/.hammerspoon:
     ~/.hushlogin:
+    ~/.ideavimrc:
     ~/.profile:
     ~/.tool-versions:
     ~/.vimrc:
