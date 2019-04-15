@@ -36,7 +36,7 @@ set nocompatible
 set noerrorbells " Don't beep
 set noswapfile
 set nowrap " Don't wrap lines
-set number " Show line numers
+set number " Show line numbers
 set numberwidth=2 " Line numbers max to two digits
 set regexpengine=1
 set scrolloff=5 " Show lines below current line at all times while scrolling
