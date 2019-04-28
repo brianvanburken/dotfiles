@@ -5,13 +5,16 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/elm-vim if development resumes
+Plug 'c-brenn/phoenix.vim', { 'for': ['elixir'] }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'mhinz/vim-mix-format', { 'for': ['elixir'] }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 
@@ -72,6 +75,8 @@ let g:polyglot_disabled = ['elm']
 let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
 let g:elm_detailed_complete = 1
+
+let g:mix_format_on_save = 1
 
 let g:indentLine_setConceal = 0
 
