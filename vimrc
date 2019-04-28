@@ -8,6 +8,7 @@ Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/
 Plug 'c-brenn/phoenix.vim', { 'for': ['elixir'] }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
+Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-mix-format', { 'for': ['elixir'] }
