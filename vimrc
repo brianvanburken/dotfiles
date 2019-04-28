@@ -6,11 +6,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/elm-vim if development resumes
 Plug 'editorconfig/editorconfig-vim'
+Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
