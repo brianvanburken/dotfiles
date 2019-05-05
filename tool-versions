@@ -3,6 +3,6 @@ nodejs 12.1.0
 erlang 21.3.7
 elixir 1.8.1
 elm 0.19.0
-haskell 8.6.4
+haskell 8.6.5
 python 3.7.3
 graalvm 1.0.0-rc16
