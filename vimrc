@@ -11,7 +11,6 @@ Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'mhinz/vim-mix-format', { 'for': ['elixir'] }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'tpope/vim-commentary'
@@ -102,3 +101,5 @@ autocmd BufRead,BufNewFile .envrc set filetype=sh
 setlocal spell
 set spelllang=nl,en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+set formatprg=mix\ format\ -
