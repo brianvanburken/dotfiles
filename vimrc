@@ -58,7 +58,6 @@ set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}] " File encoding + forma
 set statusline=%t " Tail of the filename
 set tabstop=2 " A tab is two space
 set termencoding=utf-8 " Set encoding to UTF-8
-set termguicolors " Enable true colors support
 set title " Change the terminal's title
 set ttimeoutlen=100
 set ttyfast
@@ -67,10 +66,8 @@ set visualbell " Don't beep
 
 filetype plugin indent on " Load filetype-specific indent files
 
-let ayucolor="dark" " light, mirage, or dark
-silent! colorscheme ayu
-
-let g:polyglot_disabled = ['elm']
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " This line enables the true color support.
+set termguicolors " Enable true colors support
 
 let g:elm_setup_keybindings = 0
 let g:elm_format_autosave = 1
@@ -103,3 +100,18 @@ set spelllang=nl,en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 set formatprg=mix\ format\ -
+
+function! SetTheme(...)
+  let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
+  if s:mode ==? "dark"
+    set background=dark
+    let g:ayucolor="dark"
+  else
+    set background=light
+    let g:ayucolor="light"
+  endif
+  silent! colorscheme ayu
+endfunction
+
+call SetTheme()
+call timer_start(3000, "SetTheme", {"repeat": -1})
