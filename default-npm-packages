@@ -10,3 +10,4 @@ elm-verify-examples
 elm-xref
 neovim
 npm-check
+prettier
