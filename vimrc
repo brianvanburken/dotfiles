@@ -5,16 +5,13 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/elm-vim if development resumes
-Plug 'c-brenn/phoenix.vim', { 'for': ['elixir'] }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
-Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 
@@ -93,13 +90,7 @@ nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>d :Dash<CR>
 
 autocmd BufRead,BufNewFile .envrc set filetype=sh
-
-" Spellcheck
-setlocal spell
-set spelllang=nl,en_gb
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
-set formatprg=mix\ format\ -
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 function! SetTheme(...)
   let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
@@ -112,6 +103,5 @@ function! SetTheme(...)
   endif
   silent! colorscheme ayu
 endfunction
-
 call SetTheme()
 call timer_start(3000, "SetTheme", {"repeat": -1})
