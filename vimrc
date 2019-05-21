@@ -9,6 +9,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'mhinz/vim-mix-format'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'tpope/vim-commentary'
@@ -92,6 +93,7 @@ nnoremap <Leader>d :Dash<CR>
 autocmd BufRead,BufNewFile .envrc set filetype=sh
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+" Set theme based on macOS Mojave theme
 function! SetTheme(...)
   let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
   if s:mode ==? "dark"
@@ -104,4 +106,4 @@ function! SetTheme(...)
   silent! colorscheme ayu
 endfunction
 call SetTheme()
-call timer_start(3000, "SetTheme", {"repeat": -1})
+call timer_start(1000, "SetTheme", {"repeat": -1})
