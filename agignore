@@ -1,3 +1,4 @@
+*.bak
 *.beam
 *.bmp
 *.gemtags*
@@ -20,10 +21,12 @@
 .gitkeep
 .vim/
 _build/
+backup/
 bower_components/
 deps/
 dest/
 dist/
+dotbot/
 elm-stuff/
 images/
 log/
@@ -32,4 +35,3 @@ node_modules/
 source_code/
 target/
 tmp/
-dotbot/
