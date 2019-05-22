@@ -1,17 +1,19 @@
 call plug#begin()
 
-Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/elm-vim if development resumes
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-mix-format'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'prettier/vim-prettier'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
