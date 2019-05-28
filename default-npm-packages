@@ -3,6 +3,7 @@ elm-doc
 elm-doc-preview
 elm-format
 elm-json
+elm-live
 elm-oracle
 elm-test
 elm-thanks
