@@ -55,7 +55,7 @@ alias ef='elm format'
 alias epi='elm install'
 alias et='elm-thanks'
 alias eci='rm -rf elm-stuff/ && elm-package install -y'
-alias emt='elm make --optimize --output=/tmp/elm.js'
+alias emt='elm make --optimize --output=/dev/null'
 
 alias ej='elm-json'
 alias ea='elm-analyse'
