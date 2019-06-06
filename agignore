@@ -5,6 +5,7 @@
 *.gif
 *.jpeg
 *.jpg
+*.lock
 *.log
 *.old
 *.otf
