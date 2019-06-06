@@ -33,6 +33,7 @@ images/
 log/
 logs/
 node_modules/
+package-lock.json
 source_code/
 target/
 tmp/
