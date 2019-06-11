@@ -7,3 +7,5 @@
 source $(brew --prefix)/etc/profile.d/z.sh
 
 eval "$(direnv hook zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
