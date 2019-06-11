@@ -9,11 +9,12 @@ Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'mhinz/vim-mix-format'
+Plug 'mhinz/vim-mix-format', { 'for': ['elixir'] }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'prettier/vim-prettier'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'sheerun/vim-polyglot'
+Plug 'slashmili/alchemist.vim', { 'for': ['elixir'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'

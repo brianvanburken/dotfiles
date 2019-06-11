@@ -3,3 +3,5 @@
 [[ -r $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 
 eval "$(direnv hook bash)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
