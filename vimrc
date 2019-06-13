@@ -1,24 +1,19 @@
 call plug#begin()
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
-Plug 'brianvanburken/elm-vim', { 'for': ['elm'] } " Change back when to ElmCast/elm-vim if development resumes
 Plug 'editorconfig/editorconfig-vim'
-Plug 'elixir-editors/vim-elixir', { 'for': ['elixir'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'mhinz/vim-mix-format', { 'for': ['elixir'] }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'prettier/vim-prettier'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'sheerun/vim-polyglot'
-Plug 'slashmili/alchemist.vim', { 'for': ['elixir'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-
+Plug 'antew/vim-elm-language-server'
 call plug#end()
 
 set backspace=indent,eol,start
@@ -70,12 +65,6 @@ filetype plugin indent on " Load filetype-specific indent files
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " This line enables the true color support.
 set termguicolors " Enable true colors support
 
-let g:elm_setup_keybindings = 0
-let g:elm_format_autosave = 1
-let g:elm_detailed_complete = 1
-
-let g:mix_format_on_save = 1
-
 let g:indentLine_setConceal = 0
 
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
@@ -110,3 +99,16 @@ function! SetTheme(...)
 endfunction
 call SetTheme()
 call timer_start(1000, "SetTheme", {"repeat": -1})
+
+let g:ale_linters = {}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+
+" Elm LSP for ALE
+let g:ale_elm_ls_use_global = 1
+let g:ale_linters.elm = ['elm_lsp', 'elm_ls']
+let g:ale_fixers.elm = ['format']
+
+" Elixir LSP for ALE
+let g:ale_elixir_elixir_ls_release = '~/Developer/Personal/elixir-ls/rel'
+let g:ale_linters.elixir = ['elixir-ls']
+let g:ale_fixers.elixir = ['mix_format']
