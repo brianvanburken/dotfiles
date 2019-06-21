@@ -13,7 +13,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'antew/vim-elm-language-server'
 call plug#end()
 
 set backspace=indent,eol,start
@@ -105,7 +104,7 @@ let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 
 " Elm LSP for ALE
 let g:ale_elm_ls_use_global = 1
-let g:ale_linters.elm = ['elm_lsp', 'elm_ls']
+let g:ale_linters.elm = ['elm_ls']
 let g:ale_fixers.elm = ['format']
 
 " Elixir LSP for ALE
