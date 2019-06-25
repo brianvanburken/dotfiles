@@ -12,7 +12,7 @@ Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 set backspace=indent,eol,start
@@ -98,20 +98,3 @@ function! SetTheme(...)
 endfunction
 call SetTheme()
 call timer_start(1000, "SetTheme", {"repeat": -1})
-
-let g:ale_linters = {}
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-
-" Elm LSP for ALE
-let g:ale_elm_ls_use_global = 1
-let g:ale_linters.elm = ['elm_lsp', 'elm_ls']
-let g:ale_fixers.elm = ['format']
-
-" Elixir LSP for ALE
-let g:ale_elixir_elixir_ls_release = '~/Developer/Personal/elixir-ls/rel'
-let g:ale_linters.elixir = ['elixir-ls']
-let g:ale_fixers.elixir = ['mix_format']
-
-"ALE conf"
-set completeopt=menu,menuone,preview,noselect,noinsert
-let g:ale_completion_enabled = 1
