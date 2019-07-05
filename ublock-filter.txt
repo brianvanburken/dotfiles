@@ -1,0 +1,15 @@
+dev.to###in-feed-cta
+dev.to##.side-bar > *
+dev.to###article-show-primary-sticky-nav
+dev.to##footer
+
+npmjs.com##.marketing
+
+getpocket.com###reader_explore_bar
+
+stackstorage.com##.stack-promotion
+
+youtube.com###comments
+youtube.com##ytd-watch-next-secondary-results-renderer
+youtube.com###endpoint[title="Trending"]
+youtube.com###sections > ytd-guide-section-renderer:nth-child(3)
