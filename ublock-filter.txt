@@ -1,5 +1,5 @@
 ! Title: Brian van Burken's annoyances block list
-! Expires: 2 Days (Update Frequency)
+! Expires: 1 Days (Update Frequency)
 
 dev.to###in-feed-cta
 dev.to##.side-bar > *
@@ -16,6 +16,8 @@ youtube.com###comments
 youtube.com##ytd-watch-next-secondary-results-renderer
 youtube.com###endpoint[title="Trending"]
 youtube.com###sections > ytd-guide-section-renderer:nth-child(3)
+youtube.com##ytd-notification-topbar-button-renderer
+youtube.com##ytd-topbar-menu-button-renderer[is-icon-button]
 
 medium.com##.js-directEmailSignup
 medium.com##.streamItem--sequenceIndexCarousel
