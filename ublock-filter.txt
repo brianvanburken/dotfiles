@@ -1,3 +1,6 @@
+! Title: Brian van Burken's annoyances block list
+! Expires: 2 Days (Update Frequency)
+
 dev.to###in-feed-cta
 dev.to##.side-bar > *
 dev.to###article-show-primary-sticky-nav
