@@ -16,3 +16,7 @@ youtube.com###comments
 youtube.com##ytd-watch-next-secondary-results-renderer
 youtube.com###endpoint[title="Trending"]
 youtube.com###sections > ytd-guide-section-renderer:nth-child(3)
+
+medium.com##.js-directEmailSignup
+medium.com##.streamItem--sequenceIndexCarousel
+medium.com##.loadingBar
