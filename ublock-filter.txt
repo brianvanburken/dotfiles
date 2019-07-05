@@ -22,3 +22,7 @@ youtube.com##ytd-topbar-menu-button-renderer[is-icon-button]
 medium.com##.js-directEmailSignup
 medium.com##.streamItem--sequenceIndexCarousel
 medium.com##.loadingBar
+
+! Remove sticky headers
+elixirforum.com##.d-header:style(position: absolute !important)
+discourse.elm-lang.org##.d-header:style(position: absolute !important)
