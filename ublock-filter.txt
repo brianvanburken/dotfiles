@@ -23,6 +23,7 @@ medium.com##.js-directEmailSignup
 medium.com##.streamItem--sequenceIndexCarousel
 medium.com##.loadingBar
 medium.com##div > div:has(a[href^="/policy"])
+medium.com##div > div > div:has(a[href^="//medium.com/m/connect"])
 
 ! Remove sticky headers
 elixirforum.com##.d-header:style(position: absolute !important)
