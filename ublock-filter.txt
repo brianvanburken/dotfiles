@@ -29,3 +29,8 @@ medium.com##div[data-test-id="post-sidebar"]
 ! Remove sticky headers
 elixirforum.com##.d-header:style(position: absolute !important)
 discourse.elm-lang.org##.d-header:style(position: absolute !important)
+
+! Disable custom styling
+reddit.com##^link[title="applied_subreddit_stylesheet"]
+reddit.com###header-img
+reddit.com##.listingsignupbar
