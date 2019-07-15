@@ -4,7 +4,7 @@
 # but Tor is really slow so it is painful and thus I must choose deliberate to
 # go through the process to visit a site.
 
-# 0.0.0.0 twitch.tv www.twitch.tv # I still like to watch Bob Ross
+0.0.0.0 twitch.tv www.twitch.tv
 0.0.0.0 9gag.com www.9gag.com
 0.0.0.0 9to5google.com
 0.0.0.0 9to5mac.com
