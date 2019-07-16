@@ -18,19 +18,29 @@ youtube.com###endpoint[title="Trending"]
 youtube.com###sections > ytd-guide-section-renderer:nth-child(3)
 youtube.com##ytd-notification-topbar-button-renderer
 youtube.com##ytd-topbar-menu-button-renderer[is-icon-button]
+youtube.com###chat
+youtube.com##.videowall-endscreen
 
 medium.com##.js-directEmailSignup
 medium.com##.streamItem--sequenceIndexCarousel
 medium.com##.loadingBar
 medium.com##div > div:has(a[href^="/policy"])
+medium.com##div > div:has(a[href^="https://medium.com/policy"])
 medium.com##div > div > div:has(a[href^="//medium.com/m/connect"])
 medium.com##div[data-test-id="post-sidebar"]
+
+gizmodo.com##.ad-container + .instream-native-video
+gizmodo.com##.sidebar
+gizmodo.com##.meta--pe
+gizmodo.com##.main__content,.main:style(width: 100% !important, float: none)
 
 ! Remove sticky headers
 elixirforum.com##.d-header:style(position: absolute !important)
 discourse.elm-lang.org##.d-header:style(position: absolute !important)
+medium.com##nav:style(position: absolute !important)
 
 ! Disable custom styling
 reddit.com##^link[title="applied_subreddit_stylesheet"]
 reddit.com###header-img
 reddit.com##.listingsignupbar
+
