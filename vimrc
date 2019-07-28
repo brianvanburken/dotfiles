@@ -1,13 +1,10 @@
 call plug#begin()
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Yggdroot/indentLine'
+Plug 'yggdroot/indentLine'
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'prettier/vim-prettier'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
