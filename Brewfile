@@ -2,7 +2,6 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
-brew "ctags"
 brew "direnv"
 brew "exercism"
 brew "fzf"
@@ -29,7 +28,4 @@ cask "postman"
 cask "spotify"
 cask "stack"
 
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
