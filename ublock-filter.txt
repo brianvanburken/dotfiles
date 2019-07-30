@@ -20,6 +20,11 @@ youtube.com##ytd-notification-topbar-button-renderer
 youtube.com##ytd-topbar-menu-button-renderer[is-icon-button]
 youtube.com###chat
 youtube.com##.videowall-endscreen
+! Remove subscriptions from YouTube sidebar
+youtube.com##ytd-guide-section-renderer:nth-child(2)
+youtube.com###notification-preference-toggle-button
+! Do not set a max-height for youtube playlist (I don't have a lot of watch later videos so I want to see them all)
+youtube.com###playlist:style(max-height:none !important)
 
 medium.com##.js-directEmailSignup
 medium.com##.streamItem--sequenceIndexCarousel
