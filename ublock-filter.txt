@@ -49,3 +49,7 @@ reddit.com##^link[title="applied_subreddit_stylesheet"]
 reddit.com###header-img
 reddit.com##.listingsignupbar
 
+smashingmagazine.com##.c-felix-the-cat
+smashingmagazine.com##.c-garfield-native-panel
+smashingmagazine.com##.feature-panel-container
+smashingmagazine.com##.c-promo-box,.sponsors
