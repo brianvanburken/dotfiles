@@ -27,5 +27,6 @@ cask "mactex-no-gui"
 cask "postman"
 cask "spotify"
 cask "stack"
+cask "tripmode"
 
 mas "Xcode", id: 497799835
