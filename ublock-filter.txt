@@ -25,6 +25,7 @@ youtube.com##ytd-guide-section-renderer:nth-child(2)
 youtube.com###notification-preference-toggle-button
 ! Do not set a max-height for youtube playlist (I don't have a lot of watch later videos so I want to see them all)
 youtube.com###playlist:style(max-height:none !important)
+youtube.com###sponsor-button
 
 medium.com##.js-directEmailSignup
 medium.com##.streamItem--sequenceIndexCarousel
