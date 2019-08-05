@@ -8,6 +8,7 @@ alias cls='clear'
 alias dev='cd ~/Developer/'
 
 alias kill_ds="find . -name .DS_Store -type f -delete"
+alias kill_modules="find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +"
 alias mine='sudo chown -R $(whoami):admin '
 
 # NPM
