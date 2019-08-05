@@ -5,4 +5,4 @@ nmap <leader>a :action GotoSymbol<cr>
 nmap <leader>n :action NewFile<cr>
 
 nmap <leader>r :action ReformatCode<cr>
-set clipboard+=ideaputset ideajoin
+set clipboard+=ideaputset ideajoinset ideaput
