@@ -54,3 +54,10 @@ smashingmagazine.com##.c-felix-the-cat
 smashingmagazine.com##.c-garfield-native-panel
 smashingmagazine.com##.feature-panel-container
 smashingmagazine.com##.c-promo-box,.sponsors
+
+stackoverflow.com###sidebar
+stackoverflow.com###left-sidebar
+stackoverflow.com###post-form
+stackoverflow.com###mainbar:style(width: auto !important)
+stackoverflow.com###content:style(border: none !important)
+
