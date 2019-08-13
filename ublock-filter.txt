@@ -49,6 +49,7 @@ medium.com##nav:style(position: absolute !important)
 reddit.com##^link[title="applied_subreddit_stylesheet"]
 reddit.com###header-img
 reddit.com##.listingsignupbar
+||thumbs.redditmedia.com^$stylesheet,domain=reddit.com
 
 smashingmagazine.com##.c-felix-the-cat
 smashingmagazine.com##.c-garfield-native-panel
