@@ -60,6 +60,7 @@ filetype plugin indent on " Load filetype-specific indent files
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " This line enables the true color support.
 set termguicolors " Enable true colors support
+silent! colorscheme ayu
 
 let g:indentLine_setConceal = 0
 
@@ -84,20 +85,14 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 " Set theme based on macOS Mojave theme
 function! SetTheme(...)
   let list = systemlist("defaults read -g AppleInterfaceStyle")
-  if !empty(list)
-    let mode = list[0]
-    if mode ==? "dark"
-      set background=dark
-      let g:ayucolor="dark"
-    else
-      set background=light
-      let g:ayucolor="light"
-    endif
+  let mode = empty(list) ? "light" : list[0]
+  if mode ==? "dark"
+    set background=dark
+    let g:ayucolor="dark"
   else
     set background=light
     let g:ayucolor="light"
   endif
-  silent! colorscheme ayu
 endfunction
 call SetTheme()
 call timer_start(1000, "SetTheme", {"repeat": -1})
