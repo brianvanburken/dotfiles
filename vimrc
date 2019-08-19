@@ -83,8 +83,9 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " Set theme based on macOS Mojave theme
 function! SetTheme(...)
-  let mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
-  if !empty(mode)
+  let list = systemlist("defaults read -g AppleInterfaceStyle")
+  if !empty(list)
+    let mode = list[0]
     if mode ==? "dark"
       set background=dark
       let g:ayucolor="dark"
