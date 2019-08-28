@@ -60,7 +60,6 @@ filetype plugin indent on " Load filetype-specific indent files
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " This line enables the true color support.
 set termguicolors " Enable true colors support
-silent! colorscheme ayu
 
 let g:indentLine_setConceal = 0
 
@@ -93,6 +92,7 @@ function! SetTheme(...)
     set background=light
     let g:ayucolor="light"
   endif
+  silent! colorscheme ayu
 endfunction
 call SetTheme()
 call timer_start(1000, "SetTheme", {"repeat": -1})
