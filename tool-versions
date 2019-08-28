@@ -1,5 +1,5 @@
 ruby 2.6.3
-nodejs 12.8.1
+nodejs 12.9.1
 erlang 22.0.7
 elixir 1.9.1-otp-22
 elm 0.19.1
