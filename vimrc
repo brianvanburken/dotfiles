@@ -1,15 +1,16 @@
 call plug#begin()
-Plug 'yggdroot/indentLine'
+Plug 'andys8/vim-elm-syntax'
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yggdroot/indentLine'
 call plug#end()
 
 set backspace=indent,eol,start
@@ -69,6 +70,8 @@ let g:deoplete#enable_at_startup = 1
 
 let g:better_whitespace_enabled = 1
 let g:strip_whitespace_on_save = 1
+
+let g:polyglot_disabled = ['elm']
 
 " FZF commands
 nnoremap <Leader>a :Ag<CR>
