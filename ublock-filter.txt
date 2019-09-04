@@ -27,13 +27,12 @@ youtube.com###notification-preference-toggle-button
 youtube.com###playlist:style(max-height:none !important)
 youtube.com###sponsor-button
 
-! medium.com##.js-directEmailSignup
-! medium.com##.streamItem--sequenceIndexCarousel
-! medium.com##.loadingBar
-! medium.com##div > div:has(a[href^="/policy"])
-! medium.com##div > div:has(a[href^="https://medium.com/policy"])
-! medium.com##div > div > div:has(a[href^="//medium.com/m/connect"])
-! medium.com##div[data-test-id="post-sidebar"]
+
+! To make medium readable again I remove everything except the article.
+medium.com###root > div > *:not(article)
+medium.com##body > div:last-child
+! Add some margin to the bottom to create a bit of whitespace
+medium.com##article:style(margin-bottom: 40px !important)
 
 gizmodo.com##.ad-container + .instream-native-video
 gizmodo.com##.sidebar
