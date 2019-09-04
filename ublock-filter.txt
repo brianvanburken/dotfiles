@@ -30,7 +30,7 @@ youtube.com###sponsor-button
 
 ! To make medium readable again I remove everything except the article.
 medium.com###root > div > *:not(article)
-medium.com##body > div:last-child
+medium.com###root ~ div
 ! Add some margin to the bottom to create a bit of whitespace
 medium.com##article:style(margin-bottom: 40px !important)
 medium.com##button:has-text(Follow)
