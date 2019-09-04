@@ -66,5 +66,6 @@ alias ea='elm-analyse'
 alias af='ag -g'
 
 # Other
-alias docker-refresh='docker-compose down && docker-compose up'
-alias serve-dir='python -m SimpleHTTPServer'
+alias dr='docker-compose down && docker-compose up'
+alias serve='python -m SimpleHTTPServer'
+alias vid='youtube-dl -f best -ciw -o "%(title)s.%(ext)s" -v'
