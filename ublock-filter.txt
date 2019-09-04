@@ -33,6 +33,7 @@ medium.com###root > div > *:not(article)
 medium.com##body > div:last-child
 ! Add some margin to the bottom to create a bit of whitespace
 medium.com##article:style(margin-bottom: 40px !important)
+medium.com##button:has-text(Follow)
 
 gizmodo.com##.ad-container + .instream-native-video
 gizmodo.com##.sidebar
