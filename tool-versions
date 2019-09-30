@@ -4,5 +4,5 @@ erlang 22.0.7
 elixir 1.9.1-otp-22
 elm 0.19.1
 haskell 8.8.1
-python 3.8.0b4
+python 3.7.4
 golang 1.12.9
