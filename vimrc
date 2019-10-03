@@ -99,3 +99,7 @@ function! SetTheme(...)
 endfunction
 call SetTheme()
 call timer_start(1000, "SetTheme", {"repeat": -1})
+
+" Set background to none to get correct background when terminal theme is same
+" as vim theme.
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
