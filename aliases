@@ -68,5 +68,4 @@ alias af='ag -g'
 # Other
 alias dr='docker-compose down && docker-compose up'
 alias serve='python -m SimpleHTTPServer'
-alias vid='youtube-dl -f best -ciw --add-metadata --write-all-thumbnails --embed-thumbnail --embed-subs --all-subs -o "%(title)s.%(ext)s" '
-alias mus='youtube-dl -f best -ciwx --embed-thumbnail --add-metadata -o "%(title)s.%(ext)s" '
+alias yt='youtube-dl '
