@@ -15,6 +15,7 @@
 [alias]
 	lastchange = log -p -n 1
 	trim = !git remote prune origin && git gc
+	tag = tag -s
 
 [include]
 	path = ~/.gitconfig.local
