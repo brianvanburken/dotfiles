@@ -69,3 +69,6 @@ alias af='ag -g'
 alias dr='docker-compose down && docker-compose up'
 alias serve='python -m SimpleHTTPServer'
 alias yt='youtube-dl '
+
+# DVORAK aliases
+alias aoeu='asdf' # asdf was meant to be rolling fingers to use DVORAK version
