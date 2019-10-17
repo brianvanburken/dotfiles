@@ -81,10 +81,14 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
-autocmd BufRead,BufNewFile .envrc set filetype=sh
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+" Set background to none to get correct background when terminal theme is same
+" as vim theme.
+au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 
-" Set theme based on macOS Mojave theme
+au BufRead,BufNewFile .envrc set filetype=sh
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" Set theme based on macOS dark/light theme
 function! SetTheme(...)
   let list = systemlist("defaults read -g AppleInterfaceStyle")
   let mode = empty(list) ? "light" : list[0]
@@ -99,7 +103,3 @@ function! SetTheme(...)
 endfunction
 call SetTheme()
 call timer_start(1000, "SetTheme", {"repeat": -1})
-
-" Set background to none to get correct background when terminal theme is same
-" as vim theme.
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
