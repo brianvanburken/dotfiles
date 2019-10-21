@@ -31,6 +31,5 @@
     ~/.zshrc:
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
   - [touch ~/.gitconfig.local, Creating local gitconfig file]
   - [mkdir -p ~/.shell, Creating local shell scripts directory]
