@@ -12,6 +12,7 @@ alias kill_modules="find . -name \"node_modules\" -type d -prune -exec rm -rf '{
 alias mine='sudo chown -R $(whoami):admin '
 
 # NPM
+alias n='npm'
 alias nr='npm run'
 alias ni='npm install'
 alias nis='npm install --save'
@@ -62,6 +63,9 @@ alias emt='elm make --optimize --output=/dev/null'
 alias ej='elm-json'
 alias ea='elm-analyse'
 
+# Python shortcuts
+alias p='pipenv'
+
 # The silver searcher
 alias af='ag -g'
 
@@ -69,6 +73,3 @@ alias af='ag -g'
 alias dr='docker-compose down && docker-compose up'
 alias serve='python -m SimpleHTTPServer'
 alias yt='youtube-dl '
-
-# DVORAK aliases
-alias aoeu='asdf' # asdf was meant to be rolling fingers to use DVORAK version
