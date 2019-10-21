@@ -15,6 +15,7 @@
     ~/.ctags:
     ~/.default-gems:
     ~/.default-npm-packages:
+    ~/.default-python-packages:
     ~/.gemrc:
     ~/.gitattributes:
     ~/.gitconfig:
