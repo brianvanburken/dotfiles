@@ -89,17 +89,12 @@ au BufRead,BufNewFile .envrc set filetype=sh
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " Set theme based on macOS dark/light theme
-function! SetTheme(...)
-  let list = systemlist("defaults read -g AppleInterfaceStyle")
-  let mode = empty(list) ? "light" : list[0]
-  if mode ==? "dark"
+let iterm_profile = $ITERM_PROFILE
+if iterm_profile == "Dark"
     set background=dark
     let g:ayucolor="dark"
-  else
+else
     set background=light
     let g:ayucolor="light"
-  endif
-  silent! colorscheme ayu
-endfunction
-call SetTheme()
-call timer_start(1000, "SetTheme", {"repeat": -1})
+endif
+silent! colorscheme ayu
