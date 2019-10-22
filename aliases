@@ -63,8 +63,11 @@ alias emt='elm make --optimize --output=/dev/null'
 alias ej='elm-json'
 alias ea='elm-analyse'
 
-# Python shortcuts
+# Python/Pip shortcuts
 alias p='pipenv'
+alias pi='pipenv install'
+alias pu='pipenv uninstall'
+alias pl='pipenv lock'
 
 # The silver searcher
 alias af='ag -g'
