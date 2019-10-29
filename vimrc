@@ -58,6 +58,7 @@ set viminfo='100,<9999,s100 " Store info from no more than 100 files at a time, 
 set visualbell " Don't beep
 
 filetype plugin indent on " Load filetype-specific indent files
+syntax on
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " This line enables the true color support.
 set termguicolors " Enable true colors support
