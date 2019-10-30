@@ -11,8 +11,6 @@ export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export KERL_CONFIGURE_OPTIONS="--with-ssl=/usr/local/opt/openssl"
-
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.asdf/shims"
