@@ -25,11 +25,12 @@
     ~/.ideavimrc:
     ~/.profile:
     ~/.tool-versions:
+    ~/.vim:
     ~/.vimrc:
     ~/.zimrc:
     ~/.zsh_functions:
     ~/.zshrc:
 
-- shell:
-  - [touch ~/.gitconfig.local, Creating local gitconfig file]
-  - [mkdir -p ~/.shell, Creating local shell scripts directory]
+- create:
+    ~/.shell/
+    ~/Developer/
