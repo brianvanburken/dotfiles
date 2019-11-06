@@ -18,6 +18,8 @@ set clipboard=unnamed " Share Clipboard with OS
 set colorcolumn=80 " Show column on 80 character for limit reference
 set encoding=utf-8 nobomb " Set default encoding to UTF-8
 set expandtab " Use spaces not tabs
+set fileencoding=utf-8
+set fileencodings=utf-8
 set hidden " Hide buffers instead of closing them
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
