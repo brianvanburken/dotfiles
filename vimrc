@@ -101,3 +101,9 @@ else
     let g:ayucolor="light"
 endif
 silent! colorscheme ayu
+
+" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
+aug vimrc-sync-fromstart
+  au!
+  au BufEnter * :syntax sync maxlines=200
+aug END
