@@ -38,10 +38,10 @@ set number " Show line numbers
 set numberwidth=2 " Line numbers max to two digits
 set regexpengine=1
 set scrolloff=5 " Show lines below current line at all times while scrolling
-set shiftwidth=2 " An autoindent (with <<) is two space
+set shiftwidth=4 " An autoindent (with <<) is two space
 set showcmd " Show typed command in bottom bar
 set smarttab " Insert tabs on the start of a line according to shiftwidth
-set softtabstop=2 " Number of spaces in tab when editing
+set softtabstop=4 " Number of spaces in tab when editing
 set statusline+=%= " Left/right separator
 set statusline+=%c " Cursor column
 set statusline+=%h " Help file flag
