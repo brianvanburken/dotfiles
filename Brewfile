@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
+brew "adr-tools"
 brew "direnv"
 brew "exercism"
 brew "fzf"
