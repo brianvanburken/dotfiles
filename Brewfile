@@ -13,6 +13,7 @@ brew "the_silver_searcher"
 brew "z"
 brew "zsh"
 
+cask "1password"
 cask "alfred"
 cask "anki"
 cask "calibre"
