@@ -1,47 +1,19 @@
 ! Title: Brian van Burken's annoyances block list
 ! Expires: 1 Days (Update Frequency)
 
-dev.to###in-feed-cta
-dev.to##.side-bar > *
-dev.to###article-show-primary-sticky-nav
-dev.to##footer
-
+! ADS
+markmanson.net##.in-article-opt-in
+typingclub.com###adslot_1
+typingclub.com###adslot_2
+theverge.com##.c-related-list__video
 npmjs.com##.marketing
-
 getpocket.com###reader_explore_bar
-
 stackstorage.com##.stack-promotion
-
-youtube.com###comments
-youtube.com##ytd-watch-next-secondary-results-renderer
-youtube.com###endpoint[title="Trending"]
-youtube.com###sections > ytd-guide-section-renderer:nth-child(3)
-youtube.com##ytd-notification-topbar-button-renderer
-youtube.com##ytd-topbar-menu-button-renderer[is-icon-button]
-youtube.com###chat
-youtube.com##.videowall-endscreen
-! Remove subscriptions from YouTube sidebar
-youtube.com##ytd-guide-section-renderer:nth-child(2)
-youtube.com###notification-preference-toggle-button
-! Do not set a max-height for youtube playlist (I don't have a lot of watch later videos so I want to see them all)
-youtube.com###playlist:style(max-height:none !important)
-youtube.com###sponsor-button
-! Remove distractions
-youtube.com###secondary
-youtube.com###subscribe-button
-
-! To make medium readable again I remove everything except the article.
-! medium.com###root > div > *:not(article)
-! medium.com###root ~ div
-! medium.com###root ~ div:style(display: none !important)
-! Add some margin to the bottom to create a bit of whitespace
-! medium.com##article:style(margin-bottom: 40px !important)
-! medium.com##button:has-text(Follow)
-
 gizmodo.com##.ad-container + .instream-native-video
-gizmodo.com##.sidebar
-gizmodo.com##.meta--pe
-gizmodo.com##.main__content,.main:style(width: 100% !important, float: none)
+smashingmagazine.com##.c-felix-the-cat
+smashingmagazine.com##.c-garfield-native-panel
+smashingmagazine.com##.feature-panel-container
+smashingmagazine.com##.c-promo-box,.sponsors
 
 ! Remove sticky headers
 elixirforum.com##.d-header:style(position: absolute !important)
@@ -54,14 +26,23 @@ reddit.com###header-img
 reddit.com##.listingsignupbar
 ||thumbs.redditmedia.com^$stylesheet,domain=reddit.com
 
-smashingmagazine.com##.c-felix-the-cat
-smashingmagazine.com##.c-garfield-native-panel
-smashingmagazine.com##.feature-panel-container
-smashingmagazine.com##.c-promo-box,.sponsors
+! Hide alt text when blocking media with uBlock since it will sometimes cause a terrible UI when a lot of small icons are blocked
+*##img:style(font-size:0!important)
 
+! Stop ligatures when using Fira Code for more clear code
+*##*:style(font-variant-ligatures:none!important)
+
+! Block domains I don't want to visit but still want to receive RSS feeds from (not blocking on host level)
+dev.to
+news.ycombinator.com
+lobste.rs
+youtube.com
+
+! Only focus on question and comments
+stackoverflow.com##a[href="/questions/ask"]
+stackoverflow.com##div[role="menubar"]
 stackoverflow.com###sidebar
 stackoverflow.com###left-sidebar
 stackoverflow.com###post-form
 stackoverflow.com###mainbar:style(width: auto !important)
 stackoverflow.com###content:style(border: none !important)
-
