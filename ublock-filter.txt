@@ -32,12 +32,6 @@ reddit.com##.listingsignupbar
 ! Stop ligatures when using Fira Code for more clear code
 *##*:style(font-variant-ligatures:none!important)
 
-! Block domains I don't want to visit but still want to receive RSS feeds from (not blocking on host level)
-dev.to
-news.ycombinator.com
-lobste.rs
-youtube.com
-
 ! Only focus on question and comments
 stackoverflow.com##a[href="/questions/ask"]
 stackoverflow.com##div[role="menubar"]
