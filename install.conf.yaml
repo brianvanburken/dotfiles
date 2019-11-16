@@ -16,6 +16,7 @@
     ~/.default-gems:
     ~/.default-npm-packages:
     ~/.default-python-packages:
+    ~/.editorconfig:
     ~/.gemrc:
     ~/.gitattributes:
     ~/.gitconfig:
