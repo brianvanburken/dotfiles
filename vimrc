@@ -29,7 +29,7 @@ set iskeyword-=_ " Enable word movement when word contains _
 set laststatus=2 " Always enable status line
 set lazyredraw
 set list " Always display whitespace
-set listchars=tab:»,trail:·,eol:¬,nbsp:_ " Display extra whitespace
+set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
 set nobackup
 set nocompatible
 set noswapfile
