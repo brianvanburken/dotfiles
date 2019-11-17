@@ -17,7 +17,7 @@ trim_trailing_whitespace = true
 [*.{diff,md}]
 trim_trailing_whitespace = false
 
-[*.js,*.ts,*.json]
+[*.{js,ts,json}]
 indent_size = 2
 
 [{Makefile,*.mk,.gitconfig}]
