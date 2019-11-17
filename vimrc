@@ -5,20 +5,21 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Buffers', 'Files', 'Tags'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
-Plug 'yggdroot/indentLine'
 call plug#end()
 
+filetype plugin indent on " Load filetype-specific indent files
+syntax on
+
+set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
+set cmdheight=2 " Better display for messages
 set colorcolumn=80 " Show column on 80 character for limit reference
 set encoding=utf-8 nobomb " Set default encoding to UTF-8
-set expandtab " Use spaces not tabs
 set fileencoding=utf-8
 set fileencodings=utf-8
 set hidden " Hide buffers instead of closing them
@@ -28,52 +29,34 @@ set iskeyword-=_ " Enable word movement when word contains _
 set laststatus=2 " Always enable status line
 set lazyredraw
 set list " Always display whitespace
-set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
-set modelines=0 " Don't need modelines and the potential security hazard
+set listchars=tab:»,trail:·,eol:¬,nbsp:_ " Display extra whitespace
 set nobackup
 set nocompatible
-set noerrorbells " Don't beep
 set noswapfile
 set nowrap " Don't wrap lines
+set nowritebackup
 set number " Show line numbers
-set numberwidth=2 " Line numbers max to two digits
-set regexpengine=1
+set numberwidth=3 " Line numbers max digits
 set scrolloff=5 " Show lines below current line at all times while scrolling
-set shiftwidth=4 " An autoindent (with <<) is two space
 set showcmd " Show typed command in bottom bar
+set signcolumn=yes
 set smarttab " Insert tabs on the start of a line according to shiftwidth
-set softtabstop=4 " Number of spaces in tab when editing
-set statusline+=%= " Left/right separator
-set statusline+=%c " Cursor column
-set statusline+=%h " Help file flag
-set statusline+=%l/%L: " Cursor line/total lines
-set statusline+=%m " Modified flag
-set statusline+=%r " Read only flag
-set statusline+=%y " Filetype
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}] " File encoding + format
-set statusline=%t " Tail of the filename
-set tabstop=2 " A tab is two space
 set termencoding=utf-8 " Set encoding to UTF-8
-set title " Change the terminal's title
+set termguicolors
 set ttimeoutlen=100
 set ttyfast
-set viminfo='100,<9999,s100 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
-set visualbell " Don't beep
 
-filetype plugin indent on " Load filetype-specific indent files
-syntax on
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " This line enables the true color support.
-set termguicolors " Enable true colors support
-
-let g:indentLine_setConceal = 0
+set statusline=%t " Tail of the filename
+set statusline+=%m " Modified flag
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}] " File encoding/format
+set statusline+=%h " Help file flag
+set statusline+=%r " Read only flag
+set statusline+=%y " Filetype
+set statusline+=%= " Left/right separator
+set statusline+=%l/%L: " Cursor line/total lines
+set statusline+=%c " Cursor column
 
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
-
-let g:deoplete#enable_at_startup = 1
-
-let g:better_whitespace_enabled = 1
-let g:strip_whitespace_on_save = 1
 
 let g:polyglot_disabled = ['elm']
 
@@ -85,26 +68,13 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
-" Set background to none to get correct background when terminal theme is same
-" as vim theme.
-au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-
 au BufRead,BufNewFile .envrc set filetype=sh
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" Set theme based on macOS dark/light theme
-let iterm_profile = $ITERM_PROFILE
-if iterm_profile == "Dark"
-    set background=dark
-    let g:ayucolor="dark"
-else
-    set background=light
-    let g:ayucolor="light"
-endif
-silent! colorscheme ayu
+au BufWritePre * :%s/\s\+$//e " Remove whitespace before writing buffer
 
-" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
-aug vimrc-sync-fromstart
-  au!
-  au BufEnter * :syntax sync maxlines=200
-aug END
+let g:ayucolor="dark"
+colorscheme ayu
+
+" Set background color to none
+hi Normal ctermbg=NONE guibg=NONE
