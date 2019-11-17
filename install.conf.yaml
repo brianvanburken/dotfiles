@@ -33,5 +33,5 @@
     ~/.zshrc:
 
 - create:
-    ~/.shell/
-    ~/Developer/
+    - ~/.shell/
+    - ~/Developer/
