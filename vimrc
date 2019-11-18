@@ -18,7 +18,6 @@ set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
 set cmdheight=2 " Better display for messages
-set colorcolumn=80 " Show column on 80 character for limit reference
 set encoding=utf-8 nobomb " Set default encoding to UTF-8
 set fileencoding=utf-8
 set fileencodings=utf-8
