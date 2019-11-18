@@ -55,11 +55,8 @@ set statusline+=%= " Left/right separator
 set statusline+=%l/%L: " Cursor line/total lines
 set statusline+=%c " Cursor column
 
-let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p' " Treat li and p tags as block tags
 
-let g:polyglot_disabled = ['elm']
-
-" FZF commands
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
