@@ -59,6 +59,8 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
+nnoremap <Leader>r :Rename<CR>
+
 au BufRead,BufNewFile .envrc setlocal filetype=sh
 au BufRead,BufNewFile *.md setlocal filetype=markdown
 au BufRead,BufNewFile *.ts setlocal filetype=typescript
