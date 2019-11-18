@@ -8,6 +8,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -50,8 +51,6 @@ set statusline+=%y " Filetype
 set statusline+=%= " Left/right separator
 set statusline+=%l/%L: " Cursor line/total lines
 set statusline+=%c " Cursor column
-
-let g:html_indent_tags = 'li\|p' " Treat li and p tags as block tags
 
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
