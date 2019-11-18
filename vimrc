@@ -18,9 +18,6 @@ set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
 set cmdheight=2 " Better display for messages
-set encoding=utf-8 nobomb " Set default encoding to UTF-8
-set fileencoding=utf-8
-set fileencodings=utf-8
 set hidden " Hide buffers instead of closing them
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
@@ -40,7 +37,6 @@ set scrolloff=5 " Show lines below current line at all times while scrolling
 set showcmd " Show typed command in bottom bar
 set signcolumn=yes
 set smarttab " Insert tabs on the start of a line according to shiftwidth
-set termencoding=utf-8 " Set encoding to UTF-8
 set termguicolors
 set ttimeoutlen=100
 set ttyfast
