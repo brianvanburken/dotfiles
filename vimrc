@@ -68,8 +68,10 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
-au BufRead,BufNewFile .envrc set filetype=sh
-au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile .envrc setlocal filetype=sh
+au BufRead,BufNewFile *.md setlocal filetype=markdown
+au BufRead,BufNewFile *.ts setlocal filetype=typescript
+au BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
 
 au BufWritePre * :%s/\s\+$//e " Remove whitespace before writing buffer
 
