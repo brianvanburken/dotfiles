@@ -59,7 +59,7 @@ nnoremap <Leader>t :Tags<CR>
 
 nnoremap <Leader>d :Dash<CR>
 
-nnoremap <Leader>r :Rename<CR>
+nnoremap <Leader>r :Rename<Space>
 
 au BufRead,BufNewFile .envrc setlocal filetype=sh
 au BufRead,BufNewFile *.md setlocal filetype=markdown

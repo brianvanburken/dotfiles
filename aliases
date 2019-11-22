@@ -21,21 +21,12 @@ alias ngi='npm install -g'
 alias nci='rm -rf node_modules/ && npm install'
 alias nt='npm test'
 
-# Yarn
-alias yr='yarn run'
-alias yi='yarn install'
-alias yis='yarn add --save'
-alias yiS='yarn add --save-dev'
-alias ygi='yarn global add'
-alias yci='rm -rf node_modules/ && yarn install'
-alias yt='yarn test'
-
 # NeoVim/Vim
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
-alias vi='echo "Use e"'
-alias v='echo "Use e"'
+alias vi='vim'
+alias v='vim'
 alias e='vim'
 
 # Git
@@ -59,7 +50,6 @@ alias epi='elm install'
 alias et='elm-thanks'
 alias eci='rm -rf elm-stuff/ && elm-package install -y'
 alias emt='elm make --optimize --output=/dev/null'
-
 alias ej='elm-json'
 alias ea='elm-analyse'
 
