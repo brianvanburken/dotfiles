@@ -21,8 +21,8 @@ trim_trailing_whitespace = false
 [*.{js,ts,json}]
 indent_size = 2
 
-[*.{html,css}]
+[*.{html,css,scss}]
 indent_size = 2
 
-[{Makefile,*.mk,.gitconfig}]
+[Makefile,*.mk,.gitconfig}]
 indent_style = tab
