@@ -15,6 +15,8 @@ call plug#end()
 filetype plugin indent on " Load filetype-specific indent files
 syntax on
 
+let mapleader = "\<Space>"
+
 set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
