@@ -12,10 +12,6 @@
         "elmAnalyseTrigger": "change"
       }
     },
-    "elixirLS": {
-      "command": "~/Developer/Personal/elixir-ls/rel/language_server.sh",
-      "filetypes": ["elixir", "eelixir"]
-    },
     "haskell": {
       "command": "hie-wrapper",
       "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
@@ -30,7 +26,16 @@
       }
     }
   },
+
   "coc.preferences.codeLens.enable": true,
-  "coc.preferences.formatOnSaveFiletypes": ["elm", "elixir", "haskell"],
-  "codeLens.enable": true
+  "coc.preferences.formatOnSaveFiletypes": ["elm", "haskell"],
+  "codeLens.enable": true,
+  "diagnostic.maxWindowHeight": 20,
+  "signature.maxWindowHeight": 20,
+
+  "diagnostic.signOffset": 999999,
+  "diagnostic.errorSign": "!!",
+  "diagnostic.warningSign": "!!",
+  "diagnostic.infoSign": "!!",
+  "diagnostic.hintSign": "!!"
 }
