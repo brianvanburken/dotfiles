@@ -22,13 +22,9 @@ export PATH="$PATH:$HOME/.asdf/shims"
 export PATH="$PATH:$HOME/.shell"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-    val=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
-    if [[ $val == "Dark" ]]; then
-        echo -ne "\033]50;SetProfile=Dark\a"
-        export ITERM_PROFILE="Dark"
-    else
-        echo -ne "\033]50;SetProfile=Light\a"
-        export ITERM_PROFILE="Light"
-    fi
-fi
+# https://0x46.net/thoughts/2019/02/01/dotfile-madness/
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_HOME"
+export XDG_DATA_DIRS="/usr/local/share/:/usr/share/:$XDG_DATA_HOME"
