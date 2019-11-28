@@ -19,7 +19,6 @@ set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
 set cmdheight=2 " Better display for messages
-set hidden " Hide buffers instead of closing them
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
 set iskeyword-=_ " Enable word movement when word contains _
@@ -27,19 +26,13 @@ set laststatus=2 " Always enable status line
 set lazyredraw
 set list " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
-set nobackup
 set nocompatible
-set noswapfile
-set nowrap " Don't wrap lines
-set nowritebackup
 set number " Show line numbers
 set numberwidth=3 " Line numbers max digits
 set scrolloff=5 " Show lines below current line at all times while scrolling
 set showcmd " Show typed command in bottom bar
 set signcolumn=yes
-set smarttab " Insert tabs on the start of a line according to shiftwidth
 set termguicolors
-set ttimeoutlen=100
 set ttyfast
 
 set statusline=%t " Tail of the filename
@@ -61,12 +54,9 @@ nnoremap <Leader>d :Dash<CR>
 
 nnoremap <Leader>r :Rename<Space>
 
-au BufRead,BufNewFile .envrc setlocal filetype=sh
-au BufRead,BufNewFile *.md setlocal filetype=markdown
-au BufRead,BufNewFile *.ts setlocal filetype=typescript
-au BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
-
-au BufWritePre * :%s/\s\+$//e " Remove whitespace before writing buffer
+au BufNew,BufNewFile,BufRead .envrc setlocal filetype=sh
+au BufNew,BufNewFile,BufRead *.md setlocal filetype=markdown
+au BufNew,BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 let g:ayucolor="dark"
 colorscheme ayu
