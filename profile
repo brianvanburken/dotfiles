@@ -2,7 +2,12 @@ export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Block ADs and other analytics
 export HOMEBREW_NO_ANALYTICS=1 # Disable homebrew analytics
+export ADBLOCK=true
+export DISABLE_OPENCOLLECTIVE=true
+export DO_NOT_TRACK=1 # https://consoledonottrack.com/
+export HOMEBREW_NO_ANALYTICS=1
 
 # If FZF is installed and The Silver Searcher I configure fzf to use ag as the
 # default command. This makes it faster in searching and also makes use of the
