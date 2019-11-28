@@ -29,6 +29,7 @@ set lazyredraw
 set list " Always display whitespace
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
 set nocompatible
+set nowrap
 set number " Show line numbers
 set numberwidth=3 " Line numbers max digits
 set scrolloff=5 " Show lines below current line at all times while scrolling
