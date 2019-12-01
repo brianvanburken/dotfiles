@@ -20,7 +20,6 @@ let mapleader = "\<Space>"
 set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
-set cmdheight=2 " Better display for messages
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
 set laststatus=2 " Always enable status line
@@ -45,6 +44,17 @@ set statusline+=%= " Left/right separator
 set statusline+=%l/%L: " Cursor line/total lines
 set statusline+=%c " Cursor column
 
+au BufEnter .envrc setlocal filetype=sh
+au BufEnter *.md setlocal filetype=markdown
+au BufEnter *.tsx setlocal filetype=typescript.tsx
+au FileType gitcommit,markdown setlocal spell
+
+let g:ayucolor="dark"
+colorscheme ayu
+
+" Set background color to none
+hi Normal ctermbg=NONE guibg=NONE
+
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
@@ -53,16 +63,6 @@ nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>d :Dash<CR>
 
 nnoremap <Leader>r :Rename<Space>
-
-au BufEnter .envrc setlocal filetype=sh
-au BufEnter *.md setlocal filetype=markdown
-au BufEnter *.tsx setlocal filetype=typescript.tsx
-
-let g:ayucolor="dark"
-colorscheme ayu
-
-" Set background color to none
-hi Normal ctermbg=NONE guibg=NONE
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
