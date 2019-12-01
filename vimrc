@@ -23,7 +23,6 @@ set clipboard=unnamed " Share Clipboard with OS
 set cmdheight=2 " Better display for messages
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
-set iskeyword-=_ " Enable word movement when word contains _
 set laststatus=2 " Always enable status line
 set lazyredraw
 set list " Always display whitespace
