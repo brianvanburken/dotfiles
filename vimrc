@@ -57,9 +57,9 @@ nnoremap <Leader>d :Dash<CR>
 
 nnoremap <Leader>r :Rename<Space>
 
-au BufNew,BufNewFile,BufRead .envrc setlocal filetype=sh
-au BufNew,BufNewFile,BufRead *.md setlocal filetype=markdown
-au BufNew,BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+au BufEnter .envrc setlocal filetype=sh
+au BufEnter *.md setlocal filetype=markdown
+au BufEnter *.tsx setlocal filetype=typescript.tsx
 
 let g:ayucolor="dark"
 colorscheme ayu
