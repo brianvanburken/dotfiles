@@ -25,8 +25,6 @@ set hlsearch " highlight matches
 set incsearch " search as characters are entered
 set laststatus=2 " Always enable status line
 set lazyredraw
-set list " Always display whitespace
-set listchars=tab:»·,trail:·,eol:¬,nbsp:_ " Display extra whitespace
 set nocompatible
 set nowrap
 set number " Show line numbers
