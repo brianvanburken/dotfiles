@@ -4,6 +4,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-commentary'
@@ -63,6 +64,8 @@ nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>d :Dash<CR>
 
 nnoremap <Leader>r :Rename<Space>
+
+nnoremap <Leader>z :Goyo<CR>
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
