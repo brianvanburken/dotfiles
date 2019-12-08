@@ -1,5 +1,12 @@
-# Created by https://www.gitignore.io/api/vim,osx
-# Edit at https://www.gitignore.io/?templates=vim,osx
+# Created by https://www.gitignore.io/api/vim,osx,backup
+# Edit at https://www.gitignore.io/?templates=vim,osx,backup
+
+### Backup ###
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
 
 ### OSX ###
 # General
@@ -49,4 +56,4 @@ tags
 # Persistent undo
 [._]*.un~
 
-# End of https://www.gitignore.io/api/vim,osx
+# End of https://www.gitignore.io/api/vim,osx,backup
