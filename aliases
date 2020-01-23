@@ -32,9 +32,9 @@ alias e='vim'
 # Git
 # Open all merge conflicts or currently changed files in Vim
 alias fix='git diff --name-only | uniq | xargs -o vim'
-alias gbr='git branch | grep -v "master" | xargs git branch -D'
-alias grm='git rebase -i origin/master'
-alias grhh='git reset HEAD --hard'
+alias Gbr='git branch | grep -v "master" | xargs git branch -D'
+alias Grm='git rebase -i origin/master'
+alias Grhh='git reset HEAD --hard'
 
 # Shortcuts for checking NPM packages using npm-check
 alias ncu='npm-check -u --no-emoji'
