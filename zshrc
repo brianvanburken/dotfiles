@@ -2,11 +2,11 @@ source $HOME/.profile
 source $HOME/.aliases
 source $HOME/.asdf/asdf.sh
 source $HOME/.zsh_functions
+source $HOME/.fzf.zsh
 source $(brew --prefix)/etc/profile.d/z.sh
 
 eval "$(direnv hook zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #
 # User configuration sourced by interactive shells
@@ -51,6 +51,11 @@ WORDCHARS=${WORDCHARS//[\/]}
 # Set a custom path for the completion dump file.
 # If none is provided, the default ${ZDOTDIR:-${HOME}}/.zcompdump is used.
 #zstyle ':zim:completion' dumpfile "${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
+
+#
+# git
+#
+zstyle ':zim:git' aliases-prefix 'g'
 
 #
 # input
