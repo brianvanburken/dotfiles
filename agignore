@@ -18,7 +18,8 @@
 *.tsv
 *.ttf
 .DS_Store
-.git
+.cache/
+.git/
 .gitkeep
 .vim/
 _build/
