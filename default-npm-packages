@@ -12,5 +12,4 @@ elm-verify-examples
 elm-xref
 neovim
 npm-check
-prepack
 prettier
