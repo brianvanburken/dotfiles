@@ -6,7 +6,7 @@ elm-format
 elm-json
 elm-live
 elm-oracle
-elm-test
+elm-test@0.19.1-revision3
 elm-thanks
 elm-verify-examples
 elm-xref
