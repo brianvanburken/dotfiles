@@ -31,3 +31,11 @@ export XDG_DATA_DIRS="/usr/local/share/:/usr/share/:$XDG_DATA_HOME"
 
 # No mails with crontab
 export MAILTO=""
+
+# Set elm to respect XDG
+export ELM_HOME="$XDG_CACHE_HOME/elm"
+
+# Set NPM to respect XDG
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
+export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
+export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
