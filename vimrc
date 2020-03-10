@@ -2,13 +2,11 @@ call plug#begin()
 Plug 'andys8/vim-elm-syntax'
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'dir': '$XDG_DATA_HOME/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -59,8 +57,6 @@ nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
-
-nnoremap <Leader>d :Dash<CR>
 
 nnoremap <Leader>r :Rename<Space>
 
