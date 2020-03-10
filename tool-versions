@@ -1,6 +1,6 @@
 ruby 2.7.0
 nodejs 13.10.1
-erlang 22.1.4
+erlang 22.2.8
 elixir 1.9.1-otp-22
 elm 0.19.1
 haskell 8.6.5
