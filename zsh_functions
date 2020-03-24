@@ -6,6 +6,7 @@ brew_clean() {
   brew doctor;
   brew cleanup;
   rm -rf "$(brew --cache)/*";
+  rm -rf ~/Library/Caches/Homebrew;
 }
 
 mcdir () {
