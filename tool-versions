@@ -3,5 +3,5 @@ nodejs 13.12.0
 erlang 22.2.8
 elixir 1.10.2-otp-22
 elm 0.19.1
-haskell 8.8.3
+haskell 8.10.1
 python 3.8.2
