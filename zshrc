@@ -1,12 +1,6 @@
 source $HOME/.profile
 source $HOME/.aliases
-source $HOME/.asdf/asdf.sh
 source $HOME/.zsh_functions
-source $HOME/.fzf.zsh
-source $(brew --prefix)/etc/profile.d/z.sh
-
-eval "$(direnv hook zsh)"
-
 
 #
 # User configuration sourced by interactive shells
@@ -55,7 +49,10 @@ WORDCHARS=${WORDCHARS//[\/]}
 #
 # git
 #
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
 zstyle ':zim:git' aliases-prefix 'g'
+
 
 #
 # input
@@ -127,3 +124,8 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+source $HOME/.asdf/asdf.sh
+source $(brew --prefix)/etc/profile.d/z.sh
+
+eval "$(direnv hook zsh)"
