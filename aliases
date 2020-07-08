@@ -1,17 +1,5 @@
 # Shortkeys to make live easier
 
-# General
-alias cp='cp -i'
-alias rm='rm -i'
-alias mv='mv -i'
-alias ln='ln -i'
-alias mkdir='mkdir -p'
-alias cls='clear'
-
-alias kill_ds="find . -name .DS_Store -type f -delete"
-alias kill_modules="find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +"
-alias mine='sudo chown -R $(whoami):admin '
-
 # NPM
 alias n='npm'
 alias nr='npm run'
@@ -35,13 +23,22 @@ alias e='vim'
 
 # Git
 alias g='git'
+alias gp='git push'
+alias gsm='git switch master'
+alias gsd='git switch develop'
+alias gco='git checkout'
+alias gr='git rebase'
+alias gl='git log'
+alias gpp='git pull --rebase'
 alias gam='git commit --amend'
+alias gbr='git branch | grep -v "master" | xargs git branch -D'
+alias gia='git add --patch'
+alias gca='git add .'
+alias gcm='git commit -m'
+alias gws='git status'
 
 # Open all merge conflicts or currently changed files in Vim
 alias fix='git diff --name-only | uniq | xargs -o vim'
-alias gbr='git branch | grep -v "master" | xargs git branch -D'
-alias grm='git rebase -i origin/master'
-alias grhh='git reset HEAD --hard'
 
 # Elm shortcuts
 alias em='elm make'
@@ -62,13 +59,33 @@ alias pi='pipenv install'
 alias pu='pipenv uninstall'
 alias pl='pipenv lock'
 
-# The silver searcher
-alias af='ag -g'
-alias ag='ag --path-to-ignore $XDG_CONFIG_HOME/the_silver_searcher/ignore '
-
-# Other
+# General
 alias dr='docker-compose down && docker-compose up'
 alias serve='python -m SimpleHTTPServer'
-alias yv='youtube-dl -f 22' # videos
-alias ym='youtube-dl -f 140' # music
+alias yv='youtube-dl -f 22 ' # videos
 alias yt='youtube-dl'
+
+alias l='ls -lahg --color=tty'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+alias ln='ln -i'
+alias mkdir='mkdir -p'
+alias cls='clear'
+
+alias kill_ds="fd -H '^\.DS_Store$' -tf -X rm"
+alias kill_modules="fd -H -I '^node_modules$' -td -X rm -r"
+alias mine='sudo chown -R $(whoami):admin '
+
+alias d='dirs -v | head -10'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
