@@ -1,4 +1,4 @@
-source ~/.vimrc
+source ~/.config/nvim/init.vim
 
 nmap <leader>f :action GotoFile<cr>
 nmap <leader>a :action GotoSymbol<cr>

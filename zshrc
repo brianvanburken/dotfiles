@@ -1,131 +1,64 @@
-source $HOME/.profile
 source $HOME/.aliases
 source $HOME/.zsh_functions
 
-#
-# User configuration sourced by interactive shells
-#
+export EDITOR="vim"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-# -----------------
-# Zsh configuration
-# -----------------
+# Block ADs and other analytics
+export HOMEBREW_NO_ANALYTICS=1 # Disable homebrew analytics
+export ADBLOCK=true
+export DISABLE_OPENCOLLECTIVE=true
+export DO_NOT_TRACK=1 # https://consoledonottrack.com/
+export HOMEBREW_NO_ANALYTICS=1
 
-#
-# History
-#
+# If FZF is installed and The Silver Searcher I configure fzf to use ag as the
+# default command. This makes it faster in searching and also makes use of the
+# .gitignore
+export FZF_DEFAULT_COMMAND='ag --path-to-ignore $HOME/.agignore --hidden -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Remove older command from the history if a duplicate is to be added.
-setopt HIST_IGNORE_ALL_DUPS
+# Set PATH
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$ASDF_DATA_DIR/shims"
+export PATH="$PATH:$HOME/.shell"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-#
-# Input/output
-#
-
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
-
-# Prompt for spelling correction of commands.
-#setopt CORRECT
-
-# Customize spelling correction prompt.
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-
-# Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
-
-
-# --------------------
-# Module configuration
-# --------------------
-
-#
-# completion
-#
-
-# Set a custom path for the completion dump file.
-# If none is provided, the default ${ZDOTDIR:-${HOME}}/.zcompdump is used.
-#zstyle ':zim:completion' dumpfile "${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
-
-#
-# git
-#
-
-# Set a custom prefix for the generated aliases. The default prefix is 'G'.
-zstyle ':zim:git' aliases-prefix 'g'
-
-
-#
-# input
-#
-
-# Append `../` to your input for each `.` you type after an initial `..`
-#zstyle ':zim:input' double-dot-expand yes
-
-#
-# termtitle
-#
-
-# Set a custom terminal title format using prompt expansion escape sequences.
-# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# If none is provided, the default '%n@%m: %~' is used.
-#zstyle ':zim:termtitle' format '%1~'
-
-#
-# zsh-autosuggestions
-#
-
-# Customize the style that the suggestions are shown with.
-# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
-
-#
-# zsh-syntax-highlighting
-#
-
-# Set what highlighters will be used.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-# Customize the main highlighter styles.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-#typeset -A ZSH_HIGHLIGHT_STYLES
-#ZSH_HIGHLIGHT_STYLES[comment]='fg=10'
-
-# ------------------
-# Initialize modules
-# ------------------
-
-if [[ ${ZIM_HOME}/init.zsh -ot ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-  # Update static initialization script if it's outdated, before sourcing it
-  source ${ZIM_HOME}/zimfw.zsh init -q
-fi
-source ${ZIM_HOME}/init.zsh
-
-# ------------------------------
-# Post-init module configuration
-# ------------------------------
-
-#
-# zsh-history-substring-search
-#
-
-# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-# Bind up and down keys
-zmodload -F zsh/terminfo +p:terminfo
-if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
-  bindkey ${terminfo[kcuu1]} history-substring-search-up
-  bindkey ${terminfo[kcud1]} history-substring-search-down
-fi
-
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
-source $HOME/.asdf/asdf.sh
-source $(brew --prefix)/etc/profile.d/z.sh
+source /usr/local/opt/asdf/asdf.sh
+source /usr/local/opt/z/etc/profile.d/z.sh
+source $HOME/.asdf/plugins/java/set-java-home.zsh
 
 eval "$(direnv hook zsh)"
+
+export HISTSIZE=10000000
+export SAVEHIST=$HISTSIZE
+setopt bang_hist                 # Treat the '!' character specially during expansion.
+setopt extended_history          # Write the history file in the ":start:elapsed;command" format.
+setopt inc_append_history        # Write to the history file immediately, not when the shell exits.
+setopt share_history             # Share history between all sessions.
+setopt hist_expire_dups_first    # Expire duplicate entries first when trimming history.
+setopt hist_ignore_dups          # Don't record an entry that was just recorded again.
+setopt hist_ignore_all_dups      # Delete old recorded entry if new entry is a duplicate.
+setopt hist_find_no_dups         # Do not display a line previously found.
+setopt hist_ignore_space         # Don't record an entry starting with a space.
+setopt hist_save_no_dups         # Don't write duplicate entries in the history file.
+setopt hist_reduce_blanks        # Remove superfluous blanks before recording entry.
+setopt hist_verify               # Don't execute immediately upon history expansion.
+setopt hist_beep                 # Beep when accessing nonexistent history.
+
+# don't need to type cd to change directories
+setopt autocd
+setopt autopushd
+setopt pushdignoredups
+
+# Speed up ZSH
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+export NEWLINE=$'\n'
+export PROMPT="${NEWLINE}> "

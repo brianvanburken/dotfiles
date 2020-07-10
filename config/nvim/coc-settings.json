@@ -26,8 +26,6 @@
       }
     }
   },
-
-  "coc.preferences.codeLens.enable": true,
   "coc.preferences.formatOnSaveFiletypes": ["elm", "haskell"],
   "codeLens.enable": true,
   "diagnostic.maxWindowHeight": 20,

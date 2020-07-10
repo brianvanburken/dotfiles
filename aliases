@@ -59,6 +59,12 @@ alias pi='pipenv install'
 alias pu='pipenv uninstall'
 alias pl='pipenv lock'
 
+# Tmux
+alias t='tmux attach || tmux new-session'
+alias ta='tmux attach -t'
+alias tn='tmux new-session'
+alias tl='tmux list-sessions'
+
 # General
 alias dr='docker-compose down && docker-compose up'
 alias serve='python -m SimpleHTTPServer'
@@ -89,3 +95,6 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
+
+alias ag='ag --path-to-ignore $HOME/.agignore --hidden'
+
