@@ -1,10 +1,11 @@
-call plug#begin()
-Plug 'andys8/vim-elm-syntax'
-Plug 'ayu-theme/ayu-vim'
+call plug#begin(stdpath('data') . '/plugged')
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'dir': '$XDG_DATA_HOME/fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'noahfrederick/vim-noctu'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
@@ -12,8 +13,6 @@ call plug#end()
 
 filetype plugin indent on " Load filetype-specific indent files
 syntax on
-
-let mapleader = "\<Space>"
 
 set background=dark
 set backspace=indent,eol,start
@@ -23,14 +22,13 @@ set incsearch " search as characters are entered
 set laststatus=2 " Always enable status line
 set lazyredraw
 set nocompatible
-set nowrap
 set number " Show line numbers
 set numberwidth=3 " Line numbers max digits
 set scrolloff=5 " Show lines below current line at all times while scrolling
 set showcmd " Show typed command in bottom bar
 set signcolumn=yes
-set termguicolors
 set ttyfast
+set linebreak
 
 set statusline=%t " Tail of the filename
 set statusline+=%m " Modified flag
@@ -47,17 +45,19 @@ au BufEnter *.md setlocal filetype=markdown
 au BufEnter *.tsx setlocal filetype=typescript.tsx
 au FileType gitcommit,markdown setlocal spell
 
-let g:ayucolor="dark"
-colorscheme ayu
+let g:gruvbox_italic=1
+let g:gruvbox_termcolors=16
+colorscheme gruvbox
 
-" Set background color to none
-hi Normal ctermbg=NONE guibg=NONE
+let mapleader = "\<Space>"
+
+hi Comment guibg=gray ctermbg=gray guifg=bg ctermfg=bg
 
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
-
+nnoremap <Leader>g :Goyo<CR>
 nnoremap <Leader>r :Rename<Space>
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -72,6 +72,12 @@ nnoremap <C-L> <C-W><C-L>
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -79,3 +85,22 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Make Vim change theme with macOS theme
+" function! SetBackgroundMode(...)
+"     let s:new_bg = "light"
+"     " if $TERM_PROGRAM ==? "Apple_Terminal"
+"         let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
+"         if s:mode ==? "dark"
+"             let s:new_bg = "dark"
+"         else
+"             let s:new_bg = "light"
+"         endif
+"     " endif
+"     if &background !=? s:new_bg
+"         let &background = s:new_bg
+"     endif
+" endfunction
+
+" call SetBackgroundMode()
+" call timer_start(3000, "SetBackgroundMode", {"repeat": -1})

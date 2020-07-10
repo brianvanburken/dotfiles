@@ -1,7 +1,8 @@
-ruby 2.7.0
-nodejs 13.12.0
+ruby 2.7.1
+nodejs 14.5.0
 erlang 22.2.8
 elixir 1.10.2-otp-22
 elm 0.19.1
 haskell 8.10.1
 python 3.8.2
+java adoptopenjdk-8.0.252+9.1
