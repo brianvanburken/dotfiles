@@ -51,6 +51,7 @@ colorscheme gruvbox
 
 let mapleader = "\<Space>"
 
+" Fix comment highlight in tmux
 hi Comment guibg=gray ctermbg=gray guifg=bg ctermfg=bg
 
 nnoremap <Leader>a :Ag<CR>
@@ -85,22 +86,3 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Make Vim change theme with macOS theme
-" function! SetBackgroundMode(...)
-"     let s:new_bg = "light"
-"     " if $TERM_PROGRAM ==? "Apple_Terminal"
-"         let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
-"         if s:mode ==? "dark"
-"             let s:new_bg = "dark"
-"         else
-"             let s:new_bg = "light"
-"         endif
-"     " endif
-"     if &background !=? s:new_bg
-"         let &background = s:new_bg
-"     endif
-" endfunction
-
-" call SetBackgroundMode()
-" call timer_start(3000, "SetBackgroundMode", {"repeat": -1})
