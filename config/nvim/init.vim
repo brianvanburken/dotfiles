@@ -2,12 +2,11 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'noahfrederick/vim-noctu'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-eunuch', { 'on': 'Rename' }
 Plug 'tpope/vim-surround'
 call plug#end()
 
