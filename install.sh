@@ -3,6 +3,30 @@ fancy_echo() {
   printf "\n$fmt\n" "$@"
 }
 
+fancy_echo "Creating local directories"
+mkdir -p ~/Developer/{personal}
+mkdir -p ~/.shell/
+mkdir -p ~/.config/
+
+fancy_echo "Creating local files"
+touch ~/.gitconfig.local
+touch ~/.hushlogin
+
+fancy_echo "Cloning git repository for dotfiles"
+DOT_DIR=~/Developer/personal/dotfiles
+if [ ! -d $DOT_DIR ]; then
+    fancy_echo "Cloning dotfiles"
+    git clone https://github.com/brianvanburken/dotfiles.git $DOT_DIR
+else
+    fancy_echo "Dotfiles already present"
+fi
+
+fancy_echo "Navigating to $DOT_DIR"
+cd $DOT_DIR
+git remote remove origin
+git remote add origin git@github.com:brianvanburken/dotfiles.git
+git pull
+
 # Install homebrew if not exists
 which -s brew
 if [[ $? != 0 ]] ; then
@@ -18,16 +42,16 @@ fi
 fancy_echo "Installing Homebrew packages"
 brew bundle
 
-fancy_echo "Creating local directories"
-mkdir -p ~/Developer/
-mkdir -p ~/.shell/
-mkdir -p ~/.config/
-
-fancy_echo "Creating local files"
-touch ~/.gitconfig.local
-touch ~/.hushlogin
-
-DOT_DIR=$(pwd)
+PLUG_DIR=$XDG_DATA_HOME:-$HOME/.local/share
+if [ ! -d $PLUG_DIR ]; then
+    fancy_echo "Installing vim plugins"
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    nvim +PlugInstall +qall
+else
+    fancy_echo "Updating vim plugins"
+    nvim +PlugUpdate +qall
+fi
 
 fancy_echo "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
