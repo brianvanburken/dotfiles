@@ -30,7 +30,6 @@
   "codeLens.enable": true,
   "diagnostic.maxWindowHeight": 20,
   "signature.maxWindowHeight": 20,
-
   "diagnostic.signOffset": 999999,
   "diagnostic.errorSign": ">>",
   "diagnostic.warningSign": "!!",
