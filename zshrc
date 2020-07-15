@@ -20,14 +20,16 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Set PATH
-export PATH="/usr/local/sbin:$PATH"
+export ASDF_DATA_DIR=${ASDF_DATA_DIR:-$HOME/.asdf}
+export HOMEBREW_BIN=/usr/local/opt
+
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$ASDF_DATA_DIR/shims"
 export PATH="$PATH:$HOME/.shell"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 export NEWLINE=$'\n'
-export PROMPT="${NEWLINE}> "
+export PS1="${NEWLINE}> "
+export PROMPT=$PS1
 
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
@@ -51,8 +53,8 @@ setopt autocd
 setopt autopushd
 setopt pushdignoredups
 
-source /usr/local/opt/asdf/asdf.sh
-source /usr/local/opt/z/etc/profile.d/z.sh
+source $HOMEBREW_BIN/asdf/asdf.sh
+source $HOMEBREW_BIN/z/etc/profile.d/z.sh
 
 eval "$(direnv hook zsh)"
 
