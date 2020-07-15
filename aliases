@@ -72,7 +72,7 @@ alias serve='python -m SimpleHTTPServer'
 alias yv='youtube-dl -f 22 ' # videos
 alias yt='youtube-dl'
 
-alias l='ls -lahg --color=tty'
+alias l='ls -lahgG'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias cp='cp -i'
@@ -96,6 +96,3 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
-
-alias ag='ag --path-to-ignore $HOME/.agignore --hidden'
-
