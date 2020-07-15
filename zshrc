@@ -66,7 +66,10 @@ eval "$(direnv hook zsh)"
 # Speed up ZSH by compiling and checking less
 # https://gist.github.com/ctechols/ca1035271ad134841284
 autoload -Uz compinit
-for dump in $HOME/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
+() {
+  if [[ $# -gt 0 ]]; then
+    compinit
+  else
+    compinit -C
+  fi
+} ${ZDOTDIR:-$HOME}/.zcompdump(N.mh+24)
