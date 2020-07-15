@@ -1,6 +1,3 @@
-source $HOME/.aliases
-source $HOME/.zsh_functions
-
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -54,7 +51,15 @@ setopt autopushd
 setopt pushdignoredups
 
 source $HOMEBREW_BIN/asdf/asdf.sh
-source $HOMEBREW_BIN/z/etc/profile.d/z.sh
+source $HOME/.aliases
+source $HOME/.zsh_functions
+
+# Lazy-load Z only when called to speed up zsh load time
+function z() {
+  unfunction z
+  source "$HOMEBREW_BIN/z/etc/profile.d/z.sh"
+  _z "$@"
+}
 
 eval "$(direnv hook zsh)"
 
