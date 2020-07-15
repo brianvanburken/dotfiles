@@ -50,9 +50,9 @@ setopt autocd
 setopt autopushd
 setopt pushdignoredups
 
-source $HOMEBREW_BIN/asdf/asdf.sh
 source $HOME/.aliases
 source $HOME/.zsh_functions
+source $HOMEBREW_BIN/asdf/asdf.sh
 
 # Lazy-load Z only when called to speed up zsh load time
 function z() {
