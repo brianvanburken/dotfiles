@@ -1,6 +1,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'morhetz/gruvbox'
