@@ -4,7 +4,7 @@ fancy_echo() {
 }
 
 fancy_echo "Creating local directories"
-mkdir -p ~/Developer/{personal}
+mkdir -p ~/Developer/personal
 mkdir -p ~/.shell/
 mkdir -p ~/.config/
 
@@ -32,14 +32,14 @@ which -s brew
 if [[ $? != 0 ]] ; then
 	fancy_echo "Installing Homebrew"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-	brew doctor
-	brew update
 	fancy_echo "Homebrew is installed"
 else
 	fancy_echo "Homebrew already installed"
 fi
 
 fancy_echo "Installing Homebrew packages"
+brew doctor
+brew update
 brew bundle
 
 PLUG_DIR=$XDG_DATA_HOME:-$HOME/.local/share
