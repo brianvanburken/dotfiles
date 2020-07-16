@@ -14,7 +14,7 @@ alias ncu='npx npm-check -u --no-emoji'
 alias ncgu='npx npm-check -gu --no-emoji'
 
 # NeoVim/Vim
-if type nvim > /dev/null 2>&1; then
+if which nvim >/dev/null 2>&1; then
   alias vim='nvim'
 fi
 alias vi='vim'
