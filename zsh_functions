@@ -1,15 +1,15 @@
-o () { open ${1:-.}; }
-
-gbd () { git branch -D `git branch | grep ${1}` }
-
-brew_clean() {
-  brew doctor;
-  brew cleanup;
-  rm -rf "$(brew --cache)/*";
-  rm -rf ~/Library/Caches/Homebrew;
+function o() {
+    open ${1:-.};
 }
 
-mcdir () {
-  mkdir -p "$1"
-  cd "$1"
+function brew_clean() {
+    brew doctor;
+    brew cleanup;
+    rm -rf "$(brew --cache)/*";
+    rm -rf ~/Library/Caches/Homebrew;
+}
+
+function mcdir() {
+    mkdir -p "$1";
+    cd "$1";
 }
