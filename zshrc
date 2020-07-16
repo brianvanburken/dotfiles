@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -15,14 +17,6 @@ export HOMEBREW_NO_ANALYTICS=1
 export FZF_DEFAULT_COMMAND='ag --path-to-ignore $HOME/.agignore --hidden -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Set PATH
-export ASDF_DATA_DIR=${ASDF_DATA_DIR:-$HOME/.asdf}
-export HOMEBREW_BIN=/usr/local/opt
-
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$ASDF_DATA_DIR/shims"
-export PATH="$PATH:$HOME/.shell"
 
 export NEWLINE=$'\n'
 export PS1="${NEWLINE}> "
@@ -50,6 +44,11 @@ setopt autocd
 setopt autopushd
 setopt pushdignoredups
 
+# Set PATH
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.shell"
+
+export HOMEBREW_BIN=/usr/local/opt
 source $HOME/.aliases
 source $HOME/.zsh_functions
 source $HOMEBREW_BIN/asdf/asdf.sh
@@ -64,12 +63,12 @@ function z() {
 eval "$(direnv hook zsh)"
 
 # Speed up ZSH by compiling and checking less
-# https://gist.github.com/ctechols/ca1035271ad134841284
+# https://carlosbecker.com/posts/speeding-up-zsh/
 autoload -Uz compinit
-() {
-  if [[ $# -gt 0 ]]; then
-    compinit
-  else
-    compinit -C
-  fi
-} ${ZDOTDIR:-$HOME}/.zcompdump(N.mh+24)
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+
+# zprof
