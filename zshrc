@@ -11,6 +11,9 @@ export DISABLE_OPENCOLLECTIVE=true
 export DO_NOT_TRACK=1 # https://consoledonottrack.com/
 export HOMEBREW_NO_ANALYTICS=1
 
+# Silent direnv
+export DIRENV_LOG_FORMAT=""
+
 # If FZF is installed and The Silver Searcher I configure fzf to use ag as the
 # default command. This makes it faster in searching and also makes use of the
 # .gitignore
