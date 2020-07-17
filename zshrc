@@ -69,7 +69,7 @@ eval "$(direnv hook zsh)"
 # Speed up ZSH by compiling and checking less
 # https://carlosbecker.com/posts/speeding-up-zsh/
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $HOME/.zcompdump) ]; then
   compinit
 else
   compinit -C
