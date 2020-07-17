@@ -1,5 +1,3 @@
-# zmodload zsh/zprof
-
 export EDITOR="vim"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -28,6 +26,28 @@ export PROMPT=$PS1
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 
+# Set PATH
+export ZSH_EVALCACHE_DIR=$HOME/.cache/zsh
+export HOMEBREW_DIR=/usr/local
+
+export PATH="$PATH:$HOMEBREW_DIR/sbin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.shell"
+
+source $HOME/.aliases
+source $HOME/.zsh_functions
+source $HOMEBREW_DIR/opt/asdf/asdf.sh
+
+# Lazy-load Z only when called to speed up zsh load time
+function z() {
+  unfunction z
+  source "$HOMEBREW_DIR/opt/z/etc/profile.d/z.sh"
+  _z "$@"
+}
+
+# Cache direnv hook
+_evalcache direnv hook zsh
+
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
 setopt inc_append_history     # Write to the history file immediately, not when the shell exits.
@@ -47,25 +67,6 @@ setopt autocd
 setopt autopushd
 setopt pushdignoredups
 
-# Set PATH
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.shell"
-
-export HOMEBREW_BIN=/usr/local/opt
-source $HOME/.aliases
-source $HOME/.zsh_functions
-source $HOMEBREW_BIN/asdf/asdf.sh
-
-# Lazy-load Z only when called to speed up zsh load time
-function z() {
-  unfunction z
-  source "$HOMEBREW_BIN/z/etc/profile.d/z.sh"
-  _z "$@"
-}
-
-eval "$(direnv hook zsh)"
-
 # Speed up ZSH by compiling and checking less
 # https://carlosbecker.com/posts/speeding-up-zsh/
 autoload -Uz compinit
@@ -74,5 +75,3 @@ if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $HOME/.zcompdump) ]; then
 else
   compinit -C
 fi
-
-# zprof
