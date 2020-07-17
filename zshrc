@@ -48,6 +48,7 @@ setopt autopushd
 setopt pushdignoredups
 
 # Set PATH
+export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.shell"
 
