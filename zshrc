@@ -1,4 +1,7 @@
-export EDITOR="vim"
+export EDITOR='vim'
+export GIT_EDITOR='vim'
+export HOMEBREW_EDITOR='vim'
+export CLICOLOR=1
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
