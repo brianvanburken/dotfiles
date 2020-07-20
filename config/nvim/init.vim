@@ -50,8 +50,12 @@ colorscheme gruvbox
 
 let mapleader = "\<Space>"
 
-" Fix comment highlight in tmux
-hi Comment guibg=gray ctermbg=gray guifg=bg ctermfg=bg
+" Fix comment highlight
+if exists('$TMUX')
+    hi Comment guibg=gray ctermbg=gray guifg=bg ctermfg=bg
+else
+    hi Comment guibg=bg ctermbg=bg guifg=gray ctermfg=gray
+endif
 
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
