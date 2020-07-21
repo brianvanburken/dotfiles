@@ -20,6 +20,7 @@ set hlsearch " highlight matches
 set incsearch " search as characters are entered
 set laststatus=2 " Always enable status line
 set lazyredraw
+set linebreak
 set nocompatible
 set number " Show line numbers
 set numberwidth=3 " Line numbers max digits
@@ -27,7 +28,6 @@ set scrolloff=5 " Show lines below current line at all times while scrolling
 set showcmd " Show typed command in bottom bar
 set signcolumn=yes
 set ttyfast
-set linebreak
 
 set statusline=%t " Tail of the filename
 set statusline+=%m " Modified flag
