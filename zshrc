@@ -11,6 +11,7 @@ export ADBLOCK=true
 export DISABLE_OPENCOLLECTIVE=true
 export DO_NOT_TRACK=1 # https://consoledonottrack.com/
 export HOMEBREW_NO_ANALYTICS=1
+export NG_CLI_ANALYTICS=false # https://github.com/angular/angular-cli/blob/master/docs/design/analytics.md
 
 # Silent direnv
 export DIRENV_LOG_FORMAT=""
