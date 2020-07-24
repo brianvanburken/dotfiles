@@ -31,7 +31,6 @@ export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 
 # Set PATH
-export ZSH_EVALCACHE_DIR=$HOME/.cache/zsh
 export HOMEBREW_DIR=/usr/local
 
 export PATH="$PATH:$HOMEBREW_DIR/sbin"
