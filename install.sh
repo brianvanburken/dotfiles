@@ -68,10 +68,12 @@ files=(
 "gitattributes"
 "gitconfig"
 "gitignore"
+"hushlogin"
 "ideavimrc"
 "tmux.conf"
 "tool-versions"
 "zsh_functions"
+"zshenv"
 "zshrc"
 )
 
