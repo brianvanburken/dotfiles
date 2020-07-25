@@ -21,7 +21,6 @@ function mcdir() {
 # Source: https://github.com/mroth/evalcache
 # Placed here since I don't have a plugin system in use
 function _evalcache () {
-    export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:=$HOME/.cache/zsh/}
     local cacheFile="$ZSH_EVALCACHE_DIR/init-${1##*/}.sh"
 
     if [ "$ZSH_EVALCACHE_DISABLE" = "true" ]; then
