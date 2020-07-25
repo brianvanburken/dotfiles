@@ -1,4 +1,4 @@
-export PROMPT="%F{blue}%1~%f > "
+export PROMPT="%F{blue}%1~%f %F{green}>%f "
 
 source $HOME/.aliases
 source $HOME/.zsh_functions
@@ -28,16 +28,7 @@ setopt hist_reduce_blanks     # Remove superfluous blanks before recording entry
 setopt hist_verify            # Don't execute immediately upon history expansion.
 setopt hist_beep              # Beep when accessing nonexistent history.
 
-# don't need to type cd to change directories
+# Don't need to type cd to change directories
 setopt autocd
 setopt autopushd
 setopt pushdignoredups
-
-# Speed up ZSH by compiling and checking less
-# https://carlosbecker.com/posts/speeding-up-zsh/
-autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $HOME/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
