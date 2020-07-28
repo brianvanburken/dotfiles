@@ -31,13 +31,11 @@ set ttyfast
 
 set statusline=%t " Tail of the filename
 set statusline+=%m " Modified flag
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}] " File encoding/format
 set statusline+=%h " Help file flag
 set statusline+=%r " Read only flag
-set statusline+=%y " Filetype
+set statusline+=\ %y " Filetype
 set statusline+=%= " Left/right separator
-set statusline+=%l/%L: " Cursor line/total lines
-set statusline+=%c " Cursor column
+set statusline+=%c:%l/%L " Cursor 'column:line/total'
 
 au BufEnter .envrc setlocal filetype=sh
 au BufEnter *.md setlocal filetype=markdown
