@@ -23,23 +23,24 @@ alias e='vim'
 
 # Git
 alias g='git'
-alias gb='git branch'
-alias gp='git push'
-alias gsm='git switch master'
-alias gsd='git switch develop'
-alias gco='git checkout'
-alias gr='git rebase'
-alias gl='git log'
-alias gpp='git pull --rebase'
+alias ga='git add'
 alias gam='git commit --amend'
+alias gap='git add --patch'
+alias gb='git branch'
 alias gbr='git branch | grep -v "master" | xargs git branch -D'
-alias gia='git add --patch'
 alias gca='git add .'
 alias gcm='git commit -m'
+alias gco='git checkout'
+alias gl='git log'
+alias gp='git push'
+alias gpl='git pull --rebase'
+alias gr='git rebase'
+alias gsd='git switch develop'
+alias gsm='git switch master'
 alias gws='git status'
 
-# Open all merge conflicts or currently changed files in Vim
-alias fix='git diff --name-only | uniq | xargs -o vim'
+# Open all merge conflicts or currently changed files in set editor
+alias fix='git diff --name-only | uniq | xargs -o $EDITOR'
 
 # Elm shortcuts
 alias em='elm make'
