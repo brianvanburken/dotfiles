@@ -1,8 +1,10 @@
-export PROMPT="%F{blue}%1~%f %F{green}>%f "
-
 source $HOME/.aliases
 source $HOME/.zsh_functions
 source $HOMEBREW_DIR/opt/asdf/asdf.sh
+
+export EDITOR=nvim
+
+export PROMPT="%F{blue}%1~%f %(?.%F{green}.%F{red})%#%f "
 
 # Lazy-load Z only when called to speed up zsh load time
 function z() {
