@@ -13,6 +13,13 @@ function z() {
   _z "$@"
 }
 
+# Lazy-load conda and fetch version python through asdf
+function conda() {
+  unfunction conda
+  source $HOME/.asdf/installs/python/$(asdf current python | cut -d ' ' -f 1)/etc/profile.d/conda.sh
+  conda "$@"
+}
+
 # Cache direnv hook
 _evalcache direnv hook zsh
 
