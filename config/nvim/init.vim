@@ -3,6 +3,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
@@ -48,13 +49,6 @@ colorscheme gruvbox
 
 let mapleader = "\<Space>"
 
-" Fix comment highlight
-if exists('$TMUX')
-    hi Comment guibg=gray ctermbg=gray guifg=bg ctermfg=bg
-else
-    hi Comment guibg=bg ctermbg=bg guifg=gray ctermfg=gray
-endif
-
 nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
@@ -87,3 +81,28 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Goyo + Limelight settings
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+function! s:goyo_enter()
+    set noshowmode
+    set noshowcmd
+    set nocursorline
+    CocDisable
+    Limelight
+endfunction
+
+function! s:goyo_leave()
+    set showmode
+    set showcmd
+    set cursorline
+    CocEnable
+    Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
