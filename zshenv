@@ -29,4 +29,4 @@ export PATH="$PATH:$HOMEBREW_DIR/sbin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.shell"
 
-export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:=$HOME/.cache/zsh/}
+export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:=$HOME/.cache/zsh}
