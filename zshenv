@@ -12,6 +12,14 @@ export SHELL_SESSIONS_DISABLE=1
 # Silent direnv
 export DIRENV_LOG_FORMAT=""
 
+# https://0x46.net/thoughts/2019/02/01/dotfile-madness/
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_RUNTIME_DIR=$HOME/.local/share
+export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_HOME
+export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_HOME
+
 # If FZF is installed and The Silver Searcher I configure fzf to use ag as the
 # default command. This makes it faster in searching and also makes use of the
 # .gitignore
@@ -25,8 +33,8 @@ export SAVEHIST=$HISTSIZE
 # Set PATH
 export HOMEBREW_DIR=/usr/local
 
-export PATH="$PATH:$HOMEBREW_DIR/sbin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.shell"
+export PATH="$HOMEBREW_DIR/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.shell:$PATH"
 
-export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:=$HOME/.cache/zsh}
+export ZSH_EVALCACHE_DIR=$XDG_CACHE_HOME/zsh
