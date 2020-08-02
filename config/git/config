@@ -9,8 +9,8 @@
 
 [core]
 	editor = vim
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+	excludesfile = ~/.config/git/gitignore
+	attributesfile = ~/.config/git/gitattributes
 
 [alias]
 	lastchange = log -p -n 1
@@ -18,7 +18,7 @@
 	tag = tag -s
 
 [include]
-	path = ~/.gitconfig.local
+	path = ~/.config/git/config.local
 
 [rebase]
 	autostash = true
