@@ -4,7 +4,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
-Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch', { 'on': 'Rename' }
@@ -41,9 +41,7 @@ au BufEnter *.md setlocal filetype=markdown
 au BufEnter *.tsx setlocal filetype=typescript.tsx
 au FileType gitcommit,markdown setlocal spell
 
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=16
-colorscheme gruvbox
+colorscheme ayu
 
 let mapleader = "\<Space>"
 
