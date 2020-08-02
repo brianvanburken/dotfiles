@@ -20,6 +20,7 @@ cask "docker"
 cask "firefox"
 cask "focus"
 cask "google-chrome"
+cask "iterm2"
 cask "spotify"
 cask "stack"
 
