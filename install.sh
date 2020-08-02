@@ -56,10 +56,10 @@ fi
 fancy_echo "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
 "agignore"
-"aliases"
 "asdfrc"
 "bundle"
 "config/nvim"
+"config/zsh"
 "default-gems"
 "default-npm-packages"
 "default-python-packages"
@@ -72,9 +72,7 @@ files=(
 "ideavimrc"
 "tmux.conf"
 "tool-versions"
-"zsh_functions"
 "zshenv"
-"zshrc"
 )
 
 for x in "${files[@]}"; do

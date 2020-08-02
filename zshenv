@@ -38,3 +38,4 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.shell:$PATH"
 
 export ZSH_EVALCACHE_DIR=$XDG_CACHE_HOME/zsh
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
