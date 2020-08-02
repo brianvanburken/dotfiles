@@ -1,5 +1,5 @@
-source $HOME/.aliases
-source $HOME/.zsh_functions
+source $ZDOTDIR/aliases
+source $ZDOTDIR/functions
 source $HOMEBREW_DIR/opt/asdf/asdf.sh
 
 export EDITOR=nvim
