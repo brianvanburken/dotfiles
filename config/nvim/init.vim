@@ -11,7 +11,6 @@ Plug 'tpope/vim-eunuch', { 'on': 'Rename' }
 Plug 'tpope/vim-surround'
 call plug#end()
 
-filetype plugin indent on " Load filetype-specific indent files
 syntax on
 
 set background=dark
@@ -20,15 +19,14 @@ set clipboard=unnamed " Share Clipboard with OS
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
 set laststatus=2 " Always enable status line
-set lazyredraw
 set linebreak
-set nocompatible
+set nowrap
 set number " Show line numbers
 set numberwidth=3 " Line numbers max digits
 set scrolloff=5 " Show lines below current line at all times while scrolling
 set showcmd " Show typed command in bottom bar
 set signcolumn=yes
-set ttyfast
+set termguicolors " enable true colors support
 
 set statusline=%t " Tail of the filename
 set statusline+=%m " Modified flag
