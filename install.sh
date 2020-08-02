@@ -7,6 +7,8 @@ fancy_echo "Creating local directories"
 mkdir -p ~/Developer/personal
 mkdir -p ~/.shell/
 mkdir -p ~/.config/
+mkdir -p ~/.cache/
+mkdir -p ~/.local/share/
 
 fancy_echo "Creating local files"
 touch ~/.gitconfig.local
@@ -17,17 +19,15 @@ DOT_DIR=~/Developer/personal/dotfiles
 if [ ! -d $DOT_DIR ]; then
     fancy_echo "Cloning dotfiles"
     git clone https://github.com/brianvanburken/dotfiles.git $DOT_DIR
+    cd $DOT_DIR
+    git remote remove origin
+    git remote add origin git@github.com:brianvanburken/dotfiles.git
 else
     fancy_echo "Dotfiles already present"
+    cd $DOT_DIR
 fi
 
-fancy_echo "Navigating to $DOT_DIR"
-cd $DOT_DIR
-git remote remove origin
-git remote add origin git@github.com:brianvanburken/dotfiles.git
-git pull
-
-# Install homebrew if not exists
+Install homebrew if not exists
 which -s brew
 if [[ $? != 0 ]] ; then
 	fancy_echo "Installing Homebrew"
@@ -55,23 +55,15 @@ fi
 
 fancy_echo "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
-"agignore"
-"asdfrc"
-"bundle"
+"config/ag"
+"config/git"
 "config/nvim"
 "config/zsh"
-"default-gems"
 "default-npm-packages"
 "default-python-packages"
 "editorconfig"
-"gemrc"
-"gitattributes"
-"gitconfig"
-"gitignore"
 "hushlogin"
 "ideavimrc"
-"tmux.conf"
-"tool-versions"
 "zshenv"
 )
 

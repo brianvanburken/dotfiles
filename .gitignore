@@ -1,2 +1,4 @@
-bundle/cache/
 config/nvim/spell/
+config/zsh/.zsh_history
+
+*.local
