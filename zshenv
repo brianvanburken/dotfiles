@@ -23,7 +23,7 @@ export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_HOME
 # If FZF is installed and The Silver Searcher I configure fzf to use ag as the
 # default command. This makes it faster in searching and also makes use of the
 # .gitignore
-export FZF_DEFAULT_COMMAND='ag --path-to-ignore=$XDG_CONFIG_HOME/ag/ignore --hidden -g ""'
+export FZF_DEFAULT_COMMAND='ag --path-to-ignore=$HOME/.agignore --hidden -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 

@@ -27,7 +27,6 @@ else
     cd $DOT_DIR
 fi
 
-Install homebrew if not exists
 which -s brew
 if [[ $? != 0 ]] ; then
 	fancy_echo "Installing Homebrew"
@@ -55,7 +54,8 @@ fi
 
 fancy_echo "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
-"config/ag"
+"config/ag/ignore"
+"config/asdf"
 "config/git"
 "config/nvim"
 "config/zsh"
@@ -72,6 +72,8 @@ for x in "${files[@]}"; do
 	rm -rf $HOME/.$x
 	ln -s $DOT_DIR/$x $HOME/.$x
 done
+
+ln -s $DOT_DIR/config/ag/ignore $HOME/.agignore
 
 fancy_echo "Adding asdf plugins"
 asdf plugin-add ruby
