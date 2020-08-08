@@ -9,14 +9,18 @@ export PROMPT="%F{blue}%1~%f %(?.%F{green}.%F{red})%#%f "
 # Lazy-load Z only when called to speed up zsh load time
 function z() {
   unfunction z
-  source "$HOMEBREW_DIR/opt/z/etc/profile.d/z.sh"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+      source $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh
+  else
+      source $XDG_RUNTIME_DIR/z/z.sh
+  fi
   _z "$@"
 }
 
 # Lazy-load conda and fetch version python through asdf
 function conda() {
   unfunction conda
-  source $HOME/.asdf/installs/python/$(asdf current python | cut -d ' ' -f 1)/etc/profile.d/conda.sh
+  source $ASDF_DATA_DIR/installs/python/$(asdf current python | cut -d ' ' -f 1)/etc/profile.d/conda.sh
   conda "$@"
 }
 
