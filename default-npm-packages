@@ -1,15 +1,3 @@
-@elm-tooling/elm-language-server
-elm-analyse
-elm-doc
-elm-doc-preview
-elm-format
-elm-json
-elm-live
-elm-oracle
-elm-test@0.19.1-revision3
-elm-thanks
-elm-verify-examples
-elm-xref
 neovim
 npm-check
 prettier

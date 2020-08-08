@@ -1,32 +1,5 @@
 {
-  "languageserver": {
-    "elmLS": {
-      "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"],
-      "trace.server": "verbose",
-      "initializationOptions": {
-        "elmPath": "elm",
-        "elmFormatPath": "elm-format",
-        "elmTestPath": "elm-test",
-        "elmAnalyseTrigger": "change"
-      }
-    },
-    "haskell": {
-      "command": "hie-wrapper",
-      "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
-      "filetypes": ["hs", "lhs", "haskell"],
-      "initializationOptions": {},
-      "settings": {
-        "languageServerHaskell": {
-          "hlintOn": true,
-          "maxNumberOfProblems": 10,
-          "completionSnippetsOn": true
-        }
-      }
-    }
-  },
-  "coc.preferences.formatOnSaveFiletypes": ["elm", "haskell"],
+  "coc.preferences.formatOnSaveFiletypes": [],
   "codeLens.enable": true,
   "diagnostic.maxWindowHeight": 20,
   "signature.maxWindowHeight": 20,
