@@ -1,3 +1,5 @@
 neovim
 dotbot
 blinkstick
+torch
+torchvision
