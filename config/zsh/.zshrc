@@ -47,3 +47,13 @@ setopt hist_beep              # Beep when accessing nonexistent history.
 setopt autocd
 setopt autopushd
 setopt pushdignoredups
+
+# https://gist.github.com/ctechols/ca1035271ad134841284
+autoload -Uz compinit
+() {
+  if [[ $# -gt 0 ]]; then
+    compinit
+  else
+    compinit -C
+  fi
+} ${ZDOTDIR:-$HOME}/.zcompdump(N.mh+24)
