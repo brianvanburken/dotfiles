@@ -17,11 +17,13 @@ function z() {
   _z "$@"
 }
 
-# Lazy-load conda and fetch version python through asdf
+# Lazy-load conda
 function conda() {
   unfunction conda
-  source $ASDF_DATA_DIR/installs/python/$(asdf current python | cut -d ' ' -f 1)/etc/profile.d/conda.sh
-  conda "$@"
+
+  source $XDG_DATA_HOME/miniconda/etc/profile.d/conda.sh
+
+  conda $@
 }
 
 # Cache direnv hook
