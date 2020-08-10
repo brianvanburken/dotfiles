@@ -36,6 +36,7 @@ export HOMEBREW_DIR=/usr/local
 export PATH="$HOMEBREW_DIR/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.shell:$PATH"
+export PATH="$XDG_DATA_HOME/miniconda/bin:$PATH"
 
 # Set XDG for tools
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
