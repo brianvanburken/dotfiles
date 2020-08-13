@@ -3,18 +3,20 @@ fancy_echo() {
   printf "\n$fmt\n" "$@"
 }
 
+DOT_DIR=$HOME/Developer/personal/dotfiles
+PLUG_DIR=$XDG_DATA_HOME:=$HOME/.local/share
+
 fancy_echo "Creating local directories"
-mkdir -p ~/Developer/personal
-mkdir -p ~/.shell/
-mkdir -p ~/.config/
-mkdir -p ~/.cache/
-mkdir -p ~/.local/share/
+mkdir -p $HOME/Developer/personal
+mkdir -p $HOME/.shell/
+mkdir -p $HOME/.config/
+mkdir -p $HOME/.cache/
+mkdir -p $HOME/.local/share/
 
 fancy_echo "Creating local files"
-touch ~/.gitconfig.local
-touch ~/.hushlogin
+touch $HOME/.gitconfig.local
+touch $HOME/.hushlogin
 
-DOT_DIR=~/Developer/personal/dotfiles
 if [ ! -d $DOT_DIR ]; then
     fancy_echo "Cloning dotfiles"
     git clone https://github.com/brianvanburken/dotfiles.git $DOT_DIR
@@ -39,11 +41,10 @@ else
     brew update
 fi
 
-PLUG_DIR=$XDG_DATA_HOME:=$HOME/.local/share
 if [ ! -d $PLUG_DIR ]; then
     fancy_echo "Installing vim plugins"
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    NVIM_DIR=${XDG_DATA_HOME:-$HOME/.local/share}/nvim
+    curl -fLo $NVIM_DIR/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     nvim +PlugInstall +qall
 fi
 
@@ -86,5 +87,22 @@ fancy_echo "Installing asdf versions"
 cd ~
 asdf install
 cd -
+
+
+echo "Install MiniConda"
+MINICONDA_PATH="$XDG_DATA_HOME/miniconda"
+
+if [ ! -d "$MINICONDA_PATH" ]; then
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    chmod +x ./Miniconda3-latest-MacOSX-x86_64.sh
+    ./Miniconda3-latest-MacOSX-x86_64.sh -b -p "$MINICONDA_PATH"
+    rm ./Miniconda3-latest-MacOSX-x86_64.sh
+fi
+
+# now we activate miniconda
+export PATH="$MINICONDA_PATH/bin:$PATH"
+
+# and install pip in base conda env
+conda install pip -y
 
 fancy_echo "Done running script"
