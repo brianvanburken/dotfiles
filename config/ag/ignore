@@ -17,6 +17,7 @@
 *.tmp*
 *.tsv
 *.ttf
+*.min.*
 .DS_Store
 .cache/
 .git/
