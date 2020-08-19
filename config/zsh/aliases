@@ -72,7 +72,6 @@ alias yv='youtube-dl -f 22 ' # videos
 alias yt='youtube-dl'
 
 alias l='ls -lahgG'
-alias ..='cd ../'
 alias ...='cd ../../'
 alias cp='cp -i'
 alias rm='rm -i'
