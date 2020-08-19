@@ -7,7 +7,6 @@ Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch', { 'on': 'Rename' }
 Plug 'tpope/vim-surround'
 call plug#end()
 
@@ -50,7 +49,6 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>g :Goyo<CR>
-nnoremap <Leader>r :Rename<Space>
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
