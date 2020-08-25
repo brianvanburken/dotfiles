@@ -65,6 +65,11 @@ alias ta='tmux attach -t'
 alias tn='tmux new-session'
 alias tl='tmux list-sessions'
 
+# Ruby
+alias be='bundle exec'
+alias bu='bundle update'
+alias j='bundle exec jekyll'
+
 # General
 alias dr='docker-compose down && docker-compose up'
 alias serve='python -m SimpleHTTPServer'
