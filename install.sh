@@ -1,6 +1,7 @@
 fancy_echo() {
-  local fmt="$1"; shift
-  printf "\n$fmt\n" "$@"
+    local fmt="$1"
+    shift
+    printf "\n$fmt\n" "$@"
 }
 
 DOT_DIR=$HOME/Developer/personal/dotfiles
@@ -29,15 +30,15 @@ else
 fi
 
 which -s brew
-if [[ $? != 0 ]] ; then
-	fancy_echo "Installing Homebrew"
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+if [[ $? != 0 ]]; then
+    fancy_echo "Installing Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     brew doctor
-	fancy_echo "Homebrew is installed"
+    fancy_echo "Homebrew is installed"
     fancy_echo "Installing Homebrew packages"
     brew bundle
 else
-	fancy_echo "Homebrew already installed"
+    fancy_echo "Homebrew already installed"
     brew update
 fi
 
@@ -50,23 +51,23 @@ fi
 
 fancy_echo "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
-"config/ag/ignore"
-"config/asdf"
-"config/git"
-"config/nvim"
-"config/zsh"
-"default-npm-packages"
-"default-python-packages"
-"editorconfig"
-"hushlogin"
-"ideavimrc"
-"zshenv"
+    "config/ag/ignore"
+    "config/asdf"
+    "config/git"
+    "config/nvim"
+    "config/zsh"
+    "default-npm-packages"
+    "default-python-packages"
+    "editorconfig"
+    "hushlogin"
+    "ideavimrc"
+    "zshenv"
 )
 
 for x in "${files[@]}"; do
-	fancy_echo "Linking $x"
-	rm -rf $HOME/.$x
-	ln -s $DOT_DIR/$x $HOME/.$x
+    fancy_echo "Linking $x"
+    rm -rf $HOME/.$x
+    ln -s $DOT_DIR/$x $HOME/.$x
 done
 
 rm $HOME/.agignore
@@ -87,7 +88,6 @@ fancy_echo "Installing asdf versions"
 cd ~
 asdf install
 cd -
-
 
 echo "Install MiniConda"
 MINICONDA_PATH="$XDG_DATA_HOME/miniconda"
