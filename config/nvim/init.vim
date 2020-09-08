@@ -1,10 +1,10 @@
 call plug#begin(stdpath('data') . '/plugged')
+Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Files', 'Buffers', 'Tags'] }
+Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Files', 'Buffers', 'Tags'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
-Plug 'ayu-theme/ayu-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -48,7 +48,7 @@ nnoremap <Leader>a :Ag<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
-nnoremap <Leader>g :Goyo<CR>
+nnoremap <Leader>g :Goyo 85<CR>
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
