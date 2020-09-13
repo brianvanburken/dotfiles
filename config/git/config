@@ -9,8 +9,8 @@
 
 [core]
 	editor = vim
-	excludesfile = ~/.config/git/gitignore
-	attributesfile = ~/.config/git/gitattributes
+	excludesfile = ~/.config/git/ignore
+	attributesfile = ~/.config/git/attributes
 
 [alias]
 	lastchange = log -p -n 1
