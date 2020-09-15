@@ -6,6 +6,14 @@ export DO_NOT_TRACK=1 # https://consoledonottrack.com/
 export HOMEBREW_NO_ANALYTICS=1
 export NG_CLI_ANALYTICS=false # https://github.com/angular/angular-cli/blob/master/docs/design/analytics.md
 
+# If it's been more than this number of seconds since Homebrew was last
+# updated, automatically run `brew update` before `brew install`.
+# 604800 is 1 week in seconds (60 * 60 * 24 * 7).
+export HOMEBREW_AUTO_UPDATE_SECS=604800
+
+# Always cleanup after installing or upgrading
+export HOMEBREW_INSTALL_CLEANUP=1
+
 # Disable shell sessions
 export SHELL_SESSIONS_DISABLE=1
 
