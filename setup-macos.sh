@@ -290,7 +290,7 @@ files=(
     "config/asdf"
     "config/editorconfig"
     "config/git"
-    "config/ideavimrc"
+    "config/ideavim"
     "config/nvim"
     "config/zsh"
     "zshenv"
@@ -305,13 +305,13 @@ action "Linking $HOME/Developer/.editorignore"
 rm -f $HOME/Developer/.editorconfig
 ln -s $DOT_DIR/config/editorconfig/config $HOME/Developer/.editorconfig
 
-action "Linking $HOME/.default-npm-package"
-rm -f $HOME/.default-npm-package
-ln -s $DOT_DIR/config/asdf/default-npm-package $HOME/.default-npm-package
+action "Linking $HOME/.default-npm-packages"
+rm -f $HOME/.default-npm-packages
+ln -s $DOT_DIR/config/asdf/default-npm-packages $HOME/.default-npm-packages
 
-action "Linking $HOME/.default-python-package"
-rm -f $HOME/.default-python-package
-ln -s $DOT_DIR/config/asdf/default-python-package $HOME/.default-python-package
+action "Linking $HOME/.default-python-packages"
+rm -f $HOME/.default-python-packages
+ln -s $DOT_DIR/config/asdf/default-python-packages $HOME/.default-python-packages
 
 ok "Done linking dotfiles"
 
