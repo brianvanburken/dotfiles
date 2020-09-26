@@ -2,12 +2,11 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 
-brew "adr-tools"
 brew "asdf"
 brew "direnv"
-brew "exercism"
 brew "fzf"
 brew "git"
+brew "mas"
 brew "neovim"
 brew "the_silver_searcher"
 brew "z"
@@ -21,7 +20,9 @@ cask "firefox"
 cask "focus"
 cask "google-chrome"
 cask "iterm2"
+cask "obsidian"
 cask "spotify"
 cask "stack"
 
+mas "Magnet", id: 441258766
 mas "Xcode", id: 497799835
