@@ -12,7 +12,7 @@ call plug#end()
 
 syntax on
 
-set background=dark
+set background=light
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
 set hlsearch " highlight matches
