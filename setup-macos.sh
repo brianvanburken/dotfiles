@@ -355,6 +355,22 @@ if [[ ${INSTALL_MINICONDA} = true ]]; then
     fi
 fi
 
+# Prolong sudo
+cached_sudo
+
+if [ -d ~/Developer/personal/oss/hosts/ ]; then
+    action "Setup blacklist hostfile"
+    HOST_DIR=~/Developer/personal/oss/hosts
+    # rm -rf $HOST_DIR
+    # git clone git@github.com:StevenBlack/hosts.git $HOST_DIR
+    # ln -s $DOT_DIR/macos/myhosts $HOST_DIR/myhosts
+    cd $HOST_DIR
+    pip3 install -r requirements.txt
+    python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
+    cd -
+    ok "Done setup hostfile"
+fi
+
 if [[ ${require_manual_actions} -eq 1 ]]; then
   echo "🔎   Setup completed, but some items require manual actions. Check the output above for more info."
   cleanup_and_exit
