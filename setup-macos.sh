@@ -366,7 +366,7 @@ fi
 # Prolong sudo
 cached_sudo
 
-if [ -d ~/Developer/personal/oss/hosts/ ]; then
+if [ ! -d ~/Developer/personal/oss/hosts/ ]; then
     action "Setup blacklist hostfile"
     HOST_DIR=~/Developer/personal/oss/hosts
     # rm -rf $HOST_DIR
