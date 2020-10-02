@@ -1,6 +1,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Files', 'Buffers', 'Tags'] }
-Plug 'ayu-theme/ayu-vim'
+Plug 'brglng/ayu-vim', { 'branch': 'feature/set-background' }
+" Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Files', 'Buffers', 'Tags'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -12,7 +13,6 @@ call plug#end()
 
 syntax on
 
-set background=light
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
 set hlsearch " highlight matches
@@ -40,6 +40,12 @@ au BufEnter *.md setlocal filetype=markdown
 au BufEnter *.tsx setlocal filetype=typescript.tsx
 au FileType gitcommit,markdown setlocal spell
 
+let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
+if s:mode ==? "dark"
+    set background=dark
+else
+    set background=light
+endif
 colorscheme ayu
 
 let mapleader = "\<Space>"
@@ -100,3 +106,16 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+function! SetBackgroundMode(...)
+    let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
+    if s:mode ==? "dark"
+        let s:new_bg = "dark"
+    else
+        let s:new_bg = "light"
+    endif
+    if &background !=? s:new_bg
+        let &background = s:new_bg
+    endif
+endfunction
+call timer_start(5000, "SetBackgroundMode", {"repeat": -1})
