@@ -260,8 +260,8 @@ action "Creating $HOME/.local/share/"
 mkdir -p $HOME/.local/share/
 ok  "Done creating local directories"
 
-action "Creating $HOME/.gitconfig.local"
-touch $HOME/.gitconfig.local
+action "Creating $HOME/.config/git/config.local"
+touch $HOME/.config/git/config.local
 action "Creating $HOME/.hushlogin"
 touch $HOME/.hushlogin
 ok  "Done creating local files"
