@@ -293,13 +293,16 @@ files=(
     "config/ideavim"
     "config/nvim"
     "config/zsh"
-    "zshenv"
 )
 for x in "${files[@]}"; do
     action "Linking $HOME/.$x"
     rm -rf $HOME/.$x
     ln -s $DOT_DIR/$x $HOME/.$x
 done
+
+action "Linking $HOME/.zshenv"
+rm -f $HOME/.zshenv
+ln -s $DOT_DIR/config/zsh/zshenv $HOME/.zshenv
 
 action "Linking $HOME/Developer/.editorignore"
 rm -f $HOME/Developer/.editorconfig
