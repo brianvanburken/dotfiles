@@ -20,7 +20,7 @@
 		<key>6F5A2CEC-5301-469E-B488-395C3C47D898</key>
 		<dict>
 			<key>enabled</key>
-			<true/>
+			<false/>
 			<key>keyword</key>
 			<string>sp</string>
 			<key>text</key>
@@ -33,7 +33,7 @@
 		<key>D529C43C-5785-4E90-915B-60F62A59B04C</key>
 		<dict>
 			<key>enabled</key>
-			<false/>
+			<true/>
 			<key>keyword</key>
 			<string>npm</string>
 			<key>text</key>
@@ -46,7 +46,7 @@
 		<key>DDECDA10-FF1A-4E46-BF92-432BF4D65F9E</key>
 		<dict>
 			<key>enabled</key>
-			<false/>
+			<true/>
 			<key>keyword</key>
 			<string>mdn</string>
 			<key>text</key>
