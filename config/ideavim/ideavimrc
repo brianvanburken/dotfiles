@@ -7,5 +7,8 @@ nmap <leader>g :action ToggleDistractionFreeMode<cr>
 
 nmap gd :action GotoDeclaration<cr>
 
+nmap gcc :action CommentByLineComment<cr>
+vmap gc :action CommentByBlockComment<cr>
+
 set surround
 set clipboard+=ideaputset ideajoinset ideaput
