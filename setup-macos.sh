@@ -84,9 +84,7 @@ trap cleanup_and_exit EXIT
 
 echo "Setting up macOS"
 echo -e "================================================\n\n"
-echo -e "If you see a notice don't be alarmed, it might"
-echo -e "be an intended one. If you're unsure, check"
-echo -e "in with OPS. They'll tell you good or bad.\n\n"
+echo -e "If you see a notice don't be alarmed, it might be an intended one.\n\n"
 
 if [[ "$(uname)" != "Darwin" ]]; then
   error "No, macOS setup does not work on non macOS machines.."
@@ -369,9 +367,9 @@ cached_sudo
 if [ ! -d ~/Developer/personal/oss/hosts/ ]; then
     action "Setup blacklist hostfile"
     HOST_DIR=~/Developer/personal/oss/hosts
-    # rm -rf $HOST_DIR
-    # git clone git@github.com:StevenBlack/hosts.git $HOST_DIR
-    # ln -s $DOT_DIR/macos/myhosts $HOST_DIR/myhosts
+    rm -rf $HOST_DIR
+    git clone git@github.com:StevenBlack/hosts.git --depth=1 $HOST_DIR
+    ln -s $DOT_DIR/macos/myhosts $HOST_DIR/myhosts
     cd $HOST_DIR
     pip3 install -r requirements.txt
     python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
