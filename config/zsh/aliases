@@ -3,6 +3,8 @@
 # NPM
 alias n='npm'
 alias nr='npm run'
+alias ns='npm start'
+alias nb='npm build'
 alias ni='npm install'
 alias nis='npm install --save'
 alias niS='npm install --save-dev'
