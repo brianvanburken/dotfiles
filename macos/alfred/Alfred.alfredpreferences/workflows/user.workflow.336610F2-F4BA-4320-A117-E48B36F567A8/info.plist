@@ -60,19 +60,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>2DA1AAE1-CEFA-4029-AC28-17D8F4E62D94</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>6B4911AE-A181-4306-B09B-6A78BEBA690C</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>43707E20-DAB5-4ADE-A4B1-0F4B693D019A</key>
 		<array>
 			<dict>
@@ -104,19 +91,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>0C40BAD7-1666-4ADC-B7A5-1ED4982FEC3B</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>69787E19-8B8A-4E91-8DF1-3D22979A69AE</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>6B4911AE-A181-4306-B09B-6A78BEBA690C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -190,19 +164,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>8C704141-D238-4EAD-B9EA-887680938660</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>1377CB43-2E29-47E5-9A4E-C37FEAB9A49E</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>A32D488E-A039-43B7-8209-B55E27D7616A</key>
 		<array>
 			<dict>
@@ -216,37 +177,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>A783EA8A-5951-4803-A941-34DB0E9236AD</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>93C8D5AE-75BA-4918-805C-A9E16778A67F</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>A9CF1795-C4A0-458B-A7B0-4795F31C585F</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>529F42BF-E934-4E7F-97E4-91D4713F9C89</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>AD626F82-DCB9-4D72-8E31-93716FA1D74B</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>93C8D5AE-75BA-4918-805C-A9E16778A67F</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -294,37 +229,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>BD4359D6-16DE-49E4-AE1B-E651ED30ADCA</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>5EBC72C7-7ACC-400B-B16C-20020804C9D4</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>BFBF0155-2C8F-4FFD-BB36-5A24FCB50DB2</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>85364D1D-C05E-4B0A-86AE-59866143CCF9</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>C46085B5-70B3-4F77-A6C2-8E0C2665F535</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>8F84B52B-8C27-4F9D-86BB-02819A3C250F</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -864,46 +773,6 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>gl</string>
-				<key>subtext</key>
-				<string>Open KNB Gitlab</string>
-				<key>text</key>
-				<string>KNB Gitlab</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>8C704141-D238-4EAD-B9EA-887680938660</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://gitlab.knb.nl</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>1377CB43-2E29-47E5-9A4E-C37FEAB9A49E</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
 				<string>hf</string>
 				<key>subtext</key>
 				<string>Open 15Five</string>
@@ -965,67 +834,6 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>uitoolkit</string>
-				<key>subtext</key>
-				<string>Visit UI-toolkit repository on Gitlab</string>
-				<key>text</key>
-				<string>UI-toolkit</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>BD4359D6-16DE-49E4-AE1B-E651ED30ADCA</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://confluence.knb.nl/</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>93C8D5AE-75BA-4918-805C-A9E16778A67F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>knbconfluence</string>
-				<key>subtext</key>
-				<string>Open KNB Confluence</string>
-				<key>text</key>
-				<string>Confluence KNB</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>A783EA8A-5951-4803-A941-34DB0E9236AD</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
 				<string>google cloud console</string>
 				<key>subtext</key>
 				<string>Open Google Cloud Console</string>
@@ -1063,46 +871,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://gitlab.knb.nl/knb/tooling/ui-toolkit</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>5EBC72C7-7ACC-400B-B16C-20020804C9D4</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>webportaal</string>
-				<key>subtext</key>
-				<string>Visit webportaal repository on Gitlab</string>
-				<key>text</key>
-				<string>Webportaal</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>C46085B5-70B3-4F77-A6C2-8E0C2665F535</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -1118,107 +886,6 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>69A4CA0D-910D-415D-92AC-8EE430FF8115</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://gitlab.knb.nl/knb/webportaal</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>8F84B52B-8C27-4F9D-86BB-02819A3C250F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>cofknb</string>
-				<key>subtext</key>
-				<string>Open KNB Confluence</string>
-				<key>text</key>
-				<string>Confluence KNB</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>AD626F82-DCB9-4D72-8E31-93716FA1D74B</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://jira.knb.nl/</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>6B4911AE-A181-4306-B09B-6A78BEBA690C</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>jiraknb</string>
-				<key>subtext</key>
-				<string>Open KNB Jira</string>
-				<key>text</key>
-				<string>Jira KNB</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>2DA1AAE1-CEFA-4029-AC28-17D8F4E62D94</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>knbjira</string>
-				<key>subtext</key>
-				<string>Open KNB Jira</string>
-				<key>text</key>
-				<string>Jira KNB</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>69787E19-8B8A-4E91-8DF1-3D22979A69AE</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1241,13 +908,6 @@
 			<key>ypos</key>
 			<integer>25</integer>
 		</dict>
-		<key>1377CB43-2E29-47E5-9A4E-C37FEAB9A49E</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1025</integer>
-			<key>ypos</key>
-			<integer>645</integer>
-		</dict>
 		<key>196C25EE-654E-434D-BA54-BE86036427FA</key>
 		<dict>
 			<key>xpos</key>
@@ -1265,9 +925,9 @@
 		<key>2600E67D-05C1-4B7B-BADD-6B89744CA63F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>425</integer>
+			<integer>55</integer>
 			<key>ypos</key>
-			<integer>770</integer>
+			<integer>775</integer>
 		</dict>
 		<key>277BC5C0-E8FD-4F4E-8CC3-C3F0615AD9A7</key>
 		<dict>
@@ -1282,13 +942,6 @@
 			<integer>270</integer>
 			<key>ypos</key>
 			<integer>650</integer>
-		</dict>
-		<key>2DA1AAE1-CEFA-4029-AC28-17D8F4E62D94</key>
-		<dict>
-			<key>xpos</key>
-			<integer>55</integer>
-			<key>ypos</key>
-			<integer>1015</integer>
 		</dict>
 		<key>43707E20-DAB5-4ADE-A4B1-0F4B693D019A</key>
 		<dict>
@@ -1311,13 +964,6 @@
 			<key>ypos</key>
 			<integer>525</integer>
 		</dict>
-		<key>5EBC72C7-7ACC-400B-B16C-20020804C9D4</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1025</integer>
-			<key>ypos</key>
-			<integer>770</integer>
-		</dict>
 		<key>67626875-5DD5-4B71-AB9C-95CDA40032E5</key>
 		<dict>
 			<key>xpos</key>
@@ -1325,26 +971,12 @@
 			<key>ypos</key>
 			<integer>150</integer>
 		</dict>
-		<key>69787E19-8B8A-4E91-8DF1-3D22979A69AE</key>
+		<key>69A4CA0D-910D-415D-92AC-8EE430FF8115</key>
 		<dict>
 			<key>xpos</key>
 			<integer>55</integer>
 			<key>ypos</key>
-			<integer>1135</integer>
-		</dict>
-		<key>69A4CA0D-910D-415D-92AC-8EE430FF8115</key>
-		<dict>
-			<key>xpos</key>
-			<integer>425</integer>
-			<key>ypos</key>
-			<integer>890</integer>
-		</dict>
-		<key>6B4911AE-A181-4306-B09B-6A78BEBA690C</key>
-		<dict>
-			<key>xpos</key>
-			<integer>270</integer>
-			<key>ypos</key>
-			<integer>1015</integer>
+			<integer>895</integer>
 		</dict>
 		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<dict>
@@ -1388,27 +1020,6 @@
 			<key>ypos</key>
 			<integer>150</integer>
 		</dict>
-		<key>8C704141-D238-4EAD-B9EA-887680938660</key>
-		<dict>
-			<key>xpos</key>
-			<integer>810</integer>
-			<key>ypos</key>
-			<integer>645</integer>
-		</dict>
-		<key>8F84B52B-8C27-4F9D-86BB-02819A3C250F</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1025</integer>
-			<key>ypos</key>
-			<integer>890</integer>
-		</dict>
-		<key>93C8D5AE-75BA-4918-805C-A9E16778A67F</key>
-		<dict>
-			<key>xpos</key>
-			<integer>270</integer>
-			<key>ypos</key>
-			<integer>770</integer>
-		</dict>
 		<key>A32D488E-A039-43B7-8209-B55E27D7616A</key>
 		<dict>
 			<key>xpos</key>
@@ -1416,26 +1027,12 @@
 			<key>ypos</key>
 			<integer>25</integer>
 		</dict>
-		<key>A783EA8A-5951-4803-A941-34DB0E9236AD</key>
-		<dict>
-			<key>xpos</key>
-			<integer>55</integer>
-			<key>ypos</key>
-			<integer>770</integer>
-		</dict>
 		<key>A9CF1795-C4A0-458B-A7B0-4795F31C585F</key>
 		<dict>
 			<key>xpos</key>
 			<integer>55</integer>
 			<key>ypos</key>
 			<integer>390</integer>
-		</dict>
-		<key>AD626F82-DCB9-4D72-8E31-93716FA1D74B</key>
-		<dict>
-			<key>xpos</key>
-			<integer>55</integer>
-			<key>ypos</key>
-			<integer>895</integer>
 		</dict>
 		<key>ADB48BD1-3B2F-4BCC-A304-09AF99E0DE0B</key>
 		<dict>
@@ -1465,13 +1062,6 @@
 			<key>ypos</key>
 			<integer>520</integer>
 		</dict>
-		<key>BD4359D6-16DE-49E4-AE1B-E651ED30ADCA</key>
-		<dict>
-			<key>xpos</key>
-			<integer>810</integer>
-			<key>ypos</key>
-			<integer>770</integer>
-		</dict>
 		<key>BFBF0155-2C8F-4FFD-BB36-5A24FCB50DB2</key>
 		<dict>
 			<key>xpos</key>
@@ -1482,16 +1072,9 @@
 		<key>BFDBE7D5-5858-47AF-AFBD-86A294B314E5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>645</integer>
+			<integer>275</integer>
 			<key>ypos</key>
-			<integer>770</integer>
-		</dict>
-		<key>C46085B5-70B3-4F77-A6C2-8E0C2665F535</key>
-		<dict>
-			<key>xpos</key>
-			<integer>810</integer>
-			<key>ypos</key>
-			<integer>890</integer>
+			<integer>775</integer>
 		</dict>
 		<key>DE660153-62A3-4B25-8A39-76FEFA258A7E</key>
 		<dict>
