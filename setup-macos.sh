@@ -288,6 +288,7 @@ files=(
     "config/asdf"
     "config/editorconfig"
     "config/git"
+    "config/hammerspoon"
     "config/ideavim"
     "config/nvim"
     "config/zsh"
@@ -320,6 +321,11 @@ mkdir -p $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/
 ln -s $DOT_DIR/macos/iterm2/auto_dark_mode.py $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_dark_mode.py
 
 ok "Done linking dotfiles"
+
+
+action "Change hammerspoon directory to respect XDG"
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+ok "Done setting up hammerspoon"
 
 if [[ -r /usr/local/bin/asdf ]]; then
     action "Adding asdf plugins"
