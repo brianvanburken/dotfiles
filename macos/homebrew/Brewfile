@@ -19,10 +19,10 @@ cask "docker"
 cask "firefox"
 cask "focus"
 cask "google-chrome"
+cask "hammerspoon"
 cask "iterm2"
 cask "obsidian"
 cask "spotify"
 cask "stack"
 
-mas "Magnet", id: 441258766
 mas "Xcode", id: 497799835
