@@ -2,3 +2,5 @@
 .zcompdump*
 .zcompcache
 *.local
+
+macos/alfred/Alfred.alfredpreferences/clipboard/
