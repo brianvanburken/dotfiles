@@ -383,6 +383,19 @@ if [ ! -d ~/Developer/personal/oss/hosts/ ]; then
     ok "Done setup hostfile"
 fi
 
+cached_sudo
+
+if [ -d /Applications/Alfred\ 4.app ]; then
+    action "Setup Alfred"
+    # Disable spotlight on cmd-space so Alfred can use it
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = ( 32, 49, 1048576); type = standard; }; }"
+    # Disable spotlight window shortcut
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; value = { parameters = ( 32, 49, 1048576); type = standard; }; }"
+    # Set sync prefs
+    defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$DOT_DIR/macos/alfred"
+    ok "Done setting up Alfred"
+fi
+
 if [[ ${require_manual_actions} -eq 1 ]]; then
   echo "🔎   Setup completed, but some items require manual actions. Check the output above for more info."
   cleanup_and_exit
