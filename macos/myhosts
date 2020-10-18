@@ -12,4 +12,10 @@
 0.0.0.0 youtube.com youtu.be www.youtube.com
 0.0.0.0 theverge.com
 
+# Block shopping to spend less
+0.0.0.0 bol.com
+0.0.0.0 coolblue.nl
+0.0.0.0 amazon.nl amazon.com amazon.co.uk amazon.de
+0.0.0.0 decathlon.nl
+
 # End of custom host records.
