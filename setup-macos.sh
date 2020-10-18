@@ -318,7 +318,7 @@ ln -s $DOT_DIR/config/asdf/default-python-packages $HOME/.default-python-package
 action "Linking $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_dark_mode.py"
 rm -rf $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/
 mkdir -p $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/
-ln -s $DOT_DIR/macos/iterm2/auto_dark_mode.py $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_dark_mode.py
+ln -s $DOT_DIR/macos/iterm/auto_dark_mode.py $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_dark_mode.py
 
 ok "Done linking dotfiles"
 
