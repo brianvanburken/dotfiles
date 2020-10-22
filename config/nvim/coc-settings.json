@@ -1,5 +1,4 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [],
   "codeLens.enable": true,
   "diagnostic.maxWindowHeight": 20,
   "signature.maxWindowHeight": 20,
@@ -7,5 +6,18 @@
   "diagnostic.errorSign": ">>",
   "diagnostic.warningSign": "!!",
   "diagnostic.infoSign": "??",
-  "diagnostic.hintSign": "--"
+  "diagnostic.hintSign": "--",
+  "suggest.noselect": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact"
+  ]
 }
