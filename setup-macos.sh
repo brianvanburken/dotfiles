@@ -396,6 +396,10 @@ if [ -d /Applications/Alfred\ 4.app ]; then
     ok "Done setting up Alfred"
 fi
 
+action "Setting macOS preferences"
+mkdir -p $HOME/Pictures/Screenshots/
+defaults write com.apple.screencapture location $HOME/Pictures/Screenshots/
+
 if [[ ${require_manual_actions} -eq 1 ]]; then
   echo "🔎   Setup completed, but some items require manual actions. Check the output above for more info."
   cleanup_and_exit
