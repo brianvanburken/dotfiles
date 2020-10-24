@@ -10,6 +10,7 @@
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "elm",
     "graphql",
     "html",
     "javascript",
@@ -19,5 +20,15 @@
     "typescript",
     "typescript.tsx",
     "typescriptreact"
-  ]
+  ],
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "never"
+      }
+    }
+  }
 }
