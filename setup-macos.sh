@@ -248,14 +248,14 @@ fi
 
 action "Creating $HOME/Developer/personal/"
 mkdir -p $HOME/Developer/personal
-action "Creating $HOME/.shell"
-mkdir -p $HOME/.shell/
+action "Creating $HOME/.local/share/"
+mkdir -p $HOME/.local/share/
+action "Creating $HOME/.local/share/shell"
+mkdir -p $HOME/.local/share/shell/
 action "Creating $HOME/.config"
 mkdir -p $HOME/.config/
 action "Creating $HOME/.cache"
 mkdir -p $HOME/.cache/
-action "Creating $HOME/.local/share/"
-mkdir -p $HOME/.local/share/
 ok  "Done creating local directories"
 
 action "Creating $HOME/.config/git/config.local"
