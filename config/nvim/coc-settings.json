@@ -10,6 +10,8 @@
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "sass",
+    "scss",
     "elm",
     "graphql",
     "html",
