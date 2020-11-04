@@ -102,7 +102,7 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 
-alias ag='ag --path-to-ignore ~/.config/ag/ignore'
+alias ag='ag -p=~/.config/ag/ignore '
 
 # XDG fixes
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
