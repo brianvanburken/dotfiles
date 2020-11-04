@@ -11,6 +11,7 @@
 	editor = vim
 	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
+	hooksPath = ~/.config/git/hooks/
 
 [alias]
 	lastchange = log -p -n 1
