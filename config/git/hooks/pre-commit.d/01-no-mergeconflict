@@ -1,0 +1,8 @@
+#!/bin/bash
+if [[ "$(git commit -v --dry-run | grep -q '<<<<<<<|=======|>>>>>>>')" -ge 1 ]]
+then
+  echo "Trying to commit a mergeconflict block."
+  echo "Solve the conflict and try again."
+  exit 1
+fi
+exit 0
