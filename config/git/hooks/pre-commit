@@ -1,12 +1,11 @@
-#
-# To prevent debug code from being accidentally committed, simply add a comment near your
-# debug code containing the keyword !nocommit and this script will abort the commit.
-#
-if git commit -v --dry-run | grep '!nocommit' >/dev/null 2>&1
-then
-  echo "Trying to commit non-committable code."
-  echo "Remove the !nocommit string and try again."
-  exit 1
-fi
-
+#!/bin/bash
+cd "$(dirname "$0")/pre-commit.d"
+for hook in *; do
+    bash $hook
+    RESULT=$?
+    if [ $RESULT != 0 ]; then
+        echo "pre-commit.d/$hook returned non-zero: $RESULT, abort commit"
+        exit $RESULT
+    fi
+done
 exit 0
