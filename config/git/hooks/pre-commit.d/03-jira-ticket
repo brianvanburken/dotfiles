@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Toggle this commit on/off with an env variable
-[ -z "$COMMIT_JIRA_TICKET" ] && exit 0
+# Toggle this hook on/off with an env variable
+[ -z "$ENFORCE_JIRA_TICKET" ] && exit 0
 
 # http://nsbogan.com/tools/2015/06/04/jira-id-in-git-commit-messages
 TICKET=$(git symbolic-ref HEAD | rev | cut -d/ -f1 | rev | grep -o -E "[A-Z]+-[0-9]+")
