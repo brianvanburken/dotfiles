@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Toggle this hook on/off with an env variable
+[ -z "$ENFORCE_BRANCH_NAME" ] && exit 0
+
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
 valid_branch_regex="^(feature|bugfix|production)\/"
 
