@@ -1,0 +1,12 @@
+#!/bin/bash
+local_branch="$(git rev-parse --abbrev-ref HEAD)"
+valid_branch_regex="^(feature|bugfix|production)\/"
+
+if [[ ! $local_branch =~ $valid_branch_regex ]]
+then
+  echo "Trying to commit a branch with an invalid name."
+  echo "Contract: $valid_branch_regex"
+  echo "Change the branch name to start with correct naming and try again."
+  exit 1
+fi
+exit 0
