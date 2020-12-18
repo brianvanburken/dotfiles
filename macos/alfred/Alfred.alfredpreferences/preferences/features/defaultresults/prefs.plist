@@ -6,5 +6,7 @@
 	<array>
 		<string>features.websearch.google.fallback</string>
 	</array>
+	<key>showContacts</key>
+	<false/>
 </dict>
 </plist>
