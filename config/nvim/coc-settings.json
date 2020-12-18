@@ -1,12 +1,11 @@
 {
   "codeLens.enable": true,
-  "diagnostic.maxWindowHeight": 20,
-  "signature.maxWindowHeight": 20,
-  "diagnostic.signOffset": 999999,
   "diagnostic.errorSign": ">>",
-  "diagnostic.warningSign": "!!",
-  "diagnostic.infoSign": "??",
   "diagnostic.hintSign": "--",
+  "diagnostic.infoSign": "??",
+  "diagnostic.maxWindowHeight": 20,
+  "diagnostic.warningSign": "!!",
+  "signature.maxWindowHeight": 20,
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
