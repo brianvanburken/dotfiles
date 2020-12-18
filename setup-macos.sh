@@ -10,10 +10,10 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 export DOT_DIR=${DOT_DIR:=$HOME/Developer/personal/dotfiles}
 
 # Directory for plugins
-export PLUG_DIR=$XDG_DATA_HOME:=$HOME/.local/share
+export PLUG_DIR=${XDG_DATA_HOME:=$HOME/.local/share}
 
 # Set the download URL
-readonly DIY_MACBOOK_URL=${DIY_MACBOOK_URL:=https://raw.githubusercontent.com/brianvanburken/dotfiles/master/macos}
+readonly SOURCE_URL=${SOURCE_URL:=https://raw.githubusercontent.com/brianvanburken/dotfiles/master/}
 
 # Determine macOS version
 readonly OS_VERSION="$(sw_vers -productVersion)"
@@ -141,7 +141,7 @@ cached_sudo
 
 action "Installing some very nice apps and tools..."
 cached_sudo
-curl -fsSL "$DIY_MACBOOK_URL/Brewfile" | brew bundle --file=- | strip_colors
+curl -fsSL "$SOURCE_URL/macos/homebrew/Brewfile" | brew bundle --file=- | strip_colors
 ok "Installing software done."
 
 # Reload sudo
@@ -310,6 +310,10 @@ ln -s $DOT_DIR/config/editorconfig/config $HOME/Developer/.editorconfig
 action "Linking $HOME/.default-npm-packages"
 rm -f $HOME/.default-npm-packages
 ln -s $DOT_DIR/config/asdf/default-npm-packages $HOME/.default-npm-packages
+
+action "Linking $HOME/.default-gems"
+rm -f $HOME/.default-gems
+ln -s $DOT_DIR/config/asdf/default-gems $HOME/.default-gems
 
 action "Linking $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_dark_mode.py"
 rm -rf $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/
