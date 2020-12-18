@@ -3,8 +3,8 @@
 # Toggle this hook on/off with an env variable
 [ -z "$ENFORCE_BRANCH_NAME" ] && exit 0
 
-local_branch="$(git rev-parse --abbrev-ref HEAD)"
-valid_branch_regex="^(feature|bugfix|production)\/"
+local_branch="$(git branch --show-current)"
+valid_branch_regex="^(master|main|(feature|bugfix|production)\/.*)$"
 
 if [[ ! $local_branch =~ $valid_branch_regex ]]
 then
