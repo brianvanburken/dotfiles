@@ -4,6 +4,7 @@ for hook in *; do
     bash $hook
     RESULT=$?
     if [ $RESULT != 0 ]; then
+        echo "Skip pre-commit hooks with --no-verify (not recommended)."
         echo "pre-commit.d/$hook returned non-zero: $RESULT, abort commit"
         exit $RESULT
     fi
