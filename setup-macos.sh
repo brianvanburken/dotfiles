@@ -307,10 +307,6 @@ action "Linking $HOME/Developer/.editorignore"
 rm -f $HOME/Developer/.editorconfig
 ln -s $DOT_DIR/config/editorconfig/config $HOME/Developer/.editorconfig
 
-action "Linking $HOME/.default-npm-packages"
-rm -f $HOME/.default-npm-packages
-ln -s $DOT_DIR/config/asdf/default-npm-packages $HOME/.default-npm-packages
-
 action "Linking $HOME/.default-gems"
 rm -f $HOME/.default-gems
 ln -s $DOT_DIR/config/asdf/default-gems $HOME/.default-gems
