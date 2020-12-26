@@ -3,6 +3,7 @@ function o() {
 }
 
 function brew_clean() {
+    brew update-reset;
     brew doctor;
     brew cleanup;
     rm -rf "$(brew --cache)/*";
