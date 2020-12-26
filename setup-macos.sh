@@ -106,6 +106,13 @@ if [[ -z ${TERM_PROGRAM} ]]; then
   cleanup_and_exit 1
 fi
 
+if [[ $(xcode-select -p 1>/dev/null) =~ 0 ]]; then
+    action "Installing command line tools (without XCode)"
+    xcode-select --install
+    ok "Installing command line tools done. Rerun this script to install everything else."
+    cleanup_and_exit 0
+fi
+
 # Get sudo credentials
 cached_sudo
 
