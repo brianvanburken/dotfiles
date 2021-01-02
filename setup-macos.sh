@@ -399,9 +399,65 @@ if [ -d /Applications/Alfred\ 4.app ]; then
     ok "Done setting up Alfred"
 fi
 
+action "Disabling animations to speed up macOS"
+# Opening and closing windows and popovers
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+
+# Smooth scrolling
+defaults write -g NSScrollAnimationEnabled -bool false
+
+# Showing and hiding sheets, resizing preference windows, zooming windows
+# float 0 doesn't work
+defaults write -g NSWindowResizeTime -float 0.001
+
+# Opening and closing Quick Look windows
+defaults write -g QLPanelAnimationDuration -float 0
+
+# Rubberband scrolling (doesn't affect web views)
+defaults write -g NSScrollViewRubberbanding -bool false
+
+# Resizing windows before and after showing the version browser
+# also disabled by NSWindowResizeTime -float 0.001
+defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
+
+# Showing a toolbar or menu bar in full screen
+defaults write -g NSToolbarFullScreenAnimationDuration -float 0
+
+# Scrolling column views
+defaults write -g NSBrowserColumnAnimationSpeedMultiplier -float 0
+
+# Showing the Dock
+defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-delay -float 0
+
+# Showing and hiding Mission Control, command+numbers
+defaults write com.apple.dock expose-animation-duration -float 0
+
+# Showing and hiding Launchpad
+defaults write com.apple.dock springboard-show-duration -float 0
+defaults write com.apple.dock springboard-hide-duration -float 0
+
+# Changing pages in Launchpad
+defaults write com.apple.dock springboard-page-duration -float 0
+
+# At least AnimateInfoPanes
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Sending messages and opening windows for replies
+defaults write com.apple.Mail DisableSendAnimations -bool true
+defaults write com.apple.Mail DisableReplyAnimations -bool true
+require_reboot = true
+ok "Done disabling animations"
+
 action "Setting macOS preferences"
+# Hide Desktop icons
+defaults write com.apple.finder CreateDesktop false
+ok "Done setting preferences"
+
+action "Writing default screenshot location to $HOME/Pictures/Screenshots"
 mkdir -p $HOME/Pictures/Screenshots/
 defaults write com.apple.screencapture location $HOME/Pictures/Screenshots/
+ok "Done writing default screenshot location"
 
 if [[ ${require_manual_actions} -eq 1 ]]; then
   echo "🔎   Setup completed, but some items require manual actions. Check the output above for more info."
