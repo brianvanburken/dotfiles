@@ -89,6 +89,7 @@ export HEX_HOME=$XDG_CACHE_HOME/hex
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GPG_TTY=$(tty)
 
 export PSQLRC="$XDG_CONFIG_HOME/postgres/rc"
 export PSQL_HISTORY="$XDG_CACHE_HOME/postgres/history"
