@@ -86,16 +86,16 @@ export BUNDLE_USER_PLUGIN=$XDG_DATA_HOME/bundler
 
 export HEX_HOME=$XDG_CACHE_HOME/hex
 
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export GPG_TTY=$(tty)
 
-export PSQLRC="$XDG_CONFIG_HOME/postgres/rc"
-export PSQL_HISTORY="$XDG_CACHE_HOME/postgres/history"
-export PGPASSFILE="$XDG_CONFIG_HOME/postgres/pass"
-export PGSERVICEFILE="$XDG_CONFIG_HOME/postgres/service.conf"
+export PSQLRC=$XDG_CONFIG_HOME/postgres/config
+export PSQL_HISTORY=$XDG_CACHE_HOME/postgres/history
+export PGPASSFILE=$XDG_CONFIG_HOME/postgres/pass
+export PGSERVICEFILE=$XDG_CONFIG_HOME/postgres/service.conf
 
-export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
+export ANDROID_SDK_HOME=$XDG_CONFIG_HOME/android
 
 export STACK_ROOT=$XDG_CONFIG_HOME/stack
