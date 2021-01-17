@@ -50,19 +50,9 @@
 			<dict>
 				<key>applescript</key>
 				<string>on alfred_script(q)
-	-- Toggle HazeOver
-	-- source: https://hazeover.com/actionshortcuts.html
-	try
-		do shell script "osascript -e 'exists application \"HazeOver\"'"
-
-		-- Toggle HazeOver
-
-		tell application "HazeOver"
-			set enabled to not enabled
-		end tell
-
-		return
-	end try
+	tell application "HazeOver"
+		set enabled to not enabled
+	end tell
 end alfred_script</string>
 				<key>cachescript</key>
 				<false/>
@@ -118,7 +108,7 @@ end alfred_script</string>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>haze</string>
+				<string>hazeover</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
