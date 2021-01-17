@@ -48,8 +48,6 @@ au FileType gitcommit,markdown setlocal spell
 
 colorscheme ayu
 
-let mapleader = "\<Space>"
-
 nnoremap <C-a> :Ag!<CR>
 nnoremap <C-p> :Files!<CR>
 nnoremap <C-t> :Buffers!<CR>
