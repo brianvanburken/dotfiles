@@ -86,6 +86,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ ]
 
+nmap <leader>rn <Plug>(coc-rename)
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -98,7 +100,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -110,9 +112,5 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Format code on save
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>f <Plug>CocAction('format')<CR>
-nmap <leader>o <Plug>CocAction('runCommand', 'editor.action.organizeImport')<CR>
+command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
