@@ -443,6 +443,9 @@ defaults write com.apple.dock springboard-hide-duration -float 0
 # Changing pages in Launchpad
 defaults write com.apple.dock springboard-page-duration -float 0
 
+# Only active applications in Dock
+defaults write com.apple.dock static-only -bool true
+
 # At least AnimateInfoPanes
 defaults write com.apple.finder DisableAllAnimations -bool true
 
