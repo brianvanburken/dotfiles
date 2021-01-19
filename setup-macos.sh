@@ -383,7 +383,7 @@ if [ ! -d ~/Developer/personal/oss/hosts/ ]; then
     git clone https://github.com/StevenBlack/hosts.git --depth=1 $HOST_DIR
     ln -s $DOT_DIR/macos/myhosts $HOST_DIR/myhosts
     cd $HOST_DIR
-    pip3 install -r requirements.txt --user
+    pip3 install --user -r requirements.txt
     python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
     cd -
     ok "Done setup hostfile"
