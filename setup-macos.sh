@@ -377,7 +377,7 @@ if [ ! -d ~/Developer/personal/oss/hosts/ ]; then
     action "Setup blacklist hostfile"
     HOST_DIR=~/Developer/personal/oss/hosts
     rm -rf $HOST_DIR
-    git clone git@github.com:StevenBlack/hosts.git --depth=1 $HOST_DIR
+    git clone https://github.com/StevenBlack/hosts.git --depth=1 $HOST_DIR
     ln -s $DOT_DIR/macos/myhosts $HOST_DIR/myhosts
     cd $HOST_DIR
     pip3 install -r requirements.txt
