@@ -449,7 +449,7 @@ defaults write com.apple.finder DisableAllAnimations -bool true
 # Sending messages and opening windows for replies
 defaults write com.apple.Mail DisableSendAnimations -bool true
 defaults write com.apple.Mail DisableReplyAnimations -bool true
-require_reboot = true
+require_reboot=1
 ok "Done disabling animations"
 
 action "Setting macOS preferences"
