@@ -275,8 +275,10 @@ ok  "Done creating local files"
 if [ ! -d $DOT_DIR ]; then
     action "Cloning dotfiles"
     git clone https://github.com/brianvanburken/dotfiles.git $DOT_DIR
+    cd $DOT_DIR
     git remote remove origin
     git remote add origin git@github.com:brianvanburken/dotfiles.git
+    cd -
     ok "Created dotfiles directory at $DOT_DIR"
 else
     ok "Dotfiles already present"
