@@ -266,6 +266,7 @@ mkdir -p $HOME/.cache/
 ok  "Done creating local directories"
 
 action "Creating $HOME/.config/git/config.local"
+mkdir -p $HOME/.config/git/
 touch $HOME/.config/git/config.local
 action "Creating $HOME/.hushlogin"
 touch $HOME/.hushlogin
