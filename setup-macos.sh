@@ -281,9 +281,9 @@ else
     ok "Dotfiles already present"
 fi
 
-if [ ! -d $PLUG_DIR ]; then
+NVIM_DIR=$PLUG_DIR/nvim
+if [ ! -d $NVIM_DIR ]; then
     action "Installing neovim plugins"
-    NVIM_DIR=$PLUG_DIR/nvim
     curl -fLo $NVIM_DIR/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     nvim +PlugInstall +qall
     ok "Neovim plugins installed"
