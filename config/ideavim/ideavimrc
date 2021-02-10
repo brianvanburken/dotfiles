@@ -1,9 +1,9 @@
 source ~/.config/nvim/init.vim
 
-nmap <leader>f :action GotoFile<cr>
-nmap <leader>a :action FindInPath<cr>
-nmap <leader>t :action GotoSymbol<cr>
-nmap <leader>g :action ToggleDistractionFreeMode<cr>
+nmap <C-o> :action GotoFile<cr>
+nmap <C-a> :action FindInPath<cr>
+nmap <C-t> :action GotoSymbol<cr>
+nmap <C-g> :action ToggleDistractionFreeMode<cr>
 
 nmap gd :action GotoDeclaration<cr>
 
