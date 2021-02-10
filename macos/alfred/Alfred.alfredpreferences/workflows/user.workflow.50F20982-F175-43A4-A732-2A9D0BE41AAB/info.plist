@@ -34,6 +34,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>B3C0CB39-5ABC-4B07-A3DD-B182437E4F80</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>05DC7C62-A4F6-4B25-BEB7-BF4D0BA7BC51</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Brian van Burken</string>
@@ -53,9 +66,9 @@
 				<key>keyword</key>
 				<string>idea webportaal</string>
 				<key>subtext</key>
-				<string>Open webportaal in Intellij IDEA</string>
+				<string>Edit webportaal in Intellij IDEA</string>
 				<key>text</key>
-				<string>Open webportaal</string>
+				<string>Edit webportaal</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -120,9 +133,9 @@
 				<key>keyword</key>
 				<string>idea uitoolkit</string>
 				<key>subtext</key>
-				<string>Open UI-toolkit in Intellij IDEA</string>
+				<string>Edit UI-toolkit in Intellij IDEA</string>
 				<key>text</key>
-				<string>Open UI-toolkit</string>
+				<string>Edit UI-toolkit</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -133,11 +146,62 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>idea kladrepertorium</string>
+				<key>subtext</key>
+				<string>Edit Klad Repertorium in Intellij IDEA</string>
+				<key>text</key>
+				<string>Edit Klad Repertorium</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B3C0CB39-5ABC-4B07-A3DD-B182437E4F80</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/local/bin/idea ~/Developer/avisi/knb/klad-repertorium/</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>05DC7C62-A4F6-4B25-BEB7-BF4D0BA7BC51</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>05DC7C62-A4F6-4B25-BEB7-BF4D0BA7BC51</key>
+		<dict>
+			<key>xpos</key>
+			<integer>265</integer>
+			<key>ypos</key>
+			<integer>315</integer>
+		</dict>
 		<key>48C36CC4-345B-4B0F-9865-F510F141341E</key>
 		<dict>
 			<key>xpos</key>
@@ -165,6 +229,13 @@
 			<integer>265</integer>
 			<key>ypos</key>
 			<integer>175</integer>
+		</dict>
+		<key>B3C0CB39-5ABC-4B07-A3DD-B182437E4F80</key>
+		<dict>
+			<key>xpos</key>
+			<integer>45</integer>
+			<key>ypos</key>
+			<integer>315</integer>
 		</dict>
 	</dict>
 	<key>variablesdontexport</key>

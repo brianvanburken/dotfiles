@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>265C2A8E-8DD8-4D16-9396-85558683808D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B60FC0B9-5825-4356-A467-643FB7A9A1B2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2DA1AAE1-CEFA-4029-AC28-17D8F4E62D94</key>
 		<array>
 			<dict>
@@ -26,6 +39,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>0C40BAD7-1666-4ADC-B7A5-1ED4982FEC3B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>530503CA-BD34-42BE-BA7E-D1A06AE1C226</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9EB52D41-6DD6-4E2E-A4A7-08C29241A70A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -165,25 +191,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://confluence.knb.nl/</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>93C8D5AE-75BA-4918-805C-A9E16778A67F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -199,6 +206,44 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>A783EA8A-5951-4803-A941-34DB0E9236AD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://jira.knb.nl/secure/Tempo.jspa#/my-work</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>0C40BAD7-1666-4ADC-B7A5-1ED4982FEC3B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://confluence.knb.nl/</string>
+				<key>utf8</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>93C8D5AE-75BA-4918-805C-A9E16778A67F</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -226,19 +271,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://jira.knb.nl/secure/Tempo.jspa#/my-work</string>
-				<key>utf8</key>
-				<true/>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>cofknb</string>
+				<key>subtext</key>
+				<string>Open KNB Confluence</string>
+				<key>text</key>
+				<string>Confluence (KNB)</string>
+				<key>withspace</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>0C40BAD7-1666-4ADC-B7A5-1ED4982FEC3B</string>
+			<string>AD626F82-DCB9-4D72-8E31-93716FA1D74B</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -269,18 +316,18 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>cofknb</string>
+				<string>jiraknb</string>
 				<key>subtext</key>
-				<string>Open KNB Confluence</string>
+				<string>Open KNB Jira</string>
 				<key>text</key>
-				<string>Confluence (KNB)</string>
+				<string>Jira (KNB)</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>AD626F82-DCB9-4D72-8E31-93716FA1D74B</string>
+			<string>2DA1AAE1-CEFA-4029-AC28-17D8F4E62D94</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -300,27 +347,6 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>6B4911AE-A181-4306-B09B-6A78BEBA690C</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>jiraknb</string>
-				<key>subtext</key>
-				<string>Open KNB Jira</string>
-				<key>text</key>
-				<string>Jira (KNB)</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>2DA1AAE1-CEFA-4029-AC28-17D8F4E62D94</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -369,21 +395,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>openwith</key>
-				<string></string>
-				<key>sourcefile</key>
-				<string>~/Developer/Avisi/KNB/webportaal</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openfile</string>
-			<key>uid</key>
-			<string>DE660153-62A3-4B25-8A39-76FEFA258A7E</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>browser</key>
 				<string></string>
 				<key>spaces</key>
@@ -406,18 +417,18 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>webportaal</string>
+				<string>uitoolkit</string>
 				<key>subtext</key>
-				<string>Open webportaal folder</string>
+				<string>Open ui-toolkit folder</string>
 				<key>text</key>
-				<string>webportaal</string>
+				<string>ui-toolkit</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>ADB48BD1-3B2F-4BCC-A304-09AF99E0DE0B</string>
+			<string>71A5CEC2-DE46-415E-9B47-57BD309937E6</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -435,27 +446,6 @@
 			<string>65C01162-A5BB-4724-B875-2FAAC441AE28</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>uitoolkit</string>
-				<key>subtext</key>
-				<string>Open ui-toolkit folder</string>
-				<key>text</key>
-				<string>ui-toolkit</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>71A5CEC2-DE46-415E-9B47-57BD309937E6</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -500,6 +490,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>~/Developer/Avisi/KNB/webportaal</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>DE660153-62A3-4B25-8A39-76FEFA258A7E</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -537,6 +542,103 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>webportaal</string>
+				<key>subtext</key>
+				<string>Open webportaal folder</string>
+				<key>text</key>
+				<string>webportaal</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>ADB48BD1-3B2F-4BCC-A304-09AF99E0DE0B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>kladrepertorium</string>
+				<key>subtext</key>
+				<string>Visit klad repertorium repository on Gitlab</string>
+				<key>text</key>
+				<string>Klad Repertorium</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>530503CA-BD34-42BE-BA7E-D1A06AE1C226</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://gitlab.knb.nl/knb/cdr/klad-repertorium</string>
+				<key>utf8</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>9EB52D41-6DD6-4E2E-A4A7-08C29241A70A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>~/Developer/Avisi/KNB/klad-repertorium</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>B60FC0B9-5825-4356-A467-643FB7A9A1B2</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>kladrepertorium</string>
+				<key>subtext</key>
+				<string>Open kladrepertorium folder</string>
+				<key>text</key>
+				<string>kladrepertorium</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>265C2A8E-8DD8-4D16-9396-85558683808D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -556,6 +658,13 @@
 			<key>ypos</key>
 			<integer>395</integer>
 		</dict>
+		<key>265C2A8E-8DD8-4D16-9396-85558683808D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>425</integer>
+			<key>ypos</key>
+			<integer>765</integer>
+		</dict>
 		<key>2DA1AAE1-CEFA-4029-AC28-17D8F4E62D94</key>
 		<dict>
 			<key>xpos</key>
@@ -570,6 +679,13 @@
 			<key>ypos</key>
 			<integer>275</integer>
 		</dict>
+		<key>530503CA-BD34-42BE-BA7E-D1A06AE1C226</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>765</integer>
+		</dict>
 		<key>5EBC72C7-7ACC-400B-B16C-20020804C9D4</key>
 		<dict>
 			<key>xpos</key>
@@ -582,7 +698,7 @@
 			<key>xpos</key>
 			<integer>645</integer>
 			<key>ypos</key>
-			<integer>515</integer>
+			<integer>520</integer>
 		</dict>
 		<key>67626875-5DD5-4B71-AB9C-95CDA40032E5</key>
 		<dict>
@@ -603,7 +719,7 @@
 			<key>xpos</key>
 			<integer>425</integer>
 			<key>ypos</key>
-			<integer>515</integer>
+			<integer>520</integer>
 		</dict>
 		<key>8C704141-D238-4EAD-B9EA-887680938660</key>
 		<dict>
@@ -626,6 +742,13 @@
 			<key>ypos</key>
 			<integer>25</integer>
 		</dict>
+		<key>9EB52D41-6DD6-4E2E-A4A7-08C29241A70A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>265</integer>
+			<key>ypos</key>
+			<integer>765</integer>
+		</dict>
 		<key>A783EA8A-5951-4803-A941-34DB0E9236AD</key>
 		<dict>
 			<key>xpos</key>
@@ -645,7 +768,14 @@
 			<key>xpos</key>
 			<integer>425</integer>
 			<key>ypos</key>
-			<integer>395</integer>
+			<integer>640</integer>
+		</dict>
+		<key>B60FC0B9-5825-4356-A467-643FB7A9A1B2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>645</integer>
+			<key>ypos</key>
+			<integer>765</integer>
 		</dict>
 		<key>BD4359D6-16DE-49E4-AE1B-E651ED30ADCA</key>
 		<dict>
@@ -666,7 +796,7 @@
 			<key>xpos</key>
 			<integer>645</integer>
 			<key>ypos</key>
-			<integer>395</integer>
+			<integer>640</integer>
 		</dict>
 		<key>F0F33FB7-A17D-43FD-8224-B16702688CE6</key>
 		<dict>
