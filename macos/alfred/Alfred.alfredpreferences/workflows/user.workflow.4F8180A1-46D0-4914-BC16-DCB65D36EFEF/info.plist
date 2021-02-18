@@ -75,19 +75,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>667E9554-B3E6-4662-BCC7-99A804773AFA</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>D73F7630-E576-4930-AC5D-4BFBB4357EE7</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<array>
 			<dict>
@@ -114,76 +101,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>A8B74705-E1EE-4CC6-8084-2302E07DE896</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>2AB923B2-DA73-46AF-81A4-F505BD666AD7</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>A9E0466A-5BB6-4FCD-81C2-BDDD517670D9</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>1CDB7303-F86B-4982-8DE6-5886FB5D122D</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>B0203AF3-B55D-4417-94B3-3764BD520218</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>7C005A9B-4FFB-4F4C-965C-D4A51AB78C39</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>C26D0376-E28B-437C-8676-E67A70A59AE9</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>106F96FF-57D4-4AEF-8865-D10976D87D0D</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>E59B3E8C-8FF5-4EB3-B49C-9D445B0EC723</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>810E6C3B-0DDF-4B8C-95E1-8B9B3B466276</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>E74F7B3B-508A-485B-9F3F-9249294E2A70</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>2AB923B2-DA73-46AF-81A4-F505BD666AD7</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -229,27 +151,6 @@
 	<string>Shortcuts Personal</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>trello</string>
-				<key>subtext</key>
-				<string>Open Trello in a browser</string>
-				<key>text</key>
-				<string>Trello</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>B0203AF3-B55D-4417-94B3-3764BD520218</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -331,21 +232,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://trello.com/</string>
-				<key>utf8</key>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
 				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>35</integer>
+				<key>hotmod</key>
+				<integer>1572864</integer>
+				<key>hotstring</key>
+				<string>P</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>7C005A9B-4FFB-4F4C-965C-D4A51AB78C39</string>
+			<string>3C206292-11BE-49C9-B4CE-68D05532FAC2</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -403,66 +316,14 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>https://www.duolingo.com/</string>
+				<string>https://docs.google.com/spreadsheets/u/0/</string>
 				<key>utf8</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>106F96FF-57D4-4AEF-8865-D10976D87D0D</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>35</integer>
-				<key>hotmod</key>
-				<integer>1572864</integer>
-				<key>hotstring</key>
-				<string>P</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>3C206292-11BE-49C9-B4CE-68D05532FAC2</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>duolingo</string>
-				<key>subtext</key>
-				<string>Open Duolingo in a browser</string>
-				<key>text</key>
-				<string>Duolingo</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>C26D0376-E28B-437C-8676-E67A70A59AE9</string>
+			<string>30CEA168-ACF6-4B08-8F33-2EDB433009E2</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -493,18 +354,18 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>keep</string>
+				<string>sheets</string>
 				<key>subtext</key>
-				<string>Open Google Keep in a browser</string>
+				<string>Open Google Sheets in a browser</string>
 				<key>text</key>
-				<string>Google Keep</string>
+				<string>Google Sheets</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>E59B3E8C-8FF5-4EB3-B49C-9D445B0EC723</string>
+			<string>619840BA-43A1-4E4B-9284-A32E0018B90F</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -524,86 +385,6 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>D77E40DD-246F-4286-ABEC-87FFF794407F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://keep.google.com/u/0/</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>810E6C3B-0DDF-4B8C-95E1-8B9B3B466276</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://docs.google.com/spreadsheets/u/0/</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>30CEA168-ACF6-4B08-8F33-2EDB433009E2</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>gcal</string>
-				<key>subtext</key>
-				<string>Open Google Calendar in a browser</string>
-				<key>text</key>
-				<string>Google Calendar</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>F0CE52A3-C90C-4685-86F6-3E015F4AFCE0</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>sheets</string>
-				<key>subtext</key>
-				<string>Open Google Sheets in a browser</string>
-				<key>text</key>
-				<string>Google Sheets</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>619840BA-43A1-4E4B-9284-A32E0018B90F</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -631,27 +412,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>youtube</string>
-				<key>subtext</key>
-				<string>Open YouTube in a browser</string>
-				<key>text</key>
-				<string>YouTube</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>A8B74705-E1EE-4CC6-8084-2302E07DE896</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>browser</key>
 				<string></string>
 				<key>spaces</key>
@@ -671,40 +431,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://www.youtube.com/</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>2AB923B2-DA73-46AF-81A4-F505BD666AD7</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>yt</string>
+				<string>gcal</string>
 				<key>subtext</key>
-				<string>Open YouTube in a browser</string>
+				<string>Open Google Calendar in a browser</string>
 				<key>text</key>
-				<string>YouTube</string>
+				<string>Google Calendar</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>E74F7B3B-508A-485B-9F3F-9249294E2A70</string>
+			<string>F0CE52A3-C90C-4685-86F6-3E015F4AFCE0</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -751,27 +492,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>khanacademy</string>
-				<key>subtext</key>
-				<string>Open Khan Academy in a browser</string>
-				<key>text</key>
-				<string>Khan Academy</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>667E9554-B3E6-4662-BCC7-99A804773AFA</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>browser</key>
 				<string></string>
 				<key>spaces</key>
@@ -809,38 +529,12 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://www.khanacademy.org</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>D73F7630-E576-4930-AC5D-4BFBB4357EE7</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
 		<key>06E64FAA-0AD1-4FAA-8435-C08D2B103D38</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1015</integer>
-			<key>ypos</key>
-			<integer>150</integer>
-		</dict>
-		<key>106F96FF-57D4-4AEF-8865-D10976D87D0D</key>
 		<dict>
 			<key>xpos</key>
 			<integer>645</integer>
@@ -859,28 +553,21 @@
 			<key>xpos</key>
 			<integer>270</integer>
 			<key>ypos</key>
-			<integer>740</integer>
+			<integer>620</integer>
 		</dict>
 		<key>1CDB7303-F86B-4982-8DE6-5886FB5D122D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1015</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>2AB923B2-DA73-46AF-81A4-F505BD666AD7</key>
-		<dict>
-			<key>xpos</key>
 			<integer>645</integer>
 			<key>ypos</key>
-			<integer>510</integer>
+			<integer>45</integer>
 		</dict>
 		<key>30CEA168-ACF6-4B08-8F33-2EDB433009E2</key>
 		<dict>
 			<key>xpos</key>
 			<integer>270</integer>
 			<key>ypos</key>
-			<integer>395</integer>
+			<integer>275</integer>
 		</dict>
 		<key>3C206292-11BE-49C9-B4CE-68D05532FAC2</key>
 		<dict>
@@ -892,37 +579,30 @@
 		<key>44558CA6-2E14-4BE7-835D-48F8BBC0EB85</key>
 		<dict>
 			<key>xpos</key>
-			<integer>795</integer>
+			<integer>425</integer>
 			<key>ypos</key>
-			<integer>150</integer>
+			<integer>155</integer>
 		</dict>
 		<key>53D6CDEA-D8BE-4D93-91E9-598ECC070C6B</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
-			<integer>740</integer>
+			<integer>620</integer>
 		</dict>
 		<key>619840BA-43A1-4E4B-9284-A32E0018B90F</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
-			<integer>395</integer>
+			<integer>275</integer>
 		</dict>
 		<key>63DA3F0E-55D0-4149-A6D3-358AEE3AD225</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
-			<integer>625</integer>
-		</dict>
-		<key>667E9554-B3E6-4662-BCC7-99A804773AFA</key>
-		<dict>
-			<key>xpos</key>
-			<integer>425</integer>
-			<key>ypos</key>
-			<integer>740</integer>
+			<integer>505</integer>
 		</dict>
 		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<dict>
@@ -930,20 +610,6 @@
 			<integer>50</integer>
 			<key>ypos</key>
 			<integer>40</integer>
-		</dict>
-		<key>7C005A9B-4FFB-4F4C-965C-D4A51AB78C39</key>
-		<dict>
-			<key>xpos</key>
-			<integer>645</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>810E6C3B-0DDF-4B8C-95E1-8B9B3B466276</key>
-		<dict>
-			<key>xpos</key>
-			<integer>270</integer>
-			<key>ypos</key>
-			<integer>275</integer>
 		</dict>
 		<key>89AC360E-4635-411A-A113-8853064FEAAF</key>
 		<dict>
@@ -957,42 +623,14 @@
 			<key>xpos</key>
 			<integer>270</integer>
 			<key>ypos</key>
-			<integer>510</integer>
-		</dict>
-		<key>A8B74705-E1EE-4CC6-8084-2302E07DE896</key>
-		<dict>
-			<key>xpos</key>
-			<integer>425</integer>
-			<key>ypos</key>
-			<integer>510</integer>
+			<integer>390</integer>
 		</dict>
 		<key>A9E0466A-5BB6-4FCD-81C2-BDDD517670D9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>795</integer>
-			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>B0203AF3-B55D-4417-94B3-3764BD520218</key>
-		<dict>
-			<key>xpos</key>
 			<integer>425</integer>
 			<key>ypos</key>
-			<integer>40</integer>
-		</dict>
-		<key>C26D0376-E28B-437C-8676-E67A70A59AE9</key>
-		<dict>
-			<key>xpos</key>
-			<integer>425</integer>
-			<key>ypos</key>
-			<integer>155</integer>
-		</dict>
-		<key>D73F7630-E576-4930-AC5D-4BFBB4357EE7</key>
-		<dict>
-			<key>xpos</key>
-			<integer>645</integer>
-			<key>ypos</key>
-			<integer>740</integer>
+			<integer>45</integer>
 		</dict>
 		<key>D77E40DD-246F-4286-ABEC-87FFF794407F</key>
 		<dict>
@@ -1001,26 +639,12 @@
 			<key>ypos</key>
 			<integer>275</integer>
 		</dict>
-		<key>E59B3E8C-8FF5-4EB3-B49C-9D445B0EC723</key>
-		<dict>
-			<key>xpos</key>
-			<integer>50</integer>
-			<key>ypos</key>
-			<integer>275</integer>
-		</dict>
-		<key>E74F7B3B-508A-485B-9F3F-9249294E2A70</key>
-		<dict>
-			<key>xpos</key>
-			<integer>425</integer>
-			<key>ypos</key>
-			<integer>625</integer>
-		</dict>
 		<key>EC274B99-5399-4644-9404-F2FA31640F8A</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
-			<integer>510</integer>
+			<integer>390</integer>
 		</dict>
 		<key>F0CE52A3-C90C-4685-86F6-3E015F4AFCE0</key>
 		<dict>
@@ -1034,7 +658,7 @@
 			<key>xpos</key>
 			<integer>270</integer>
 			<key>ypos</key>
-			<integer>625</integer>
+			<integer>505</integer>
 		</dict>
 	</dict>
 	<key>variablesdontexport</key>

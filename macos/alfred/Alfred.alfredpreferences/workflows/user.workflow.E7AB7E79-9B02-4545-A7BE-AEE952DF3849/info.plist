@@ -177,6 +177,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>F5DBEEAC-0CE0-49AA-9C5B-DB9C7C38BB23</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FF6C7510-DB9E-4588-9E5E-B2A94FC6AF44</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Brian van Burken</string>
@@ -408,6 +421,46 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>1377CB43-2E29-47E5-9A4E-C37FEAB9A49E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://jira.knb.nl/browse/CDRGO-{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>FF6C7510-DB9E-4588-9E5E-B2A94FC6AF44</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>cdrgo-</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Go to ticket CDRGO-{query}</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F5DBEEAC-0CE0-49AA-9C5B-DB9C7C38BB23</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -804,6 +857,20 @@
 			<integer>425</integer>
 			<key>ypos</key>
 			<integer>25</integer>
+		</dict>
+		<key>F5DBEEAC-0CE0-49AA-9C5B-DB9C7C38BB23</key>
+		<dict>
+			<key>xpos</key>
+			<integer>425</integer>
+			<key>ypos</key>
+			<integer>395</integer>
+		</dict>
+		<key>FF6C7510-DB9E-4588-9E5E-B2A94FC6AF44</key>
+		<dict>
+			<key>xpos</key>
+			<integer>645</integer>
+			<key>ypos</key>
+			<integer>395</integer>
 		</dict>
 	</dict>
 	<key>variablesdontexport</key>
