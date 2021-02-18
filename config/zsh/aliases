@@ -20,6 +20,7 @@ alias vim='nvim'
 alias vi='vim'
 alias v='vim'
 alias e='vim'
+alias svim='sudo vim -i NONE '
 
 # Git
 alias g='git'
