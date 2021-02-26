@@ -8,6 +8,45 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>00E93014-A649-49C1-A67B-092941A37541</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F7D7C5DE-B5D9-4CB5-843B-217835913CB2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>09AAEB62-E0B3-479C-A4A9-594926CBBD4F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C0202B2A-6E02-4CC2-A4AC-0B856FE887F2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>0CB8B8DE-2711-4690-83F9-05146C725C40</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>678F04F7-4977-4646-A8AC-E6456B08AA95</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>1B8D529D-3545-408B-93A3-6B6DC9381F40</key>
 		<array/>
 		<key>3C206292-11BE-49C9-B4CE-68D05532FAC2</key>
@@ -88,11 +127,37 @@
 				<false/>
 			</dict>
 		</array>
+		<key>70E219E0-29E8-4F40-AAAD-B7A4011BFB28</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>113AC82F-6E23-4A60-92F5-564AB8FB29F4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>89AC360E-4635-411A-A113-8853064FEAAF</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>D77E40DD-246F-4286-ABEC-87FFF794407F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9F6B03AD-B9E5-4536-A587-75483475A89F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5BC725B6-5100-436A-8981-897958A8BEEE</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -394,6 +459,27 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
+				<string>gcal</string>
+				<key>subtext</key>
+				<string>Open Google Calendar in a browser</string>
+				<key>text</key>
+				<string>Google Calendar</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F0CE52A3-C90C-4685-86F6-3E015F4AFCE0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
 				<string>docs</string>
 				<key>subtext</key>
 				<string>Open Google Docs in a browser</string>
@@ -425,27 +511,6 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>9C34E0E7-D547-4F1E-BEF4-99581A88F292</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>gcal</string>
-				<key>subtext</key>
-				<string>Open Google Calendar in a browser</string>
-				<key>text</key>
-				<string>Google Calendar</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>F0CE52A3-C90C-4685-86F6-3E015F4AFCE0</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -492,6 +557,44 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>notes</string>
+				<key>subtext</key>
+				<string>/Applications/Evernote.app</string>
+				<key>text</key>
+				<string>Evernote.app</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>0CB8B8DE-2711-4690-83F9-05146C725C40</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Evernote.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>678F04F7-4977-4646-A8AC-E6456B08AA95</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>browser</key>
 				<string></string>
 				<key>spaces</key>
@@ -529,17 +632,189 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>~/Developer</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>5BC725B6-5100-436A-8981-897958A8BEEE</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>documents</string>
+				<key>subtext</key>
+				<string>Open Documents folder</string>
+				<key>text</key>
+				<string>Documents</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>09AAEB62-E0B3-479C-A4A9-594926CBBD4F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>~/Documents</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>C0202B2A-6E02-4CC2-A4AC-0B856FE887F2</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>developer</string>
+				<key>subtext</key>
+				<string>Open Developer folder</string>
+				<key>text</key>
+				<string>Developer</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>9F6B03AD-B9E5-4536-A587-75483475A89F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>~/Developer/Personal/dotfiles</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>F7D7C5DE-B5D9-4CB5-843B-217835913CB2</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>dotfiles</string>
+				<key>subtext</key>
+				<string>Open Dotfiles folder</string>
+				<key>text</key>
+				<string>Dotfiles</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>00E93014-A649-49C1-A67B-092941A37541</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>~/Downloads</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>113AC82F-6E23-4A60-92F5-564AB8FB29F4</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>downloads</string>
+				<key>subtext</key>
+				<string>Open Downloads folder</string>
+				<key>text</key>
+				<string>Downloads</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>70E219E0-29E8-4F40-AAAD-B7A4011BFB28</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>00E93014-A649-49C1-A67B-092941A37541</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>885</integer>
+		</dict>
 		<key>06E64FAA-0AD1-4FAA-8435-C08D2B103D38</key>
 		<dict>
 			<key>xpos</key>
 			<integer>645</integer>
 			<key>ypos</key>
 			<integer>155</integer>
+		</dict>
+		<key>09AAEB62-E0B3-479C-A4A9-594926CBBD4F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>425</integer>
+			<key>ypos</key>
+			<integer>745</integer>
+		</dict>
+		<key>0CB8B8DE-2711-4690-83F9-05146C725C40</key>
+		<dict>
+			<key>xpos</key>
+			<integer>425</integer>
+			<key>ypos</key>
+			<integer>505</integer>
+		</dict>
+		<key>113AC82F-6E23-4A60-92F5-564AB8FB29F4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>1020</integer>
 		</dict>
 		<key>11D5721D-E45C-4D45-82C8-2CC370002271</key>
 		<dict>
@@ -590,6 +865,13 @@
 			<key>ypos</key>
 			<integer>620</integer>
 		</dict>
+		<key>5BC725B6-5100-436A-8981-897958A8BEEE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>745</integer>
+		</dict>
 		<key>619840BA-43A1-4E4B-9284-A32E0018B90F</key>
 		<dict>
 			<key>xpos</key>
@@ -604,12 +886,26 @@
 			<key>ypos</key>
 			<integer>505</integer>
 		</dict>
+		<key>678F04F7-4977-4646-A8AC-E6456B08AA95</key>
+		<dict>
+			<key>xpos</key>
+			<integer>645</integer>
+			<key>ypos</key>
+			<integer>505</integer>
+		</dict>
 		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
 			<integer>40</integer>
+		</dict>
+		<key>70E219E0-29E8-4F40-AAAD-B7A4011BFB28</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>1025</integer>
 		</dict>
 		<key>89AC360E-4635-411A-A113-8853064FEAAF</key>
 		<dict>
@@ -625,12 +921,26 @@
 			<key>ypos</key>
 			<integer>390</integer>
 		</dict>
+		<key>9F6B03AD-B9E5-4536-A587-75483475A89F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>750</integer>
+		</dict>
 		<key>A9E0466A-5BB6-4FCD-81C2-BDDD517670D9</key>
 		<dict>
 			<key>xpos</key>
 			<integer>425</integer>
 			<key>ypos</key>
 			<integer>45</integer>
+		</dict>
+		<key>C0202B2A-6E02-4CC2-A4AC-0B856FE887F2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>620</integer>
+			<key>ypos</key>
+			<integer>745</integer>
 		</dict>
 		<key>D77E40DD-246F-4286-ABEC-87FFF794407F</key>
 		<dict>
@@ -651,7 +961,14 @@
 			<key>xpos</key>
 			<integer>425</integer>
 			<key>ypos</key>
-			<integer>395</integer>
+			<integer>390</integer>
+		</dict>
+		<key>F7D7C5DE-B5D9-4CB5-843B-217835913CB2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>880</integer>
 		</dict>
 		<key>F8431804-5D47-42BA-9DCB-895200667C8D</key>
 		<dict>
