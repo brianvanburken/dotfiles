@@ -8,7 +8,7 @@
 	default = current
 
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
 	hooksPath = ~/.config/git/hooks/
