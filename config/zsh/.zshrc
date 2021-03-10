@@ -2,6 +2,8 @@ source $ZDOTDIR/aliases
 source $ZDOTDIR/functions
 source $HOMEBREW_DIR/opt/asdf/asdf.sh
 
+[ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
+
 export EDITOR=nvim
 
 export PROMPT="%F{blue}%1~%f %(?.%F{green}.%F{red})%#%f "
@@ -23,7 +25,7 @@ function conda() {
 
   source $XDG_DATA_HOME/miniconda/etc/profile.d/conda.sh
 
-  conda $@
+  conda "$@"
 }
 
 # Cache direnv hook
