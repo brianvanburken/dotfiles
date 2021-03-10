@@ -1,9 +1,9 @@
 call plug#begin(stdpath('data') . '/plugged')
-Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Files', 'Buffers', 'Tags'] }
-Plug 'brglng/ayu-vim', { 'branch': 'feature/set-background' }
-" Plug 'ayu-theme/ayu-vim'
+Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Files', 'Buffers'] }
 Plug 'editorconfig/editorconfig-vim'
+Plug 'herringtondarkholme/yats.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Files', 'Buffers'] }
+Plug 'luxed/ayu-vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -11,7 +11,6 @@ call plug#end()
 
 syntax on
 
-set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed " Share Clipboard with OS
 set cmdheight=2
@@ -31,6 +30,7 @@ set showcmd " Show typed command in bottom bar
 set signcolumn=yes
 set termguicolors " enable true colors support
 set updatetime=300 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays
+set viminfo=""
 
 set statusline=%t " Tail of the filename
 set statusline+=%m " Modified flag
@@ -52,24 +52,15 @@ nnoremap <C-a> :Ag!<CR>
 nnoremap <C-p> :Files!<CR>
 nnoremap <C-t> :Buffers!<CR>
 
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-
 function! SetBackgroundMode(...)
-    let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
-    if s:mode ==? "dark"
-        let s:new_bg = "dark"
+    if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+        set background=dark
     else
-        let s:new_bg = "light"
-    endif
-    if &background !=? s:new_bg
-        let &background = s:new_bg
+        set background=light
     endif
 endfunction
 call SetBackgroundMode()
-call timer_start(5000, "SetBackgroundMode", {"repeat": -1})
+call timer_start(60 * 1000, "SetBackgroundMode", {"repeat": -1})
 
 " CoC config
 let g:coc_global_extensions = [
