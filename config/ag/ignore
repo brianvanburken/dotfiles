@@ -21,6 +21,7 @@
 .DS_Store
 .cache/
 .gitkeep
+.gradle/
 /.git/
 /.vim/
 /Alfred.preferences/*
@@ -40,3 +41,6 @@
 /source_code/
 /target/
 /tmp/
+gradle
+gradlew
+gradlew.bat
