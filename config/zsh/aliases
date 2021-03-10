@@ -80,6 +80,8 @@ alias serve='python -m SimpleHTTPServer'
 alias yv='youtube-dl -f 22 ' # videos
 alias yt='youtube-dl'
 
+alias backup='rsync -avh --progress --delete --exclude=".*"'
+
 alias l='ls -lahgG'
 alias ...='cd ../../'
 alias cp='cp -i'
@@ -104,9 +106,4 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 
-alias ag='ag -p=~/.config/ag/ignore '
-
-alias gradle='./gradlew'
-
-# XDG fixes
-alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
+alias ag='ag -p=$XDG_CONFIG_HOME/ag/ignore '

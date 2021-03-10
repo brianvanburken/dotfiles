@@ -70,8 +70,6 @@ export GEMRC=$XDG_CONFIG_HOME/gem/config.yml
 export GEM_HOME=$XDG_DATA_HOME/gem
 export GEM_SPEC_CACHE=$GEM_HOME/specs
 
-export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
-
 export BABEL_CACHE_PATH=$XDG_CACHE_HOME/babel.json
 
 export IPYTHONDIR=$XDG_CONFIG_HOME/jupyter
@@ -90,12 +88,5 @@ export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export GPG_TTY=$(tty)
-
-export PSQLRC=$XDG_CONFIG_HOME/postgres/config
-export PSQL_HISTORY=$XDG_CACHE_HOME/postgres/history
-export PGPASSFILE=$XDG_CONFIG_HOME/postgres/pass
-export PGSERVICEFILE=$XDG_CONFIG_HOME/postgres/service.conf
-
-export ANDROID_SDK_HOME=$XDG_CONFIG_HOME/android
 
 export STACK_ROOT=$XDG_CONFIG_HOME/stack
