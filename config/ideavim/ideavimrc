@@ -1,6 +1,6 @@
 source ~/.config/nvim/init.vim
 
-nmap <C-o> :action GotoFile<cr>
+nmap <C-p> :action GotoFile<cr>
 nmap <C-a> :action FindInPath<cr>
 nmap <C-t> :action GotoSymbol<cr>
 nmap <C-g> :action ToggleDistractionFreeMode<cr>
