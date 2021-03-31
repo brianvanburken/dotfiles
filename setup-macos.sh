@@ -6,14 +6,14 @@ set -o pipefail
 # Force specific PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 
-# Location where to store dotfiles
-export DOT_DIR=${DOT_DIR:=$HOME/Developer/personal/dotfiles}
+# Location where to store configrations
+export DOT_DIR=${DOT_DIR:=$HOME/Developer/personal/configurations}
 
 # Directory for plugins
 export PLUG_DIR=${XDG_DATA_HOME:=$HOME/.local/share}
 
 # Set the download URL
-readonly SOURCE_URL=${SOURCE_URL:=https://raw.githubusercontent.com/brianvanburken/dotfiles/master/}
+readonly SOURCE_URL=${SOURCE_URL:=https://raw.githubusercontent.com/brianvanburken/configurations/master/}
 
 # Determine macOS version
 readonly OS_VERSION="$(sw_vers -productVersion)"
@@ -34,9 +34,6 @@ readonly NO_COLOR='\033[0m'
 
 # Initially no manual actions are required
 require_manual_actions=0
-
-# Initially no reboot is required
-require_reboot=0
 
 action() {
   echo -e "${WHITE}--->${NO_COLOR} $1"
@@ -110,7 +107,7 @@ if [[ $(xcode-select -p 1>/dev/null) =~ 0 ]]; then
     action "Installing command line tools (without XCode)"
     xcode-select --install
     ok "Installing command line tools done. Rerun this script to install everything else."
-    cleanup_and_exit 0
+    cleanup_and_exit
 fi
 
 # Get sudo credentials
@@ -273,13 +270,13 @@ touch $HOME/.hushlogin
 ok  "Done creating local files"
 
 if [ ! -d $DOT_DIR ]; then
-    action "Cloning dotfiles"
-    git clone https://github.com/brianvanburken/dotfiles.git $DOT_DIR
+    action "Cloning configurations"
+    git clone https://github.com/brianvanburken/configurations.git $DOT_DIR
     cd $DOT_DIR
     git remote remove origin
-    git remote add origin git@github.com:brianvanburken/dotfiles.git
+    git remote add origin git@github.com:brianvanburken/configurations.git
     cd -
-    ok "Created dotfiles directory at $DOT_DIR"
+    ok "Created configurations directory at $DOT_DIR"
 else
     ok "Dotfiles already present"
 fi
@@ -326,7 +323,7 @@ rm -rf $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/
 mkdir -p $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/
 ln -s $DOT_DIR/macos/iterm/auto_dark_mode.py $HOME/Library/ApplicationSupport/iTerm2/Scripts/AutoLaunch/auto_dark_mode.py
 
-ok "Done linking dotfiles"
+ok "Done linking configurations"
 
 
 action "Change hammerspoon directory to respect XDG"
@@ -402,7 +399,7 @@ if [ -d /Applications/Alfred\ 4.app ]; then
     ok "Done setting up Alfred"
 fi
 
-action "Disabling animations to speed up macOS"
+action "Tweaking macOS to my liking"
 # Opening and closing windows and popovers
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 
@@ -452,26 +449,20 @@ defaults write com.apple.finder DisableAllAnimations -bool true
 # Sending messages and opening windows for replies
 defaults write com.apple.Mail DisableSendAnimations -bool true
 defaults write com.apple.Mail DisableReplyAnimations -bool true
-require_reboot=1
-ok "Done disabling animations"
 
-action "Setting macOS preferences"
+# Disable tab preview in Safari
+defaults write com.apple.Safari DebugDisableTabHoverPreview 1
+
 # Hide Desktop icons
 defaults write com.apple.finder CreateDesktop false
+
+# default screenshot location to $HOME/Downloads
+defaults write com.apple.screencapture location $HOME/Downloads
 ok "Done setting preferences"
 
-action "Writing default screenshot location to $HOME/Pictures/Screenshots"
-mkdir -p $HOME/Pictures/Screenshots/
-defaults write com.apple.screencapture location $HOME/Pictures/Screenshots/
-ok "Done writing default screenshot location"
-
+echo "🍺    Your MacBook is configured!"
 if [[ ${require_manual_actions} -eq 1 ]]; then
-  echo "🔎   Setup completed, but some items require manual actions. Check the output above for more info."
-  cleanup_and_exit
-elif [[ ${require_reboot} -eq 1 ]]; then
-  echo "🍿   Your MacBook needs to reboot to apply the final changes."
-  cleanup_and_exit
-else
-  echo "🍺    Your MacBook is configured!"
-  cleanup_and_exit
+  echo "🔎   But some items require manual actions. Check the output above for more info."
 fi
+echo "🍿   Your MacBook may also need to reboot to apply the final changes."
+cleanup_and_exit
