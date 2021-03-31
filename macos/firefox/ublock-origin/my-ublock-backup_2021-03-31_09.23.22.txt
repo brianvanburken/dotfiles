@@ -1,0 +1,63 @@
+{
+  "timeStamp": 1617175402231,
+  "version": "1.34.0",
+  "userSettings": {
+    "advancedUserEnabled": true,
+    "colorBlindFriendly": true,
+    "importedLists": [
+      "https://www.fanboy.co.nz/enhancedstats.txt"
+    ],
+    "largeMediaSize": 0,
+    "popupPanelSections": 15,
+    "webrtcIPAddressHidden": true
+  },
+  "selectedFilterLists": [
+    "user-filters",
+    "ublock-filters",
+    "ublock-badware",
+    "ublock-privacy",
+    "ublock-abuse",
+    "ublock-unbreak",
+    "adguard-generic",
+    "adguard-mobile",
+    "easylist",
+    "adguard-spyware",
+    "easyprivacy",
+    "urlhaus-1",
+    "spam404-0",
+    "adguard-annoyance",
+    "adguard-social",
+    "fanboy-thirdparty_social",
+    "fanboy-cookiemonster",
+    "fanboy-annoyance",
+    "fanboy-social",
+    "ublock-annoyances",
+    "dpollock-0",
+    "mvps-0",
+    "plowe-0",
+    "NLD-0",
+    "https://www.fanboy.co.nz/enhancedstats.txt"
+  ],
+  "hiddenSettings": {},
+  "whitelist": [
+    "# about-scheme",
+    "addons.about-scheme",
+    "brianvanburken.goatcounter.com",
+    "chrome-extension-scheme",
+    "chrome-scheme",
+    "edge-scheme",
+    "knb.nl",
+    "mijndsiapp.mendixcloud.com",
+    "moz-extension-scheme",
+    "notaris.nl",
+    "opera-scheme",
+    "vivaldi-scheme",
+    "www.matthewismith.com",
+    "www.twitch.tv",
+    "wyciwyg-scheme"
+  ],
+  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
+  "urlFilteringString": "",
+  "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true\nno-large-media: app.slack.com false\nno-large-media: avisi.nl false\nno-large-media: www.matthewismith.com false\nno-large-media: app.zeplin.io false\nno-large-media: digid.nl false\nno-large-media: www.thuisbezorgd.nl false\nno-large-media: habitica.com false\nno-large-media: brianvanburken.goatcounter.com false\nno-large-media: docs.google.com false\nno-large-media: trader.degiro.nl false\nno-strict-blocking: reddit.com true",
+  "userFilters": "! Block domains to prevent quickly surfing the web\n! These websites are mostly websites with doomscrolling\n||tweakers.net^$document\n||hardware.info^$document\n||9gag.com^$document\n||twitch.tv^$document\n||manners.nl^$document\n||b4men.nl^$document\n||theverge.com^$document\n||dumpert.nl^$document\n||reddit.com^$document\n||youtube.com^$document\n||lobste.rs^$document\n||dev.to^$document\n||gameforge.com^$document\n||runescape.com^$document\n\n! Block domains in search results\ngoogle.*##.g:has(a[href*=\"w3schools.com\"])\ngoogle.*##.g:has(a[href*=\"slant.co\"])\ngoogle.*##.g:has(a[href*=\"pinterest\"]):style(opacity: 0.2 !important)\ngoogle.*##.isv-r:has(a[href*=\"pinterest\"]):style(opacity: 0.2 !important)\n\n! Block annoying \"People also search for\" which jumps the page after a while making me misclick\ngoogle.*##div[jscontroller]:if(h4:has-text(People also search for))\n\n*##img:style(overflow: hidden !important)\n\n! Block jwplayers\n||jwplayer.com^\n||jwcdn.com^\n||content.jwplatform.com^\n\n! YouTube: Remove distraction/social elements\nyoutube.com###subscribe-button\nyoutube.com###menu-container\nyoutube.com###sponsor-button\nyoutube.com###secondary\nyoutube.com###guide-button\nyoutube.com##ytd-subscribe-button-renderer\nyoutube.com##ytd-notification-topbar-button-renderer\nyoutube.com##ytd-topbar-menu-button-renderer:not(:last-child)\nyoutube.com##ytd-button-renderer:has-text(Subscribe)\nyoutube.com##.ytd-two-column-browse-results-renderer.style-scope > .ytd-rich-grid-renderer.style-scope\nyoutube.com###secondary\nyoutube.com##.ytd-comments.style-scope\nyoutube.com##.yt-view-count-renderer.style-scope.view-count\nyoutube.com###owner-sub-count\nyoutube.com##ytd-toggle-button-renderer.style-text.force-icon-button.ytd-menu-renderer.style-scope > .ytd-toggle-button-renderer.style-scope.yt-simple-endpoint\nyoutube.com###sentiment\nyoutube.com##.notification-button-style-type-default.ytd-notification-topbar-button-renderer.style-scope\nyoutube.com###dot\nyoutube.com##ytd-browse.ytd-page-manager.style-scope:nth-of-type(4)\nyoutube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(3)\nyoutube.com###guide-wrapper\nyoutube.com##ytd-mini-guide-renderer\n! Hide red play icon in logo\nyoutube.com###logo-icon > svg > g > g:first-child\n\n! Block Youtube autoplay\n||youtube.com/endscreen.js^\n||youtube.com/watch_autoplayrenderer.js^\n||youtube.com/annotations_module.js^\n\ndev.to##.authentication-feed__card\ndev.to###sidebar-wrapper-left\ndev.to##.crayons-layout:style(grid-template-columns: 1fr !important)\ndev.to##.crayons-avatar__image\ndev.to##.crayons-story__cover,.crayons-article__cover,.crayons-story__video\n\ngetpocket.com###global-nav\\.upgrade-link\ngetpocket.com##ul > li:has-text(Discover)\ngetpocket.com###__next > footer\ngetpocket.com###__next > aside\ngetpocket.com##[aria-label=\"Share\"]\ngetpocket.com##[aria-label=\"Share Article\"]\ngetpocket.com##button:has-text(Share)\ngetpocket.com##*:style(font-family:\"Amazon Ember\" !important)\n\nlobste.rs##.avatar\n\ntwitch.tv###sideNav\ntwitch.tv##main\n\n! 2021-03-12 https://www.wired.com\nwww.wired.com##.grid-layout__aside\n\n! Block custom CSS\n||b.thumbs.redditmedia.com^$css\n||b.thumbs.redditmedia.com$stylesheet,domain=old.reddit.com\n"
+}
