@@ -43,7 +43,6 @@ set statusline+=%c:%l/%L " Cursor 'column:line/total'
 
 au BufEnter .envrc setlocal filetype=sh
 au BufEnter *.md setlocal filetype=markdown
-au BufEnter *.tsx setlocal filetype=typescript.tsx
 au FileType gitcommit,markdown setlocal spell
 
 colorscheme ayu
@@ -52,21 +51,9 @@ nnoremap <C-a> :Ag!<CR>
 nnoremap <C-p> :Files!<CR>
 nnoremap <C-t> :Buffers!<CR>
 
-function! SetBackgroundMode(...)
-    if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-        set background=dark
-    else
-        set background=light
-    endif
-endfunction
-call SetBackgroundMode()
-call timer_start(60 * 1000, "SetBackgroundMode", {"repeat": -1})
-
 " CoC config
 let g:coc_global_extensions = [
-  \ 'coc-angular',
   \ 'coc-css',
-  \ 'coc-elixir',
   \ 'coc-html',
   \ 'coc-json',
   \ 'coc-pairs',
