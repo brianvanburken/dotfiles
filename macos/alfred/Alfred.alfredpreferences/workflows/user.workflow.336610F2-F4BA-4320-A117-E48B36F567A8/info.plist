@@ -34,19 +34,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>2600E67D-05C1-4B7B-BADD-6B89744CA63F</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>BFDBE7D5-5858-47AF-AFBD-86A294B314E5</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>277BC5C0-E8FD-4F4E-8CC3-C3F0615AD9A7</key>
 		<array>
 			<dict>
@@ -91,19 +78,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>0C40BAD7-1666-4ADC-B7A5-1ED4982FEC3B</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>69A4CA0D-910D-415D-92AC-8EE430FF8115</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>BFDBE7D5-5858-47AF-AFBD-86A294B314E5</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -269,46 +243,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>techradar</string>
-				<key>subtext</key>
-				<string>Open Technology Radar</string>
-				<key>text</key>
-				<string>Technology Radar</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>A32D488E-A039-43B7-8209-B55E27D7616A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://techradar.avisi.nl/</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>6FA194B5-F744-4947-AA11-85199BFDDB4A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>browser</key>
 				<string></string>
 				<key>spaces</key>
@@ -349,21 +283,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>log</string>
-				<key>subtext</key>
-				<string>Log worked hours in Tempo</string>
-				<key>text</key>
-				<string>Tempo</string>
-				<key>withspace</key>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://techradar.avisi.nl/</string>
+				<key>utf8</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>F0F33FB7-A17D-43FD-8224-B16702688CE6</string>
+			<string>6FA194B5-F744-4947-AA11-85199BFDDB4A</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -389,19 +321,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://insight.avisi.nl/confluence/</string>
-				<key>utf8</key>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>techradar</string>
+				<key>subtext</key>
+				<string>Open Technology Radar</string>
+				<key>text</key>
+				<string>Technology Radar</string>
+				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>85364D1D-C05E-4B0A-86AE-59866143CCF9</string>
+			<string>A32D488E-A039-43B7-8209-B55E27D7616A</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -411,7 +345,7 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>work</string>
+				<string>log</string>
 				<key>subtext</key>
 				<string>Log worked hours in Tempo</string>
 				<key>text</key>
@@ -422,7 +356,28 @@
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>67626875-5DD5-4B71-AB9C-95CDA40032E5</string>
+			<string>F0F33FB7-A17D-43FD-8224-B16702688CE6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>confluence</string>
+				<key>subtext</key>
+				<string>Open Avisi Confluence</string>
+				<key>text</key>
+				<string>Confluence</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>BFBF0155-2C8F-4FFD-BB36-5A24FCB50DB2</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -453,18 +408,37 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>confluence</string>
+				<string>work</string>
 				<key>subtext</key>
-				<string>Open Avisi Confluence</string>
+				<string>Log worked hours in Tempo</string>
 				<key>text</key>
-				<string>Confluence</string>
+				<string>Tempo</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>BFBF0155-2C8F-4FFD-BB36-5A24FCB50DB2</string>
+			<string>67626875-5DD5-4B71-AB9C-95CDA40032E5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://insight.avisi.nl/confluence/</string>
+				<key>utf8</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>85364D1D-C05E-4B0A-86AE-59866143CCF9</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -553,6 +527,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://insight.avisi.nl/jira/secure/Dashboard.jspa</string>
+				<key>utf8</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>529F42BF-E934-4E7F-97E4-91D4713F9C89</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -568,25 +561,6 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>A9CF1795-C4A0-458B-A7B0-4795F31C585F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://insight.avisi.nl/jira/secure/Dashboard.jspa</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>529F42BF-E934-4E7F-97E4-91D4713F9C89</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -650,25 +624,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://insight.avisi.nl/bamboo/allPlans.action</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>B99C6C55-FA87-4D3A-B469-0EE69C1304CD</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -690,21 +645,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>moreapp</string>
-				<key>subtext</key>
-				<string>Open MoreApp webclient</string>
-				<key>text</key>
-				<string>MoreApp webclient</string>
-				<key>withspace</key>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://insight.avisi.nl/bamboo/allPlans.action</string>
+				<key>utf8</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>827BA79D-1856-46D8-B00F-C091F18F2811</string>
+			<string>B99C6C55-FA87-4D3A-B469-0EE69C1304CD</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -724,6 +677,27 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>F0257ADE-2210-4412-B221-82AA0C6F3904</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>moreapp</string>
+				<key>subtext</key>
+				<string>Open MoreApp webclient</string>
+				<key>text</key>
+				<string>MoreApp webclient</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>827BA79D-1856-46D8-B00F-C091F18F2811</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -828,67 +802,6 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>google cloud console</string>
-				<key>subtext</key>
-				<string>Open Google Cloud Console</string>
-				<key>text</key>
-				<string>Google Cloud Console</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>2600E67D-05C1-4B7B-BADD-6B89744CA63F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://console.cloud.google.com</string>
-				<key>utf8</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>BFDBE7D5-5858-47AF-AFBD-86A294B314E5</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>gcc</string>
-				<key>subtext</key>
-				<string>Open Google Cloud Console</string>
-				<key>text</key>
-				<string>Google Cloud Console</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>69A4CA0D-910D-415D-92AC-8EE430FF8115</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -921,13 +834,6 @@
 			<integer>425</integer>
 			<key>ypos</key>
 			<integer>645</integer>
-		</dict>
-		<key>2600E67D-05C1-4B7B-BADD-6B89744CA63F</key>
-		<dict>
-			<key>xpos</key>
-			<integer>55</integer>
-			<key>ypos</key>
-			<integer>775</integer>
 		</dict>
 		<key>277BC5C0-E8FD-4F4E-8CC3-C3F0615AD9A7</key>
 		<dict>
@@ -970,13 +876,6 @@
 			<integer>425</integer>
 			<key>ypos</key>
 			<integer>150</integer>
-		</dict>
-		<key>69A4CA0D-910D-415D-92AC-8EE430FF8115</key>
-		<dict>
-			<key>xpos</key>
-			<integer>55</integer>
-			<key>ypos</key>
-			<integer>895</integer>
 		</dict>
 		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<dict>
@@ -1068,13 +967,6 @@
 			<integer>55</integer>
 			<key>ypos</key>
 			<integer>150</integer>
-		</dict>
-		<key>BFDBE7D5-5858-47AF-AFBD-86A294B314E5</key>
-		<dict>
-			<key>xpos</key>
-			<integer>275</integer>
-			<key>ypos</key>
-			<integer>775</integer>
 		</dict>
 		<key>DE660153-62A3-4B25-8A39-76FEFA258A7E</key>
 		<dict>
