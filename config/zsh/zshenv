@@ -76,9 +76,13 @@ export GEM_SPEC_CACHE=$GEM_HOME/specs
 
 export BABEL_CACHE_PATH=$XDG_CACHE_HOME/babel.json
 
+# Disable virtual env prompt prefix
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 export IPYTHONDIR=$XDG_CONFIG_HOME/jupyter
 export JUPYTER_CONFIG_DIR=$XDG_CONFIG_HOME/jupyter
 export CONDARC=$XDG_CONFIG_HOME/conda/condarc
+export PYTHONHISTFILE=$XDG_CACHE_HOME/python/history
 
 export IRBRC=$XDG_CONFIG_HOME/irb/config
 export BUNDLE_USER_HOME=$XDG_CONFIG_HOME/bundler
