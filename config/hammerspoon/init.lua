@@ -1,6 +1,9 @@
 require("hs.application")
 require("hs.window")
 
+local vimouse = require('vimouse')
+vimouse('cmd', 'm')
+
 function dump(o)
    if type(o) == 'table' then
       local s = '{ '
