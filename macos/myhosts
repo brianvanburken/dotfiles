@@ -2,10 +2,21 @@
 
 # Block these distracting time-draining sites
 0.0.0.0 9gag.com
-0.0.0.0 twitch.tv
-0.0.0.0 manners.nl
 0.0.0.0 b4men.nl
-0.0.0.0 theverge.com
 0.0.0.0 dumpert.nl
+0.0.0.0 gameforge.com
+0.0.0.0 hardware.info
+0.0.0.0 man-man.nl
+0.0.0.0 manners.nl
+0.0.0.0 netflix.com
+0.0.0.0 reddit.com
+0.0.0.0 runescape.com
+0.0.0.0 techrader.com
+0.0.0.0 theverge.com
+0.0.0.0 twitch.tv
+
+127.0.0.1 localhost BrainBook.local
+::1       localhost BrainBook.local
+
 
 # End of custom host records.
