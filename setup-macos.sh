@@ -278,6 +278,7 @@ if [ ! -d $DOT_DIR ]; then
     cd $DOT_DIR
     git remote remove origin
     git remote add origin git@github.com:brianvanburken/configurations.git
+    git branch --set-upstream-to=origin/master master
     cd -
     ok "Created configurations directory at $DOT_DIR"
 else
