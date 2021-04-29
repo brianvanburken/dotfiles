@@ -39,22 +39,22 @@ readonly NO_COLOR='\033[0m'
 require_manual_actions=0
 
 action() {
-    echo -e "${WHITE}--->${NO_COLOR} $1"
+    echo "${WHITE}--->${NO_COLOR} $1"
 }
 ok() {
-    echo -e "${LIGHT_GREEN}[OK]${NO_COLOR} $1"
+    echo "${LIGHT_GREEN}[OK]${NO_COLOR} $1"
 }
 input() {
-    echo -e "${WHITE}[INPUT]${NO_COLOR} $1"
+    echo "${WHITE}[INPUT]${NO_COLOR} $1"
 }
 notice() {
-    echo -e "${LIGHT_CYAN}[NOTICE]${NO_COLOR} $1"
+    echo "${LIGHT_CYAN}[NOTICE]${NO_COLOR} $1"
 }
 warning() {
-    echo -e "${YELLOW}[WARNING]${NO_COLOR} $1"
+    echo "${YELLOW}[WARNING]${NO_COLOR} $1"
 }
 error() {
-    echo -e "${LIGHT_RED}[ERROR]${NO_COLOR} $1"
+    echo "${LIGHT_RED}[ERROR]${NO_COLOR} $1"
 }
 strip_colors() {
     sed $1 "s,\x1B\[[0-9;]*[a-zA-Z],,g"
@@ -82,9 +82,7 @@ cleanup_and_exit() {
 # Make sure we always cleanup whenever this script exits, no matter how it exits
 trap cleanup_and_exit EXIT
 
-echo "Setting up macOS"
-echo -e "================================================\n\n"
-echo -e "If you see a notice don't be alarmed, it might be an intended one.\n\n"
+action "Setting up macOS"
 
 if [[ "$(uname)" != "Darwin" ]]; then
     error "No, macOS setup does not work on non macOS machines.."
@@ -374,7 +372,7 @@ if [ -d /Applications/Alfred\ 4.app ]; then
     ok "Done setting up Alfred"
 fi
 
-action "Tweaking macOS to my liking"
+action "Setting macOS preferences"
 # Opening and closing windows and popovers
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 
@@ -433,11 +431,11 @@ defaults write com.apple.finder CreateDesktop false
 
 # default screenshot location to $HOME/Downloads
 defaults write com.apple.screencapture location $HOME/Downloads
-ok "Done setting preferences"
+ok "Done setting macOS preferences"
 
-echo "🍺    Your MacBook is configured!"
+echo "🍺 Your MacBook is configured!"
 if [[ ${require_manual_actions} -eq 1 ]]; then
-    echo "🔎   But some items require manual actions. Check the output above for more info."
+    echo "🔎 But some items require manual actions. Check the output above for more info."
 fi
-echo "🍿   Your MacBook may also need to reboot to apply the final changes."
+echo "🍿 Your MacBook may also need to reboot to apply the final changes."
 cleanup_and_exit
