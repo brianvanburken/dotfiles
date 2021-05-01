@@ -19,15 +19,6 @@ function z() {
   _z "$@"
 }
 
-# Lazy-load conda
-function conda() {
-  unfunction conda
-
-  source $XDG_DATA_HOME/miniconda/etc/profile.d/conda.sh
-
-  conda "$@"
-}
-
 # Cache direnv hook
 _evalcache direnv hook zsh
 
