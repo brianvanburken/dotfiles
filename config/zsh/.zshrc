@@ -6,21 +6,7 @@ source $HOMEBREW_DIR/opt/asdf/asdf.sh
 
 export EDITOR=nvim
 
-export PROMPT="%F{blue}%1~%f %(?.%F{green}.%F{red})%#%f "
-
-# Lazy-load Z only when called to speed up zsh load time
-function z() {
-  unfunction z
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-      source $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh
-  else
-      source $XDG_RUNTIME_DIR/z/z.sh
-  fi
-  _z "$@"
-}
-
-# Cache direnv hook
-_evalcache direnv hook zsh
+export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})%#%f "
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
@@ -41,12 +27,16 @@ setopt autocd
 setopt autopushd
 setopt pushdignoredups
 
-# https://gist.github.com/ctechols/ca1035271ad134841284
-autoload -Uz compinit
-() {
-  if [[ $# -gt 0 ]]; then
-    compinit
+# Lazy-load Z only when called to speed up zsh load time
+function z() {
+  unfunction z
+  if [[ -f $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh ]]; then
+      source $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh
   else
-    compinit -C
+      source $XDG_RUNTIME_DIR/z/z.sh
   fi
-} ${ZDOTDIR:-$HOME}/.zcompdump(N.mh+24)
+  _z "$@"
+}
+
+# Cache direnv hook
+_evalcache direnv hook zsh
