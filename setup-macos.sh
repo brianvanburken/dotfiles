@@ -316,11 +316,10 @@ action "Linking $DEV_DIR/.editorignore"
 rm -f $DEV_DIR/.editorconfig
 ln -s $DOT_DIR/config/editorconfig/config $DEV_DIR/.editorconfig
 
-action "Linking $HOME/.default-gems"
-rm -f $HOME/.default-gems
-ln -s $DOT_DIR/config/asdf/default-gems $HOME/.default-gems
-
 ok "Done linking configurations"
+
+action "Creating local .zshrc"
+touch $HOME/config/zsh/.zshrc.local
 
 action "Change hammerspoon directory to respect XDG"
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
