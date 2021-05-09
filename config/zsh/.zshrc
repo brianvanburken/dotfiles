@@ -1,8 +1,7 @@
 source $ZDOTDIR/aliases
 source $ZDOTDIR/functions
 source $HOMEBREW_DIR/opt/asdf/asdf.sh
-
-[ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
+source $ZDOTDIR/.zshrc.local
 
 export EDITOR=nvim
 
@@ -27,16 +26,30 @@ setopt autocd
 setopt autopushd
 setopt pushdignoredups
 
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh
+
 # Lazy-load Z only when called to speed up zsh load time
 function z() {
   unfunction z
-  if [[ -f $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh ]]; then
-      source $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh
-  else
-      source $XDG_RUNTIME_DIR/z/z.sh
-  fi
+  source $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh
   _z "$@"
+}
+
+# Lazy-load conda
+function conda() {
+  unfunction conda
+  source $ASDF_DATA_DIR/installs/python/$CONDA_VERSION/etc/profile.d/conda.sh
+  conda "$@"
 }
 
 # Cache direnv hook
 _evalcache direnv hook zsh
+
+autoload -Uz compinit
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
