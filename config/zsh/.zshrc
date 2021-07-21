@@ -2,6 +2,7 @@ source $ZDOTDIR/aliases
 source $ZDOTDIR/functions
 source $HOMEBREW_DIR/opt/asdf/asdf.sh
 source $ZDOTDIR/.zshrc.local
+source $XDG_RUNTIME_DIR/fzf/setup.sh
 
 export EDITOR=nvim
 
@@ -25,10 +26,6 @@ setopt hist_beep              # Beep when accessing nonexistent history.
 setopt autocd
 setopt autopushd
 setopt pushdignoredups
-
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.cache/zsh
 
 # Lazy-load Z only when called to speed up zsh load time
 function z() {
