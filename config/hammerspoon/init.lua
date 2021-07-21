@@ -1,9 +1,6 @@
 require("hs.application")
 require("hs.window")
 
-local vimouse = require('vimouse')
-vimouse('cmd', 'm')
-
 function dump(o)
    if type(o) == 'table' then
       local s = '{ '
@@ -55,7 +52,7 @@ hs.hotkey.bind({'ctrl', 'alt'}, 'i', function () resize_win('topright') end);
 hs.hotkey.bind({'ctrl', 'alt'}, 'j', function () resize_win('bottomleft') end);
 hs.hotkey.bind({'ctrl', 'alt'}, 'k', function () resize_win('bottomright') end);
 
-hs.hotkey.bind({'cmd'}, 'escape', function() hs.hints.windowHints() end)
+-- hs.hotkey.bind({'cmd'}, 'escape', function() hs.hints.windowHints() end)
 
 function resize_win(direction)
     local win = hs.window.focusedWindow()
@@ -280,24 +277,3 @@ function resize_win(direction)
         hs.alert.show("No focused window!")
     end
 end
-
------------------------------------------------
--- Workflows
------------------------------------------------
-local browser = "Firefox"
-local terminal = "iTerm"
-local ide = "IntelliJ IDEA"
-
-function get_application_path(app)
-  return "/Applications/" .. app .. ".app"
-end
-
--- Develop/Design workflow with terminal and browser
-hs.hotkey.bind({"ctrl", "cmd"}, '1', function ()
-  hs.application.launchOrFocus(get_application_path(browser))
-  hs.application.launchOrFocus(get_application_path(terminal))
-  hs.layout.apply({
-    {hs.application.find(terminal), nil, nil, hs.layout.left50, nil, nil},
-    {hs.application.find(browser), nil, nil, hs.layout.right50, nil, nil},
-  })
-end);
