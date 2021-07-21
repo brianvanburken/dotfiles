@@ -30,3 +30,5 @@
 [user]
 	name = Brian van Burken
 	useConfigOnly = true
+[init]
+	defaultBranch = master
