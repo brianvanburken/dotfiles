@@ -9,15 +9,17 @@
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "sass",
-    "scss",
     "elm",
     "graphql",
     "html",
     "javascript",
     "javascriptreact",
     "json",
+    "lua",
     "markdown",
+    "rust",
+    "sass",
+    "scss",
     "typescript",
     "typescript.tsx",
     "typescriptreact"
@@ -31,5 +33,12 @@
         "elmAnalyseTrigger": "never"
       }
     }
-  }
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
 }
