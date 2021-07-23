@@ -5,13 +5,23 @@
 	ui = true
 
 [push]
-	default = current
+  # Default push should only push the current branch to its push target, regardless of its remote name
+  default = upstream
+
+[pull]
+  rebase = true
+
+[commit]
+  gpgSign = true
 
 [core]
 	editor = nvim
 	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
 	hooksPath = ~/.config/git/hooks/
+
+  # Don't consider trailing space change as a cause for merge conflicts
+  whitespace = -trailing-space
 
 [alias]
 	lastchange = log -p -n 1
@@ -24,11 +34,21 @@
 [rebase]
 	autostash = true
 
-[diff "json"]
-	textconv = json_pp
-
 [user]
 	name = Brian van Burken
 	useConfigOnly = true
+
 [init]
 	defaultBranch = master
+
+[log]
+  # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
+  abbrevCommit = true
+
+[status]
+  # Recursively traverse untracked directories to display all contents
+  showUntrackedFiles = all
+
+[tag]
+  # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
+  sort = version:refname
