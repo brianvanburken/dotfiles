@@ -28,9 +28,6 @@
 	trim = !git remote prune origin && git gc
 	tag = tag -s
 
-[include]
-	path = ~/.config/git/config.local
-
 [rebase]
 	autostash = true
 
