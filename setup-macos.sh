@@ -347,8 +347,6 @@ readonly HOST_DIR=$DEV_DIR/oss/hosts
 if [ ! -d $HOST_DIR ]; then
     action "Setup blacklist hostfile"
     git clone https://github.com/StevenBlack/hosts.git --depth=1 $HOST_DIR
-    rm $HOST_DIR/myhosts
-    ln -s $DOT_DIR/macos/myhosts $HOST_DIR/myhosts
     cd $HOST_DIR
     pip install -r requirements.txt
     pip run python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
