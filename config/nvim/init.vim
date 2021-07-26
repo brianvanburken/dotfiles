@@ -1,5 +1,5 @@
 call plug#begin(stdpath('data') . '/plugged')
-Plug '/usr/local/opt/fzf', { 'on': ['Ag', 'Files', 'Buffers'] }
+Plug $HOMEBREW_DIR . '/opt/fzf', { 'on': ['Ag', 'Files', 'Buffers'] }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Ag', 'Files', 'Buffers'] }
 Plug 'luxed/ayu-vim'
