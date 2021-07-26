@@ -1,4 +1,5 @@
 .zsh_history
 .zcompdump*
 .zcompcache
+*cache/
 *.local
