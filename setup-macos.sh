@@ -10,19 +10,22 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 export DEV_DIR=${DEV_DIR:=$HOME/Developer}
 
 # Location where to store configrations
-export DOT_DIR=${DOT_DIR:=$DEV_DIR/personal/configurations}
+export DOT_DIR=${DOT_DIR:=$DEV_DIR/personal/dotfiles}
 
 # Directory for plugins
 export PLUG_DIR=${XDG_DATA_HOME:=$HOME/.local/share}
 
+# Name of dotfiles repo
+readonly DOT_REPO=brianvanburken/dotfiles
+
 # Set the download URL
-readonly SOURCE_URL=${SOURCE_URL:=https://raw.githubusercontent.com/brianvanburken/configurations/master/}
+readonly SOURCE_URL=${SOURCE_URL:=https://raw.githubusercontent.com/$DOT_REPO/master/}
 
 # Determine macOS version
 readonly OS_VERSION="$(sw_vers -productVersion)"
 
 # Supported macOS versions
-readonly SUPPORTED_MACOS_VERSIONS=("10.15", "11.0", "11.1", "11.2", "11.3")
+readonly SUPPORTED_MACOS_VERSIONS=("11")
 
 # Determine Mac model
 readonly APPLE_COMPUTER_TYPE="$(sysctl hw.model | awk '{print $2}')"
@@ -89,7 +92,7 @@ if [[ "$(uname)" != "Darwin" ]]; then
     cleanup_and_exit 1
 fi
 
-readonly OS_MAJOR_VERSION=$(echo ${OS_VERSION} | cut -f 1,2 -d '.')
+readonly OS_MAJOR_VERSION=$(echo ${OS_VERSION} | cut -f 1,1 -d '.')
 # Stylewise the value we want to test should be on the left side. But checking
 # for a value in an array does not work with the value on the left side. Other
 # possibilities (looping over the array) are harder to read. Thus we decided to
@@ -148,7 +151,7 @@ cached_sudo
 
 action "Installing some very nice apps and tools..."
 cached_sudo
-curl -fsSL "$SOURCE_URL/macos/homebrew/Brewfile" | brew bundle --file=- | strip_colors
+curl -fsSL "$SOURCE_URL/config/homebrew/Brewfile" | brew bundle --file=- | strip_colors
 ok "Installing software done."
 
 # Reload sudo
@@ -253,29 +256,18 @@ else
     ok "Screensaver set to start after 5 minutes of idle time or less"
 fi
 
-action "Creating $DEV_DIR/personal/"
-mkdir -p $DEV_DIR/personal
-action "Creating $HOME/.local/share/"
-mkdir -p $HOME/.local/share/
-action "Creating $HOME/.local/share/shell"
-mkdir -p $HOME/.local/share/shell/
-action "Creating $HOME/.config"
-mkdir -p $HOME/.config/
-ok "Done creating local directories"
+action "Creating special directories"
+mkdir -p $DEV_DIR/{personal,oss,work}
 
-action "Creating $HOME/.config/git/config.local"
-mkdir -p $HOME/.config/git/
-touch $HOME/.config/git/config.local
 action "Creating $HOME/.hushlogin"
 touch $HOME/.hushlogin
-ok "Done creating local files"
 
 if [ ! -d $DOT_DIR ]; then
     action "Cloning configurations"
-    git clone https://github.com/brianvanburken/configurations.git $DOT_DIR
+    git clone https://github.com/$DOT_REPO.git $DOT_DIR
     cd $DOT_DIR
     git remote remove origin
-    git remote add origin git@github.com:brianvanburken/configurations.git
+    git remote add origin git@github.com:$DOT_REPO.git
     git branch --set-upstream-to=origin/master master
     cd -
     ok "Created configurations directory at $DOT_DIR"
@@ -293,13 +285,13 @@ fi
 
 action "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
-    "config/ag"
     "config/asdf"
     "config/editorconfig"
     "config/git"
     "config/hammerspoon"
     "config/ideavim"
     "config/nvim"
+    "config/ripgrep"
     "config/zsh"
 )
 for x in "${files[@]}"; do
@@ -315,6 +307,10 @@ ln -s $DOT_DIR/config/zsh/zshenv $HOME/.zshenv
 action "Linking $DEV_DIR/.editorignore"
 rm -f $DEV_DIR/.editorconfig
 ln -s $DOT_DIR/config/editorconfig/config $DEV_DIR/.editorconfig
+
+action "Linking $DEV_DIR/.ignore"
+rm -f $DEV_DIR/.ignore
+ln -s $DOT_DIR/config/ripgrep/ignore $DEV_DIR/.ignore
 
 ok "Done linking configurations"
 
@@ -345,31 +341,20 @@ fi
 # Prolong sudo
 cached_sudo
 
-readonly HOST_DIR=$DEV_DIR/personal/oss/hosts
+readonly HOST_DIR=$DEV_DIR/oss/hosts
 if [ ! -d $HOST_DIR ]; then
     action "Setup blacklist hostfile"
     git clone https://github.com/StevenBlack/hosts.git --depth=1 $HOST_DIR
     rm $HOST_DIR/myhosts
     ln -s $DOT_DIR/macos/myhosts $HOST_DIR/myhosts
     cd $HOST_DIR
-    pipenv install -r requirements.txt
-    pipenv run python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
+    pip install -r requirements.txt
+    pip run python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
     cd -
     ok "Done setup hostfile"
 fi
 
 cached_sudo
-
-if [ -d /Applications/Alfred\ 4.app ]; then
-    action "Setup Alfred"
-    # Disable spotlight on cmd-space so Alfred can use it
-    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = ( 32, 49, 1048576); type = standard; }; }"
-    # Disable spotlight window shortcut
-    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; value = { parameters = ( 32, 49, 1048576); type = standard; }; }"
-    # Set sync prefs
-    defaults write com.runningwithcrayons.Alfred-Preferences syncfolder "$DOT_DIR/macos/alfred"
-    ok "Done setting up Alfred"
-fi
 
 action "Setting macOS preferences"
 # Opening and closing windows and popovers
