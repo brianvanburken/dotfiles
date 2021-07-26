@@ -1,22 +1,12 @@
 # Block ADs and other analytics
-export HOMEBREW_NO_ANALYTICS=1 # Disable homebrew analytics
 export ADBLOCK=true
 export DISABLE_OPENCOLLECTIVE=true
 export DO_NOT_TRACK=1 # https://consoledonottrack.com/
-export HOMEBREW_NO_ANALYTICS=1
 export NG_CLI_ANALYTICS=false # https://github.com/angular/angular-cli/blob/master/docs/design/analytics.md
 
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
 export LC_CTYPE=$LANG
-
-# If it's been more than this number of seconds since Homebrew was last
-# updated, automatically run `brew update` before `brew install`.
-# 604800 is 1 week in seconds (60 * 60 * 24 * 7).
-export HOMEBREW_AUTO_UPDATE_SECS=604800
-
-# Always cleanup after installing or upgrading
-export HOMEBREW_INSTALL_CLEANUP=1
 
 # Disable shell sessions
 export SHELL_SESSIONS_DISABLE=1
@@ -39,17 +29,28 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 
-
-# Set PATH
+# If it's been more than this number of seconds since Homebrew was last
+# updated, automatically run `brew update` before `brew install`.
+# 604800 is 1 week in seconds (60 * 60 * 24 * 7).
+export HOMEBREW_AUTO_UPDATE_SECS=604800
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_INSTALL_CLEANUP=1
 export HOMEBREW_DIR=/usr/local
 
 export PATH="$HOMEBREW_DIR/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$XDG_DATA_HOME/shell:$PATH"
 
+export EDITOR=nvim
+export VISUAL=nvim
+
+export GPG_TTY=$(tty)
+
 # ============================= Set XDG for tools ==============================
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export ZSH_EVALCACHE_DIR=$XDG_DATA_HOME/zsh
+export ZCOMPDUMP=$ZDOTDIR/.zcompdump
+export HISTFILE=$ZDOTDIR/.zsh_history
 
 export _Z_DATA=$XDG_DATA_HOME/z/z.txt
 
@@ -61,16 +62,14 @@ export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$ASDF_CONFIG_DIR/default-python-package
 export ASDF_NPM_DEFAULT_PACKAGES_FILE=$ASDF_CONFIG_DIR/default-npm-packages
 export ASDF_GEM_DEFAULT_PACKAGES_FILE=$ASDF_CONFIG_DIR/default-gems
 
+export GNUPGHOME=$XDG_DATA_HOME/gnupg
+
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
 export NODE_REPL_HISTORY=$XDG_DATA_HOME/node/repl_history
 
 export ELM_HOME=$XDG_CACHE_HOME/elm
-
-export GEMRC=$XDG_CONFIG_HOME/gem/config.yml
-export GEM_HOME=$XDG_DATA_HOME/gem
-export GEM_SPEC_CACHE=$GEM_HOME/specs
 
 export BABEL_CACHE_PATH=$XDG_CACHE_HOME/babel.json
 
@@ -82,6 +81,9 @@ export JUPYTER_CONFIG_DIR=$XDG_CONFIG_HOME/jupyter
 export CONDARC=$XDG_CONFIG_HOME/conda/condarc
 export PYTHONHISTFILE=$XDG_CACHE_HOME/python/history
 
+export GEMRC=$XDG_CONFIG_HOME/gem/config.yml
+export GEM_HOME=$XDG_DATA_HOME/gem
+export GEM_SPEC_CACHE=$GEM_HOME/specs
 export IRBRC=$XDG_CONFIG_HOME/irb/config
 export BUNDLE_USER_HOME=$XDG_CONFIG_HOME/bundler
 export BUNDLE_USER_CONFIG=$BUNDLE_USER_HOME/config.yml
@@ -91,8 +93,3 @@ export BUNDLE_USER_PLUGIN=$XDG_DATA_HOME/bundler
 export HEX_HOME=$XDG_CACHE_HOME/hex
 
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
-
-export GNUPGHOME=$XDG_DATA_HOME/gnupg
-export GPG_TTY=$(tty)
-
-export STACK_ROOT=$XDG_CONFIG_HOME/stack

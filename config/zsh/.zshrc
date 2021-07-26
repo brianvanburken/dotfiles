@@ -4,8 +4,6 @@ source $HOMEBREW_DIR/opt/asdf/asdf.sh
 source $ZDOTDIR/.zshrc.local
 source $XDG_RUNTIME_DIR/fzf/setup.sh
 
-export EDITOR=nvim
-
 export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})%#%f "
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
@@ -21,11 +19,15 @@ setopt hist_save_no_dups      # Don't write duplicate entries in the history fil
 setopt hist_reduce_blanks     # Remove superfluous blanks before recording entry.
 setopt hist_verify            # Don't execute immediately upon history expansion.
 setopt hist_beep              # Beep when accessing nonexistent history.
+setopt auto_pushd             # Push the current directory visited on the stack.
+setopt pushd_ignore_dups      # Do not store duplicates in the stack.
+setopt pushd_silent           # Do not print the directory stack after pushd or popd.
 
-# Don't need to type cd to change directories
-setopt autocd
-setopt autopushd
-setopt pushdignoredups
+
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' accept-exact-dirs true
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' cache-path "$ZDOTDIR/cache"
 
 # Lazy-load Z only when called to speed up zsh load time
 function z() {
@@ -34,19 +36,13 @@ function z() {
   _z "$@"
 }
 
-# Lazy-load conda
-function conda() {
-  unfunction conda
-  source $ASDF_DATA_DIR/installs/python/$CONDA_VERSION/etc/profile.d/conda.sh
-  conda "$@"
-}
-
 # Cache direnv hook
 _evalcache direnv hook zsh
 
 autoload -Uz compinit
-if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
-  compinit
+if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' $ZCOMPDUMP) ]; then
+  compinit -C -d $ZCOMPDUMP
+  touch $ZCOMPDUMP
 else
   compinit -C
 fi
