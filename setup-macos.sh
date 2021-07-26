@@ -317,7 +317,7 @@ ln -s $DOT_DIR/config/ripgrep/ignore $DEV_DIR/.ignore
 ok "Done linking configurations"
 
 action "Creating local .zshrc"
-touch $HOME/config/zsh/.zshrc.local
+touch $HOME/.config/zsh/.zshrc.local
 
 action "Change hammerspoon directory to respect XDG"
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
