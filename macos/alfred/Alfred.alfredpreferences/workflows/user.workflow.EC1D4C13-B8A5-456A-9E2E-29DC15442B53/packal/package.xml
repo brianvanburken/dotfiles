@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Focus Workflow (heyfocus.com)</name>
-  <version>1.0</version>
-  <bundle>com.mfaarkrog.alfredapp-workflows.focus</bundle>
-  <updated>1457421760</updated>
-  <file>focus.alfredworkflow</file>
-</workflow>
