@@ -268,7 +268,8 @@ if [ ! -d $DOT_DIR ]; then
     cd $DOT_DIR
     git remote remove origin
     git remote add origin git@github.com:$DOT_REPO.git
-    git branch --set-upstream-to=origin/master master
+    git fetch --all
+    git branch -u origin/master master
     git config --local user.name "Brian van Burken"
     git config --local user.email "brianvanburken@users.noreply.github.com"
     cd -
