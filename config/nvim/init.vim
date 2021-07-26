@@ -34,8 +34,7 @@ au BufEnter *.md setlocal filetype=markdown
 
 colorscheme ayu
 
-" Find files using Telescope command-line sugar.
-nnoremap <C-a> :Ag!<cr>
+nnoremap <C-a> :Rg!<cr>
 nnoremap <C-p> :Files!<cr>
 
 " CoC config
