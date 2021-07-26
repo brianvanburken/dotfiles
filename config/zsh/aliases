@@ -3,95 +3,66 @@
 # NPM
 alias n='npm'
 alias nr='npm run'
-alias ns='npm start'
-alias nb='npm build'
-alias ni='npm install'
-alias nis='npm install --save'
-alias niS='npm install --save-dev'
-alias ngi='npm install -g'
-alias nci='rm -rf node_modules/ && ni'
-alias nt='npm test'
-alias nb='npm build'
-alias ncu='npx npm-check -u --no-emoji'
-alias ncgu='npx npm-check -gu --no-emoji'
+alias ni='npm install --prefer-offline --no-audit --progress=false'
+alias nis='ni --save'
+alias nid='ni --save-dev'
+alias nig='ni -g'
+alias nic='rm -rf node_modules/ && ni'
+alias nx='npx'
+alias ncu='nx npm-check -u --no-emoji'
+alias ncgu='nx npm-check -gu --no-emoji'
+
+# Yarn
+alias y='yarn'
+alias yi='y install'
+alias yic='rm -rf node_modules/ && ni'
+alias yid='y add --dev'
+alias yig='y add --global'
+alias yis='y add'
+alias yr='y run'
+alias yx='yarn dlx'
 
 # NeoVim/Vim
-alias vim='nvim'
-alias vi='vim'
-alias v='vim'
 alias e='vim'
-alias svim='sudo vim -i "~/.cache/vim/info" '
+alias svim='sudo vim'
+alias v='vim'
+alias vi='vim'
+alias vim='nvim'
 
 # Git
+alias fix='git diff --name-only | uniq | xargs -o $EDITOR'
 alias g='git'
 alias ga='git add'
 alias gam='git commit --amend'
-alias gap='git add --patch'
+alias gap='ga --patch'
 alias gb='git branch'
-alias gbr='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -D'
-alias gbra='git branch | egrep -v "(^\*|master|develop)" | xargs git branch -D'
-alias gca='git add .'
+alias gbr='gb --merged | egrep -v "(^\*|master|develop)" | xargs git branch -D'
+alias gbra='gb | egrep -v "(^\*|master|develop)" | xargs git branch -D'
 alias gcm='git commit -m'
 alias gco='git checkout'
 alias gl='git log'
 alias gp='git push'
 alias gpl='git pull --rebase'
 alias gr='git rebase'
+alias gs='git switch'
 alias gsd='git switch develop'
 alias gsm='git switch master'
 alias gws='git status'
 
-# Open all merge conflicts or currently changed files in set editor
-alias fix='git diff --name-only | uniq | xargs -o $EDITOR'
-
-# Elm shortcuts
-alias em='elm make'
-alias er='elm repl'
-alias et='elm test'
-alias el='elm live'
-alias ef='elm-format'
-alias epi='elm install'
-alias et='elm-thanks'
-alias eci='rm -rf elm-stuff/ && elm-package install -y'
-alias emt='elm make --optimize --output=/dev/null'
-alias ej='elm-json'
-alias ea='elm-analyse'
-
-# Python/Pip shortcuts
-alias p='pipenv'
-alias pi='pipenv install'
-alias pu='pipenv uninstall'
-alias pl='pipenv lock'
-
-# Tmux
-alias t='tmux attach || tmux new-session'
-alias ta='tmux attach -t'
-alias tn='tmux new-session'
-alias tl='tmux list-sessions'
-
-# Ruby
-alias be='bundle exec'
-alias bu='bundle update'
-alias j='bundle exec jekyll'
-
 # General
-alias dr='docker-compose down && docker-compose up'
-alias serve='python -m SimpleHTTPServer'
-alias yv='youtube-dl -f 22 ' # videos
-alias yt='youtube-dl'
-
 alias backup='rsync -avh --progress --delete --exclude=".*"'
 
+alias t='tree'
 alias l='ls -lahgG'
+alias ..='cd ../'
 alias ...='cd ../../'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ln='ln -i'
 alias mkdir='mkdir -p'
-alias cls='clear'
 
-alias kill_ds="fd -H '^\.DS_Store$' -tf -X rm"
+alias kill_ds="fd -H -I '^\.DS_Store$' -tf -X rm"
 alias kill_modules="fd -H -I '^node_modules$' -td -X rm -r"
 alias mine='sudo chown -R $(whoami):admin '
 

@@ -3,7 +3,7 @@ function o() {
 }
 
 function brew_clean() {
-    brew update-reset;
+    # brew update-reset;
     brew doctor;
     brew cleanup;
     rm -rf "$(brew --cache)/*";
@@ -42,7 +42,8 @@ function _evalcache () {
 
 # Benchmarks the current shell
 function bench_shell() {
-    for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+    shell=${1-$SHELL}
+    for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
 # ex - archive extractor
