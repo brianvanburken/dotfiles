@@ -1,2 +1,4 @@
 progress=false
 loglevel=warn
+prefer-offline=true
+no-audit=true
