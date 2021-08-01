@@ -293,6 +293,7 @@ files=(
     "config/git"
     "config/hammerspoon"
     "config/ideavim"
+    "config/npm"
     "config/nvim"
     "config/ripgrep"
     "config/zsh"
