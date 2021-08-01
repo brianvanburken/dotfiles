@@ -16,7 +16,7 @@ alias ncgu='nx npm-check -gu --no-emoji'
 # Yarn
 alias y='yarn'
 alias yi='y install'
-alias yic='rm -rf node_modules && yi'
+alias yic='rm -rf node_modules/.yarn-integrity && yi'
 alias yid='y add --dev'
 alias yig='y add --global'
 alias yis='y add'
