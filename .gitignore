@@ -3,3 +3,5 @@
 .zcompcache
 *cache/
 *.local
+plugin/*
+config/nvim/plugin/packer_compiled.lua
