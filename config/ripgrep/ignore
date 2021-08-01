@@ -3,6 +3,7 @@
 *.bmp
 *.gemtags*
 *.gif
+*.jar
 *.jpeg
 *.jpg
 *.lock
@@ -24,13 +25,13 @@
 .gradle/
 .git/
 .vim/
+.idea/
 backup/
 bower_components/
 build/
 deps/
 dest/
 dist/
-dotbot/
 elm-stuff/
 images/
 log/
