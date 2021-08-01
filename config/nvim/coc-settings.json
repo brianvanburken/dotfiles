@@ -7,6 +7,7 @@
   "diagnostic.warningSign": "!!",
   "signature.maxWindowHeight": 20,
   "suggest.noselect": false,
+  "suggest.removeDuplicateItems": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "elm",
@@ -16,7 +17,6 @@
     "javascriptreact",
     "json",
     "lua",
-    "markdown",
     "rust",
     "sass",
     "scss",
@@ -34,11 +34,5 @@
       }
     }
   },
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ]
+  "Lua.diagnostics.globals": ["vim"]
 }
