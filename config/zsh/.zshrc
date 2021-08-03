@@ -23,7 +23,6 @@ setopt auto_pushd             # Push the current directory visited on the stack.
 setopt pushd_ignore_dups      # Do not store duplicates in the stack.
 setopt pushd_silent           # Do not print the directory stack after pushd or popd.
 
-
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' accept-exact-dirs true
 zstyle ':completion:*' use-cache true
@@ -39,9 +38,11 @@ function z() {
 # Cache direnv hook
 _evalcache direnv hook zsh
 
+# Run compinit once a day based on the date of the zcompdump file
 autoload -Uz compinit
-if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' $ZCOMPDUMP) ]; then
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP) ]; then
   compinit -C -d $ZCOMPDUMP
+  # Update time of zcompdump file in case nothing has changed
   touch $ZCOMPDUMP
 else
   compinit -C
