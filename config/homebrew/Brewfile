@@ -1,6 +1,7 @@
 tap "homebrew/cask"
 
 brew "asdf"
+brew "ctags"
 brew "direnv"
 brew "fzf"
 brew "git"
