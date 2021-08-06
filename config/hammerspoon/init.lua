@@ -42,8 +42,6 @@ hs.hotkey.bind({'ctrl', 'alt'}, 'i', function () ResizeWindow('topright') end);
 hs.hotkey.bind({'ctrl', 'alt'}, 'j', function () ResizeWindow('bottomleft') end);
 hs.hotkey.bind({'ctrl', 'alt'}, 'k', function () ResizeWindow('bottomright') end);
 
-hs.hotkey.bind({'cmd'}, 'escape', function() hs.hints.windowHints() end)
-
 function ResizeWindow(direction)
     local win = hs.window.focusedWindow()
     if win then
