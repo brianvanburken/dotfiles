@@ -17,3 +17,6 @@ tags
 
 .vim
 .idea
+
+# Per project based ignore file for rg
+.ignore
