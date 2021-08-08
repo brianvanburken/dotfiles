@@ -2,6 +2,8 @@
 
 # NPM
 alias n='npm'
+alias ncgu='n outdated -g --depth=0'
+alias ncu='n outdated'
 alias ni='n install'
 alias nic='rm -rf node_modules && ni'
 alias nid='ni --save-dev'
@@ -9,9 +11,6 @@ alias nig='ni -g'
 alias nis='ni --save'
 alias nr='n run'
 alias nx='npx'
-
-alias ncu='nx npm-check -u --no-emoji'
-alias ncgu='nx npm-check -gu --no-emoji'
 
 # Yarn
 alias y='yarn'
