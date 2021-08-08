@@ -2,13 +2,13 @@
 
 # NPM
 alias n='npm'
-alias ncgu='n outdated -g --depth=0'
-alias ncu='n outdated'
 alias ni='n install'
 alias nic='rm -rf node_modules && ni'
 alias nid='ni --save-dev'
 alias nig='ni -g'
 alias nis='ni --save'
+alias no='n outdated'
+alias nog='n outdated -g --depth=0'
 alias nr='n run'
 alias nx='npx'
 
@@ -19,8 +19,10 @@ alias yic='rm -rf node_modules/.yarn-integrity && yi'
 alias yid='y add --dev'
 alias yig='y add --global'
 alias yis='y add'
+alias yo='y outdated'
+alias yog='y global outdated'
 alias yr='y run'
-alias yx='yarn dlx'
+alias yx='y dlx'
 
 # NeoVim/Vim
 alias e='vim'
