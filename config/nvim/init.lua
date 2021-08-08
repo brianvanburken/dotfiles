@@ -49,6 +49,15 @@ require("packer").startup(
     end
 )
 
+vim.api.nvim_set_keymap("n", "<C-q>", ":lua ToggleBackground()<CR>", {})
+function ToggleBackground()
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+end
+
 -- Fzf
 vim.api.nvim_set_keymap("n", "<C-a>", ":Rg!<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-p>", ":Files!<CR>", {})
