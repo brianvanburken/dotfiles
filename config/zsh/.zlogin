@@ -3,7 +3,7 @@
 
   # Run compinit once a day based on the date of the zcompdump file
   autoload -Uz compinit
-  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP) ]; then
+  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP 2>/dev/null || echo -1) ]; then
     compinit -C -d $ZCOMPDUMP
     # Update time of zcompdump file in case nothing has changed
     touch $ZCOMPDUMP
