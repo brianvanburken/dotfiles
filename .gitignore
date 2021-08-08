@@ -1,7 +1,8 @@
-.zsh_history
-.zcompdump*
-.zcompcache
-*cache/
 *.local
-plugin/*
+*.zwc
+*cache/
+.zcompcache
+.zcompdump*
+.zsh_history
 config/nvim/plugin/packer_compiled.lua
+plugin/*
