@@ -39,7 +39,7 @@ vim.api.nvim_command("packadd packer.nvim")
 require("packer").startup(
     function(use)
         use {"editorconfig/editorconfig-vim"}
-        use {"junegunn/fzf.vim", cmd = {"Ag", "Files", "Tags"}, requires = {"/usr/local/opt/fzf"}}
+        use {"junegunn/fzf.vim", cmd = {"Ag", "Files", "Tags"}, requires = "/usr/local/opt/fzf"}
         use {"ludovicchabant/vim-gutentags"}
         use {"luxed/ayu-vim", config = "vim.cmd [[colorscheme ayu]]"}
         use {"neoclide/coc.nvim", branch = "release", ft = {"html", "scss", "typescript", "lua", "json"}}
@@ -51,11 +51,11 @@ require("packer").startup(
 
 vim.api.nvim_set_keymap("n", "<C-q>", ":lua ToggleBackground()<CR>", {})
 function ToggleBackground()
-  if vim.o.background == "dark" then
-    vim.o.background = "light"
-  else
-    vim.o.background = "dark"
-  end
+    if vim.o.background == "dark" then
+        vim.o.background = "light"
+    else
+        vim.o.background = "dark"
+    end
 end
 
 -- Fzf
