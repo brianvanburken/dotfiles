@@ -26,7 +26,7 @@ setopt pushd_silent           # Do not print the directory stack after pushd or 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' accept-exact-dirs true
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path "$ZDOTDIR/cache"
+zstyle ':completion:*' cache-path "$XDG_CACHE_DIR/zsh"
 
 # Lazy-load Z only when called to speed up zsh load time
 function z() {
