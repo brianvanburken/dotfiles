@@ -11,8 +11,18 @@
     compinit -C
   fi
 
-  # Compile zcompdump, if modified, to increase startup speed.
-  if [[ -s "$ZCOMPDUMP" && (! -s "$ZCOMPDUMP.zwc" || "$ZCOMPDUMP" -nt "$ZCOMPDUMP.zwc") ]]; then
-    zcompile "$ZCOMPDUMP"
-  fi
+  # All files to precompile
+  local files=(
+    "$ZCOMPDUMP"
+    "$ZDOTDIR/aliases"
+    "$ZDOTDIR/functions"
+  )
+
+  for x in $files; do
+    # Compile file, if modified, to increase startup speed.
+    if [[ -s "$x" && (! -s "$x.zwc" || "$x" -nt "$x.zwc") ]]; then
+      zcompile "$x"
+    fi
+  done
+
 } &!
