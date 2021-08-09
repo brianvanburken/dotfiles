@@ -1,8 +1,8 @@
+source $HOMEBREW_DIR/opt/asdf/asdf.sh
+source $XDG_RUNTIME_DIR/fzf/setup.sh
 source $ZDOTDIR/aliases
 source $ZDOTDIR/functions
-source $HOMEBREW_DIR/opt/asdf/asdf.sh
 source $ZDOTDIR/.zshrc.local
-source $XDG_RUNTIME_DIR/fzf/setup.sh
 
 export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})%#%f "
 
