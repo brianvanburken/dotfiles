@@ -22,6 +22,7 @@ vim.g.loaded_netrwFileHandlers = 1
 vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python_provider = 0
+vim.g.loaded_python3_provider = 0
 
 vim.o.clipboard = "unnamed" -- Share Clipboard with OS
 vim.o.cmdheight = 2
