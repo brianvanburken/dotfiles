@@ -37,3 +37,15 @@ function z() {
 
 # Cache direnv hook
 _evalcache direnv hook zsh
+
+# Load autocompletions
+autoload -Uz compinit
+
+# Run compinit once a day based on the date of the zcompdump file
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP 2>/dev/null || echo -1) ]; then
+  compinit -C -d $ZCOMPDUMP
+  # Update time of zcompdump file in case nothing has changed
+  touch $ZCOMPDUMP
+else
+  compinit -C
+fi
