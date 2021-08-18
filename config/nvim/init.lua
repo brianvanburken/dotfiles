@@ -24,9 +24,11 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
 
-vim.o.clipboard = "unnamed" -- Share Clipboard with OS
+vim.o.autoread = true -- Automatically reload files changed outside of vim
+vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
 vim.o.hidden = true
+vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.lazyredraw = true
 vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
