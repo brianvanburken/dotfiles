@@ -1,28 +1,25 @@
 # Execute code in the background to not affect the current session
 {
+  # Function to determine the need of a zcompile. If the .zwc file
+  # does not exist, or the base file is newer, we need to compile.
+  # These jobs are asynchronous, and will not impact the interactive shell
+  zcompare() {
+    if [[ -s ${1} && ( ! -s ${1}.zwc || ${1} -nt ${1}.zwc) ]]; then
+      zcompile ${1}
+    fi
+  }
 
-  # Run compinit once a day based on the date of the zcompdump file
-  autoload -Uz compinit
-  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP 2>/dev/null || echo -1) ]; then
-    compinit -C -d $ZCOMPDUMP
-    # Update time of zcompdump file in case nothing has changed
-    touch $ZCOMPDUMP
-  else
-    compinit -C
-  fi
-
-  # All files to precompile
+  # # All files to precompile
   local files=(
     "$ZCOMPDUMP"
+    "$ZDOTDIR/.zshrc"
+    "$ZDOTDIR/.zshrc.local"
     "$ZDOTDIR/aliases"
     "$ZDOTDIR/functions"
   )
 
   for x in $files; do
-    # Compile file, if modified, to increase startup speed.
-    if [[ -s "$x" && (! -s "$x.zwc" || "$x" -nt "$x.zwc") ]]; then
-      zcompile "$x"
-    fi
+    zcompare ${file}
   done
 
 } &!
