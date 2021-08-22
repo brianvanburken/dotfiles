@@ -1,9 +1,3 @@
-source $HOMEBREW_DIR/opt/asdf/asdf.sh
-source $XDG_RUNTIME_DIR/fzf/setup.sh
-source $ZDOTDIR/aliases
-source $ZDOTDIR/functions
-source $ZDOTDIR/.zshrc.local
-
 export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})%#%f "
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
@@ -25,18 +19,11 @@ setopt pushd_silent           # Do not print the directory stack after pushd or 
 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' accept-exact-dirs true
-zstyle ':completion:*' use-cache true
+zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR"
 
-# Lazy-load Z only when called to speed up zsh load time
-function z() {
-  unfunction z
-  source $HOMEBREW_DIR/opt/z/etc/profile.d/z.sh
-  _z "$@"
-}
-
-# Cache direnv hook
-_evalcache direnv hook zsh
+# Load user functions
+autoload -Uz $ZDOTDIR/functions/**/*
 
 # Load autocompletions
 autoload -Uz compinit
@@ -49,3 +36,11 @@ if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP 2>/dev/null || echo -1)
 else
   compinit -C
 fi
+
+csource $HOMEBREW_DIR/opt/asdf/asdf.sh
+csource $XDG_RUNTIME_DIR/fzf/setup.sh
+csource $ZDOTDIR/aliases
+csource $ZDOTDIR/.zshrc.local
+
+# Cache direnv hook
+evalcache direnv hook zsh

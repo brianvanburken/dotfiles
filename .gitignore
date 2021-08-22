@@ -6,3 +6,4 @@
 .zsh_history
 config/nvim/plugin/packer_compiled.lua
 plugin/*
+config/zsh/functions/local/
