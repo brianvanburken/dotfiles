@@ -18,11 +18,9 @@ export DIRENV_LOG_FORMAT=""
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
-export XDG_RUNTIME_DIR=$HOME/.local/share
+export XDG_RUNTIME_DIR=$XDG_DATA_HOME
 export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_HOME
 export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_HOME
-
-export LESSHISTFILE=-
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -48,11 +46,17 @@ export VISUAL=nvim
 export GPG_TTY=$TTY
 
 # ============================= Set XDG for tools ==============================
+export LESSHISTFILE="$XDG_CONFIG_HOME/less/history"
+export LESSKEY="$XDG_CONFIG_HOME/less/keys"
+
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export ZSH_EVALCACHE_DIR=$XDG_DATA_HOME/zsh
 export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 export ZCOMPDUMP=$ZDOTDIR/.zcompdump
+export FPATH=$ZDOTDIR/functions:$FPATH
 export HISTFILE=$ZDOTDIR/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 export _Z_DATA=$XDG_DATA_HOME/z/z.txt
 

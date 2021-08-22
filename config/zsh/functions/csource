@@ -1,0 +1,4 @@
+csource() {
+  zcompare $1
+  source $1
+}
