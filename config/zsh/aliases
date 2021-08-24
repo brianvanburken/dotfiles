@@ -53,7 +53,7 @@ alias gws='git status'
 
 # General
 alias c='mcdir'
-
+alias p='pwd'
 alias t='tree'
 alias l='ls -lahgG'
 alias ..='cd ../'
