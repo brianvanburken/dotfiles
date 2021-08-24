@@ -1,4 +1,4 @@
-export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})%#%f "
+export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})$%f "
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
@@ -20,7 +20,7 @@ setopt pushd_silent           # Do not print the directory stack after pushd or 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' accept-exact-dirs true
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR"
+zstyle ':completion:*' cache-path $ZSH_CACHE_DIR
 
 # Load user functions
 autoload -Uz $ZDOTDIR/functions/**/*
