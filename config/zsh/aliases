@@ -69,6 +69,7 @@ alias kill_modules="fd -H -I '^node_modules$' -td -X rm -r"
 alias mine='sudo chown -R $(whoami):admin '
 
 alias d='dirs -v | head -10'
+alias 0='cd .'
 alias 1='cd -'
 alias 2='cd -2'
 alias 3='cd -3'
