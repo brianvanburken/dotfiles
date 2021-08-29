@@ -11,12 +11,14 @@
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
+.vim
 
 # Auto-generated tag files
 tags
 
-.vim
-.idea
-
 # Per project based ignore file for rg
 .ignore
+
+# Ignore direnv/env files
+.env
+.envrc
