@@ -20,8 +20,8 @@
 	attributesfile = ~/.config/git/attributes
 	hooksPath = ~/.config/git/hooks/
 
-  # Don't consider trailing space change as a cause for merge conflicts
-  whitespace = -trailing-space
+  # Don't consider trailing space or EOL changes as a cause for merge conflicts
+  whitespace = -trailing-space,cr-at-eol
 
 [alias]
 	lastchange = log -p -n 1
