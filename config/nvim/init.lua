@@ -54,21 +54,24 @@ require("packer").startup(
         use {"junegunn/fzf.vim", cmd = {"Ag", "Files", "Tags"}, requires = "/usr/local/opt/fzf"}
         use {"ludovicchabant/vim-gutentags"}
         use {"luxed/ayu-vim", config = "vim.cmd [[colorscheme ayu]]"}
-        use {"neoclide/coc.nvim", branch = "release", ft = {"html", "scss", "typescript", "lua", "json"}}
+        use {"neoclide/coc.nvim", branch = "release"}
+        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = function()
+            require('nvim-treesitter.configs').setup({
+                ensure_installed = "maintained",
+                highlight = {
+                    enable = true,
+                    use_languagetree = true,
+                }
+            })
+            vim.o.foldmethod = 'expr'
+            vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+            vim.o.foldlevel = 20
+        end}
         use {"tpope/vim-commentary"}
         use {"tpope/vim-surround"}
         use {"wbthomason/packer.nvim", opt = true}
     end
 )
-
-vim.api.nvim_set_keymap("n", "<C-q>", ":lua ToggleBackground()<CR>", {})
-function ToggleBackground()
-    if vim.o.background == "dark" then
-        vim.o.background = "light"
-    else
-        vim.o.background = "dark"
-    end
-end
 
 -- Fzf
 vim.api.nvim_set_keymap("n", "<C-a>", ":Rg!<CR>", {})
@@ -88,7 +91,6 @@ vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", {silent = true}
 vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", {silent = true})
 
 -- Use K to show documentation in preview window.
--- Source https://old.reddit.com/r/neovim/comments/jqdmuo/calling_plugin_functions_from_lua/
 vim.api.nvim_set_keymap("n", "K", ":lua ShowDocumentation()<CR>", {silent = true})
 function ShowDocumentation()
     local filetype = vim.bo.filetype
