@@ -20,17 +20,16 @@ local disabled_built_ins = {
     "vimballPlugin",
     "zip",
     "zipPlugin",
-
     -- Providers
     "node_provider",
     "ruby_provider",
     "perl_provider",
     "python_provider",
-    "python3_provider",
+    "python3_provider"
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-   vim.g["loaded_" .. plugin] = 1
+    vim.g["loaded_" .. plugin] = 1
 end
 
 vim.o.autoread = true -- Automatically reload files changed outside of vim
@@ -43,7 +42,7 @@ vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%t%m%r%=%c:%l"
 vim.o.termguicolors = true -- enable true colors support
-vim.o.timeoutlen = 400 -- 400 ms wait to sequence complete
+vim.o.timeoutlen = 200 -- ms wait to sequence complete
 vim.wo.wrap = false
 
 -- Packer
@@ -55,18 +54,24 @@ require("packer").startup(
         use {"ludovicchabant/vim-gutentags"}
         use {"luxed/ayu-vim", config = "vim.cmd [[colorscheme ayu]]"}
         use {"neoclide/coc.nvim", branch = "release"}
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = function()
-            require('nvim-treesitter.configs').setup({
-                ensure_installed = "maintained",
-                highlight = {
-                    enable = true,
-                    use_languagetree = true,
-                }
-            })
-            vim.o.foldmethod = 'expr'
-            vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-            vim.o.foldlevel = 20
-        end}
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate",
+            config = function()
+                require("nvim-treesitter.configs").setup(
+                    {
+                        ensure_installed = "maintained",
+                        highlight = {
+                            enable = true,
+                            use_languagetree = true
+                        }
+                    }
+                )
+                vim.o.foldmethod = "expr"
+                vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+                vim.o.foldlevel = 20
+            end
+        }
         use {"tpope/vim-commentary"}
         use {"tpope/vim-surround"}
         use {"wbthomason/packer.nvim", opt = true}
