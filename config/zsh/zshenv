@@ -26,9 +26,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export HISTSIZE=10000000
-export SAVEHIST=$HISTSIZE
-
 # If it's been more than this number of seconds since Homebrew was last
 # updated, automatically run `brew update` before `brew install`.
 # 604800 is 1 week in seconds (60 * 60 * 24 * 7).
@@ -55,8 +52,9 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 export ZCOMPDUMP=$ZDOTDIR/.zcompdump
 export FPATH=$ZDOTDIR/functions:$FPATH
 export HISTFILE=$ZDOTDIR/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=10000000
+export SAVEHIST=$HISTSIZE
+
 
 export _Z_DATA=$XDG_DATA_HOME/z/z.txt
 
