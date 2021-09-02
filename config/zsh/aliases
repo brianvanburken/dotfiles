@@ -31,6 +31,11 @@ alias v='vim'
 alias vi='vim'
 alias vim='nvim'
 
+# Tmux
+alias tm='tmux'
+alias tma='tmux attach'
+alias tml='tmux ls'
+
 # Git
 alias fix='git diff --name-only | uniq | xargs -o $EDITOR'
 alias g='git'
