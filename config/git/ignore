@@ -1,5 +1,6 @@
 *.bak
 *.tmp
+*.temp
 *.old
 
 # macOS
@@ -15,6 +16,7 @@
 
 # Auto-generated tag files
 tags
+tags.lock
 
 # Per project based ignore file for rg
 .ignore
