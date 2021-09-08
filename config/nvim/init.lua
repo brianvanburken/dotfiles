@@ -50,10 +50,40 @@ vim.api.nvim_command("packadd packer.nvim")
 require("packer").startup(
     function(use)
         use {"editorconfig/editorconfig-vim"}
+        use {"christoomey/vim-tmux-navigator"}
         use {"junegunn/fzf.vim", cmd = {"Ag", "Files", "Tags"}, requires = "/usr/local/opt/fzf"}
         use {"ludovicchabant/vim-gutentags"}
         use {"luxed/ayu-vim", config = "vim.cmd [[colorscheme ayu]]"}
-        use {"neoclide/coc.nvim", branch = "release"}
+        use {
+            "neoclide/coc.nvim",
+            branch = "release",
+            config = function()
+                -- CoC
+                -- Use `[g` and `]g` to navigate diagnostics
+                -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+                vim.api.nvim_set_keymap("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
+                vim.api.nvim_set_keymap("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
+
+                -- GoTo code navigation.
+                vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-definition)", {silent = true, noremap = true})
+                vim.api.nvim_set_keymap("n", "gy", "<Plug>(coc-type-definition)", {silent = true, noremap = true})
+                vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", {silent = true, noremap = true})
+                vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", {silent = true, noremap = true})
+
+                -- Use K to show documentation in preview window.
+                vim.api.nvim_set_keymap("n", "K", ":lua ShowDocumentation()<CR>", {silent = true, noremap = true})
+                function ShowDocumentation()
+                    local filetype = vim.bo.filetype
+                    if filetype == "vim" or filetype == "help" then
+                        vim.api.nvim_command("h " .. vim.fn.expand("<cword>"))
+                    elseif vim.call("coc#rpc#ready") then
+                        vim.fn.CocActionAsync("doHover")
+                    else
+                        vim.api.nvim_command("!" .. vim.bo.keywordprg .. " " .. vim.fn.expand("<cword>"))
+                    end
+                end
+            end
+        }
         use {
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate",
@@ -82,28 +112,3 @@ require("packer").startup(
 vim.api.nvim_set_keymap("n", "<C-a>", ":Rg!<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-p>", ":Files!<CR>", {})
 vim.api.nvim_set_keymap("n", "<C-t>", ":Tags!<CR>", {})
-
--- CoC
--- Use `[g` and `]g` to navigate diagnostics
--- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-vim.api.nvim_set_keymap("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
-vim.api.nvim_set_keymap("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
-
--- GoTo code navigation.
-vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-definition)", {silent = true})
-vim.api.nvim_set_keymap("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
-vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", {silent = true})
-vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", {silent = true})
-
--- Use K to show documentation in preview window.
-vim.api.nvim_set_keymap("n", "K", ":lua ShowDocumentation()<CR>", {silent = true})
-function ShowDocumentation()
-    local filetype = vim.bo.filetype
-    if filetype == "vim" or filetype == "help" then
-        vim.api.nvim_command("h " .. vim.fn.expand("<cword>"))
-    elseif vim.call("coc#rpc#ready") then
-        vim.fn.CocActionAsync("doHover")
-    else
-        vim.api.nvim_command("!" .. vim.bo.keywordprg .. " " .. vim.fn.expand("<cword>"))
-    end
-end
