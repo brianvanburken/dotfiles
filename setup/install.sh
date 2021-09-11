@@ -281,9 +281,8 @@ fi
 readonly NVIM_DIR=$PLUG_DIR/nvim
 if [ ! -d $NVIM_DIR ]; then
     action "Installing neovim plugins"
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-      ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+    curl -fLo $NVIM_DIR/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    nvim +PlugInstall +qall
     ok "Neovim plugins installed"
 fi
 
