@@ -15,6 +15,9 @@ export DOT_DIR=${DOT_DIR:=$DEV_DIR/personal/dotfiles}
 # Directory for plugins
 export PLUG_DIR=${XDG_DATA_HOME:=$HOME/.local/share}
 
+# Directory for configs
+export CONF_DIR=${XDG_CONFIG_HOME:=$HOME/.config}
+
 # Name of dotfiles repo
 readonly DOT_REPO=brianvanburken/dotfiles
 
@@ -151,7 +154,7 @@ cached_sudo
 
 action "Installing some very nice apps and tools..."
 cached_sudo
-curl -fsSL "$SOURCE_URL/config/homebrew/Brewfile" | brew bundle --file=- | strip_colors
+curl -fsSL "$SOURCE_URL/setup/Brewfile" | brew bundle --file=- | strip_colors
 ok "Installing software done."
 
 # Reload sudo
@@ -281,8 +284,8 @@ fi
 readonly NVIM_DIR=$PLUG_DIR/nvim
 if [ ! -d $NVIM_DIR ]; then
     action "Installing neovim plugins"
-    curl -fLo $NVIM_DIR/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    nvim +PlugInstall +qall
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim $NVIM_DIR/site/pack/packer/start/packer.nvim
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     ok "Neovim plugins installed"
 fi
 
@@ -322,10 +325,10 @@ ln -s $DOT_DIR/config/ripgrep/ignore $DEV_DIR/.ignore
 ok "Done linking configurations"
 
 action "Creating local .zshrc"
-touch $HOME/.config/zsh/.zshrc.local
+touch $CONF_DIR/zsh/.zshrc.local
 
 action "Change hammerspoon directory to respect XDG"
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$CONF_DIR/hammerspoon/init.lua"
 ok "Done setting up hammerspoon"
 
 if [[ -r /usr/local/bin/asdf ]]; then
