@@ -288,7 +288,9 @@ fi
 
 action "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
+    "config/alacritty"
     "config/asdf"
+    "config/ctags"
     "config/editorconfig"
     "config/git"
     "config/hammerspoon"
@@ -296,6 +298,7 @@ files=(
     "config/npm"
     "config/nvim"
     "config/ripgrep"
+    "config/tmux"
     "config/zsh"
 )
 for x in "${files[@]}"; do
