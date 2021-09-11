@@ -45,7 +45,6 @@ vim.o.termguicolors = true -- enable true colors support
 vim.o.timeoutlen = 200 -- ms wait to sequence complete
 vim.wo.wrap = false
 
--- Packer
 vim.api.nvim_command("packadd packer.nvim")
 require("packer").startup(
     function(use)
@@ -61,7 +60,16 @@ require("packer").startup(
             end
         }
         use {"ludovicchabant/vim-gutentags"}
-        use {"luxed/ayu-vim", config = "vim.cmd [[colorscheme ayu]]"}
+        use {
+            "shatur/neovim-ayu",
+            config = function()
+                vim.cmd [[
+                colorscheme ayu
+                highlight Normal ctermbg=none guibg=none
+                highlight NonText ctermbg=none guibg=none
+                ]]
+            end
+        }
         use {
             "neoclide/coc.nvim",
             branch = "release",
