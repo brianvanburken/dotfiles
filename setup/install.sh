@@ -478,9 +478,9 @@ defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 # Reduce the spring loading delay for directories
 defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
 
-# Use column view in all Finder windows by default
+# Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
