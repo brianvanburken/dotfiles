@@ -492,6 +492,11 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true
 
+# Kill affected apps
+for app in "Dock" "Finder" "Mail"; do
+  killall "${app}" > /dev/null 2>&1
+done
+
 ok "Done setting macOS preferences"
 
 echo "🍺 Your MacBook is configured!"
