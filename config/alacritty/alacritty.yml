@@ -62,34 +62,65 @@ font:
   # Point size of the font
   size: 12.0
 
-# Colors (Ayu Dark)
-colors:
-  # Default colors
-  primary:
-    background: '0x0f1419'
-    foreground: '0xe6e1cf'
+schemes:
+  ayu:
+    dark: &ayu_dark
+      # Default colors
+      primary:
+        background: '0x0f1419'
+        foreground: '0xe6e1cf'
 
-  # Normal colors
-  normal:
-    black:   '0x000000'
-    red:     '0xf34a4a'
-    green:   '0xbae67e'
-    yellow:  '0xffee99'
-    blue:    '0x73d0ff'
-    magenta: '0xd4bfff'
-    cyan:    '0x83CEC6'
-    white:   '0xf2f2f2'
+      # Normal colors
+      normal:
+        black:   '0x000000'
+        blue:    '0x73d0ff'
+        cyan:    '0x83CEC6'
+        green:   '0xbae67e'
+        magenta: '0xd4bfff'
+        red:     '0xf34a4a'
+        white:   '0xf2f2f2'
+        yellow:  '0xffee99'
 
-  # Bright colors
-  bright:
-    black:   '0x737d87'
-    red:     '0xff3333'
-    green:   '0xc2d94c'
-    yellow:  '0xe7c547'
-    blue:    '0x59c2ff'
-    magenta: '0xb77ee0'
-    cyan:    '0x5ccfe6'
-    white:   '0xffffff'
+      # Bright colors
+      bright:
+        black:   '0x737d87'
+        blue:    '0x59c2ff'
+        cyan:    '0x5ccfe6'
+        green:   '0xc2d94c'
+        magenta: '0xb77ee0'
+        red:     '0xff3333'
+        white:   '0xffffff'
+        yellow:  '0xe7c547'
+
+    light: &ayu_light
+      primary:
+        background: '0xfafafa'
+        foreground: '0x5b6672'
+
+      # Normal colors
+      normal:
+        black:   '0x000000'
+        blue:    '0x41a5d9'
+        cyan:    '0x4dbf98'
+        green:   '0x76cc00'
+        magenta: '0x9965cc'
+        red:     '0xf2590b'
+        white:   '0xc7c7c7'
+        yellow:  '0xf29717'
+
+      # Bright colors
+      bright:
+        black:   '0x676767'
+        blue:    '0x6871ff'
+        cyan:    '0x56d9ad'
+        green:   '0xa3d900'
+        magenta: '0xa37acc'
+        red:     '0xd6646a'
+        white:   '0xfeffff'
+        yellow:  '0xe7c446'
+
+
+colors: *ayu_light
 
 # Create/attach to Tmux session on startup
 shell:
