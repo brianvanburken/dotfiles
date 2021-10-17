@@ -90,3 +90,11 @@ colors:
     magenta: '0xb77ee0'
     cyan:    '0x5ccfe6'
     white:   '0xffffff'
+
+# Create/attach to Tmux session on startup
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
