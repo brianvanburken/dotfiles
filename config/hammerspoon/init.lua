@@ -9,17 +9,6 @@ hs.hints.showTitleThresh = 0
 hs.application.enableSpotlightForNameSearches(true)
 
 -----------------------------------------------
--- Reload config on write
------------------------------------------------
-hs.pathwatcher.new(
-    os.getenv("HOME") .. "/.config/hammerspoon/",
-    function()
-        hs.reload()
-        hs.alert.show("Config loaded")
-    end
-):start()
-
------------------------------------------------
 -- Window management
 -----------------------------------------------
 hs.hotkey.bind({'ctrl', 'alt'}, 'return', function () ResizeWindow('native_fullscreen') end);
@@ -132,11 +121,11 @@ function ResizeWindow(direction)
             win:setFrame(absolutef)
         end
 
-        -- +-----+------------+
-        -- |     |            |
-        -- |  x  |            |
-        -- |     |            |
-        -- +-----+------------+
+        -- +-----+-----+-----+
+        -- |     |     |     |
+        -- |  x  |     |     |
+        -- |     |     |     |
+        -- +-----+-----+-----+
         if direction == "thirdleft" then
             localf.x = 0
             localf.y = 0
@@ -280,9 +269,9 @@ function ResizeWindow(direction)
         end
 
         -- +-----------------+
-        -- |                 |
-        -- |        x        |
-        -- |                 |
+        -- |+---------------+|
+        -- ||       x       ||
+        -- |+---------------+|
         -- +-----------------+
         if direction == "fullscreen" then
             localf.x = 0
