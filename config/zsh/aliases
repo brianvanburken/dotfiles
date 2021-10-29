@@ -54,7 +54,7 @@ alias gr='git restore'
 alias gs='git switch'
 alias gsc='git switch -c'
 alias gsd='git switch develop'
-alias gsm='git switch master'
+alias gsm='git switch main 2>/dev/null | git switch master'
 alias gws='git status'
 
 # General
