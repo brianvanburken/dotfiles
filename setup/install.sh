@@ -154,7 +154,12 @@ cached_sudo
 
 action "Installing some very nice apps and tools..."
 cached_sudo
-curl -fsSL "$SOURCE_URL/setup/Brewfile" | brew bundle --file=- | strip_colors
+brew_file="setup/Brewfile"
+if [[ ! -r $DOT_DIR ]]; then
+  curl -fsSL "$SOURCE_URL/$brew_file" | brew bundle --file=- | strip_colors
+else
+  brew bundle --file="$DOT_DIR/$brew_file"
+fi
 ok "Installing software done."
 
 # Reload sudo
