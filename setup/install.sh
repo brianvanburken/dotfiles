@@ -28,7 +28,7 @@ readonly SOURCE_URL=${SOURCE_URL:=https://raw.githubusercontent.com/$DOT_REPO/ma
 readonly OS_VERSION="$(sw_vers -productVersion)"
 
 # Supported macOS versions
-readonly SUPPORTED_MACOS_VERSIONS=("11")
+readonly SUPPORTED_MACOS_VERSIONS=("11", "12")
 
 # Determine Mac model
 readonly APPLE_COMPUTER_TYPE="$(sysctl hw.model | awk '{print $2}')"
