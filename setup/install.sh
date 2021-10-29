@@ -298,7 +298,6 @@ action "Linking dotfiles in $HOME to $DOT_DIR"
 files=(
     "config/alacritty"
     "config/asdf"
-    "config/ctags"
     "config/editorconfig"
     "config/git"
     "config/hammerspoon"
@@ -317,6 +316,10 @@ done
 action "Linking $HOME/.zshenv"
 rm -f $HOME/.zshenv
 ln -s $DOT_DIR/config/zsh/zshenv $HOME/.zshenv
+
+action "Linking $HOME/.ctags"
+rm -f $HOME/.ctags
+ln -s $DOT_DIR/config/ctags/.ctags $HOME/.ctags
 
 action "Linking $DEV_DIR/.editorignore"
 rm -f $DEV_DIR/.editorconfig

@@ -48,6 +48,7 @@ require("packer").startup(
     function(use)
         use {"christoomey/vim-tmux-navigator"}
         use {"editorconfig/editorconfig-vim"}
+        use {"ludovicchabant/vim-gutentags"}
         use {
             "junegunn/fzf.vim",
             requires = "/usr/local/opt/fzf",
