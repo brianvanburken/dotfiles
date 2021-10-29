@@ -294,3 +294,21 @@ function ResizeWindow(direction)
         hs.alert.show("No focused window!")
     end
 end
+
+-----------------------------------------------
+-- Application management
+-----------------------------------------------
+local applicationHotkeys = {
+  f = 'Firefox',
+  t = 'Alacritty',
+  s = 'Slack',
+  j = 'Spotify',
+  m = 'Mail',
+  e = 'Evernote'
+}
+
+for key, app in pairs(applicationHotkeys) do
+  hs.hotkey.bind({'alt', 'cmd'}, key, function()
+    hs.application.launchOrFocus(app)
+  end)
+end
