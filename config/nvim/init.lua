@@ -42,10 +42,8 @@ vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%t%m%r%=%c:%l"
 vim.o.termguicolors = true -- enable true colors support
-vim.o.timeoutlen = 200 -- ms wait to sequence complete
 vim.wo.wrap = false
 
-vim.api.nvim_command("packadd packer.nvim")
 require("packer").startup(
     function(use)
         use {"christoomey/vim-tmux-navigator"}
@@ -59,7 +57,6 @@ require("packer").startup(
                 vim.api.nvim_set_keymap("n", "<C-t>", ":Tags!<CR>", {})
             end
         }
-        use {"ludovicchabant/vim-gutentags"}
         use {
             "shatur/neovim-ayu",
             config = function()
@@ -105,7 +102,21 @@ require("packer").startup(
             config = function()
                 require("nvim-treesitter.configs").setup(
                     {
-                        ensure_installed = "maintained",
+                        ensure_installed = {
+                            "bash",
+                            "css",
+                            "html",
+                            "javascript",
+                            "jsdoc",
+                            "json",
+                            "lua",
+                            "regex",
+                            "ruby",
+                            "rust",
+                            "scss",
+                            "tsx",
+                            "yaml"
+                        },
                         highlight = {
                             enable = true,
                             use_languagetree = true
@@ -120,6 +131,6 @@ require("packer").startup(
         }
         use {"tpope/vim-commentary"}
         use {"tpope/vim-surround"}
-        use {"wbthomason/packer.nvim", opt = true}
+        use {"wbthomason/packer.nvim"}
     end
 )
