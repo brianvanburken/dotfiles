@@ -299,12 +299,12 @@ end
 -- Application management
 -----------------------------------------------
 local applicationHotkeys = {
-  f = 'Firefox',
-  t = 'Alacritty',
-  s = 'Slack',
-  j = 'Spotify',
-  m = 'Mail',
-  e = 'Evernote'
+  c = 'Slack', -- Chat
+  b = 'Firefox', -- Browser
+  m = 'Mail', -- Mail
+  n = 'Notes', -- Notes
+  s = 'Spotify', -- Sounds
+  t = 'Alacritty', -- Terminal
 }
 
 for key, app in pairs(applicationHotkeys) do
