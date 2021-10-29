@@ -67,8 +67,8 @@ schemes:
     dark: &ayu_dark
       # Default colors
       primary:
-        background: '0x0f1419'
-        foreground: '0xe6e1cf'
+        background: '0x0D1017'
+        foreground: '0xBFBDB6'
 
       # Normal colors
       normal:
@@ -120,7 +120,7 @@ schemes:
         yellow:  '0xe7c446'
 
 
-colors: *ayu_light
+colors: *ayu_dark
 
 # Create/attach to Tmux session on startup
 shell:
