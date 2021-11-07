@@ -3,7 +3,7 @@
 # NPM
 alias n='npm'
 alias na='npm audit'
-alias ni='npm install --no-audit --prefer-offline'
+alias ni='npm install --no-audit --prefer-offline --progress=false'
 alias nic='rm -rf node_modules/ && npm ci --no-audit --prefer-offline'
 alias nid='ni --save-dev'
 alias nig='ni --global'
@@ -15,8 +15,9 @@ alias nx='npx'
 
 # Yarn
 alias y='yarn'
-alias yi='yarn install'
-alias yic='rm -rf node_modules/.yarn-integrity && yarn install'
+alias ya='yarn audit'
+alias yi='yarn install --prefer-offline'
+alias yic='rm -rf node_modules/.yarn-integrity && yi'
 alias yid='yarn add --dev'
 alias yig='yarn add --global'
 alias yis='yarn add'
