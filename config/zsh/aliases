@@ -3,8 +3,9 @@
 # NPM
 alias n='npm'
 alias na='npm audit'
-alias ni='npm install --no-audit --prefer-offline --progress=false'
-alias nic='rm -rf node_modules/ && npm ci --no-audit --prefer-offline'
+alias ncc='npm cache clear --force'
+alias ni='npm install'
+alias nic='rm -rf node_modules && npm ci'
 alias nid='ni --save-dev'
 alias nig='ni --global'
 alias nis='ni --save'
