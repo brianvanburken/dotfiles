@@ -1,4 +1,5 @@
-progress=false
 loglevel=warn
-prefer-offline=true
 no-audit=true
+prefer-offline=true
+progress=false
+cache=${XDG_CACHE_HOME}/npm
