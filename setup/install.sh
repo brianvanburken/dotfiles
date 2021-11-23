@@ -329,6 +329,11 @@ action "Linking $DEV_DIR/.ignore"
 rm -f $DEV_DIR/.ignore
 ln -s $DOT_DIR/config/ripgrep/ignore $DEV_DIR/.ignore
 
+action "Linking $HOME/.config/gnupg/gpg-agent.conf"
+rm -f $HOME/.config/gnupg/gpg-agent.conf
+mkdir -p $HOME/.config/gnupg/
+ln -s $DOT_DIR/config/gnupg/gpg-agent.conf $HOME/.config/gnupg/gpg-agent.conf
+
 ok "Done linking configurations"
 
 action "Creating local .zshrc"
