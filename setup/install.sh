@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 # Force specific PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
 # Location where to store code
 export DEV_DIR=${DEV_DIR:=$HOME/Developer}
