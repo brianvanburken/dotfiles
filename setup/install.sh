@@ -295,6 +295,7 @@ if [ ! -d $NVIM_DIR ]; then
 fi
 
 action "Linking dotfiles in $HOME to $DOT_DIR"
+mkdir -p $HOME/.config
 files=(
     "config/alacritty"
     "config/asdf"
