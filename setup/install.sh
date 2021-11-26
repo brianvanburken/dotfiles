@@ -123,7 +123,7 @@ fi
 cached_sudo
 
 # Install Homebrew
-if [[ ! -r /usr/local/bin/brew ]]; then
+if [[ ! -r /opt/homebrew/bin/brew ]]; then
     notice " Need to install Homebrew..."
     action "Installing Homebrew and required components. This may take some time... ☕️ "
 
