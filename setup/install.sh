@@ -3,20 +3,22 @@
 set -e
 set -o pipefail
 
+# Set XDG config
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+# Set Homebrew prefix
+export HOMEBREW_PREFIX="/opt/homebrew";
+
 # Force specific PATH
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
 
 # Location where to store code
 export DEV_DIR=${DEV_DIR:=$HOME/Developer}
 
 # Location where to store configrations
 export DOT_DIR=${DOT_DIR:=$DEV_DIR/personal/dotfiles}
-
-# Directory for plugins
-export PLUG_DIR=${XDG_DATA_HOME:=$HOME/.local/share}
-
-# Directory for configs
-export CONF_DIR=${XDG_CONFIG_HOME:=$HOME/.config}
 
 # Name of dotfiles repo
 readonly DOT_REPO=brianvanburken/dotfiles
@@ -129,11 +131,11 @@ fi
 cached_sudo
 
 # Install Homebrew
-if [[ ! -r /opt/homebrew/bin/brew ]]; then
+if [[ ! -r $HOMEBREW_PREFIX/bin/brew ]]; then
     notice " Need to install Homebrew..."
     action "Installing Homebrew and required components. This may take some time... ☕️ "
 
-    /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" >/dev/null
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor >/dev/null
     ok "Installing Homebrew done"
 else
@@ -160,11 +162,11 @@ cached_sudo
 
 action "Installing some very nice apps and tools..."
 cached_sudo
-brew_file="setup/Brewfile"
-if [[ ! -r $DOT_DIR ]]; then
+brew_file="$DOT_DIR/setup/Brewfile"
+if [[ ! -f $brew_file ]]; then
   curl -fsSL "$SOURCE_URL/$brew_file" | brew bundle --file=- | strip_colors
 else
-  brew bundle --file="$DOT_DIR/$brew_file"
+  brew bundle --file=$brew_file
 fi
 ok "Installing software done."
 
@@ -292,10 +294,10 @@ else
     ok "Dotfiles already present"
 fi
 
-readonly NVIM_DIR=$PLUG_DIR/nvim
+readonly NVIM_DIR=$XDG_DATA_HOME/nvim
 if [ ! -d $NVIM_DIR ]; then
     action "Installing neovim plugins"
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim $NVIM_DIR/site/pack/packer/start/packer.nvim
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim $NVIM_DIR/site/pack/packer/start/packer.nvim && \
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     ok "Neovim plugins installed"
 fi
@@ -336,21 +338,23 @@ action "Linking $DEV_DIR/.ignore"
 rm -f $DEV_DIR/.ignore
 ln -s $DOT_DIR/config/ripgrep/ignore $DEV_DIR/.ignore
 
-action "Linking $HOME/.config/gnupg/gpg-agent.conf"
-rm -f $HOME/.config/gnupg/gpg-agent.conf
-mkdir -p $HOME/.config/gnupg/
-ln -s $DOT_DIR/config/gnupg/gpg-agent.conf $HOME/.config/gnupg/gpg-agent.conf
+readonly GNUPG_DIR="$XDG_CONFIG_HOME/gnupg"
+action "Linking $GNUPG_DIR/gpg-agent.conf"
+mkdir -p "$GNUPG_DIR"
+chmod 700 "$GNUPG_DIR"
+rm -f "$GNUPG_DIR/gpg-agent.conf"
+ln -s "$DOT_DIR/config/gnupg/gpg-agent.conf" "$GNUPG_DIR/gpg-agent.conf"
 
 ok "Done linking configurations"
 
 action "Creating local .zshrc"
-touch $CONF_DIR/zsh/.zshrc.local
+touch $XDG_CONFIG_HOME/zsh/.zshrc.local
 
 action "Change hammerspoon directory to respect XDG"
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "$CONF_DIR/hammerspoon/init.lua"
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_DIR/hammerspoon/init.lua"
 ok "Done setting up hammerspoon"
 
-if [[ -r /usr/local/bin/asdf ]]; then
+if [[ -r $HOMEBREW_PREFIX/bin/asdf ]]; then
     action "Adding asdf plugins"
     asdf plugin-add ruby || true
     asdf plugin-add nodejs || true
@@ -360,27 +364,13 @@ if [[ -r /usr/local/bin/asdf ]]; then
     ok "asdf plugins added"
 
     action "Installing asdf versions"
-    cd ~
     asdf install
-    cd - >/dev/null 2>&1
+    ok "Installed asdf versions"
 else
     warning "asdf plugin manager not found"
 fi
 
 # Prolong sudo
-cached_sudo
-
-readonly HOST_DIR=$DEV_DIR/oss/hosts
-if [ ! -d $HOST_DIR ]; then
-    action "Setup blacklist hostfile"
-    git clone https://github.com/StevenBlack/hosts.git --depth=1 $HOST_DIR
-    cd $HOST_DIR
-    pip install -r requirements.txt
-    pip run python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
-    cd -
-    ok "Done setup hostfile"
-fi
-
 cached_sudo
 
 action "Setting macOS preferences"
