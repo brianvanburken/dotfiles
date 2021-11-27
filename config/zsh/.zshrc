@@ -38,6 +38,8 @@ else
 fi
 
 csource $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+csource $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh
+csource $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
 csource $ZDOTDIR/aliases
 csource $ZDOTDIR/.zshrc.local
 
