@@ -101,7 +101,13 @@ readonly OS_MAJOR_VERSION=$(echo ${OS_VERSION} | cut -f 1,1 -d '.')
 # possibilities (looping over the array) are harder to read. Thus we decided to
 # keep the value on the right hand side.
 if [[ ! ${SUPPORTED_MACOS_VERSIONS[@]} =~ ${OS_MAJOR_VERSION} ]]; then
-    error "You are running an unsupported version of macOS (${OS_MAJOR_VERSION}). Upgrade first and re-run this script. Or create an OPS ticket if you are running the latest version of macOS"
+    error "You are running an unsupported version of macOS (${OS_MAJOR_VERSION}). Upgrade first and re-run this script."
+    cleanup_and_exit 1
+fi
+
+readonly ARCHITECTURE=$(uname -m)
+if [[ "arm64" =~ ${ARCHITECTURE} ]]; then
+    error "You are running an unsupported architecture (${ARCHITECTURE}). Run with supported ARM64."
     cleanup_and_exit 1
 fi
 
