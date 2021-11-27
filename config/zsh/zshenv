@@ -55,8 +55,7 @@ export HISTFILE=$ZDOTDIR/.zsh_history
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 
-
-export _Z_DATA=$XDG_DATA_HOME/z/z.txt
+export _Z_DATA=$XDG_CACHE_HOME/z/z.txt
 
 export ASDF_CONFIG_DIR=$XDG_CONFIG_HOME/asdf
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=$ASDF_CONFIG_DIR/tool-versions
