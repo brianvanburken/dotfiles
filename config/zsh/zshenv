@@ -22,19 +22,22 @@ export XDG_RUNTIME_DIR=$XDG_DATA_HOME
 export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_HOME
 export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_HOME
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-
+# Output `brew shellenv`
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export HOMEBREW_SHELLENV_PREFIX="/opt/homebrew";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 # If it's been more than this number of seconds since Homebrew was last
 # updated, automatically run `brew update` before `brew install`.
 # 604800 is 1 week in seconds (60 * 60 * 24 * 7).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_INSTALL_CLEANUP=1
-export HOMEBREW_DIR=/usr/local
+export HOMEBREW_DIR=$HOMEBREW_PREFIX/bin
 
-export PATH=$HOMEBREW_DIR/sbin:$PATH
+export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
 export PATH=$XDG_DATA_HOME/shell:$PATH
 
 export EDITOR=nvim

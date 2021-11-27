@@ -37,8 +37,7 @@ else
   compinit -C
 fi
 
-csource $HOMEBREW_DIR/opt/asdf/asdf.sh
-csource $XDG_RUNTIME_DIR/fzf/setup.sh
+csource $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 csource $ZDOTDIR/aliases
 csource $ZDOTDIR/.zshrc.local
 
