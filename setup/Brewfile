@@ -1,14 +1,13 @@
 tap "homebrew/cask"
 
 brew "asdf"
-brew "ctags"
 brew "direnv"
-brew "fzf"
 brew "git"
 brew "gnupg"
 brew "neovim"
 brew "pinentry-mac"
 brew "ripgrep"
+brew "tmux"
 brew "z"
 
 cask "1password"
