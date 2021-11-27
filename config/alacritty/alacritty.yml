@@ -45,17 +45,17 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: "Input Mono"
+    family: "Menlo"
     style: Regular
     antialias: false
 
   bold:
-    family: "Input Mono"
+    family: "Menlo"
     style: Regular
     antialias: false
 
   italic:
-    family: "Input Mono"
+    family: "Menlo"
     style: Regular
     antialias: false
 
