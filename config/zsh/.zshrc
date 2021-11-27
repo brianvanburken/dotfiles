@@ -37,6 +37,14 @@ else
   compinit -C
 fi
 
+path=(
+  $HOMEBREW_PREFIX/bin
+  $HOMEBREW_PREFIX/sbin
+  $HOMEBREW_PREFIX/opt/fzf/bin
+  $XDG_DATA_HOME/shell
+  $path
+)
+
 csource $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 csource $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh
 csource $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
