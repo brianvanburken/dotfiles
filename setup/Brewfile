@@ -2,6 +2,7 @@ tap "homebrew/cask"
 
 brew "asdf"
 brew "direnv"
+brew "fd"
 brew "fzf"
 brew "git"
 brew "gnupg"
