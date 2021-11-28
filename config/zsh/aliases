@@ -14,19 +14,6 @@ alias nog='npm outdated -g --depth=0'
 alias nr='npm run'
 alias nx='npx'
 
-# Yarn
-alias y='yarn'
-alias ya='yarn audit'
-alias yi='yarn install --prefer-offline'
-alias yic='rm -rf node_modules/.yarn-integrity && yi'
-alias yid='yarn add --dev'
-alias yig='yarn add --global'
-alias yis='yarn add'
-alias yo='yarn outdated'
-alias yog='yarn global outdated'
-alias yr='yarn run'
-alias yx='yarn dlx'
-
 # NeoVim/Vim
 alias e='vim'
 alias svim='sudo vim'
