@@ -19,18 +19,7 @@
     "sass",
     "scss",
     "typescript",
-    "typescript.tsx",
     "typescriptreact"
   ],
-  "languageserver": {
-    "elmLS": {
-      "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"],
-      "initializationOptions": {
-        "elmAnalyseTrigger": "never"
-      }
-    }
-  },
   "Lua.diagnostics.globals": ["vim", "hs"]
 }
