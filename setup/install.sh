@@ -313,6 +313,7 @@ files=(
     "config/npm"
     "config/nvim"
     "config/ripgrep"
+    "config/rsync"
     "config/tmux"
     "config/zsh"
 )
