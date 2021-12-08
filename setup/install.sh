@@ -352,7 +352,7 @@ action "Creating local .zshrc"
 touch $XDG_CONFIG_HOME/zsh/.zshrc.local
 
 action "Change hammerspoon directory to respect XDG"
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_DIR/hammerspoon/init.lua"
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
 ok "Done setting up hammerspoon"
 
 if [[ -r $HOMEBREW_PREFIX/bin/asdf ]]; then
