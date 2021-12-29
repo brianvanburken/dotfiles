@@ -77,6 +77,8 @@ export ELM_HOME=$XDG_CACHE_HOME/elm
 
 export BABEL_CACHE_PATH=$XDG_CACHE_HOME/babel.json
 
+export NVIM_COC_LOG_FILE=$XDG_CACHE_HOME/coc-nvim.log
+
 # Disable virtual env prompt prefix
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
