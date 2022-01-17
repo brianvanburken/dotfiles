@@ -159,8 +159,8 @@ cached_sudo
 
 action "Installing some very nice apps and tools..."
 cached_sudo
-brew_file="$DOT_DIR/setup/Brewfile"
-if [[ ! -f $brew_file ]]; then
+brew_file="setup/Brewfile"
+if [[ ! -f "$DOT_DIR/$brew_file" ]]; then
   curl -fsSL "$SOURCE_URL/$brew_file" | brew bundle --file=- | strip_colors
 else
   brew bundle --file=$brew_file
