@@ -1,0 +1,7 @@
+{
+  "css": {
+    "snippets": {
+      "bsd": "border: 1px solid ${1:red}"
+    }
+  }
+}
