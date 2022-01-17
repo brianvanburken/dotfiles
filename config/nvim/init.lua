@@ -77,6 +77,18 @@ require("packer").startup(
             "neoclide/coc.nvim",
             branch = "release",
             config = function()
+                vim.g.coc_global_extensions = {
+                    'coc-css',
+                    'coc-emmet',
+                    'coc-html',
+                    'coc-html-css-support',
+                    'coc-json',
+                    'coc-lua',
+                    'coc-prettier',
+                    'coc-snippets',
+                    'coc-tsserver',
+                }
+
                 -- Use `[g` and `]g` to navigate diagnostics
                 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
                 vim.api.nvim_set_keymap("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
