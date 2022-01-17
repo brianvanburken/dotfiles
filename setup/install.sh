@@ -493,6 +493,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
+# Set dock to left of screen
+defaults write com.apple.dock orientation -string "left"
+
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
