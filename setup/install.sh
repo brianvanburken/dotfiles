@@ -9,7 +9,10 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
 # Set Homebrew prefix
-export HOMEBREW_PREFIX="/opt/homebrew";
+case "$(uname -m)" in
+ arm64) export HOMEBREW_PREFIX="/opt/homebrew" ;;
+ *)     export HOMEBREW_PREFIX="/usr/local" ;;
+esac
 
 # Force specific PATH
 export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
@@ -104,12 +107,6 @@ readonly OS_MAJOR_VERSION=$(echo ${OS_VERSION} | cut -f 1,1 -d '.')
 # keep the value on the right hand side.
 if [[ ! ${SUPPORTED_MACOS_VERSIONS[@]} =~ ${OS_MAJOR_VERSION} ]]; then
     error "You are running an unsupported version of macOS (${OS_MAJOR_VERSION}). Upgrade first and re-run this script."
-    cleanup_and_exit 1
-fi
-
-readonly ARCHITECTURE=$(uname -m)
-if [[ "arm64" =~ ${ARCHITECTURE} ]]; then
-    error "You are running an unsupported architecture (${ARCHITECTURE}). Run with supported ARM64."
     cleanup_and_exit 1
 fi
 
