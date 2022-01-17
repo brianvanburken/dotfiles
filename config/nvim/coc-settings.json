@@ -21,5 +21,23 @@
     "typescript",
     "typescriptreact"
   ],
-  "Lua.diagnostics.globals": ["vim", "hs"]
+  "Lua.diagnostics.globals": ["vim", "hs"],
+
+  "emmet.excludeLanguages": ["markdown"],
+  "emmet.extensionsPath": "~/.config/emmet/",
+  "emmet.syntaxProfiles": {
+    "html": {
+      "filters": "html, bem"
+    }
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.preferences": {
+    "bem.elementSeparator": "__",
+    "bem.modifierSeparator": "--",
+    "bem.shortElementPrefix": "-"
+  }
 }
