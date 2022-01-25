@@ -1,5 +1,7 @@
 export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})$%f "
 
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/opt/fzf/bin:$XDG_DATA_HOME/shell:$PATH"
+
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
 setopt inc_append_history     # Write to the history file immediately, not when the shell exits.
@@ -30,26 +32,18 @@ autoload -Uz compinit
 
 # Run compinit once a day based on the date of the zcompdump file
 if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP 2>/dev/null || echo -1) ]; then
-  compinit -C -d $ZCOMPDUMP
+  compinit -C -d "$ZCOMPDUMP"
   # Update time of zcompdump file in case nothing has changed
-  touch $ZCOMPDUMP
+  touch "$ZCOMPDUMP"
 else
   compinit -C
 fi
 
-path=(
-  $HOMEBREW_PREFIX/bin
-  $HOMEBREW_PREFIX/sbin
-  $HOMEBREW_PREFIX/opt/fzf/bin
-  $XDG_DATA_HOME/shell
-  $path
-)
-
-csource $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
-csource $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh
-csource $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
-csource $ZDOTDIR/aliases
-csource $ZDOTDIR/.zshrc.local
+csource "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
+csource "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+csource "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+csource "$ZDOTDIR/aliases"
+csource "$ZDOTDIR/.zshrc.local"
 
 # Cache direnv hook
 evalcache direnv hook zsh

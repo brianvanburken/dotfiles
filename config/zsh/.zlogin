@@ -2,7 +2,7 @@
 {
   source "$ZDOTDIR/functions/zcompare"
 
-  zcompare $ZCOMPDUMP
-  zcompare $ZDOTDIR/.zshrc
+  zcompare "$ZCOMPDUMP"
+  zcompare "$ZDOTDIR/.zshrc"
 
 } &!
