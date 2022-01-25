@@ -1,9 +1,9 @@
-# Block ADs and other analytics
+# Block ads and other analytics
 export ADBLOCK=true
 export DISABLE_OPENCOLLECTIVE=true
 export DO_NOT_TRACK=1 # https://consoledonottrack.com/
-export NG_CLI_ANALYTICS=false # https://github.com/angular/angular-cli/blob/master/docs/design/analytics.md
 
+# Set lang
 export LANG="en_US.UTF-8"
 export LC_ALL=$LANG
 export LC_CTYPE=$LANG
@@ -15,20 +15,25 @@ export SHELL_SESSIONS_DISABLE=1
 export DIRENV_LOG_FORMAT=""
 
 # https://0x46.net/thoughts/2019/02/01/dotfile-madness/
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_RUNTIME_DIR=$XDG_DATA_HOME
-export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_HOME
-export XDG_DATA_DIRS=/usr/local/share:/usr/share:$XDG_DATA_HOME
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_RUNTIME_DIR="$XDG_DATA_HOME"
+export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_HOME"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:$XDG_DATA_HOME"
 
 # Output `brew shellenv`
 case "$(uname -m)" in
- arm64) export HOMEBREW_PREFIX="/opt/homebrew" ;;
- *)     export HOMEBREW_PREFIX="/usr/local" ;;
+ arm64)
+   export HOMEBREW_PREFIX="/opt/homebrew"
+   export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX";
+   ;;
+ *)
+   export HOMEBREW_PREFIX="/usr/local"
+   export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew";
+   ;;
 esac
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";
-export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX";
 export HOMEBREW_SHELLENV_PREFIX="$HOMEBREW_PREFIX";
 export HOMEBREW_DIR="$HOMEBREW_PREFIX/bin"
 export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:";
@@ -44,62 +49,48 @@ export HOMEBREW_CLEANUP_MAX_AGE_DAYS=7 # Decrease from default 120 days
 export EDITOR=nvim
 export VISUAL=nvim
 
-export GPG_TTY=$TTY
-
 # ============================= Set XDG for tools ==============================
-export LESSHISTFILE=$XDG_CONFIG_HOME/less/history
-export LESSKEY=$XDG_CONFIG_HOME/less/keys
+export LESSHISTFILE="$XDG_CONFIG_HOME/less/history"
+export LESSKEY="$XDG_CONFIG_HOME/less/keys"
 
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-export ZSH_EVALCACHE_DIR=$XDG_DATA_HOME/zsh
-export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
-export ZCOMPDUMP=$ZDOTDIR/.zcompdump
-export FPATH=$ZDOTDIR/functions:$FPATH
-export HISTFILE=$ZDOTDIR/.zsh_history
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZSH_EVALCACHE_DIR="$XDG_DATA_HOME/zsh"
+export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
+export ZCOMPDUMP="$ZDOTDIR/.zcompdump"
+export FPATH="$ZDOTDIR/functions:$FPATH"
+export HISTFILE="$ZDOTDIR/.zsh_history"
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 
-export _Z_DATA=$XDG_CACHE_HOME/z/z.txt
+export _Z_DATA="$XDG_CACHE_HOME/z/z.txt"
 
-export ASDF_CONFIG_DIR=$XDG_CONFIG_HOME/asdf
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=$ASDF_CONFIG_DIR/tool-versions
-export ASDF_CONFIG_FILE=$ASDF_CONFIG_DIR/asdfrc
-export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
-export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$ASDF_CONFIG_DIR/default-python-packages
-export ASDF_NPM_DEFAULT_PACKAGES_FILE=$ASDF_CONFIG_DIR/default-npm-packages
-export ASDF_GEM_DEFAULT_PACKAGES_FILE=$ASDF_CONFIG_DIR/default-gems
+export ASDF_CONFIG_DIR="$XDG_CONFIG_HOME/asdf"
+export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$ASDF_CONFIG_DIR/tool-versions"
+export ASDF_CONFIG_FILE="$ASDF_CONFIG_DIR/asdfrc"
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="$ASDF_CONFIG_DIR/default-python-packages"
+export ASDF_NPM_DEFAULT_PACKAGES_FILE="$ASDF_CONFIG_DIR/default-npm-packages"
+export ASDF_GEM_DEFAULT_PACKAGES_FILE="$ASDF_CONFIG_DIR/default-gems"
 
-export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GPG_TTY="$TTY"
 
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config
-export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
-export NPM_CONFIG_TMP=$XDG_RUNTIME_DIR/npm
-export NODE_REPL_HISTORY=$XDG_DATA_HOME/node/repl_history
-export NPM_CONFIG_DEVDIR=$XDG_CACHE_HOME/node-gyp
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR/npm"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/repl_history"
+export NPM_CONFIG_DEVDIR="$XDG_CACHE_HOME/node-gyp"
+export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel.json"
 
-export ELM_HOME=$XDG_CACHE_HOME/elm
+export ELM_HOME="$XDG_CACHE_HOME/elm"
 
-export BABEL_CACHE_PATH=$XDG_CACHE_HOME/babel.json
+export NVIM_COC_LOG_FILE="$XDG_CACHE_HOME/coc-nvim.log"
 
-export NVIM_COC_LOG_FILE=$XDG_CACHE_HOME/coc-nvim.log
-
-# Disable virtual env prompt prefix
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-export IPYTHONDIR=$XDG_CONFIG_HOME/jupyter
-export JUPYTER_CONFIG_DIR=$XDG_CONFIG_HOME/jupyter
-export CONDARC=$XDG_CONFIG_HOME/conda/condarc
-export PYTHONHISTFILE=$XDG_CACHE_HOME/python/history
-
-export GEMRC=$XDG_CONFIG_HOME/gem/config.yml
-export GEM_HOME=$XDG_DATA_HOME/gem
-export GEM_SPEC_CACHE=$GEM_HOME/specs
-export IRBRC=$XDG_CONFIG_HOME/irb/config
-export BUNDLE_USER_HOME=$XDG_CONFIG_HOME/bundler
-export BUNDLE_USER_CONFIG=$BUNDLE_USER_HOME/config.yml
-export BUNDLE_USER_CACHE=$XDG_CACHE_HOME/bundler
-export BUNDLE_USER_PLUGIN=$XDG_DATA_HOME/bundler
-
-export HEX_HOME=$XDG_CACHE_HOME/hex
-
-export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
+export GEMRC="$XDG_CONFIG_HOME/gem/config.yml"
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export GEM_SPEC_CACHE="$GEM_HOME/specs"
+export IRBRC="$XDG_CONFIG_HOME/irb/config"
+export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundler"
+export BUNDLE_USER_CONFIG="$BUNDLE_USER_HOME/config.yml"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundler"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundler"
