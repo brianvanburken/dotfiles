@@ -2,7 +2,7 @@
 # does not exist, or the base file is newer, we need to compile.
 # These jobs are asynchronous, and will not impact the interactive shell
 zcompare() {
-  if [[ -s ${1} && ( ! -s ${1}.zwc || ${1} -nt ${1}.zwc) ]]; then
-    zcompile ${1}
+  if [[ -s "$1" && ( ! -s "$1.zwc" || "$1" -nt "$1.zwc") ]]; then
+    zcompile "$1"
   fi
 }
