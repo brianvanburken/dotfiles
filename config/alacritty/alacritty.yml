@@ -18,7 +18,7 @@ window:
     y: 10
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -45,17 +45,17 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: "Menlo"
+    family: "Fira Code"
     style: Regular
     antialias: false
 
   bold:
-    family: "Menlo"
+    family: "Fira Code"
     style: Regular
     antialias: false
 
   italic:
-    family: "Menlo"
+    family: "Fira Code"
     style: Regular
     antialias: false
 
@@ -120,7 +120,7 @@ schemes:
         yellow:  '0xe7c446'
 
 
-colors: *ayu_light
+colors: *ayu_dark
 
 # Create/attach to Tmux session on startup
 shell:
