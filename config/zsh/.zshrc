@@ -47,3 +47,10 @@ csource "$ZDOTDIR/.zshrc.local"
 
 # Cache direnv hook
 evalcache direnv hook zsh
+
+# Create Tmux session if there isn't one
+if [ "$TERM_PROGRAM" != tmux ]; then
+  tmux new -s 0
+  tmux attach -t 0
+fi
+
