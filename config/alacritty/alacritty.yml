@@ -125,7 +125,3 @@ colors: *ayu_dark
 # Create/attach to Tmux session on startup
 shell:
   program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux attach || tmux"
