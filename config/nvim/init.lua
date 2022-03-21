@@ -1,37 +1,3 @@
--- Disable builtin plugins and providers
-local disabled_built_ins = {
-    "2html_plugin",
-    "getscript",
-    "getscriptPlugin",
-    "gzip",
-    "logiPat",
-    "logipat",
-    "matchit",
-    "matchparen",
-    "netrw",
-    "netrwFileHandlers",
-    "netrwPlugin",
-    "netrwSettings",
-    "rrhelper",
-    "spellfile_plugin",
-    "tar",
-    "tarPlugin",
-    "vimball",
-    "vimballPlugin",
-    "zip",
-    "zipPlugin",
-    -- Providers
-    "node_provider",
-    "ruby_provider",
-    "perl_provider",
-    "python_provider",
-    "python3_provider"
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-    vim.g["loaded_" .. plugin] = 1
-end
-
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
