@@ -3,6 +3,7 @@
 # NPM
 alias n='npm'
 alias na='npm audit'
+alias nb='npm build'
 alias ncc='npm cache clear --force'
 alias ni='npm install'
 alias nic='rm -rf node_modules && npm ci'
@@ -12,6 +13,8 @@ alias nis='ni --save'
 alias no='npm outdated'
 alias nog='npm outdated -g --depth=0'
 alias nr='npm run'
+alias ns='npm start'
+alias nt='npm test'
 alias nx='npx'
 
 # NeoVim/Vim
