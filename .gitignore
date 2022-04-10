@@ -6,6 +6,5 @@
 .zsh_history
 Brewfile.lock.json
 config/nvim/plugin/packer_compiled.lua
-config/tmux/plugins
-config/zsh/functions/local/
-plugin/*
+config/tmux/plugins/*
+config/zsh/functions/local/*
