@@ -1,6 +1,6 @@
 export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})$%f "
 
-export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/opt/fzf/bin:$XDG_DATA_HOME/shell:$PATH"
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$XDG_DATA_HOME/shell:$PATH"
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
@@ -24,6 +24,9 @@ zstyle ':completion:*' accept-exact-dirs true
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $ZSH_CACHE_DIR
 
+# Make zsh use bash shortcuts
+bindkey -e
+
 # Load user functions
 autoload -Uz $ZDOTDIR/functions/**/*
 
@@ -40,8 +43,6 @@ else
 fi
 
 csource "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
-csource "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
-csource "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 csource "$ZDOTDIR/aliases"
 csource "$ZDOTDIR/.zshrc.local"
 
