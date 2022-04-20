@@ -46,8 +46,8 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_INSTALL_CLEANUP=1
 export HOMEBREW_CLEANUP_MAX_AGE_DAYS=7 # Decrease from default 120 days
 
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR="vim"
+export VISUAL="$EDITOR"
 
 # ============================= Set XDG for tools ==============================
 export LESSHISTFILE="$XDG_CONFIG_HOME/less/history"

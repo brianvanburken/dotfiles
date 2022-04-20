@@ -15,7 +15,6 @@
   gpgSign = true
 
 [core]
-	editor = nvim
 	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
 	hooksPath = ~/.config/git/hooks/
