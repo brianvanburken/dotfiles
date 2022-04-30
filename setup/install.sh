@@ -291,14 +291,6 @@ else
     ok "Dotfiles already present"
 fi
 
-readonly NVIM_DIR=$XDG_DATA_HOME/nvim
-if [ ! -d $NVIM_DIR ]; then
-    action "Installing neovim plugins"
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim $NVIM_DIR/site/pack/packer/start/packer.nvim && \
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-    ok "Neovim plugins installed"
-fi
-
 action "Linking dotfiles in $HOME to $DOT_DIR"
 mkdir -p $HOME/.config
 files=(
@@ -308,7 +300,6 @@ files=(
     "config/git"
     "config/hammerspoon"
     "config/npm"
-    "config/nvim"
     "config/ripgrep"
     "config/rsync"
     "config/tmux"
