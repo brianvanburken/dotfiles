@@ -1,6 +1,7 @@
 function brew_clean() {
     # brew update-reset;
     brew doctor;
+    brew autoremove;
     brew cleanup;
     rm -rf "$(brew --cache)/*";
 }
