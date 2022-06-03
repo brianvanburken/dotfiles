@@ -294,15 +294,11 @@ fi
 action "Linking dotfiles in $HOME to $DOT_DIR"
 mkdir -p $HOME/.config
 files=(
-    "config/alacritty"
     "config/asdf"
     "config/editorconfig"
     "config/git"
-    "config/hammerspoon"
     "config/npm"
-    "config/ripgrep"
     "config/rsync"
-    "config/tmux"
     "config/zsh"
 )
 for x in "${files[@]}"; do
@@ -315,17 +311,9 @@ action "Linking $HOME/.zshenv"
 rm -f $HOME/.zshenv
 ln -s $DOT_DIR/config/zsh/zshenv $HOME/.zshenv
 
-action "Linking $HOME/.ctags"
-rm -f $HOME/.ctags
-ln -s $DOT_DIR/config/ctags/.ctags $HOME/.ctags
-
 action "Linking $DEV_DIR/.editorignore"
 rm -f $DEV_DIR/.editorconfig
 ln -s $DOT_DIR/config/editorconfig/config $DEV_DIR/.editorconfig
-
-action "Linking $DEV_DIR/.ignore"
-rm -f $DEV_DIR/.ignore
-ln -s $DOT_DIR/config/ripgrep/ignore $DEV_DIR/.ignore
 
 readonly GNUPG_DIR="$XDG_CONFIG_HOME/gnupg"
 action "Linking $GNUPG_DIR/gpg-agent.conf"
@@ -339,17 +327,13 @@ ok "Done linking configurations"
 action "Creating local .zshrc"
 touch $XDG_CONFIG_HOME/zsh/.zshrc.local
 
-action "Change hammerspoon directory to respect XDG"
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
-ok "Done setting up hammerspoon"
-
 if [[ -r $HOMEBREW_PREFIX/bin/asdf ]]; then
     action "Adding asdf plugins"
-    asdf plugin-add ruby || true
-    asdf plugin-add nodejs || true
     asdf plugin-add elm || true
-    asdf plugin-add python || true
     asdf plugin-add haskell || true
+    asdf plugin-add nodejs || true
+    asdf plugin-add ruby || true
+    asdf plugin-add rust || true
     ok "asdf plugins added"
 
     action "Installing asdf versions"
