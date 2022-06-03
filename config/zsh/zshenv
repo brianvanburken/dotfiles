@@ -84,8 +84,6 @@ export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel.json"
 
 export ELM_HOME="$XDG_CACHE_HOME/elm"
 
-export NVIM_COC_LOG_FILE="$XDG_CACHE_HOME/coc-nvim.log"
-
 export GEMRC="$XDG_CONFIG_HOME/gem/config.yml"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$GEM_HOME/specs"
@@ -94,3 +92,6 @@ export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundler"
 export BUNDLE_USER_CONFIG="$BUNDLE_USER_HOME/config.yml"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundler"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundler"
+
+export CARGO_CACHE_DIR="$XDG_CACHE_HOME/cargo"
+export CARGO_CONFIG_DIR="$XDG_CONFIG_HOME/cargo"
