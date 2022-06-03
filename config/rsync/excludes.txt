@@ -1,4 +1,5 @@
 .DS_Store
+.bzvol
 .DocumentRevisions-V100
 .fseventsd
 .Spotlight-V100
