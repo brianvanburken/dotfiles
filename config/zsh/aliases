@@ -90,3 +90,5 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 alias backup='rsync --exclude-from="$XDG_CONFIG_HOME/rsync/exclude.txt" -avP'
+
+alias brew_deps="brew leaves | xargs brew deps --include-build --tree"
