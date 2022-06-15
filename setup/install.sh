@@ -483,6 +483,11 @@ for app in "Dock" "Finder" "Mail"; do
   killall "${app}" > /dev/null 2>&1
 done
 
+# Set SUDO commands authentication with TouchID
+# Source: https://www.imore.com/how-use-sudo-your-mac-touch-id
+sudo sed -i '' '2i\
+auth  sufficient  pam_tid.so'$'\n' /etc/pam.d/sudo
+
 ok "Done setting macOS preferences"
 
 echo "🍺 Your MacBook is configured!"
