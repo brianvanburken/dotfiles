@@ -1,4 +1,4 @@
-export PROMPT="%F{blue}%25>..>%1~%<< %(?.%F{green}.%F{red})$%f "
+export PROMPT="%F{blue}%1~ %(?.%F{green}.%F{red})$%f "
 
 export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$XDG_DATA_HOME/shell:$PATH"
 
