@@ -1,1 +1,4 @@
 prettier
+elm-test
+elm-format
+elm-review
