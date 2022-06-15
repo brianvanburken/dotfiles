@@ -29,9 +29,10 @@ alias cs='cargo search'
 alias ct='cargo test'
 
 # NeoVim/Vim/VSCode
-alias svim='sudo vim'
+alias svim='sudo vim -i NONE'
 alias v='vim'
 alias vi='vim'
+alias vim='vim -i NONE'
 alias vscode='code'
 
 # Tmux
