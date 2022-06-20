@@ -1,3 +1,4 @@
+# vim: set ft=zsh:
 function e() {
-    code "${1:-.}";
+  nvim "${1:-.}";
 }
