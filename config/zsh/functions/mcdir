@@ -1,8 +1,8 @@
 # vim: set ft=zsh:
 function mcdir() {
   if [ -d "$1" ]; then
-    cd "$1"
+    cd "$1" || exit
   else
-    mkdir "$1" && cd "$1"
+    mkdir "$1" && cd "$1" || exit
   fi
 }
