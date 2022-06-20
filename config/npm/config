@@ -2,4 +2,5 @@ loglevel=warn
 no-audit=true
 prefer-offline=true
 progress=false
+fund=false
 cache=${XDG_CACHE_HOME}/npm
