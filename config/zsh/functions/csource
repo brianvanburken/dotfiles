@@ -1,4 +1,5 @@
-csource() {
+# vim: set ft=zsh:
+function csource() {
   zcompare "$1"
   source "$1"
 }

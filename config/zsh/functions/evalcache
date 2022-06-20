@@ -1,3 +1,4 @@
+# vim: set ft=zsh:
 # Caches the output of a binary initialization command, to avoid the time to
 # execute it in the future.
 #
