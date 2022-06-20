@@ -19,22 +19,22 @@ alias nt='npm run test'
 alias nx='npx'
 
 # Cargo
-alias ca='cargo add'
+alias c='cargo'
+alias ca='cargo audit'
 alias cb='cargo build --release'
-alias ci='cargo install'
 alias cc='cargo clean'
-alias co='cargo'
-alias cp='cargo package'
+alias ci='cargo install'
+alias cis='cargo add'
 alias cr='cargo run'
-alias cs='cargo search'
 alias ct='cargo test'
 
 # NeoVim/Vim/VSCode
+alias code='nvim'
 alias svim='sudo vim -i NONE'
-alias v='vim'
-alias vi='vim'
-alias vim='vim -i NONE'
-alias vscode='code'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias vscode='nvim'
 
 # Tmux
 alias tm='tmux'
@@ -49,8 +49,8 @@ alias gam='git commit --amend'
 alias gamn='git commit --amend --no-edit'
 alias gap='git add --patch'
 alias gb='git branch'
-alias gbr='git branch --merged | egrep -vi "master|main|^\*" | xargs git branch -D'
-alias gbra='git branch | egrep -vi "master|main|^\*" | xargs git branch -D'
+alias gbr='git branch --merged | rg -v "master|main|^\*" | xargs git branch -D'
+alias gbra='git branch | rg -v "master|main|^\*" | xargs git branch -D'
 alias gcm='git commit -m'
 alias gl='git log'
 alias gp='git push'
@@ -62,23 +62,9 @@ alias gsd='git switch develop'
 alias gsm='git switch main 2>/dev/null | git switch master'
 alias gws='git status'
 
-# General
-alias c='mcdir'
-alias p='pwd'
-alias t='tree'
-alias l='ls -lahgG'
+# Movement
 alias ..='cd ../'
 alias ...='cd ../../'
-alias cp='cp -i'
-alias rm='rm -i'
-alias mv='mv -i'
-alias ln='ln -i'
-alias mkdir='mkdir -p'
-
-alias kill_ds="find . -name '.DS_Store' -type f -delete"
-alias kill_modules="find . -name 'node_modules' -type d -delete"
-alias mine='sudo chown -R $(whoami):admin '
-
 alias d='dirs -v | head -10'
 alias 0='cd .'
 alias 1='cd -'
@@ -90,6 +76,19 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
+
+# Miscellaneous
+alias p='pwd'
+alias l='ls -lahgG'
+alias rm='rm -i'
+alias mv='mv -i'
+alias ln='ln -i'
+alias mkdir='mkdir -p'
+
+alias kill_ds="fd -H '^\.DS_Store$' -tf -X rm -rf"
+alias kill_modules="fd 'node_modules' -td -X rm -rf"
+
+alias mine='sudo chown -R $(whoami):admin '
 
 alias backup='rsync --exclude-from="$XDG_CONFIG_HOME/rsync/exclude.txt" -avP'
 
