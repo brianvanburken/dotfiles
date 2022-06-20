@@ -20,6 +20,8 @@
 *.tmp*
 *.tsv
 *.ttf
+*.zcompdump
+*.zwc
 .DS_Store
 .cache
 .git
