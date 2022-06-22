@@ -49,9 +49,9 @@ csource "$ZDOTDIR/.zshrc.local"
 # Cache direnv hook
 evalcache direnv hook zsh
 
-# Create Tmux session if there isn't one and the current program
-# is not tmux or vscode.
-case "$TERM_PROGRAM" in
+# Create Tmux session if tmux is installed and there isn't a session and the
+# current program is not tmux or vscode.
+command -v tmux > /dev/null && case "$TERM_PROGRAM" in
   "tmux") ;;
   "vscode") ;;
   *)
