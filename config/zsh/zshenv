@@ -15,6 +15,7 @@ export SHELL_SESSIONS_DISABLE=1
 export DIRENV_LOG_FORMAT=""
 
 # https://0x46.net/thoughts/2019/02/01/dotfile-madness/
+# For https://stackoverflow.com/a/5084892
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
 export XDG_DATA_HOME="${HOME}/.local/share"
