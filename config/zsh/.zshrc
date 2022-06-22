@@ -1,6 +1,6 @@
 export PROMPT="%F{blue}%1~ %(?.%F{green}.%F{red})$%f "
 
-export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$XDG_DATA_HOME/shell:$PATH"
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
