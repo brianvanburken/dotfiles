@@ -45,12 +45,12 @@ require("packer").startup(
             config = function()
                 vim.g.coc_global_extensions = {
                     'coc-css',
-                    'coc-emmet',
                     'coc-html',
                     'coc-html-css-support',
                     'coc-json',
                     'coc-lua',
                     'coc-prettier',
+                    'coc-rust-analyzer',
                     'coc-snippets',
                     'coc-tsserver',
                 }
