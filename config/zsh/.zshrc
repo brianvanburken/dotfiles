@@ -1,6 +1,6 @@
 export PROMPT="%F{blue}%1~ %(?.%F{green}.%F{red})$%f "
 
-export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH}"
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
@@ -22,7 +22,7 @@ setopt pushd_silent           # Do not print the directory stack after pushd or 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' accept-exact-dirs true
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path $ZSH_CACHE_DIR
+zstyle ':completion:*' cache-path "${ZSH_CACHE_DIR}"
 
 # Make zsh use bash shortcuts
 bindkey -e
@@ -34,29 +34,29 @@ autoload -Uz $ZDOTDIR/functions/**/*
 autoload -Uz compinit
 
 # Run compinit once a day based on the date of the zcompdump file
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' $ZCOMPDUMP 2>/dev/null || echo -1) ]; then
-  compinit -C -d "$ZCOMPDUMP"
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' "${ZCOMPDUMP}" 2>/dev/null || echo -1) ]; then
+  compinit -C -d "${ZCOMPDUMP}"
   # Update time of zcompdump file in case nothing has changed
-  touch "$ZCOMPDUMP"
+  touch "${ZCOMPDUMP}"
 else
   compinit -C
 fi
 
-csource "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
-csource "$ZDOTDIR/aliases"
-csource "$ZDOTDIR/.zshrc.local"
+csource "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
+csource "${ZDOTDIR}/aliases"
+csource "${ZDOTDIR}/.zshrc.local"
 
 # Cache direnv hook
 evalcache direnv hook zsh
 
 # Create Tmux session if tmux is installed and there isn't a session and the
 # current program is not tmux or vscode.
-command -v tmux > /dev/null && case "$TERM_PROGRAM" in
+command -v tmux > /dev/null && case "${TERM_PROGRAM}" in
   "tmux") ;;
   "vscode") ;;
   *)
     session_name="workspace"
-    tmux new -s $session_name
-    tmux attach -t $session_name
+    tmux new -s "${session_name}"
+    tmux attach -t "${session_name}"
     ;;
 esac
