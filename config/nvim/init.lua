@@ -45,6 +45,7 @@ require("packer").startup(
             config = function()
                 vim.g.coc_global_extensions = {
                     'coc-css',
+                    'coc-elixir',
                     'coc-html',
                     'coc-html-css-support',
                     'coc-json',
@@ -113,7 +114,12 @@ require("packer").startup(
                 vim.o.foldlevel = 20
             end
         }
-        use {"tpope/vim-commentary"}
+        use {"tpope/vim-commentary", config = function ()
+            -- Fix commentstring for Elixir
+            vim.cmd [[
+            autocmd FileType elixir setlocal commentstring=#\ %s
+            ]]
+        end}
         use {"tpope/vim-surround"}
         use {"tpope/vim-eunuch"}
         use {"wbthomason/packer.nvim"}

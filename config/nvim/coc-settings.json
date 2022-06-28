@@ -8,6 +8,7 @@
   "suggest.removeDuplicateItems": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "elixir",
     "elm",
     "graphql",
     "html",
@@ -22,7 +23,7 @@
     "typescriptreact"
   ],
   "Lua.diagnostics.globals": ["vim", "hs"],
-
+  "elixir.pathToElixirLS": "~/.local/share/elixir-ls/release/language_server.sh",
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
