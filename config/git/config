@@ -1,8 +1,8 @@
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
 [color]
-	ui = true
+  ui = true
 
 [push]
   # Default push should only push the current branch to its push target, regardless of its remote name
@@ -15,27 +15,28 @@
   gpgSign = true
 
 [core]
-	excludesfile = ~/.config/git/ignore
-	attributesfile = ~/.config/git/attributes
-	hooksPath = ~/.config/git/hooks/
+  excludesfile = ~/.config/git/ignore
+  attributesfile = ~/.config/git/attributes
+  hooksPath = ~/.config/git/hooks/
+  fsmonitor = true
 
   # Don't consider trailing space or EOL changes as a cause for merge conflicts
   whitespace = -trailing-space,cr-at-eol
 
 [alias]
-	lastchange = log -p -n 1
-	trim = !git remote prune origin && git gc
-	tag = tag -s
+  lastchange = log -p -n 1
+  trim = !git remote prune origin && git gc
+  tag = tag -s
 
 [rebase]
-	autostash = true
+  autostash = true
 
 [user]
-	name = Brian van Burken
-	useConfigOnly = true
+  name = Brian van Burken
+  useConfigOnly = true
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [log]
   # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
