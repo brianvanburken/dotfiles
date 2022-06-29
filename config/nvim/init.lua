@@ -116,9 +116,10 @@ require("packer").startup(
         }
         use {"tpope/vim-commentary", config = function ()
             -- Fix commentstring for Elixir
-            vim.cmd [[
-            autocmd FileType elixir setlocal commentstring=#\ %s
-            ]]
+            vim.api.nvim_command(
+                "FileType",
+                { pattern = "elixir", command = "setlocal commentstring=#\\ %s" }
+            )
         end}
         use {"tpope/vim-surround"}
         use {"tpope/vim-eunuch"}
