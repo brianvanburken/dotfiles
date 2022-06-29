@@ -28,6 +28,10 @@ alias cis='cargo add'
 alias cr='cargo run'
 alias ct='cargo test'
 
+# Mix
+alias m='mix'
+alias mt='mix test'
+
 # NeoVim/Vim/VSCode
 alias code='nvim'
 alias svim='sudo vim -i NONE'
