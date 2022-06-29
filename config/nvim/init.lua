@@ -20,7 +20,7 @@ require("packer").startup(
             requires = "junegunn/fzf.vim",
             run = ":call fzf#install()",
             config = function()
-                vim.env.FZF_DEFAULT_COMMAND = "rg --files --hidden --follow --no-ignore-vcs"
+                vim.env.FZF_DEFAULT_COMMAND = "rg --files --hidden --no-ignore-vcs --vimgrep"
                 vim.env.FZF_CTRL_T_COMMAND = vim.env.FZF_DEFAULT_COMMAND
                 vim.env.FZF_ALT_C_COMMAND = vim.env.FZF_DEFAULT_COMMAND
 
@@ -32,11 +32,9 @@ require("packer").startup(
         use {
             "shatur/neovim-ayu",
             config = function()
-                vim.cmd [[
-                colorscheme ayu
-                highlight Normal ctermbg=none guibg=none
-                highlight NonText ctermbg=none guibg=none
-                ]]
+                vim.api.nvim_command("colorscheme", "ayu")
+                vim.api.nvim_set_hl(0, 'Normal', { ctermbg = "none", guibg = "none" })
+                vim.api.nvim_set_hl(0, 'NonText', { ctermbg = "none", guibg = "none" })
             end
         }
         use {
@@ -116,7 +114,7 @@ require("packer").startup(
         }
         use {"tpope/vim-commentary", config = function ()
             -- Fix commentstring for Elixir
-            vim.api.nvim_command(
+            vim.api.nvim_create_autocmd(
                 "FileType",
                 { pattern = "elixir", command = "setlocal commentstring=#\\ %s" }
             )
