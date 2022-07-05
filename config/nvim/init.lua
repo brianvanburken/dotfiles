@@ -66,6 +66,8 @@ require("packer").startup(
                 vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", {silent = true})
                 vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", {silent = true})
 
+                vim.api.nvim_set_keymap("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+
                 -- Use K to show documentation in preview window.
                 vim.api.nvim_set_keymap("n", "K", ":lua ShowDocumentation()<CR>", {silent = true})
                 function ShowDocumentation()
