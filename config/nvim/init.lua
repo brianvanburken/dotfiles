@@ -25,15 +25,17 @@ require("packer").startup(
 
                 vim.api.nvim_set_keymap("n", "<C-a>", ":Rg!<CR>", {})
                 vim.api.nvim_set_keymap("n", "<C-p>", ":Files!<CR>", {})
-                vim.api.nvim_set_keymap("n", "<C-t>", ":Tags!<CR>", {})
             end
         }
         use {
             "shatur/neovim-ayu",
             config = function()
-                vim.api.nvim_command("colorscheme", "ayu")
-                vim.api.nvim_set_hl(0, 'Normal', { ctermbg = "none", guibg = "none" })
-                vim.api.nvim_set_hl(0, 'NonText', { ctermbg = "none", guibg = "none" })
+                require('ayu').setup({
+                    overrides = {
+                        Normal = { ctermbg = "none", bg = "none" },
+                        NonText = { ctermbg = "none", bg = "none" },
+                    },
+                }).colorscheme()
             end
         }
         use {
