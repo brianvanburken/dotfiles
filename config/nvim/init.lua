@@ -31,12 +31,7 @@ require("packer").startup(
         use {
             "shatur/neovim-ayu",
             config = function()
-                require('ayu').setup({
-                    overrides = {
-                        Normal = { ctermbg = "none", bg = "none" },
-                        NonText = { ctermbg = "none", bg = "none" },
-                    },
-                }).colorscheme()
+                vim.cmd("colorscheme ayu")
             end
         }
         use {
