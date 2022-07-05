@@ -91,6 +91,11 @@ require("packer").startup(
                         ensure_installed = {
                             "bash",
                             "css",
+                            "dockerfile",
+                            "eex",
+                            "elixir",
+                            "elm",
+                            "heex",
                             "html",
                             "javascript",
                             "jsdoc",
