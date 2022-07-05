@@ -1,6 +1,7 @@
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
+vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
 vim.o.hidden = true
 vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.lazyredraw = true
