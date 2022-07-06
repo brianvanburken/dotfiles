@@ -1,10 +1,11 @@
 # vim: set ft=zsh:
-function brew_clean() {
-    # brew update-reset;
+function brew_fix() {
+    brew update-reset;
     brew doctor;
     brew autoremove;
     brew cleanup;
     rm -rf "$(brew --cache)/*";
     sudo rm -rf "$(brew --prefix)/var/homebrew/locks/*";
+    sudo chown -R $(whoami) "$(brew --prefix)/*"
 }
 
