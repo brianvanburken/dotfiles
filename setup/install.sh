@@ -279,6 +279,7 @@ files=(
   "config/asdf"
   "config/editorconfig"
   "config/git"
+  "config/gnupg"
   "config/npm"
   "config/ripgrep"
   "config/rsync"
@@ -298,13 +299,6 @@ ln -s "${DOT_DIR}/config/zsh/zshenv" "${HOME}/.zshenv"
 action "Linking ${DEV_DIR}/.editorignore"
 rm -f "${DEV_DIR}/.editorconfig"
 ln -s "${DOT_DIR}/config/editorconfig/config" "${DEV_DIR}/.editorconfig"
-
-readonly GNUPG_DIR="${XDG_CONFIG_HOME}/gnupg"
-action "Linking ${GNUPG_DIR}/gpg-agent.conf"
-mkdir -p "${GNUPG_DIR}"
-chmod 700 "${GNUPG_DIR}"
-rm -f "${GNUPG_DIR}/gpg-agent.conf"
-ln -s "${DOT_DIR}/config/gnupg/gpg-agent.conf" "${GNUPG_DIR}/gpg-agent.conf"
 
 ok "Done linking configurations"
 
