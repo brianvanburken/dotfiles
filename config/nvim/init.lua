@@ -10,6 +10,7 @@ vim.o.signcolumn = "yes"
 vim.o.statusline = "%t%m%r%=%c:%l"
 vim.o.termguicolors = true -- enable true colors support
 vim.wo.wrap = false
+vim.o.background = "light"
 
 require("packer").startup(
     function(use)
