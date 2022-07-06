@@ -20,12 +20,13 @@ require("packer").startup(
             requires = "junegunn/fzf.vim",
             run = ":call fzf#install()",
             config = function()
-                vim.env.FZF_DEFAULT_COMMAND = "rg --files --hidden --no-ignore-vcs --vimgrep"
+                vim.env.FZF_DEFAULT_COMMAND = "fd -tf -H -i -L"
                 vim.env.FZF_CTRL_T_COMMAND = vim.env.FZF_DEFAULT_COMMAND
                 vim.env.FZF_ALT_C_COMMAND = vim.env.FZF_DEFAULT_COMMAND
+                vim.env.FZF_DEFAULT_OPTS = "--ansi"
 
-                vim.api.nvim_set_keymap("n", "<C-a>", ":Rg!<CR>", {})
                 vim.api.nvim_set_keymap("n", "<C-p>", ":Files!<CR>", {})
+                vim.api.nvim_set_keymap("n", "<C-f>", ":Rg!<CR>", {})
             end
         }
         use {
