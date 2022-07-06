@@ -4,8 +4,8 @@ function brew_fix() {
     brew doctor;
     brew autoremove;
     brew cleanup;
-    rm -rf "$(brew --cache)/*";
-    sudo rm -rf "$(brew --prefix)/var/homebrew/locks/*";
-    sudo chown -R $(whoami) "$(brew --prefix)/*"
+    sudo rm -rf $(brew --cache)/*;
+    sudo rm -rf $(brew --prefix)/var/homebrew/locks/*;
+    sudo chown -R $(whoami) $(brew --prefix)/*;
 }
 
