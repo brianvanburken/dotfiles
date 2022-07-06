@@ -41,16 +41,16 @@ require("packer").startup(
             branch = "release",
             config = function()
                 vim.g.coc_global_extensions = {
-                    'coc-css',
-                    'coc-elixir',
-                    'coc-html',
-                    'coc-html-css-support',
-                    'coc-json',
-                    'coc-lua',
-                    'coc-prettier',
-                    'coc-rust-analyzer',
-                    'coc-snippets',
-                    'coc-tsserver',
+                    "coc-css",
+                    "coc-elixir",
+                    "coc-html",
+                    "coc-html-css-support",
+                    "coc-json",
+                    "coc-lua",
+                    "coc-prettier",
+                    "coc-rust-analyzer",
+                    "coc-snippets",
+                    "coc-tsserver"
                 }
 
                 -- Use `[g` and `]g` to navigate diagnostics
@@ -119,9 +119,9 @@ require("packer").startup(
                                 init_selection = "gnn",
                                 node_incremental = "grn",
                                 scope_incremental = "grc",
-                                node_decremental = "grm",
-                            },
-                        },
+                                node_decremental = "grm"
+                            }
+                        }
                     }
                 )
 
@@ -130,13 +130,7 @@ require("packer").startup(
                 vim.o.foldlevel = 20
             end
         }
-        use {"tpope/vim-commentary", config = function ()
-            -- Fix commentstring for Elixir
-            vim.api.nvim_create_autocmd(
-                "FileType",
-                { pattern = "elixir", command = "setlocal commentstring=#\\ %s" }
-            )
-        end}
+        use {"tpope/vim-commentary"}
         use {"tpope/vim-surround"}
         use {"tpope/vim-eunuch"}
         use {"wbthomason/packer.nvim"}
