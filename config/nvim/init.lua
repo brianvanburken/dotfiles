@@ -105,6 +105,7 @@ require("packer").startup(
                             "ruby",
                             "rust",
                             "scss",
+                            "toml",
                             "tsx",
                             "yaml"
                         },
