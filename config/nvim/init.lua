@@ -34,6 +34,8 @@ require("packer").startup(
             "shatur/neovim-ayu",
             config = function()
                 vim.cmd("colorscheme ayu")
+                vim.cmd("highlight Normal ctermbg=none guibg=none")
+                vim.cmd("highlight NonText ctermbg=none guibg=none")
             end
         }
         use {
