@@ -7,7 +7,7 @@ vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.lazyredraw = true
 vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
-vim.o.statusline = "%t%m%r%=%c:%l"
+vim.o.statusline = "%t%m%r%=%c:%l/%L"
 vim.o.termguicolors = true -- enable true colors support
 vim.wo.wrap = false
 vim.o.background = "light"
