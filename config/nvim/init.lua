@@ -11,6 +11,7 @@ vim.o.statusline = "%t%m%r%=%c:%l/%L"
 vim.o.termguicolors = true -- enable true colors support
 vim.wo.wrap = false
 vim.o.background = "dark"
+vim.o.number = true
 
 require("packer").startup(
     function(use)
