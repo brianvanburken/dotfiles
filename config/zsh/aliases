@@ -94,6 +94,6 @@ alias kill_modules="fd 'node_modules' -td -X rm -rf"
 
 alias mine='sudo chown -R $(whoami):admin '
 
-alias backup='rsync --exclude-from="$XDG_CONFIG_HOME/rsync/exclude.txt" -avP'
+alias backup='rsync --exclude-from="${XDG_CONFIG_HOME}/rsync/excludes.txt" -avP'
 
 alias brew_deps="brew leaves | xargs brew deps --include-build --tree"
