@@ -107,6 +107,7 @@ require("packer").startup(
                             "scss",
                             "toml",
                             "tsx",
+                            "typescript",
                             "yaml"
                         },
                         highlight = {
