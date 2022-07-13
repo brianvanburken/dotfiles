@@ -109,7 +109,7 @@ schemes:
         yellow:  '0xe7c446'
 
 
-colors: *ayu_light
+colors: *ayu_dark
 
 # Create/attach to Tmux session on startup
 shell:
