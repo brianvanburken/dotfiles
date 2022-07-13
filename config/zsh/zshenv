@@ -53,9 +53,8 @@ export EDITOR="nvim"
 export VISUAL="${EDITOR}"
 
 # ============================= Set XDG for tools ==============================
-export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
-export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
 
+# ZSH
 export FPATH="${ZDOTDIR}/functions:${FPATH}"
 export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=10000000
@@ -65,10 +64,17 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 export ZSH_EVALCACHE_DIR="${XDG_DATA_HOME}/zsh"
 
+# Less
+export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
+export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
+
+# rupa/z
 export _Z_DATA="${XDG_DATA_HOME}/z/z.txt"
 
+# NeoVim
 export NVIM_COC_LOG_FILE="${XDG_CACHE_HOME}/coc-nvim.log"
 
+# Asdf
 export ASDF_CONFIG_DIR="${XDG_CONFIG_HOME}/asdf"
 export ASDF_CONFIG_FILE="${ASDF_CONFIG_DIR}/asdfrc"
 export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
@@ -76,17 +82,21 @@ export ASDF_GEM_DEFAULT_PACKAGES_FILE="${ASDF_CONFIG_DIR}/default-gems"
 export ASDF_NPM_DEFAULT_PACKAGES_FILE="${ASDF_CONFIG_DIR}/default-npm-packages"
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="${ASDF_CONFIG_DIR}/default-python-packages"
 
+# GPG
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export GPG_TTY="${TTY}"
 
+# Node.js
 export BABEL_CACHE_PATH="${XDG_CACHE_HOME}/babel.json"
 export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node/repl_history"
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME}/npm"
 export NPM_CONFIG_DEVDIR="${XDG_CACHE_HOME}/node-gyp"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
 
+# Elm
 export ELM_HOME="${XDG_CACHE_HOME}/elm"
 
+# Ruby
 export GEMRC="${XDG_CONFIG_HOME}/gem/config.yml"
 export GEM_HOME="${XDG_DATA_HOME}/gem"
 export GEM_SPEC_CACHE="${GEM_HOME}/specs"
@@ -96,5 +106,7 @@ export BUNDLE_USER_CONFIG="${BUNDLE_USER_HOME}/config.yml"
 export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundler"
 export BUNDLE_USER_PLUGIN="${XDG_DATA_HOME}/bundler"
 
+# Rust
 export CARGO_CACHE_DIR="${XDG_CACHE_HOME}/cargo"
 export CARGO_CONFIG_DIR="${XDG_CONFIG_HOME}/cargo"
+export RUSTUP_HOME"${XDG_DATA_HOME}/rustup"
