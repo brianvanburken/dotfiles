@@ -43,6 +43,7 @@ alias vscode='nvim'
 # Tmux
 alias tm='tmux'
 alias tma='tmux attach'
+alias tmk='tmux kill-session'
 alias tml='tmux ls'
 
 # Git
