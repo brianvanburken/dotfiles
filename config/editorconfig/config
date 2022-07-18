@@ -18,7 +18,7 @@ trim_trailing_whitespace = true
 [*.{diff,md}]
 trim_trailing_whitespace = false
 
-[*.{hs,elm,lua}]
+[*.{hs,elm,lua,rs}]
 indent_size = 4
 tab_width = 4
 
