@@ -1,6 +1,7 @@
 export PROMPT="%F{blue}%1~ %(?.%F{green}.%F{red})$%f "
 
 export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH}"
+export FPATH="${ZDOTDIR}/functions:${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
