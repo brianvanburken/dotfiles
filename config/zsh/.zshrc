@@ -47,6 +47,7 @@ fi
 csource "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 csource "${ZDOTDIR}/aliases"
 csource "${ZDOTDIR}/.zshrc.local"
+csource "${XDG_DATA_HOME}/cargo/env"
 
 # Cache direnv hook
 evalcache direnv hook zsh
