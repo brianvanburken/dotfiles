@@ -19,6 +19,7 @@ setopt hist_beep              # Beep when accessing nonexistent history.
 setopt auto_pushd             # Push the current directory visited on the stack.
 setopt pushd_ignore_dups      # Do not store duplicates in the stack.
 setopt pushd_silent           # Do not print the directory stack after pushd or popd.
+setopt autocd                 # Automatically go to dir
 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' accept-exact-dirs true
