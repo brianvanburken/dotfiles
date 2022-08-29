@@ -9,7 +9,7 @@ brew "git"
 brew "gnupg"
 brew "pinentry-mac"
 brew "ripgrep"
-brew "z"
+brew "zoxide"
 
 cask "1password"
 cask "alfred"
