@@ -62,7 +62,7 @@ export SAVEHIST=10000000
 export ZCOMPDUMP="${XDG_CACHE_HOME}/.zcompdump"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
-export ZSH_EVALCACHE_DIR="${XDG_DATA_HOME}/zsh"
+export ZSH_EVALCACHE_DIR="${XDG_CACHE_HOME}/zsh"
 
 # Less
 export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
