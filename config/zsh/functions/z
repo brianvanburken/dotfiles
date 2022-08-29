@@ -1,7 +1,0 @@
-# vim: set ft=zsh:
-# Lazy-load Z only when called to speed up zsh load time
-function z() {
-  unfunction z
-  source "${HOMEBREW_PREFIX}/etc/profile.d/z.sh"
-  _z "$@"
-}
