@@ -13,7 +13,7 @@
   rebase = true
 
 [commit]
-  gpgSign = true
+  gpgsign = true
 
 [core]
   excludesfile = ~/.config/git/ignore
@@ -51,3 +51,9 @@
 [tag]
   # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
   sort = version:refname
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = /Users/brianvanburken/.ssh/allowed_signers
