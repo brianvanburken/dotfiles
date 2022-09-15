@@ -57,4 +57,4 @@
   format = ssh
 
 [gpg "ssh"]
-  allowedSignersFile = /Users/brianvanburken/.ssh/allowed_signers
+  allowedSignersFile = ~/.ssh/allowed_signers
