@@ -3,3 +3,4 @@ elm-test
 elm-format
 elm-review
 @elm-tooling/elm-language-server
+yarn
