@@ -30,6 +30,9 @@
   tag = tag -s
   change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
 
+  # https://mtsknn.fi/blog/how-to-force-push-in-git-with-style-and-some-safety/
+  please = push --force-with-lease
+
 [rebase]
   autostash = true
 
