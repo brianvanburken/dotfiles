@@ -51,6 +51,11 @@ font:
   # Point size of the font
   size: 12.0
 
+
+# Create/attach to Tmux session on startup
+shell:
+  program: /bin/zsh
+
 schemes:
   ayu:
     dark: &ayu_dark
@@ -108,9 +113,56 @@ schemes:
         white:   '0xfeffff'
         yellow:  '0xe7c446'
 
+  gruvbox:
+    dark:
+      medium: &gruvbox_dark_medium
+        primary:
+          background: '0x282828'
+          foreground: '0xdfbf8e'
 
-colors: *ayu_dark
+        normal:
+          black:   '0x665c54'
+          red:     '0xea6962'
+          green:   '0xa9b665'
+          yellow:  '0xe78a4e'
+          blue:    '0x7daea3'
+          magenta: '0xd3869b'
+          cyan:    '0x89b482'
+          white:   '0xdfbf8e'
 
-# Create/attach to Tmux session on startup
-shell:
-  program: /bin/zsh
+        bright:
+          black:   '0x928374'
+          red:     '0xea6962'
+          green:   '0xa9b665'
+          yellow:  '0xe3a84e'
+          blue:    '0x7daea3'
+          magenta: '0xd3869b'
+          cyan:    '0x89b482'
+          white:   '0xdfbf8e'
+
+      hard: &gruvbox_dark_hard
+        primary:
+          background: '0x1d2021'
+          foreground: '0xd5c4a1'
+
+        normal:
+          black:   '0x1d2021'
+          red:     '0xfb4934'
+          green:   '0xb8bb26'
+          yellow:  '0xfabd2f'
+          blue:    '0x83a598'
+          magenta: '0xd3869b'
+          cyan:    '0x8ec07c'
+          white:   '0xd5c4a1'
+
+        bright:
+          black:   '0x665c54'
+          red:     '0xfb4934'
+          green:   '0xb8bb26'
+          yellow:  '0xfabd2f'
+          blue:    '0x83a598'
+          magenta: '0xd3869b'
+          cyan:    '0x8ec07c'
+          white:   '0xfbf1c7'
+
+colors: *gruvbox_dark_hard
