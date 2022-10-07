@@ -32,9 +32,9 @@ require("packer").startup(
             end
         }
         use {
-            "shatur/neovim-ayu",
+            "ellisonleao/gruvbox.nvim",
             config = function()
-                vim.cmd("colorscheme ayu")
+                vim.cmd("colorscheme gruvbox")
                 vim.cmd("highlight Normal ctermbg=none guibg=none")
                 vim.cmd("highlight NonText ctermbg=none guibg=none")
             end
