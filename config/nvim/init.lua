@@ -1,3 +1,7 @@
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python_provider = 0
+
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
