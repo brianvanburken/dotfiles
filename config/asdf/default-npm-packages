@@ -1,6 +1,7 @@
-prettier
-elm-test
+@elm-tooling/elm-language-server
 elm-format
 elm-review
-@elm-tooling/elm-language-server
+elm-test
+neovim
+prettier
 yarn
