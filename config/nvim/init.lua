@@ -52,7 +52,6 @@ require("packer").startup(
                     "coc-lua",
                     "coc-prettier",
                     "coc-rust-analyzer",
-                    "coc-snippets",
                     "coc-tsserver"
                 }
 
