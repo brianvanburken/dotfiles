@@ -48,8 +48,8 @@ csource "${ZDOTDIR}/.zshrc.local"
 csource "${XDG_DATA_HOME}/cargo/env"
 
 case "${OSTYPE}" in
-  linux*)  csource "${ZDOTDIR}/.zshrc.linux";;
-  darwin*) csource "${ZDOTDIR}/.zshrc.macos";;
+  linux*)  csource "${ZDOTDIR}/.zshrc-linux";;
+  darwin*) csource "${ZDOTDIR}/.zshrc-macos";;
 esac
 
 evalcache zoxide init zsh
