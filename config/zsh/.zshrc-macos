@@ -31,4 +31,16 @@ export HOMEBREW_NO_EMOJI=1
 export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH}"
 export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
+# Use FD for fzf
+export FZF_DEFAULT_COMMAND="fd -tf -H -i -L"
+
+# Run compinit once a day based on the date of the zcompdump file
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' "${ZCOMPDUMP}" 2>/dev/null || echo -1) ]; then
+  compinit -C -d "${ZCOMPDUMP}"
+  # Update time of zcompdump file in case nothing has changed
+  touch "${ZCOMPDUMP}"
+else
+  compinit -C
+fi
+
 csource "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
