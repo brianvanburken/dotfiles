@@ -1,0 +1,15 @@
+# Use FD for fzf
+export FZF_DEFAULT_COMMAND="fdfind -tf -H -i -L"
+
+unset zle_bracketed_paste
+
+# Run compinit once a day based on the date of the zcompdump file
+if [ $(date +'%j') != $(date +'%j' -r "${ZCOMPDUMP}" 2>/dev/null || echo -1) ]; then
+  compinit -C -d "${ZCOMPDUMP}"
+  # Update time of zcompdump file in case nothing has changed
+  touch "${ZCOMPDUMP}"
+else
+  compinit -C
+fi
+
+csource "${XDG_DATA_HOME}/asdf/asdf.sh"
