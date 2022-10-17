@@ -49,7 +49,6 @@ csource "${ZDOTDIR}/aliases"
 csource "${ZDOTDIR}/.zshrc.local"
 csource "${XDG_DATA_HOME}/cargo/env"
 
-evalcache direnv hook zsh
 evalcache zoxide init zsh
 
 # Create Tmux session if tmux is installed and there isn't a session and the

@@ -3,7 +3,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 
 brew "asdf"
-brew "direnv"
 brew "fd"
 brew "git"
 brew "gnupg"
