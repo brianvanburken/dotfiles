@@ -39,6 +39,7 @@
 [user]
   name = Brian van Burken
   useConfigOnly = true
+  email = brianvanburken@users.noreply.github.com
 
 [init]
   defaultBranch = main
