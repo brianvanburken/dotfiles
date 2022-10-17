@@ -85,7 +85,7 @@ alias 9='cd -9'
 
 # Miscellaneous
 alias p='pwd'
-alias l='ls -lahgG'
+alias l='ls -lahgG --color=auto'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ln='ln -i'
