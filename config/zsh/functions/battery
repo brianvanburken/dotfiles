@@ -1,4 +1,6 @@
 # vim: set ft=zsh:
 #!/usr/bin/env zsh
-
-pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';' | xargs
+case "${OSTYPE}" in
+  linux*) echo "$(upower -i $(upower -e | grep BAT) | grep 'percentage' | cut -f2 -d':' | xargs)" ;;
+  darwin*) echo "$(pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';' | xargs)" ;;
+esac
