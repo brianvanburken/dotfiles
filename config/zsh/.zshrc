@@ -1,7 +1,6 @@
 export PROMPT="%F{blue}%1~ %(?.%F{green}.%F{red})$%f "
 
-export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH}"
-export FPATH="${ZDOTDIR}/functions:${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+export FPATH="${ZDOTDIR}/functions:${ASDF_DIR}/completions:${FPATH}"
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.
@@ -44,10 +43,14 @@ else
   compinit -C
 fi
 
-csource "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 csource "${ZDOTDIR}/aliases"
 csource "${ZDOTDIR}/.zshrc.local"
 csource "${XDG_DATA_HOME}/cargo/env"
+
+case "${OSTYPE}" in
+  linux*)  csource "${ZDOTDIR}/.zshrc.linux";;
+  darwin*) csource "${ZDOTDIR}/.zshrc.macos";;
+esac
 
 evalcache zoxide init zsh
 
