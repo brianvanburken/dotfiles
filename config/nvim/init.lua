@@ -22,6 +22,12 @@ require("packer").startup(
         use {"christoomey/vim-tmux-navigator"}
         use {"editorconfig/editorconfig-vim"}
         use {
+            "ggandor/leap.nvim",
+            config = function()
+                require("leap").set_default_keymaps()
+            end
+        }
+        use {
             "junegunn/fzf",
             requires = "junegunn/fzf.vim",
             run = ":call fzf#install()",
