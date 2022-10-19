@@ -3,6 +3,8 @@
 *.temp
 *.old
 
+.zshrc-local
+
 # macOS
 .DS_Store
 
