@@ -303,7 +303,7 @@ ln -s "${DOT_DIR}/config/editorconfig/config" "${DEV_DIR}/.editorconfig"
 ok "Done linking configurations"
 
 action "Creating local .zshrc"
-touch "${XDG_CONFIG_HOME}/zsh/.zshrc.local"
+touch "${XDG_CONFIG_HOME}/zsh/.zshrc-local"
 
 if [[ -r "${HOMEBREW_PREFIX}/bin/asdf" ]]; then
   action "Adding asdf plugins"
