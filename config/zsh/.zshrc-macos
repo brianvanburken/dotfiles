@@ -1,19 +1,19 @@
 # Output `brew shellenv`
 case "$(uname -m)" in
- arm64)
-   export HOMEBREW_PREFIX="/opt/homebrew"
-   export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}";
-   ;;
- *)
-   export HOMEBREW_PREFIX="/usr/local"
-   export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew";
-   ;;
+  arm64)
+    export HOMEBREW_PREFIX="/opt/homebrew"
+    export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}"
+    ;;
+  *)
+    export HOMEBREW_PREFIX="/usr/local"
+    export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew"
+    ;;
 esac
-export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar";
-export HOMEBREW_SHELLENV_PREFIX="${HOMEBREW_PREFIX}";
+export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar"
+export HOMEBREW_SHELLENV_PREFIX="${HOMEBREW_PREFIX}"
 export HOMEBREW_DIR="${HOMEBREW_PREFIX}/bin"
-export MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:${MANPATH}}:";
-export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
+export MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:${MANPATH}}:"
+export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}"
 # If it's been more than this number of seconds since Homebrew was last
 # updated, automatically run `brew update` before `brew install`.
 # 604800 is 1 week in seconds (60 * 60 * 24 * 7).

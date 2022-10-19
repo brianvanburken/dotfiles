@@ -56,7 +56,7 @@ evalcache zoxide init zsh
 
 # Create Tmux session if tmux is installed and there isn't a session and the
 # current program is not tmux or vscode.
-command -v tmux > /dev/null && case "${TERM_PROGRAM}" in
+command -v tmux >/dev/null && case "${TERM_PROGRAM}" in
   "tmux") ;;
   "vscode") ;;
   *)
