@@ -90,6 +90,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias ln='ln -i'
 alias mkdir='mkdir -p'
+alias cat='bat'
 
 alias kill_ds="fd -H '^\.DS_Store$' -tf -X rm -rf"
 alias kill_modules="fd 'node_modules' -td -X rm -rf"
