@@ -43,6 +43,15 @@ case "${OSTYPE}" in
   darwin*) csource "${ZDOTDIR}/.zshrc-macos";;
 esac
 
+# Run compinit once a day based on the date of the zcompdump file
+if [ $(date +'%j') != $(date -r "${ZCOMPDUMP}" +'%j' 2>/dev/null || echo -1) ]; then
+  compinit -C -d "${ZCOMPDUMP}"
+  # Update time of zcompdump file in case nothing has changed
+  touch "${ZCOMPDUMP}"
+else
+  compinit -C
+fi
+
 evalcache zoxide init zsh
 
 # Create Tmux session if tmux is installed and there isn't a session and the
