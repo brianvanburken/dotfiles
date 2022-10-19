@@ -1,7 +1,3 @@
-# For https://stackoverflow.com/a/5084892
-# Override to macOS caches
-export XDG_CACHE_HOME="${HOME}/Library/Caches"
-
 # Output `brew shellenv`
 case "$(uname -m)" in
  arm64)
