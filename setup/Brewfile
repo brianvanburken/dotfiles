@@ -7,7 +7,6 @@ brew "bat"
 brew "fd"
 brew "git"
 brew "gnupg"
-brew "pinentry-mac"
 brew "ripgrep"
 brew "zoxide"
 
