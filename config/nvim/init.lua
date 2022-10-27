@@ -3,19 +3,19 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python_provider = 0
 
 vim.o.autoread = true -- Automatically reload files changed outside of vim
+vim.o.background = "dark"
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
 vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
 vim.o.hidden = true
 vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.lazyredraw = true
+vim.o.number = true
 vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%t%m%r%=%c:%l/%L"
 vim.o.termguicolors = true -- enable true colors support
 vim.wo.wrap = false
-vim.o.background = "dark"
-vim.o.number = true
 
 require("packer").startup(
     function(use)
