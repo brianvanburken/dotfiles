@@ -20,7 +20,6 @@
   excludesfile = ~/.config/git/ignore
   attributesfile = ~/.config/git/attributes
   hooksPath = ~/.config/git/hooks/
-  fsmonitor = true
 
   # Don't consider trailing space or EOL changes as a cause for merge conflicts
   whitespace = -trailing-space,cr-at-eol
