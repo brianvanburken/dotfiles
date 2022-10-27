@@ -92,11 +92,6 @@ alias ln='ln -i'
 alias mkdir='mkdir -p'
 alias cat='bat'
 
-alias kill_ds="fd -H '^\.DS_Store$' -tf -X rm -rf"
-alias kill_modules="fd 'node_modules' -td -X rm -rf"
-
 alias mine='sudo chown -R $(whoami):admin '
 
 alias backup='rsync --exclude-from="${XDG_CONFIG_HOME}/rsync/excludes.txt" -avP'
-
-alias brew_deps="brew leaves | xargs brew deps --include-build --tree"
