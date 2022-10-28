@@ -24,6 +24,7 @@
   ],
   "Lua.diagnostics.globals": ["vim", "hs"],
   "elixir.pathToElixirLS": "~/.local/share/elixir-ls/release/language_server.sh",
+  "eslint.autoFixOnSave": true,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
