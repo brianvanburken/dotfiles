@@ -4,6 +4,7 @@ vim.g.loaded_python_provider = 0
 
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.background = "dark"
+vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
 vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
@@ -15,6 +16,8 @@ vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%t%m%r%=%c:%l/%L"
 vim.o.termguicolors = true -- enable true colors support
+vim.o.updatetime = 300
+vim.o.writebackup = false
 vim.wo.wrap = false
 
 require("packer").startup(
