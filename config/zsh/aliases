@@ -105,7 +105,6 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias ln='ln -i'
 alias mkdir='mkdir -p'
-alias cat='bat'
 
 alias mine='sudo chown -R $(whoami):admin '
 
