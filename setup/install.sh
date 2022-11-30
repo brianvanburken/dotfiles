@@ -308,10 +308,8 @@ touch "${XDG_CONFIG_HOME}/zsh/.zshrc-local"
 if [[ -r "${HOMEBREW_PREFIX}/bin/asdf" ]]; then
   action "Adding asdf plugins"
   asdf plugin-add elm || true
-  asdf plugin-add haskell || true
   asdf plugin-add nodejs || true
   asdf plugin-add ruby || true
-  asdf plugin-add rust || true
   ok "asdf plugins added"
 
   action "Installing asdf versions"
