@@ -16,7 +16,6 @@ cask "calibre"
 cask "firefox"
 cask "iina"
 cask "netnewswire"
-cask "omnifocus"
 cask "spotify"
 
 cask "font-fira-code"
