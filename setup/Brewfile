@@ -11,6 +11,7 @@ brew "ripgrep"
 brew "zoxide"
 
 cask "1password"
+cask "alacritty"
 cask "alfred"
 cask "calibre"
 cask "firefox"
