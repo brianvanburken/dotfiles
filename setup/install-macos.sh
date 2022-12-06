@@ -281,6 +281,7 @@ files=(
   "config/git"
   "config/gnupg"
   "config/npm"
+  "config/nvim"
   "config/ripgrep"
   "config/rsync"
   "config/tmux"
