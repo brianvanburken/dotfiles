@@ -5,7 +5,6 @@ vim.g.coc_global_extensions = {
     "coc-html-css-support",
     "coc-json",
     "coc-lua",
-    "coc-prettier",
     "coc-eslint",
     "coc-rust-analyzer",
     "coc-tsserver"
