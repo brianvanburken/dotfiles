@@ -26,6 +26,9 @@ vim.wo.wrap = false
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Keep cursor where it is when joining lines
+vim.keymap.set("n", "J", "mzJ`z")
+
 require("packer").startup(
     function(use)
         use {"christoomey/vim-tmux-navigator"}
