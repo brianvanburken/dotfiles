@@ -11,12 +11,14 @@ vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
 vim.o.hidden = true
 vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.lazyredraw = true
+vim.o.nu = true
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%t%m%r%=%c:%l/%L"
 vim.o.termguicolors = true -- enable true colors support
-vim.o.updatetime = 300
+vim.o.updatetime = 50
 vim.o.writebackup = false
 vim.wo.wrap = false
 
