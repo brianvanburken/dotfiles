@@ -10,6 +10,10 @@ vim.g.coc_global_extensions = {
     "coc-tsserver"
 }
 
+vim.keymap.set("n", "<leader>h", ":CocCommand document.toggleInlayHint<CR>", {silent = true})
+
+-- Below is copied from: https://github.com/neoclide/coc.nvim#example-lua-configuration
+
 local keyset = vim.keymap.set
 -- Auto complete
 function _G.check_back_space()
