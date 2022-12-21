@@ -5,7 +5,10 @@ vim.env.FZF_DEFAULT_OPTS = "--ansi"
 require('fzf-lua').setup({
     winopts = {
         fullscreen = true
-    }
+    },
+    fzf_opts = {
+        ['--layout'] = "default",
+    },
 })
 
 vim.api.nvim_set_keymap('n', '<C-p>', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
