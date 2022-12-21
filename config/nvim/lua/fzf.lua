@@ -14,3 +14,4 @@ require('fzf-lua').setup({
 vim.api.nvim_set_keymap('n', '<C-p>', "<cmd>lua require('fzf-lua').files()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-t>', "<cmd>lua require('fzf-lua').tags()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-a>', "<cmd>lua require('fzf-lua').live_grep()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-i>', "<cmd>lua require('fzf-lua').builtin()<CR>", { noremap = true, silent = true })
