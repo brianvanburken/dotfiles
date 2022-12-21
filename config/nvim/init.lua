@@ -34,9 +34,7 @@ require("packer").startup(
         use {"christoomey/vim-tmux-navigator"}
         use {"editorconfig/editorconfig-vim"}
         use {
-            "junegunn/fzf",
-            requires = "junegunn/fzf.vim",
-            run = ":call fzf#install()",
+            "ibhagwan/fzf-lua",
             config = function() require('fzf') end
         }
         use {
