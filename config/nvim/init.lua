@@ -51,9 +51,10 @@ require("packer").startup(
             run = ":TSUpdate",
             config = function() require("treesitter") end
         }
+        use {"tpope/vim-abolish"}
         use {"tpope/vim-commentary"}
-        use {"tpope/vim-surround"}
         use {"tpope/vim-eunuch"}
+        use {"tpope/vim-surround"}
         use {"wbthomason/packer.nvim"}
     end
 )
