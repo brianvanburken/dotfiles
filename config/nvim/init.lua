@@ -29,6 +29,11 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Keep cursor where it is when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Paste but keep current registry
+vim.keymap.set("n", "<leader>p", "\"_d")
+vim.keymap.set("v", "<leader>p", "\"_d")
+vim.keymap.set("x", "<leader>p", "\"_d")
+
 require("packer").startup(
     function(use)
         use {"christoomey/vim-tmux-navigator"}
