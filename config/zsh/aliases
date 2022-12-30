@@ -109,3 +109,6 @@ alias mkdir='mkdir -p'
 alias mine='sudo chown -R $(whoami):admin '
 
 alias backup='rsync --exclude-from="${XDG_CONFIG_HOME}/rsync/excludes.txt" -avP'
+
+alias t='tree -L 3 '
+
