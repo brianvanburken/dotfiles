@@ -39,22 +39,15 @@ vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 
 require("lazy").setup({
     {
-        "ibhagwan/fzf-lua",
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
         keys = {
-            { "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>" },
-            { "<C-t>", "<cmd>lua require('fzf-lua').tags()<CR>" },
-            { "<C-a>", "<cmd>lua require('fzf-lua').live_grep()<CR>" },
-            { "<C-i>", "<cmd>lua require('fzf-lua').builtin()<CR>" },
-            { "<leader>c", "<cmd>lua require('fzf-lua').commands()<CR>" },
+            { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>" },
+            { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>" },
+            { "<leader>fc", "<cmd>lua require('telescope.builtin').commands()<CR>" },
+            { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>" },
         },
-        config = {
-            winopts = {
-                fullscreen = true,
-            },
-            fzf_opts = {
-                ["--layout"] = "default",
-            },
-        },
+        config = true,
     },
     {
         "ellisonleao/gruvbox.nvim",
