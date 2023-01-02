@@ -1,6 +1,5 @@
 vim.g.coc_global_extensions = {
     "coc-css",
-    "coc-elixir",
     "coc-html",
     "coc-html-css-support",
     "coc-json",
