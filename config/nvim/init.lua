@@ -16,7 +16,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
-vim.o.statusline = "%t%m%r%=%c:%l/%L"
+vim.o.statusline = "%f%<%m%r"
 vim.o.termguicolors = true -- enable true colors support
 vim.o.updatetime = 50
 vim.o.writebackup = false
