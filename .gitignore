@@ -6,7 +6,6 @@
 .zsh_history
 Brewfile.lock.json
 
-config/nvim/lazy-lock.json
 config/tmux/plugins
 
 config/gnupg/*
