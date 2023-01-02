@@ -30,131 +30,147 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Paste but keep current registry
-vim.keymap.set("n", "<leader>p", "\"_d")
-vim.keymap.set("v", "<leader>p", "\"_d")
-vim.keymap.set("x", "<leader>p", "\"_d")
-
+vim.keymap.set("n", "<leader>p", '"_d')
+vim.keymap.set("v", "<leader>p", '"_d')
+vim.keymap.set("x", "<leader>p", '"_d')
 
 -- Setup Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system(
+        {
+            "git",
+            "clone",
+            "--filter=blob:none",
+            "https://github.com/folke/lazy.nvim.git",
+            "--branch=stable", -- latest stable release
+            lazypath
+        }
+    )
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup({
-    {"christoomey/vim-tmux-navigator"},
-    {"editorconfig/editorconfig-vim"},
+require("lazy").setup(
     {
-        "ibhagwan/fzf-lua",
-        keys = {
-            { "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>"},
-            { "<C-t>", "<cmd>lua require('fzf-lua').tags()<CR>"},
-            { "<C-a>", "<cmd>lua require('fzf-lua').live_grep()<CR>"},
-            { "<C-i>", "<cmd>lua require('fzf-lua').builtin()<CR>"},
+        {"christoomey/vim-tmux-navigator", event = "BufReadPost"},
+        {"editorconfig/editorconfig-vim", event = "BufReadPost"},
+        {
+            "ibhagwan/fzf-lua",
+            keys = {
+                {"<C-p>", "<cmd>lua require('fzf-lua').files()<CR>"},
+                {"<C-t>", "<cmd>lua require('fzf-lua').tags()<CR>"},
+                {"<C-a>", "<cmd>lua require('fzf-lua').live_grep()<CR>"},
+                {"<C-i>", "<cmd>lua require('fzf-lua').builtin()<CR>"},
+                {"<leader>c", "<cmd>lua require('fzf-lua').commands()<CR>"}
+            },
+            config = {
+                winopts = {
+                    fullscreen = true
+                },
+                fzf_opts = {
+                    ["--layout"] = "default"
+                }
+            }
         },
-        config = {
-            winopts = {
-                fullscreen = true
-            },
-            fzf_opts = {
-                ['--layout'] = "default",
-            },
+        {
+            "ellisonleao/gruvbox.nvim",
+            init = function()
+                vim.cmd("colorscheme gruvbox")
+            end,
+            config = {
+                contrast = "hard"
+            }
+        },
+        {
+            "neoclide/coc.nvim",
+            build = ":CocUpdate",
+            branch = "release",
+            event = "BufReadPost",
+            config = function()
+                require("coc")
+            end
+        },
+        {
+            "nvim-treesitter/nvim-treesitter",
+            build = ":TSUpdate",
+            event = "BufReadPost",
+            config = function()
+                vim.o.foldmethod = "expr"
+                vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+                vim.o.foldlevel = 20
+                require("nvim-treesitter.configs").setup(
+                    {
+                        ensure_installed = {
+                            "bash",
+                            "css",
+                            "elm",
+                            "html",
+                            "javascript",
+                            "jsdoc",
+                            "json",
+                            "lua",
+                            "regex",
+                            "ruby",
+                            "rust",
+                            "scss",
+                            "toml",
+                            "tsx",
+                            "typescript",
+                            "yaml",
+                            "vim"
+                        },
+                        sync_install = false,
+                        auto_install = false,
+                        highlight = {
+                            enable = true,
+                            use_languagetree = true,
+                            additional_vim_regex_highlighting = false
+                        },
+                        indent = {
+                            enable = true
+                        },
+                        incremental_selection = {
+                            enable = true,
+                            keymaps = {
+                                init_selection = "gnn",
+                                node_incremental = "grn",
+                                scope_incremental = "grc",
+                                node_decremental = "grm"
+                            }
+                        }
+                    }
+                )
+            end
+        },
+        {
+            "tpope/vim-abolish",
+            event = "BufReadPost",
+        },
+        {
+            "tpope/vim-commentary",
+            event = "BufReadPost",
+        },
+        {
+            "tpope/vim-eunuch",
+            cmd = { "Rename", "Remove", "Delete", "Move", "Mkdir" }
+        },
+        {
+            "tpope/vim-surround",
+            event = "BufReadPost",
         }
     },
     {
-        "ellisonleao/gruvbox.nvim",
-        config = function ()
-            require("gruvbox").setup({
-                contrast = "hard"
-            })
-            vim.cmd([[colorscheme gruvbox]])
-        end
-    },
-    {
-        "neoclide/coc.nvim",
-        build = ":CocUpdate",
-        branch = "release",
-        config = function() require('coc') end
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        lazy = false,
-        init = function ()
-            vim.o.foldmethod = "expr"
-            vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-            vim.o.foldlevel = 20
-        end,
-        config = {
-            ensure_installed = {
-                "bash",
-                "css",
-                "elm",
-                "html",
-                "javascript",
-                "jsdoc",
-                "json",
-                "lua",
-                "regex",
-                "ruby",
-                "rust",
-                "scss",
-                "toml",
-                "tsx",
-                "typescript",
-                "yaml"
-            },
-            sync_install = false,
-            auto_install = true,
-            highlight = {
-                enable = true,
-                use_languagetree = true,
-                additional_vim_regex_highlighting = false,
-            },
-            indent = {
-                enable = true
-            },
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "gnn",
-                    node_incremental = "grn",
-                    scope_incremental = "grc",
-                    node_decremental = "grm"
+        performance = {
+            rtp = {
+                disabled_plugins = {
+                    "gzip",
+                    "matchit",
+                    "matchparen",
+                    "tarPlugin",
+                    "tohtml",
+                    "tutor",
+                    "zipPlugin"
                 }
             }
         }
-    },
-    {"tpope/vim-abolish"},
-    {"tpope/vim-commentary"},
-    {
-        "tpope/vim-eunuch",
-        cmd = "Rename"
-    },
-    {"tpope/vim-surround"},
-}, {
-    install = {
-        colorscheme = { "gruvbox" },
-    },
-    performance = {
-        rtp = {
-            disabled_plugins = {
-                "gzip",
-                "matchit",
-                "matchparen",
-                "netrwPlugin",
-                "tarPlugin",
-                "tohtml",
-                "tutor",
-                "zipPlugin",
-            },
-        }
     }
-})
+)
