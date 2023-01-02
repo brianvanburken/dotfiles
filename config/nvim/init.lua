@@ -127,11 +127,14 @@ require("lazy").setup(
                 )
             end
         },
+        {
+            "christoomey/vim-tmux-navigator",
+            keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>"}
+        },
         {"tpope/vim-abolish", event = "BufReadPost"},
         {"tpope/vim-commentary", event = "BufReadPost"},
         {"tpope/vim-eunuch", cmd = { "Rename", "Remove", "Delete", "Move", "Mkdir"}},
         {"tpope/vim-surround", event = "BufReadPost"},
-        {"christoomey/vim-tmux-navigator", event = "BufReadPost"},
     },
     {
         performance = {
