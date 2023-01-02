@@ -34,32 +34,127 @@ vim.keymap.set("n", "<leader>p", "\"_d")
 vim.keymap.set("v", "<leader>p", "\"_d")
 vim.keymap.set("x", "<leader>p", "\"_d")
 
-require("packer").startup(
-    function(use)
-        use {"christoomey/vim-tmux-navigator"}
-        use {"editorconfig/editorconfig-vim"}
-        use {
-            "ibhagwan/fzf-lua",
-            config = function() require('fzf') end
+
+-- Setup Lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({
+    {"christoomey/vim-tmux-navigator"},
+    {"editorconfig/editorconfig-vim"},
+    {
+        "ibhagwan/fzf-lua",
+        keys = {
+            { "<C-p>", "<cmd>lua require('fzf-lua').files()<CR>"},
+            { "<C-t>", "<cmd>lua require('fzf-lua').tags()<CR>"},
+            { "<C-a>", "<cmd>lua require('fzf-lua').live_grep()<CR>"},
+            { "<C-i>", "<cmd>lua require('fzf-lua').builtin()<CR>"},
+        },
+        config = {
+            winopts = {
+                fullscreen = true
+            },
+            fzf_opts = {
+                ['--layout'] = "default",
+            },
         }
-        use {
-            "ellisonleao/gruvbox.nvim",
-            config = function() require('theme') end
+    },
+    {
+        "ellisonleao/gruvbox.nvim",
+        config = function ()
+            require("gruvbox").setup({
+                contrast = "hard"
+            })
+            vim.cmd([[colorscheme gruvbox]])
+        end
+    },
+    {
+        "neoclide/coc.nvim",
+        build = ":CocUpdate",
+        branch = "release",
+        config = function() require('coc') end
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        lazy = false,
+        init = function ()
+            vim.o.foldmethod = "expr"
+            vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+            vim.o.foldlevel = 20
+        end,
+        config = {
+            ensure_installed = {
+                "bash",
+                "css",
+                "elm",
+                "html",
+                "javascript",
+                "jsdoc",
+                "json",
+                "lua",
+                "regex",
+                "ruby",
+                "rust",
+                "scss",
+                "toml",
+                "tsx",
+                "typescript",
+                "yaml"
+            },
+            sync_install = false,
+            auto_install = true,
+            highlight = {
+                enable = true,
+                use_languagetree = true,
+                additional_vim_regex_highlighting = false,
+            },
+            indent = {
+                enable = true
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "gnn",
+                    node_incremental = "grn",
+                    scope_incremental = "grc",
+                    node_decremental = "grm"
+                }
+            }
         }
-        use {
-            "neoclide/coc.nvim",
-            branch = "release",
-            config = function() require('coc') end
+    },
+    {"tpope/vim-abolish"},
+    {"tpope/vim-commentary"},
+    {
+        "tpope/vim-eunuch",
+        cmd = "Rename"
+    },
+    {"tpope/vim-surround"},
+}, {
+    install = {
+        colorscheme = { "gruvbox" },
+    },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "matchit",
+                "matchparen",
+                "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
         }
-        use {
-            "nvim-treesitter/nvim-treesitter",
-            run = ":TSUpdate",
-            config = function() require("treesitter") end
-        }
-        use {"tpope/vim-abolish"}
-        use {"tpope/vim-commentary"}
-        use {"tpope/vim-eunuch"}
-        use {"tpope/vim-surround"}
-        use {"wbthomason/packer.nvim"}
-    end
-)
+    }
+})
