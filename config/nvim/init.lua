@@ -3,6 +3,7 @@ vim.o.background = "dark"
 vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
+vim.o.expandtab = true
 vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
 vim.o.hidden = true
 vim.o.inccommand = "split" -- Show live preview of substitutions
@@ -10,9 +11,11 @@ vim.o.lazyredraw = true
 vim.o.nu = true
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.shiftwidth = 4
 vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%f%<%m%r"
+vim.o.tabstop = 4
 vim.o.termguicolors = true -- enable true colors support
 vim.o.updatetime = 50
 vim.o.writebackup = false
@@ -128,7 +131,6 @@ require("lazy").setup(
         {"tpope/vim-eunuch", cmd = { "Rename", "Remove", "Delete", "Move", "Mkdir"}},
         {"tpope/vim-surround", event = "BufReadPost"},
         {"christoomey/vim-tmux-navigator", event = "BufReadPost"},
-        {"editorconfig/editorconfig-vim", event = "BufReadPost"},
     },
     {
         performance = {
