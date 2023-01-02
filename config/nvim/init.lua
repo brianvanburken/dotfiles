@@ -1,7 +1,3 @@
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_python_provider = 0
-
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.background = "dark"
 vim.o.backup = false
@@ -35,24 +31,10 @@ vim.keymap.set("v", "<leader>p", '"_d')
 vim.keymap.set("x", "<leader>p", '"_d')
 
 -- Setup Lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system(
-        {
-            "git",
-            "clone",
-            "--filter=blob:none",
-            "https://github.com/folke/lazy.nvim.git",
-            "--branch=stable", -- latest stable release
-            lazypath
-        }
-    )
-end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
+
 require("lazy").setup(
     {
-        {"christoomey/vim-tmux-navigator", event = "BufReadPost"},
-        {"editorconfig/editorconfig-vim", event = "BufReadPost"},
         {
             "ibhagwan/fzf-lua",
             keys = {
@@ -141,34 +123,33 @@ require("lazy").setup(
                 )
             end
         },
-        {
-            "tpope/vim-abolish",
-            event = "BufReadPost",
-        },
-        {
-            "tpope/vim-commentary",
-            event = "BufReadPost",
-        },
-        {
-            "tpope/vim-eunuch",
-            cmd = { "Rename", "Remove", "Delete", "Move", "Mkdir" }
-        },
-        {
-            "tpope/vim-surround",
-            event = "BufReadPost",
-        }
+        {"tpope/vim-abolish", event = "BufReadPost"},
+        {"tpope/vim-commentary", event = "BufReadPost"},
+        {"tpope/vim-eunuch", cmd = { "Rename", "Remove", "Delete", "Move", "Mkdir"}},
+        {"tpope/vim-surround", event = "BufReadPost"},
+        {"christoomey/vim-tmux-navigator", event = "BufReadPost"},
+        {"editorconfig/editorconfig-vim", event = "BufReadPost"},
     },
     {
         performance = {
             rtp = {
                 disabled_plugins = {
+                    "2html_plugin",
+                    "getscript",
+                    "getscriptPlugin",
                     "gzip",
+                    "logipat",
                     "matchit",
                     "matchparen",
+                    "rplugin",
+                    "rrhelper",
                     "tarPlugin",
                     "tohtml",
                     "tutor",
-                    "zipPlugin"
+                    "vimball",
+                    "vimballPlugin",
+                    "zip",
+                    "zipPlugin",
                 }
             }
         }
