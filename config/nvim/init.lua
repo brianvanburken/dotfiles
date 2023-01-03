@@ -49,6 +49,7 @@ require("lazy").setup({
             { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>" },
             { "<leader>fc", "<cmd>lua require('telescope.builtin').commands()<CR>" },
             { "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>" },
+            { "<leader>fl", "<cmd>lua require('telescope.builtin').diagnostics()<CR>" },
         },
         config = true,
     },
