@@ -56,7 +56,7 @@ require("lazy").setup({
     {
         "ellisonleao/gruvbox.nvim",
         init = function()
-            vim.cmd("colorscheme gruvbox")
+            vim.api.nvim_cmd({ cmd = 'colorscheme', args = {'gruvbox'} }, {})
         end,
         config = {
             contrast = "hard",
