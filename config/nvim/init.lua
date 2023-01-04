@@ -3,7 +3,6 @@ vim.g.loaded_ruby_provider = 0
 
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.background = "dark"
-vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
 vim.o.expandtab = true
