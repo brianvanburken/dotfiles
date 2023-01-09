@@ -49,6 +49,13 @@ require("lazy").setup({
             { "<leader>fc", "<cmd>Telescope commands<CR>" },
             { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
             { "<leader>fl", "<cmd>Telescope diagnostics<CR>" },
+        },
+        opts = {
+            pickers = {
+                find_files = {
+                    hidden = true
+                }
+            }
         }
     },
     {
