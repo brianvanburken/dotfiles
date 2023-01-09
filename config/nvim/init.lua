@@ -49,17 +49,14 @@ require("lazy").setup({
             { "<leader>fc", "<cmd>Telescope commands<CR>" },
             { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
             { "<leader>fl", "<cmd>Telescope diagnostics<CR>" },
-        },
-        config = true,
+        }
     },
     {
         "ellisonleao/gruvbox.nvim",
         init = function()
             vim.api.nvim_cmd({ cmd = 'colorscheme', args = {'gruvbox'} }, {})
         end,
-        config = {
-            contrast = "hard",
-        },
+        opts = { contrast = "hard" },
     },
     {
         "neoclide/coc.nvim",
