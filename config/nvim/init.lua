@@ -1,5 +1,8 @@
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
 
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.background = "dark"
@@ -23,6 +26,7 @@ vim.o.termguicolors = true -- enable true colors support
 vim.o.updatetime = 50
 vim.o.writebackup = false
 vim.wo.wrap = false
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Map <leader> to space
 vim.g.mapleader = " "
@@ -40,126 +44,17 @@ vim.keymap.set("n", "<leader>p", '"_d')
 vim.keymap.set("v", "<leader>p", '"_d')
 vim.keymap.set("x", "<leader>p", '"_d')
 
+-- URL handling (custom for when netrw is disabled and don't provide functionality)
+if vim.fn.has("mac") == 1 then
+    vim.keymap.set("n", "gx", '<Cmd>call jobstart(["open", expand("<cfile>")], {"detach": v:true})<CR>')
+elseif vim.fn.has("unix") == 1 then
+    vim.keymap.set("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+end
+
 -- Setup Lazy.nvim
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 
-require("lazy").setup({
-    {
-        "takac/vim-hardtime",
-        init = function()
-            vim.g.hardtime_default_on = 1
-            vim.g.hardtime_showmsg = 1
-            vim.g.hardtime_timeout = 1000
-            vim.g.hardtime_maxcount = 1
-            vim.g.hardtime_motion_with_count_resets = 1
-        end,
-    },
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim", "fannheyward/telescope-coc.nvim" },
-        keys = {
-            { "<leader>ff", "<cmd>Telescope find_files<CR>" },
-            { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
-            { "<leader>fc", "<cmd>Telescope commands<CR>" },
-            { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
-            { "<leader>fl", "<cmd>Telescope coc workspace_diagnostics<CR>" },
-            { "<leader>fs", "<cmd>Telescope coc workspace_symbols<CR>" },
-            { "<leader>fa", "<cmd>Telescope coc line_code_actions<CR>" },
-            { "<leader>fcc", "<cmd>Telescope coc<CR>" },
-        },
-        opts = {
-            pickers = {
-                find_files = {
-                    hidden = true,
-                },
-            },
-            extensions = {
-                coc = {
-                    prefer_locations = true,
-                },
-            },
-        },
-        config = function()
-            require("telescope").load_extension("coc")
-        end,
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-        init = function()
-            vim.api.nvim_cmd({ cmd = "colorscheme", args = { "gruvbox" } }, {})
-        end,
-        opts = { contrast = "hard" },
-    },
-    {
-        "neoclide/coc.nvim",
-        build = ":CocUpdate",
-        branch = "release",
-        event = "BufReadPost",
-        config = function()
-            require("coc")
-        end,
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        event = "BufReadPost",
-        config = function()
-            vim.o.foldmethod = "expr"
-            vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-            vim.o.foldlevel = 20
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = {
-                    "bash",
-                    "css",
-                    "elm",
-                    "html",
-                    "javascript",
-                    "jsdoc",
-                    "json",
-                    "lua",
-                    "markdown",
-                    "regex",
-                    "ruby",
-                    "rust",
-                    "scss",
-                    "toml",
-                    "tsx",
-                    "typescript",
-                    "vim",
-                    "yaml",
-                },
-                sync_install = false,
-                auto_install = false,
-                highlight = {
-                    enable = true,
-                    use_languagetree = true,
-                    additional_vim_regex_highlighting = false,
-                },
-                indent = {
-                    enable = true,
-                },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = "gnn",
-                        node_incremental = "grn",
-                        scope_incremental = "grc",
-                        node_decremental = "grm",
-                    },
-                },
-            })
-        end,
-    },
-    {
-        "christoomey/vim-tmux-navigator",
-        keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
-    },
-    { "AndrewRadev/splitjoin.vim", event = "BufReadPost" },
-    { "tpope/vim-abolish", event = "BufReadPost" },
-    { "tpope/vim-commentary", event = "BufReadPost" },
-    { "tpope/vim-eunuch", cmd = { "Rename", "Remove", "Delete", "Move", "Mkdir" } },
-    { "tpope/vim-surround", event = "BufReadPost" },
-}, {
+require("lazy").setup("plugins", {
     performance = {
         rtp = {
             disabled_plugins = {
@@ -170,8 +65,10 @@ require("lazy").setup({
                 "logipat",
                 "matchit",
                 "matchparen",
+                "netrwPlugin",
                 "rplugin",
                 "rrhelper",
+                "shada",
                 "tarPlugin",
                 "tohtml",
                 "tutor",
