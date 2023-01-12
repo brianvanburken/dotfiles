@@ -1,10 +1,10 @@
 vim.g.coc_global_extensions = {
     "coc-css",
+    "coc-eslint",
     "coc-html",
     "coc-html-css-support",
     "coc-json",
     "coc-lua",
-    "coc-eslint",
     "coc-rust-analyzer",
     "coc-tsserver",
 }
