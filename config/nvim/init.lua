@@ -42,21 +42,30 @@ vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 require("lazy").setup({
     {
         "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim", "fannheyward/telescope-coc.nvim" },
         keys = {
             { "<leader>ff", "<cmd>Telescope find_files<CR>" },
             { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
             { "<leader>fc", "<cmd>Telescope commands<CR>" },
             { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
-            { "<leader>fl", "<cmd>Telescope diagnostics<CR>" },
+            { "<leader>fl", "<cmd>Telescope coc diagnostics<CR>" }, -- Replace with LSP
+            { "<leader>fcc", "<cmd>Telescope coc<CR>" }, -- Replace with LSP
         },
         opts = {
             pickers = {
                 find_files = {
                     hidden = true
                 }
+            },
+            extensions = {
+                coc = {
+                    prefer_locations = true
+                }
             }
-        }
+        },
+        config = function()
+            require('telescope').load_extension('coc')
+        end
     },
     {
         "ellisonleao/gruvbox.nvim",
