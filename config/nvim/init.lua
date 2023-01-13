@@ -48,8 +48,10 @@ require("lazy").setup({
             { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
             { "<leader>fc", "<cmd>Telescope commands<CR>" },
             { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
-            { "<leader>fl", "<cmd>Telescope coc diagnostics<CR>" }, -- Replace with LSP
-            { "<leader>fcc", "<cmd>Telescope coc<CR>" }, -- Replace with LSP
+            { "<leader>fl", "<cmd>Telescope coc workspace_diagnostics<CR>" },
+            { "<leader>fs", "<cmd>Telescope coc workspace_symbols<CR>" },
+            { "<leader>fa", "<cmd>Telescope coc line_code_actions<CR>" },
+            { "<leader>fcc", "<cmd>Telescope coc<CR>" },
         },
         opts = {
             pickers = {
