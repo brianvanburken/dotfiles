@@ -24,6 +24,10 @@ vim.o.updatetime = 50
 vim.o.writebackup = false
 vim.wo.wrap = false
 
+-- Map <leader> to space
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Move visually selected blocks to move up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
