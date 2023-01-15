@@ -56,23 +56,23 @@ require("lazy").setup({
         opts = {
             pickers = {
                 find_files = {
-                    hidden = true
-                }
+                    hidden = true,
+                },
             },
             extensions = {
                 coc = {
-                    prefer_locations = true
-                }
-            }
+                    prefer_locations = true,
+                },
+            },
         },
         config = function()
-            require('telescope').load_extension('coc')
-        end
+            require("telescope").load_extension("coc")
+        end,
     },
     {
         "ellisonleao/gruvbox.nvim",
         init = function()
-            vim.api.nvim_cmd({ cmd = 'colorscheme', args = {'gruvbox'} }, {})
+            vim.api.nvim_cmd({ cmd = "colorscheme", args = { "gruvbox" } }, {})
         end,
         opts = { contrast = "hard" },
     },
