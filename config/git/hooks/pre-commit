@@ -1,12 +1,15 @@
-#!/bin/bash
-cd "$(dirname "$0")/pre-commit.d"
-for hook in *; do
-    bash $hook
-    RESULT=$?
-    if [ $RESULT != 0 ]; then
-        echo "Skip pre-commit hooks with --no-verify (not recommended)."
-        echo "pre-commit.d/$hook returned non-zero: $RESULT, abort commit"
-        exit $RESULT
-    fi
-done
+#!/bin/sh
+
+readonly RED=$(tput setab 1)
+readonly NORMAL=$(tput sgr0)
+readonly CONFLICT_MARKERS='<<<<<<<|=======|>>>>>>>'
+readonly CHECK=$(git diff --staged | grep "^+" | grep -Ei "$CONFLICT_MARKERS" -c)
+
+if [ "$CHECK" -gt 0 ]
+then
+    echo "$RED ERROR $NORMAL Conflict markers sill preset in the following files:"
+    git diff --staged --name-only -G"$CONFLICT_MARKERS"
+    exit 1
+fi
+
 exit 0
