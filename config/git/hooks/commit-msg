@@ -1,17 +1,16 @@
 #!/bin/sh
+set -e
 
 readonly RED=$(tput setab 1)
 readonly NORMAL=$(tput sgr0)
 readonly CONVENTIONAL_COMMIT_REGEX="^(feat|fix|docs|build|ci|perf|style|refactor|test|chore)(\(\w+\))?\!?:"
 
-declare -r msg=$(< $1);
+readonly msg=$(< $1);
 
-readonly CHECK="$(grep -Ei $CONVENTIONAL_COMMIT_REGEX -c <<< "$msg")"
-
-if [ "$CHECK" -eq 0 ]
+if [[ ! $msg =~ $CONVENTIONAL_COMMIT_REGEX ]]
 then
     echo "$RED ERROR $NORMAL Commit message should follow the conventional commit structure."
-    exit 1;
+    exit 1
 fi
 
 exit 0
