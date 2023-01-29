@@ -55,6 +55,8 @@ end
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 
 require("lazy").setup("plugins", {
+    defaults = { lazy = true },
+    debug = false,
     performance = {
         rtp = {
             disabled_plugins = {
