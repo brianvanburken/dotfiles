@@ -173,30 +173,19 @@ return {
         nls.setup({
             sources = {
                 -- FORMATTING --
-                fmt.trim_whitespace.with({
-                    filetypes = { "text", "zsh", "toml", "make", "conf", "tmux" },
-                }),
-                -- NOTE:
-                -- 1. both needs to be enabled to so prettier can apply eslint fixes
-                -- 2. prettierd should come first to prevent occasional race condition
-                fmt.prettierd,
-                fmt.eslint_d,
-
-                fmt.rustfmt,
                 fmt.elm_format,
+                fmt.eslint_d,
+                fmt.rustfmt,
+                fmt.shfmt.with({ extra_args = { "-i", 4, "-ci", "-sr" } }),
                 fmt.stylua,
-                fmt.shfmt.with({
-                    extra_args = { "-i", 4, "-ci", "-sr" },
-                }),
+                fmt.trim_whitespace.with({ filetypes = { "text", "zsh", "toml", "make", "conf", "tmux" } }),
 
                 -- DIAGNOSTICS --
                 dgn.codespell,
                 dgn.commitlint,
                 dgn.eslint_d,
+                dgn.luacheck.with({ extra_args = { "--globals", "vim", "--std", "luajit" } }),
                 dgn.shellcheck,
-                dgn.luacheck.with({
-                    extra_args = { "--globals", "vim", "--std", "luajit" },
-                }),
 
                 -- CODE ACTIONS --
                 cda.eslint_d,
