@@ -2,5 +2,10 @@
 # Benchmarks the current shell
 function bench_shell() {
     readonly shell="${1-${SHELL}}"
-    for i in $(seq 1 10); do time "${shell}" -i -c exit; done
+    if ! command -v hyperfine &> /dev/null
+    then
+        for i in $(seq 1 10); do time "${shell}" -i -c 'exit 0'; done
+    else
+        hyperfine --warmup 5 "${shell} -i -c 'exit 0'"
+    fi
 }
