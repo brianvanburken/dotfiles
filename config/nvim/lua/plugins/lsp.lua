@@ -56,8 +56,6 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         ---Common `on_attach` function for LSP servers
-        ---@param client table
-        ---@param buf integer
         local function on_attach(client, buf)
             ---Disable formatting for servers (Handled by null-ls)
             ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
