@@ -1,0 +1,9 @@
+function brew_fix
+    brew update-reset;
+    brew doctor;
+    brew autoremove;
+    brew cleanup;
+    sudo rm -rf $(brew --cache)/* 2>&1;
+    sudo rm -rf $(brew --prefix)/var/homebrew/locks/* 2>&1;
+    sudo chown -R $(whoami) $(brew --prefix)/*;
+end

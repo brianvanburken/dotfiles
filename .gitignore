@@ -1,4 +1,5 @@
 *.local
+*-local.fish
 *.zwc
 *cache/
 .zcompcache
@@ -8,5 +9,3 @@ Brewfile.lock.json
 
 config/tmux/plugins
 
-config/gnupg/*
-!config/gnupg/gpg-agent.conf

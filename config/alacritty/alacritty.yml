@@ -51,10 +51,6 @@ font:
   # Point size of the font
   size: 12
 
-# Create/attach to Tmux session on startup
-shell:
-  program: /bin/zsh
-
 schemes:
   ayu:
     dark: &ayu_dark # Default colors
