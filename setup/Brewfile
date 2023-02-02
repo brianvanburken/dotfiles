@@ -6,6 +6,7 @@ tap "homebrew/core"
 
 brew "asdf"
 brew "fd"
+brew "fish"
 brew "git"
 brew "jq"
 brew "neovim"
