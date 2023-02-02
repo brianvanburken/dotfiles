@@ -11,6 +11,7 @@ return {
                 "bash",
                 "css",
                 "elm",
+                "fish",
                 "html",
                 "javascript",
                 "jsdoc",
