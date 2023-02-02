@@ -1,3 +1,6 @@
+# Unset welcome message
+set -g fish_greeting
+
 if status is-interactive 
 and not set -q TMUX
   set -l session_name "workspace"
@@ -5,10 +8,10 @@ and not set -q TMUX
   tmux attach -t "$session_name"
 end
 
-# TODO: Should be cached
-#  write function that outputs to a file in a folder and sources it
-#  check time of file and renew after n days
-zoxide init fish | source
-
-# Unset welcome message
-set -g fish_greeting
+# Cache zoxide init command to a file to cache
+set zoxide_cached_file "$XDG_CACHE_HOME/fish/zoxide.fish"
+if test -e "$zoxide_cached_file"
+  source "$zoxide_cached_file"
+else
+  zoxide init fish >> "$zoxide_cached_file"
+end

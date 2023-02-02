@@ -8,8 +8,14 @@ set -gx HOMEBREW_CLEANUP_MAX_AGE_DAYS 7 # Decrease from default 120 days
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_NO_EMOJI 1
 
-# TODO: should be cached!
-eval (brew shellenv)
+
+# Cache the brew shellenv command to a file to cache it
+set homebrew_cached_file "$XDG_CACHE_HOME/fish/homebrew.fish"
+if test -e "$homebrew_cached_file"
+  source "$homebrew_cached_file"
+else
+  brew shellenv >> "$homebrew_cached_file"
+end
 
 set -q PATH; or set PATH ''; set -gx PATH "$CARGO_HOME/bin" $PATH;
 
