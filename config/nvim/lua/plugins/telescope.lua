@@ -7,6 +7,7 @@ return {
         { "<leader>fc", "<cmd>Telescope commands<CR>" },
         { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
         { "<leader>fd", "<cmd>Telescope diagnostics<CR>" },
+        { "<leader>ft", "<cmd>TodoTelescope<CR>" },
     },
     opts = {
         pickers = {
