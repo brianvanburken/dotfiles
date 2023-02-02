@@ -5,7 +5,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 
 brew "asdf"
-brew "bat"
 brew "fd"
 brew "git"
 brew "jq"
