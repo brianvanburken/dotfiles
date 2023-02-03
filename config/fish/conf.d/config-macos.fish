@@ -10,7 +10,7 @@ set -gx HOMEBREW_NO_EMOJI 1
 
 set -q PATH; or set PATH ''; set -gx PATH "$CARGO_HOME/bin" $PATH;
 
-abbr -a kill_ds fd -H '^\.DS_Store\$' -tf -X rm -rf
+abbr -a kill_ds fd -I -H '.DS_Store' -tf -X rm -rf
 abbr -a kill_modules fd 'node_modules' -td -X rm -rf
 
 # Cache the brew shellenv command to a file to cache it
