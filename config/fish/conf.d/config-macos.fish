@@ -14,9 +14,7 @@ abbr -a kill_ds fd -I -H '.DS_Store' -tf -X rm -rf
 abbr -a kill_modules fd 'node_modules' -td -X rm -rf
 
 # Cache the brew shellenv command to a file to cache it
-set homebrew_cached_file "$XDG_CACHE_HOME/fish/homebrew.fish"
-if test -e "$homebrew_cached_file"
-  source "$homebrew_cached_file"
-else
+set -l homebrew_cached_file "$XDG_CONFIG_HOME/fish/conf.d/homebrew-cached.fish"
+if not test -e "$homebrew_cached_file"
   brew shellenv >> "$homebrew_cached_file"
 end

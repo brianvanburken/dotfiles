@@ -9,9 +9,7 @@ and not set -q TMUX
 end
 
 # Cache zoxide init command to a file to cache
-set zoxide_cached_file "$XDG_CACHE_HOME/fish/zoxide.fish"
-if test -e "$zoxide_cached_file"
-  source "$zoxide_cached_file"
-else
+set -l zoxide_cached_file "$XDG_CONFIG_HOME/fish/conf.d/zoxide-cached.fish"
+if not test -e "$zoxide_cached_file"
   zoxide init fish >> "$zoxide_cached_file"
 end
