@@ -1,11 +1,20 @@
 *.local
-*-local.fish
+
+# Homebrew
+Brewfile.lock.json
+
+# Tmux
+config/tmux/plugins
+
+# Fish
+fishd.*
+fish_history
+fish_variables
+config.local.fish
+
+# Zsh
 *.zwc
 *cache/
 .zcompcache
 .zcompdump*
 .zsh_history
-Brewfile.lock.json
-
-config/tmux/plugins
-
