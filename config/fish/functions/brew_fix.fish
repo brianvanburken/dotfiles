@@ -1,9 +1,14 @@
-function brew_fix
+function brew_fix -d "Resets homebrew and cleans up junk"
     brew update-reset;
     brew doctor;
     brew autoremove;
     brew cleanup;
-    sudo rm -rf $(brew --cache)/* 2>&1;
-    sudo rm -rf $(brew --prefix)/var/homebrew/locks/* 2>&1;
+
+    rm -rf $(brew --cache)/;
+    mkdir $(brew --cache)/;
+
+    rm -rf $(brew --prefix)/var/homebrew/locks/;
+    mkdir $(brew --prefix)/var/homebrew/locks/;
+
     sudo chown -R $(whoami) $(brew --prefix)/*;
 end
