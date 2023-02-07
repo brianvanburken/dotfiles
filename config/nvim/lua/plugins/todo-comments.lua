@@ -6,7 +6,5 @@ return {
         { "]t", "<cmd>lua require('todo-comments').jump_next()<CR>" },
         { "[t", "<cmd>lua require('todo-comments').jump_prev()<CR>" },
     },
-    opts = {
-        signs = false,
-    },
+    opts = true,
 }
