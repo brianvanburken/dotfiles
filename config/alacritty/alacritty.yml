@@ -51,6 +51,13 @@ font:
   # Point size of the font
   size: 12
 
+shell:
+  program: /opt/homebrew/bin/fish
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
 schemes:
   ayu:
     dark: &ayu_dark # Default colors
