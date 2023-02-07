@@ -4,51 +4,44 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "nvim-lua/plenary.nvim",
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
         "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "sumneko_lua",
-                "rust_analyzer",
-                "cssls",
-                "elmls",
-                "html",
-                "jsonls",
-                "yamlls",
-                "taplo",
-                "tsserver",
-            },
-        })
+        local lsp = require("lspconfig")
+
+        local opts = { noremap = true, silent = true }
+        vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+        vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
         local function lsp_mapping(buf)
-            local opts = { buffer = buf }
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-            vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]g", vim.diagnostic.goto_next, opts)
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-            vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
-            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-            vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-            vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-            vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+            local bufopts = { buffer = buf, noremap = true, silent = true }
+            vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 
-            vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
-            vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)
-            vim.keymap.set("x", "<leader>la", vim.lsp.buf.range_code_action, opts)
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+            vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+            vim.keymap.set("n", "go", vim.lsp.buf.type_definition, bufopts)
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+
+            vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, bufopts)
+            vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
+            vim.keymap.set("x", "<leader>la", vim.lsp.buf.range_code_action, bufopts)
+
+            vim.keymap.set("n", "<space>f", function()
+                vim.lsp.buf.format({ async = true })
+            end, bufopts)
         end
 
         -- https://github.com/numToStr/dotfiles/blob/master/neovim/.config/nvim/init.lua
-        local lsp = require("lspconfig")
 
         ---Common perf related flags for all the LSP servers
         local flags = {
             allow_incremental_sync = true,
-            debounce_text_changes = 200,
         }
 
         ---Common capabilities including lsp snippets and autocompletion
