@@ -45,7 +45,7 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: "Fira Code"
+    family: "FiraCode Nerd Font"
     style: Regular
 
   # Point size of the font
