@@ -5,13 +5,6 @@ end
 # Unset welcome message
 set -g fish_greeting
 
-if set -q TMUX
-and not command -q tmux
-  set -l session_name "dotfiles"
-  tmux new -t "$session_name" -c "$DOT_DIR"
-  tmux attach -t "$session_name"
-end
-
 # Cache zoxide init command to a file to cache
 set -l zoxide_cached_file "$XDG_CONFIG_HOME/fish/conf.d/zoxide-cached.fish"
 if not test -e "$zoxide_cached_file"; and command -sq zoxide
