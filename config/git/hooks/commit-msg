@@ -1,15 +1,16 @@
 #!/bin/sh
 set -e
 
-readonly RED=$(tput setab 1)
-readonly NORMAL=$(tput sgr0)
-readonly CONVENTIONAL_COMMIT_REGEX="^(feat|fix|docs|build|ci|perf|style|refactor|test|chore)(\(.+\))?\!?:"
+RED="$(tput setab 1)"
+NORMAL="$(tput sgr0)"
 
-readonly msg=$(< $1)
-
-if [[ ! $msg =~ $CONVENTIONAL_COMMIT_REGEX ]]; then
-    echo "$RED ERROR $NORMAL Commit message should follow the conventional commit structure."
+if ! head -1 "$1" | grep -qE "^(feat|fix|chore|docs|test|style|refactor|perf|build|ci|revert)(\(.+?\))?: .{1,}$"; then
+    echo "$RED ERROR $NORMAL Commit message should follow the conventional commit structure." >&2
     exit 1
 fi
 
+if ! head -1 "$1" | grep -qE "^.{1,88}$"; then
+    echo "$RED ERROR $NORMAL Commit message is too long." >&2
+    exit 1
+fi
 exit 0
