@@ -1,7 +1,13 @@
 return {
     {
-        "christoomey/vim-tmux-navigator",
-        keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
+        "numToStr/Navigator.nvim",
+        opts = true,
+        keys = {
+            { "<C-h>", "<cmd>NavigatorLeft<CR>" },
+            { "<C-j>", "<cmd>NavigatorDown<CR>" },
+            { "<C-k>", "<cmd>NavigatorUp<CR>" },
+            { "<C-l>", "<cmd>NavigatorRight<CR>" },
+        },
     },
     { "AndrewRadev/splitjoin.vim", keys = { "gS", "gJ" } },
     { "tpope/vim-abolish", event = "BufReadPost" },
