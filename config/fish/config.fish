@@ -112,3 +112,6 @@ abbr -a kill_modules fd 'node_modules' -td -X rm -rf
 abbr -a backup rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -avP
 
 abbr -a mine 'sudo chown -R $(whoami):admin'
+
+abbr -a todo wm
+abbr -a bujo wm
