@@ -1,5 +1,6 @@
 return {
     "takac/vim-hardtime",
+    enabled = false,
     event = "VeryLazy",
     init = function()
         vim.g.hardtime_default_on = 1
