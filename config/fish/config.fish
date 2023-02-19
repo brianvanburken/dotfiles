@@ -99,17 +99,18 @@ abbr -a fix 'git diff --name-only | uniq | xargs -o $EDITOR'
 
 # Miscellaneous
 abbr -a p pwd
-abbr -a l ls -lahgG --color=auto
-abbr -a t tree -L 3 
+abbr -a ls 'exa --color=auto'
+abbr -a l 'exa --color=auto -lahgG'
+abbr -a t 'exa -T -L 3' 
 abbr -a rm rm -i
 abbr -a mv mv -i
 abbr -a ln ln -i
 abbr -a mkdir mkdir -p
 abbr -a ... ../..
 
-abbr -a kill_ds fd -I -H '.DS_Store' -tf -X rm -rf
-abbr -a kill_modules fd 'node_modules' -td -X rm -rf
-abbr -a backup rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -avP
+abbr -a kill_ds 'fd -I -H ".DS_Store" -tf -X rm -rf'
+abbr -a kill_modules 'fd "node_modules" -td -X rm -rf'
+abbr -a backup 'rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -avP'
 
 abbr -a mine 'sudo chown -R $(whoami):admin'
 
