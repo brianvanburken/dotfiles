@@ -100,7 +100,7 @@ abbr -a fix 'git diff --name-only | uniq | xargs -o $EDITOR'
 # Miscellaneous
 abbr -a p pwd
 abbr -a ls 'exa --color=auto'
-abbr -a l 'exa --color=auto -lahgG'
+abbr -a l 'exa --group-directories-first --color=auto -lahg --no-user'
 abbr -a t 'exa -T -L 3' 
 abbr -a rm rm -i
 abbr -a mv mv -i
