@@ -1,6 +1,7 @@
 return {
     "williamboman/mason-lspconfig.nvim",
     event = "BufRead",
+    cmd = "Mason",
     dependencies = { "williamboman/mason.nvim" },
     config = function()
         -- Mason
