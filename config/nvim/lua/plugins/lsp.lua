@@ -99,7 +99,7 @@ return {
                 },
             },
 
-            sumneko_lua = {
+            lua_ls = {
                 flags = flags,
                 capabilities = capabilities,
                 on_attach = on_attach,
