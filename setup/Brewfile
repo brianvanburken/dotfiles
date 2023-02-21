@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 
 brew "asdf"
+brew "bat"
 brew "exa"
 brew "fd"
 brew "fish"
