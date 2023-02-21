@@ -2,9 +2,6 @@ if not status is-interactive
   exit
 end
 
-# Unset welcome message
-set -g fish_greeting
-
 # Cache zoxide init command to a file to cache
 set -l zoxide_cached_file "$XDG_CONFIG_HOME/fish/conf.d/zoxide-cached.fish"
 if not test -e "$zoxide_cached_file"; and command -sq zoxide
