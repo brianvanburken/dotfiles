@@ -1,8 +1,10 @@
+*.7z
 *.bak
 *.beam
 *.bmp
 *.gemtags*
 *.gif
+*.gz
 *.jar
 *.jpeg
 *.jpg
@@ -15,13 +17,16 @@
 *.pdf
 *.plist
 *.png
+*.rar
 *.snap
 *.sql
 *.tags*
+*.tar
 *.tmp*
 *.tsv
 *.ttf
 *.zcompdump
+*.zip
 *.zwc
 .DS_Store
 .cache
