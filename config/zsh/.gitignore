@@ -3,3 +3,4 @@
 .zcompcache
 .zcompdump*
 .zsh_history
+.zshrc-local
