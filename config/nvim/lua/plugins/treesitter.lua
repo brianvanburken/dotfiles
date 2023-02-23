@@ -23,6 +23,7 @@ return {
                 "ruby",
                 "rust",
                 "scss",
+                "sql",
                 "toml",
                 "tsx",
                 "typescript",
