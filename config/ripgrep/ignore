@@ -15,6 +15,7 @@
 *.pdf
 *.plist
 *.png
+*.snap
 *.sql
 *.tags*
 *.tmp*
@@ -29,9 +30,9 @@
 .gradle
 .idea
 .vim
+.vscode
 backup
 bower_components
-build
 cucumber-json
 deps
 dest
