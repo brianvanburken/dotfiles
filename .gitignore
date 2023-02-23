@@ -1,4 +1,1 @@
 *.local
-
-# Homebrew
-Brewfile.lock.json
