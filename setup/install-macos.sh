@@ -320,10 +320,6 @@ action "Linking ${DEV_DIR}/.tool-versions"
 rm -f "${HOME}/.tool-versions"
 ln -s "${DOT_DIR}/config/asdf/.tool-versions" "${DEV_DIR}/.tool-versions"
 
-action "Linking ${DEV_DIR}/.editorignore"
-rm -f "${DEV_DIR}/.editorconfig"
-ln -s "${DOT_DIR}/config/editorconfig/config" "${DEV_DIR}/.editorconfig"
-
 ok "Done linking configurations"
 
 # Prolong sudo
