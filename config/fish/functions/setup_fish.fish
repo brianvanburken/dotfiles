@@ -81,4 +81,10 @@ function setup_fish -d "Setup variables for Fish"
 
     # Cache zoxide init command to a file to cache
     zoxide init fish >> "$XDG_CONFIG_HOME/fish/conf.d/zoxide-cached.fish"
+
+    # Cache rtx activate command to a file to cache
+    rtx activate fish >> "$XDG_CONFIG_HOME/fish/conf.d/rtx-cached.fish"
+
+    # Cache asdf command
+    # cat "$(brew --prefix asdf)/libexec/asdf.fish" >> "$XDG_CONFIG_HOME/fish/conf.d/asdf-cached.fish"
 end

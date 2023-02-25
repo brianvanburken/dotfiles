@@ -300,6 +300,7 @@ files=(
     "config/nvim"
     "config/ripgrep"
     "config/rsync"
+    "config/rtx"
     "config/tmux"
     "config/zsh"
 )
@@ -330,8 +331,8 @@ action "Setting up fish as default shell"
 readonly fish_command="$HOMEBREW_PREFIX/bin/fish"
 readonly shell_file="/etc/shells"
 if ! grep -q "$fish_command" "$shell_file"; then
-  action "Adding fish to allowed shells in $shell_file"
-  cached_sudo echo $fish_command >> "$shell_file"
+    action "Adding fish to allowed shells in $shell_file"
+    cached_sudo echo $fish_command >> "$shell_file"
 fi
 action "Changing shell to fish"
 chsh -s "$fish_command"
@@ -508,11 +509,11 @@ ok "Done setting up macOS preferences"
 # Source: https://www.imore.com/how-use-sudo-your-mac-touch-id
 readonly sudo_file="/etc/pam.d/sudo"
 if ! grep -q "pam_tid.so" "$sudo_file"; then
-  action "Setting up TouchID to authenticate for sudo"
-  cached_sudo sed -i '' '2iauth       sufficient     pam_tid.so'$'\n' "$sudo_file"
-  ok "TouchID is now able to authenticate for sudo"
+    action "Setting up TouchID to authenticate for sudo"
+    cached_sudo sed -i '' '2iauth       sufficient     pam_tid.so'$'\n' "$sudo_file"
+    ok "TouchID is now able to authenticate for sudo"
 else
-  ok "TouchID is already setup to authenticate for sudo"
+    ok "TouchID is already setup to authenticate for sudo"
 fi
 
 ok "Done setting macOS preferences"
