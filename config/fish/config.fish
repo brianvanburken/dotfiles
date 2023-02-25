@@ -53,7 +53,7 @@ abbr -a mt mix test
 
 # NeoVim/Vim/VSCode
 abbr -a code nvim
-abbr -a v nvim 
+abbr -a v nvim
 abbr -a vi nvim
 abbr -a vim nvim
 abbr -a vscode nvim
@@ -92,7 +92,7 @@ abbr -a fix 'git diff --name-only | uniq | xargs -o $EDITOR'
 abbr -a p pwd
 abbr -a ls 'exa --color=auto'
 abbr -a l 'exa --group-directories-first --color=auto -lahg --no-user'
-abbr -a t 'exa -T -L 3' 
+abbr -a t 'exa -T -L 3'
 abbr -a rm rm -i
 abbr -a mv mv -i
 abbr -a ln ln -i
