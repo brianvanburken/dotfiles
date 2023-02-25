@@ -2,12 +2,6 @@ if not status is-interactive
   exit
 end
 
-# Cache zoxide init command to a file to cache
-set -l zoxide_cached_file "$XDG_CONFIG_HOME/fish/conf.d/zoxide-cached.fish"
-if not test -e "$zoxide_cached_file"; and command -sq zoxide
-  zoxide init fish >> "$zoxide_cached_file"
-end
-
 # Shortkeys to make live easier
 
 # NPM
