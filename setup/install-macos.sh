@@ -267,7 +267,9 @@ fi
 cached_sudo
 
 action "Creating special directories"
-mkdir -p "${DEV_DIR}/{personal,oss,work}"
+mkdir -p "${DEV_DIR}/personal"
+mkdir -p "${DEV_DIR}/oss"
+mkdir -p "${DEV_DIR}/work"
 
 if [ ! -d "${DOT_DIR}" ]; then
     action "Cloning configurations"
