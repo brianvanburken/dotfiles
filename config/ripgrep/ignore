@@ -19,7 +19,6 @@
 *.png
 *.rar
 *.snap
-*.sql
 *.tags*
 *.tar
 *.tmp*
