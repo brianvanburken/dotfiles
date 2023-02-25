@@ -316,9 +316,9 @@ action "Linking ${HOME}/.zshenv"
 rm -f "${HOME}/.zshenv"
 ln -s "${DOT_DIR}/config/zsh/zshenv" "${HOME}/.zshenv"
 
-action "Linking ${HOME}/.tool-versions"
+action "Linking ${DEV_DIR}/.tool-versions"
 rm -f "${HOME}/.tool-versions"
-ln -s "${DOT_DIR}/config/asdf/.tool-versions" "${HOME}/.tool-versions"
+ln -s "${DOT_DIR}/config/asdf/.tool-versions" "${DEV_DIR}/.tool-versions"
 
 action "Linking ${DEV_DIR}/.editorignore"
 rm -f "${DEV_DIR}/.editorconfig"
