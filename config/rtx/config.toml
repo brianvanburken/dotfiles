@@ -1,0 +1,21 @@
+# Whether to prompt to install plugins and runtimes if they're not already installed
+# Options: 'ignore', 'warn', 'prompt', 'autoinstall'
+missing_runtime_behavior = "ignore"
+
+# Plugins can read the versions files used by other version managers (if enabled by the plugin)
+# For example, .nvmrc in the case of nodejs's nvm
+legacy_version_file = false
+
+# configure `rtx install` to always keep the downloaded archive
+always_keep_download = false
+
+# configure how frequently (in minutes) to fetch updated plugin repository changes
+# this is updated whenever a new runtime is installed
+# (note: this isn't currently implemented but there are plans to add it: https://github.com/jdxcode/rtx/issues/128)
+# set to 0 to disable updates
+plugin_autoupdate_last_check_duration = 0
+
+# set to true to see full installation output, see `RTX_VERBOSE`
+verbose = true
+# set to true to ensure .tool-versions will be compatible with asdf, see `RTX_ASDF_COMPAT`
+# asdf_compat = true
