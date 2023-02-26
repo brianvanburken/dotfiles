@@ -3,4 +3,4 @@ fishd.*
 fish_history
 fish_variables
 config.local.fish
-conf.d/*-cached.fish
+*_cached.fish
