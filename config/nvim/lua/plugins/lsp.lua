@@ -169,11 +169,12 @@ return {
                 fmt.rustfmt,
                 fmt.shfmt.with({ extra_args = { "-i", 4, "-ci", "-sr" } }),
                 fmt.stylua,
-                fmt.trim_whitespace.with({ filetypes = { "text", "zsh", "toml", "make", "conf", "tmux" } }),
+                fmt.ymlfmt,
+                fmt.trim_newlines.with({ filetypes = { "text", "markdown" } }),
+                fmt.trim_whitespace.with({ disabled_filetypes = { "diff", "markdown" } }),
 
                 -- DIAGNOSTICS --
                 dgn.codespell,
-                dgn.commitlint,
                 dgn.eslint_d,
                 dgn.luacheck.with({ extra_args = { "--globals", "vim", "--std", "luajit" } }),
                 dgn.shellcheck,
