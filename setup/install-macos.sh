@@ -307,20 +307,24 @@ files=(
     "config/zsh"
 )
 for x in "${files[@]}"; do
-    action "Linking ${HOME}/.${x}"
-    rm -rf "${HOME}/.${x}"
-    ln -s "${DOT_DIR}/${x}" "${HOME}/.${x}"
+    if [ ! -h "${HOME}/.${x}" ]; then
+        action "Linking ${HOME}/.${x}"
+        rm -rf "${HOME}/.${x}"
+        ln -s "${DOT_DIR}/${x}" "${HOME}/.${x}"
+        ok "${HOME}/.${x} has been linked"
+    else
+        ok "${HOME}/.${x} is already linked"
+    fi
 done
 
-action "Linking ${HOME}/.zshenv"
-rm -f "${HOME}/.zshenv"
-ln -s "${DOT_DIR}/config/zsh/zshenv" "${HOME}/.zshenv"
-
-action "Linking ${DEV_DIR}/.tool-versions"
-rm -f "${HOME}/.tool-versions"
-ln -s "${DOT_DIR}/config/asdf/.tool-versions" "${DEV_DIR}/.tool-versions"
-
-ok "Done linking configurations"
+if [ ! -h "${DEV_DIR}/.tool-versions" ]; then
+    action "Linking ${DEV_DIR}/.tool-versions"
+    rm -f "${DEV_DIR}/.tool-versions"
+    ln -s "${DOT_DIR}/config/asdf/.tool-versions" "${DEV_DIR}/.tool-versions"
+    ok "${DEV_DIR}/.tool-versions has been linked"
+else
+    ok "${DEV_DIR}/.tool-versions is already linked"
+fi
 
 # Prolong sudo
 cached_sudo
@@ -332,27 +336,42 @@ if ! grep -q "$fish_command" "$shell_file"; then
     action "Adding fish to allowed shells in $shell_file"
     cached_sudo echo $fish_command >> "$shell_file"
 fi
+
 action "Changing shell to fish"
-chsh -s "$fish_command"
+cached_sudo chsh -s "$fish_command"
 ok "Fish is now the default"
 
-action "Creating local .zshrc"
-touch "${XDG_CONFIG_HOME}/zsh/.zshrc-local"
+action "Creating local fish file"
+touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
 
 # Prolong sudo
 cached_sudo
 
-if [[ -x "$(command -v asdf)" ]]; then
-    action "Adding asdf plugins"
-    # https://github.com/asdf-vm/asdf/issues/276#issuecomment-1189478229
-    cut -d' ' -f1 "${HOME}/.tool-versions" | xargs -I{} asdf plugin add {} || true
-    ok "asdf plugins added"
-
-    action "Installing asdf versions"
-    asdf install
-    ok "Installed asdf versions"
+if [[ -x "$(command -v rtx)" ]]; then
+    action "Installing rtx plugins and versions"
+    cd "${DEV_DIR}"
+    rtx install
+    cd -
+    ok "Rtx versions installed"
 else
-    warning "asdf plugin manager not found"
+    err "Rtx plugin manager not found"
+fi
+
+readonly vim_dir="$XDG_DATA_HOME/nvim/"
+if [ ! -d "${vim_dir}/lazy" ]; then
+    action "Installing lazy.nvim"
+    git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable --depth 1 "${vim_dir}/lazy"
+    ok "Installed lazy.nvim"
+else
+    ok "Lazy.nvim plugin found"
+fi
+
+if [ -d "${vim_dir}/lazy" ]; then
+    action "Installing NeoVim plugins using lazy.nvim"
+    nvim --headless "+Lazy! sync" +qa
+    ok "Installed NeoVim plugins"
+else
+    err "Lazy.nvim not found, could not install NeoVim plugins"
 fi
 
 # Prolong sudo
@@ -497,24 +516,7 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true
 
-# Kill affected apps
-for app in "Dock" "Finder" "Mail"; do
-    killall "${app}" > /dev/null 2>&1
-done
 ok "Done setting up macOS preferences"
-
-# Set SUDO commands authentication with TouchID
-# Source: https://www.imore.com/how-use-sudo-your-mac-touch-id
-readonly sudo_file="/etc/pam.d/sudo"
-if ! grep -q "pam_tid.so" "$sudo_file"; then
-    action "Setting up TouchID to authenticate for sudo"
-    cached_sudo sed -i '' '2iauth       sufficient     pam_tid.so'$'\n' "$sudo_file"
-    ok "TouchID is now able to authenticate for sudo"
-else
-    ok "TouchID is already setup to authenticate for sudo"
-fi
-
-ok "Done setting macOS preferences"
 
 echo "🍺 Your MacBook is configured!"
 if [[ ${require_manual_actions} -eq 1 ]]; then
