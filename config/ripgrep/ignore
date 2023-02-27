@@ -35,6 +35,7 @@
 .idea
 .vim
 .vscode
+.yarn
 backup
 bower_components
 cucumber-json
