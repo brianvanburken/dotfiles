@@ -6,7 +6,7 @@ return {
             "TwilightEnable",
             "TwilightDisable",
         },
-        opt = true,
+        opts = true,
     },
     {
         "folke/zen-mode.nvim",
@@ -14,7 +14,7 @@ return {
         keys = {
             { "<leader>z", "<cmd>ZenMode<CR>" },
         },
-        opt = {
+        opts = {
             window = {
                 options = {
                     number = false,
