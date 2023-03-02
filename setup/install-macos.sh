@@ -329,17 +329,24 @@ fi
 # Prolong sudo
 cached_sudo
 
-action "Setting up fish as default shell"
-readonly fish_command="$HOMEBREW_PREFIX/bin/fish"
-readonly shell_file="/etc/shells"
-if ! grep -q "$fish_command" "$shell_file"; then
-    action "Adding fish to allowed shells in $shell_file"
-    cached_sudo echo $fish_command >> "$shell_file"
-fi
+if [[ -x "$(command -v fish)" ]]; then
+    action "Setting up fish as default shell"
+    readonly fish_command="$HOMEBREW_PREFIX/bin/fish"
+    readonly shell_file="/etc/shells"
+    if ! grep -q "$fish_command" "$shell_file"; then
+        action "Adding fish to allowed shells in $shell_file"
+        cached_sudo echo $fish_command >> "$shell_file"
+    fi
 
-action "Changing shell to fish"
-cached_sudo chsh -s "$fish_command"
-ok "Fish is now the default"
+    action "Changing shell to fish"
+    cached_sudo chsh -s "$fish_command"
+
+    action "Setting up fish"
+    fish -i -c 'setup_fish; exit;'
+    ok "Fish is now the default"
+else
+    warning "Fish shell not found, skipping setup"
+fi
 
 action "Creating local fish file"
 touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
@@ -348,6 +355,7 @@ touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
 cached_sudo
 
 if [[ -x "$(command -v rtx)" ]]; then
+    eval "$(rtx activate bash)"
     action "Installing rtx plugins and versions"
     cd "${DEV_DIR}"
     rtx install
@@ -357,14 +365,20 @@ else
     err "Rtx plugin manager not found"
 fi
 
+# Prolong sudo
+cached_sudo
+
 readonly vim_dir="$XDG_DATA_HOME/nvim/"
 if [ ! -d "${vim_dir}/lazy" ]; then
     action "Installing lazy.nvim"
-    git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable --depth 1 "${vim_dir}/lazy"
+    git clone --filter=blob:none --branch=stable --depth 1 https://github.com/folke/lazy.nvim.git "${vim_dir}/lazy"
     ok "Installed lazy.nvim"
 else
     ok "Lazy.nvim plugin found"
 fi
+
+# Prolong sudo
+cached_sudo
 
 if [ -d "${vim_dir}/lazy" ]; then
     action "Installing NeoVim plugins using lazy.nvim"
@@ -372,6 +386,30 @@ if [ -d "${vim_dir}/lazy" ]; then
     ok "Installed NeoVim plugins"
 else
     err "Lazy.nvim not found, could not install NeoVim plugins"
+fi
+
+# Prolong sudo
+cached_sudo
+
+if [[ ! -x "$(command -v rustup)" ]]; then
+    action "Installing Rust toolchain"
+    export CARGO_CACHE_DIR="${XDG_CACHE_HOME}/cargo"
+    export CARGO_CONFIG_DIR="${XDG_CONFIG_HOME}/cargo"
+    export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+    export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source "${CARGO_HOME}/env"
+    ok "Installed Rust toolchain"
+else
+    ok "Rust toolchain found"
+fi
+
+if [[ -x "$(command -v cargo)" ]]; then
+    action "Installing cargo crates"
+    cargo install cargo-edit cargo-cache bacon || true
+    ok "Installed cargo crates"
+else
+    err "Cargo not found"
 fi
 
 # Prolong sudo
