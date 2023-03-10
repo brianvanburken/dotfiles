@@ -1,3 +1,4 @@
+[settings]
 # Whether to prompt to install plugins and runtimes if they're not already installed
 # Options: 'ignore', 'warn', 'prompt', 'autoinstall'
 missing_runtime_behavior = "ignore"
