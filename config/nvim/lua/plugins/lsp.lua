@@ -148,6 +148,7 @@ return {
             html = conf,
             jsonls = conf,
             yamlls = conf,
+            tailwindcss = conf,
         }
 
         for server, configuration in pairs(servers) do
