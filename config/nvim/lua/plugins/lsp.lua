@@ -10,13 +10,15 @@ return {
         "jay-babu/mason-null-ls.nvim",
     },
     config = function()
-        -- Mason
+        local lsp = require("lspconfig")
+        local nls = require("null-ls")
+        local mason_null_ls = require("mason-null-ls")
+        local cmp = require("cmp_nvim_lsp")
+
         require("mason").setup()
         require("mason-lspconfig").setup({
             automatic_installation = true,
         })
-
-        local lsp = require("lspconfig")
 
         local opts = { noremap = true, silent = true }
         vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
@@ -55,7 +57,7 @@ return {
 
         ---Common capabilities including lsp snippets and autocompletion
         -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        local capabilities = cmp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
         ---Common `on_attach` function for LSP servers
         local function on_attach(client, buf)
@@ -164,8 +166,6 @@ return {
             lsp[server].setup(configuration)
         end
 
-        local nls = require("null-ls")
-
         local fmt = nls.builtins.formatting
         local dgn = nls.builtins.diagnostics
         local cda = nls.builtins.code_actions
@@ -212,7 +212,6 @@ return {
             end,
         })
 
-        local mason_null_ls = require("mason-null-ls")
         mason_null_ls.setup({
             automatic_installation = true,
             automatic_setup = true,
