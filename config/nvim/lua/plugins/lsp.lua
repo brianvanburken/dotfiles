@@ -43,7 +43,7 @@ return {
             vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
             vim.keymap.set("x", "<leader>la", vim.lsp.buf.range_code_action, bufopts)
 
-            vim.keymap.set("n", "<space>f", function()
+            vim.keymap.set("n", "<leader>lf", function()
                 vim.lsp.buf.format({ async = true })
             end, bufopts)
         end
