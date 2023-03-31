@@ -1,12 +1,21 @@
 return {
     "neovim/nvim-lspconfig",
-    event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "nvim-lua/plenary.nvim",
         "jose-elias-alvarez/null-ls.nvim",
+        "jay-babu/mason-null-ls.nvim",
     },
     config = function()
+        -- Mason
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            automatic_installation = true,
+        })
+
         local lsp = require("lspconfig")
 
         local opts = { noremap = true, silent = true }
@@ -46,7 +55,7 @@ return {
 
         ---Common capabilities including lsp snippets and autocompletion
         -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
         ---Common `on_attach` function for LSP servers
         local function on_attach(client, buf)
@@ -170,6 +179,7 @@ return {
                 fmt.rustfmt,
                 fmt.shfmt.with({ extra_args = { "-i", 4, "-ci", "-sr" } }),
                 fmt.stylua,
+                fmt.prettier,
                 fmt.ymlfmt,
                 fmt.trim_newlines.with({ filetypes = { "text", "markdown" } }),
                 fmt.trim_whitespace.with({ disabled_filetypes = { "diff", "markdown" } }),
@@ -177,7 +187,6 @@ return {
                 -- DIAGNOSTICS --
                 dgn.codespell,
                 dgn.eslint_d,
-                dgn.luacheck.with({ extra_args = { "--globals", "vim", "--std", "luajit" } }),
                 dgn.shellcheck,
 
                 -- CODE ACTIONS --
@@ -202,5 +211,12 @@ return {
                 lsp_mapping(buf)
             end,
         })
+
+        local mason_null_ls = require("mason-null-ls")
+        mason_null_ls.setup({
+            automatic_installation = true,
+            automatic_setup = true,
+        })
+        mason_null_ls.setup_handlers()
     end,
 }
