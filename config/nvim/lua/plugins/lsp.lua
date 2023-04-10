@@ -41,7 +41,6 @@ return {
 
             vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, bufopts)
             vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, bufopts)
-            vim.keymap.set("x", "<leader>la", vim.lsp.buf.range_code_action, bufopts)
 
             vim.keymap.set("n", "<leader>lf", function()
                 vim.lsp.buf.format({ async = true })
@@ -214,8 +213,7 @@ return {
 
         mason_null_ls.setup({
             automatic_installation = true,
-            automatic_setup = true,
+            handlers = {},
         })
-        mason_null_ls.setup_handlers()
     end,
 }
