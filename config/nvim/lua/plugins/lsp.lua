@@ -184,7 +184,6 @@ return {
                 fmt.trim_whitespace.with({ disabled_filetypes = { "diff", "markdown" } }),
 
                 -- DIAGNOSTICS --
-                dgn.codespell,
                 dgn.eslint_d,
                 dgn.shellcheck,
 
