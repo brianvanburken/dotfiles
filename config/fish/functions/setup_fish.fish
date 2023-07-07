@@ -13,6 +13,7 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux DIRENV_LOG_FORMAT ""
 
     # Homebrew
+    set -Ux HOMEBREW_NO_ANALYTICS 1
     set -Ux HOMEBREW_PREFIX "/opt/homebrew"
     set -Ux HOMBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
     set -Ux HOMBREW_REPOSITORY "$HOMEBREW_PREFIX"
