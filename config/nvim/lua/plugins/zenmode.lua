@@ -1,6 +1,7 @@
 return {
     {
         "folke/twilight.nvim",
+        version = "~1.0.0",
         cmd = {
             "Twilight",
             "TwilightEnable",
@@ -10,6 +11,7 @@ return {
     },
     {
         "folke/zen-mode.nvim",
+        version = "~1.2.0",
         cmd = "ZenMode",
         keys = {
             { "<leader>z", "<cmd>ZenMode<CR>" },

@@ -1,11 +1,12 @@
 -- Sources: https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/
 return {
     "hrsh7th/nvim-cmp",
+    commit = "c4e491a87eeacf0408902c32f031d802c7eafce8",
     dependencies = {
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-buffer",
-        "L3MON4D3/LuaSnip",
+        { "saadparwaiz1/cmp_luasnip", commit = "18095520391186d634a0045dacaa346291096566" },
+        { "hrsh7th/cmp-path", commit = "91ff86cd9c29299a64f968ebb45846c485725f23" },
+        { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
+        { "L3MON4D3/LuaSnip", version = "~2.0.0" },
     },
     event = "BufReadPost",
     config = function()
