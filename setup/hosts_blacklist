@@ -1,0 +1,110 @@
+# vim: set ft=conf:
+# The contents of this file (containing a listing of additional domains in
+# 'hosts' file format) are appended to the unified hosts file during the
+# update process. For example, uncomment the following line to block
+# 'example.com':
+
+# Block sinkholes of time with stevenblack/hosts
+
+# News
+9to5google.com
+9to5mac.com
+9to5toys.com
+ad.nl
+b4men.nl
+lobste.rs
+manly.nl
+manners.nl
+nos.nl
+nu.nl
+onemorething.nl
+techcrunch.com
+techradar.com
+theverge.com
+threads.net
+torrentfreak.com
+vice.com
+www.nu.nl
+www.onemorething.nl
+www.techcrunch.com
+www.techradar.com
+www.theverge.com
+www.threads.net
+www.vice.com
+
+# Time-wasters
+9gag.com
+m.9gag.com
+
+dumpert.nl
+www.dumpert.nl
+
+ex-twitch.tv
+player.twitch.tv
+twitch.tv
+www.twitch.tv
+
+# youtube.com
+# youtu.be
+
+# Games
+
+# Runescape
+account.runescape.com
+ge-tracker.com
+jagex.com
+lunagang.nl
+ns1.runescape.com
+ns2.runescape.com
+ns3.runescape.com
+ns4.runescape.com
+ns5.runescape.com
+ns6.runescape.com
+ns7.runescape.com
+ns8.runescape.com
+ns9.runescape.com
+oldschool.runescape.wiki
+oldschoolrunescape.fandom.com
+runehq.com
+runelite.net
+runelite.wiki
+runescape.com
+runescape.wiki
+secure.runescape.com
+support.runescape.com
+tip.it
+www.ge-tracker.com
+www.jagex.com
+www.lunagang.nl
+www.runehq.com
+www.runescape.com
+www.tip.it
+
+# Ogame
+gameforge.com
+ogame.gameforge.com
+lobby.ogame.gameforge.com
+en.ogame.gameforge.com
+nl.ogame.gameforge.com
+
+# Block illegal movie site I watch movies at
+fmovies.name
+# fmovies.to
+fmovies.wtf
+fmovies.taxi
+fmovies.pub
+fmovies.cafe
+fmovies.world
+fmovies.coffee
+wat32.tv
+movieonlives.com
+
+# Illegal sites I should access via Tor
+123moviesfree.net
+audiobookbay.se
+libgen.rs
+rutracker.org
+tutflix.org
+ww1.123moviesfree.net
+www.1377x.to
+www.macbed.com
