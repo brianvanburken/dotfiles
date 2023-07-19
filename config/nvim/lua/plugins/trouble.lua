@@ -1,6 +1,7 @@
 return {
     {
         "folke/trouble.nvim",
+        version = "~2.4.0",
         event = "BufReadPost",
         config = function()
             vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
