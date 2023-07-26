@@ -185,11 +185,9 @@ return {
 
                 -- DIAGNOSTICS --
                 dgn.eslint_d,
-                dgn.shellcheck,
 
                 -- CODE ACTIONS --
                 cda.eslint_d,
-                cda.shellcheck,
             },
             on_attach = function(client, buf)
                 local fmt_group = vim.api.nvim_create_augroup("FORMATTING", { clear = true })
