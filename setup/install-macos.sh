@@ -415,6 +415,23 @@ fi
 # Prolong sudo
 cached_sudo
 
+readonly HOST_DIR="$DEV_DIR/personal/oss/hosts/"
+if [ ! -d "$HOST_DIR" ]; then
+    action "Setup blacklist hostfile"
+    rm -rf "$HOST_DIR"
+    git clone git@github.com:StevenBlack/hosts.git --depth=1 "$HOST_DIR"
+    ln -s "$DOT_DIR/setup/hosts_blacklist" "$HOST_DIR/blacklist"
+    ln -s "$DOT_DIR/setup/hosts_whitelist" "$HOST_DIR/whitelist"
+    cd "$HOST_DIR"
+    pip3 install -r requirements.txt
+    python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
+    cd -
+    ok "Done setup hostfile"
+fi
+
+# Prolong sudo
+cached_sudo
+
 action "Setting macOS preferences"
 
 # Set delay for password after screensaver in seconds
