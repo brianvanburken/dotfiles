@@ -1,0 +1,8 @@
+--abort-on-unavailable-fragment
+--concurrent-fragments 4
+--extractor-args "youtube:player_client=default,ios"
+--path ~/Downloads/videos/
+--retries 3
+--sponsorblock-remove sponsor
+--sub-langs en
+--write-subs
