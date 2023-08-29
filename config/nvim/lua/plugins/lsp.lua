@@ -87,17 +87,8 @@ return {
             },
         })
 
-        local conf = {
-            flags = flags,
-            capabilities = capabilities,
-            on_attach = on_attach,
-        }
-
         local servers = {
             rust_analyzer = {
-                flags = flags,
-                capabilities = capabilities,
-                on_attach = on_attach,
                 settings = {
                     ["rust-analyzer"] = {
                         server = {
@@ -118,9 +109,6 @@ return {
             },
 
             lua_ls = {
-                flags = flags,
-                capabilities = capabilities,
-                on_attach = on_attach,
                 settings = {
                     Lua = {
                         completion = {
@@ -144,9 +132,6 @@ return {
             },
 
             tsserver = {
-                flags = flags,
-                capabilities = capabilities,
-                on_attach = on_attach,
                 filetypes = {
                     "javascript",
                     "javascriptreact",
@@ -157,17 +142,23 @@ return {
                 },
             },
 
-            taplo = conf, -- TOML
-            cssls = conf,
-            elmls = conf,
-            html = conf,
-            jsonls = conf,
-            yamlls = conf,
-            tailwindcss = conf,
+            taplo = {}, -- TOML
+            cssls = {},
+            elmls = {},
+            html = {},
+            jsonls = {},
+            yamlls = {},
+            tailwindcss = {},
         }
 
-        for server, configuration in pairs(servers) do
-            lsp[server].setup(configuration)
+        for server, conf in pairs(servers) do
+            lsp[server].setup({
+                flags = flags,
+                capabilities = capabilities,
+                on_attach = on_attach,
+                settings = conf.settings,
+                filetypes = conf.filetypes,
+            })
         end
 
         local fmt = nls.builtins.formatting
