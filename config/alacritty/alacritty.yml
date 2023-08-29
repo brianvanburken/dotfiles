@@ -5,7 +5,6 @@ window:
   dimensions:
     columns: 100
     lines: 85
-  decorations: none
   decorations_theme_variant: Dark
   startup_mode: Windowed
 font:
