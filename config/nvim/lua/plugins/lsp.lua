@@ -3,8 +3,8 @@ return {
     version = "~0.1",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "williamboman/mason.nvim", version = "~1.6.0" },
-        { "williamboman/mason-lspconfig.nvim", version = "~1.11.0" },
+        { "williamboman/mason.nvim", version = "~1.7.0" },
+        { "williamboman/mason-lspconfig.nvim", version = "~1.14.0" },
         { "hrsh7th/cmp-nvim-lsp", commit = "44b16d11215dce86f253ce0c30949813c0a90765" },
         { "nvim-lua/plenary.nvim", version = "~0.1.0" },
         { "jose-elias-alvarez/null-ls.nvim", commit = "db09b6c691def0038c456551e4e2772186449f35" },
