@@ -91,18 +91,28 @@ return {
             rust_analyzer = {
                 settings = {
                     ["rust-analyzer"] = {
+                        assist = {
+                            importEnforceGranularity = true,
+                            importPrefix = "crate",
+                        },
+                        cargo = {
+                            features = "all",
+                        },
+                        check = {
+                            extraArgs = { "--target-dir", "/tmp/rust-analyzer" },
+                            features = "all",
+                            -- command = "clippy",
+                        },
                         server = {
                             extraEnv = {
                                 CARGO_TARGET_DIR = "/tmp/rust-analyzer",
                             },
                         },
-                        cargo = {
-                            allFeatures = true,
-                        },
-                        checkOnSave = {
-                            extraArgs = { "--target-dir", "/tmp/rust-analyzer" },
-                            allFeatures = true,
-                            command = "clippy",
+                        inlayHints = {
+                            lifetimeElisionHints = {
+                                enable = true,
+                                useParameterNames = true,
+                            },
                         },
                     },
                 },
