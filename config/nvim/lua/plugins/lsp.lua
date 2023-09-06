@@ -62,10 +62,12 @@ return {
 
         ---Common `on_attach` function for LSP servers
         local function on_attach(client, buf)
-            ---Disable formatting for servers (Handled by null-ls)
-            ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
-            client.server_capabilities.documentFormattingProvider = false
-            client.server_capabilities.documentRangeFormattingProvider = false
+            if client.name ~= "rust_analyzer" then
+                ---Disable formatting for servers (Handled by null-ls)
+                ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+            end
 
             ---Disable |lsp-semantic_tokens| (conflicting with TS highlights)
             client.server_capabilities.semanticTokensProvider = nil
@@ -181,7 +183,6 @@ return {
                 -- FORMATTING --
                 fmt.elm_format,
                 fmt.eslint_d,
-                fmt.rustfmt,
                 fmt.shfmt.with({ extra_args = { "-i", 4, "-ci", "-sr" } }),
                 fmt.stylua,
                 fmt.prettier,
