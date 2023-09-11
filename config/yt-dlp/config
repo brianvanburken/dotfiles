@@ -4,6 +4,5 @@
 --format-sort res:1440
 --path ~/Downloads/videos/
 --retries 3
---sponsorblock-remove sponsor
 --sub-langs en
 --write-subs
