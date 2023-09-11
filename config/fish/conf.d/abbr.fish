@@ -94,7 +94,6 @@ abbr -a rm rm -i
 abbr -a mv mv -i
 abbr -a ln ln -i
 abbr -a mkdir mkdir -p
-abbr -a cat bat
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 abbr -a asdf rtx
 
