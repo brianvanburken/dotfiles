@@ -5,7 +5,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 
-brew "bat"
 brew "eza"
 brew "fd"
 brew "fish"
