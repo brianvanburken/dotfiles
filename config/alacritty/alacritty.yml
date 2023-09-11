@@ -1,6 +1,6 @@
 live_config_reload: true
 import:
-  - ~/.config/alacritty/themes/catppuccin-mocha.yml
+  - ~/.config/alacritty/themes/noirbuddy.yml
 window:
   dimensions:
     columns: 100
