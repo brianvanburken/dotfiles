@@ -9,13 +9,28 @@ return {
     --     end,
     --     opts = true,
     -- },
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    --     priority = 1000,
+    --     init = function()
+    --         vim.cmd("colorscheme catppuccin")
+    --     end,
+    --     opts = true,
+    -- },
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "jesseleite/nvim-noirbuddy",
+        name = "noirbuddy",
+        dependencies = { "tjdevries/colorbuddy.nvim", branch = "dev" },
         priority = 1000,
         init = function()
-            vim.cmd("colorscheme catppuccin")
+            vim.cmd("colorscheme noirbuddy")
         end,
-        opts = true,
+        config = {
+            colors = {
+                -- primary = "#6EE2FF",
+                primary = "#FF0000",
+            },
+        },
     },
 }
