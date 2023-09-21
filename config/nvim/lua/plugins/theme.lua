@@ -25,12 +25,7 @@ return {
         priority = 1000,
         init = function()
             vim.cmd("colorscheme noirbuddy")
+            require("noirbuddy").setup({})
         end,
-        config = {
-            colors = {
-                -- primary = "#6EE2FF",
-                primary = "#FF0000",
-            },
-        },
     },
 }
