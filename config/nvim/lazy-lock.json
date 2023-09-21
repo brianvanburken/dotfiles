@@ -12,7 +12,7 @@
   "noirbuddy": { "branch": "master", "commit": "67f945acee6da0ea4c11575c72ce8e930090ea95" },
   "null-ls.nvim": { "branch": "main", "commit": "db09b6c691def0038c456551e4e2772186449f35" },
   "nvim-cmp": { "branch": "main", "commit": "c4e491a87eeacf0408902c32f031d802c7eafce8" },
-  "nvim-lspconfig": { "branch": "master", "commit": "0d24eeafb5b531c7fac610a3508207f33c76ce6d" },
+  "nvim-lspconfig": { "branch": "master", "commit": "f3195835c0447ee2c80152b893ab51ca162b04a9" },
   "nvim-treesitter": { "branch": "master", "commit": "63260da18bf273c76b8e2ea0db84eb901cab49ce" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "splitjoin.vim": { "branch": "main", "commit": "95a700875530a1ad87232e472fab307ee2a553ba" },
