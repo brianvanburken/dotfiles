@@ -1,8 +1,10 @@
 --abort-on-unavailable-fragment
 --concurrent-fragments 4
+--embed-thumbnail
 --extractor-args "youtube:player_client=default,ios"
---format-sort res:1440
---path ~/Downloads/videos/
+--format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
+--format-sort res:1440,vcodec:h264
+--path ~/Downloads/Videos/
 --retries 3
 --sub-langs en
 --write-subs
