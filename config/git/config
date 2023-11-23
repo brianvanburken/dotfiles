@@ -29,6 +29,7 @@
 	trim = !git remote prune origin && git gc
 	tag = tag -s
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+	backup = "!f() { current_branch=$(git rev-parse --abbrev-ref HEAD); timestamp=$(date \"+%Y%m%d-%H%M\"); backup_branch=\"${current_branch}_backup_${timestamp}\"; git checkout -b \"${backup_branch}\"; git checkout \"${current_branch}\"; }; f"
 
 	# https://mtsknn.fi/blog/how-to-force-push-in-git-with-style-and-some-safety/
 	please = push --force-with-lease
