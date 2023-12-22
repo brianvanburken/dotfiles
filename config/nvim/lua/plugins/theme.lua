@@ -30,6 +30,9 @@ return {
                     primary = "#C2B280",
                 },
             })
+
+            -- Ensure background is transparent after the theme is loaded
+            vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
         end,
     },
 }
