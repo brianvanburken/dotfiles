@@ -187,7 +187,6 @@ return {
                 fmt.shfmt.with({ extra_args = { "-i", 4, "-ci", "-sr" } }),
                 fmt.stylua,
                 fmt.prettier,
-                fmt.ymlfmt,
                 fmt.trim_newlines.with({ filetypes = { "text", "markdown" } }),
                 fmt.trim_whitespace.with({ disabled_filetypes = { "diff", "markdown" } }),
 
