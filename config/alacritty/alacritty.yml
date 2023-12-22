@@ -6,7 +6,12 @@ window:
     columns: 100
     lines: 85
   decorations_theme_variant: Dark
+  decorations: transparent
   startup_mode: Windowed
+  dynamic_padding: true
+  padding:
+    x: 0
+    y: 25
 font:
   normal:
     family: "FiraCode Nerd Font"
