@@ -1,8 +1,4 @@
 [settings]
-# Whether to prompt to install plugins and runtimes if they're not already installed
-# Options: 'ignore', 'warn', 'prompt', 'autoinstall'
-missing_runtime_behavior = "ignore"
-
 # Plugins can read the versions files used by other version managers (if enabled by the plugin)
 # For example, .nvmrc in the case of nodejs's nvm
 legacy_version_file = false
