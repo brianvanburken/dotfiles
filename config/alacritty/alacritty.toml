@@ -1,0 +1,27 @@
+import = ["~/.config/alacritty/themes/noirbuddy-dark.toml"]
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[shell]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+decorations = "transparent"
+decorations_theme_variant = "Dark"
+dynamic_padding = true
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 100
+lines = 85
+
+[window.padding]
+x = 0
+y = 25
