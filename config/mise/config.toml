@@ -8,13 +8,13 @@ always_keep_download = false
 
 # configure how frequently (in minutes) to fetch updated plugin repository changes
 # this is updated whenever a new runtime is installed
-# (note: this isn't currently implemented but there are plans to add it: https://github.com/jdxcode/rtx/issues/128)
+# (note: this isn't currently implemented but there are plans to add it: https://github.com/jdxcode/mise/issues/128)
 # set to 0 to disable updates
 plugin_autoupdate_last_check_duration = 0
 
-# set to true to see full installation output, see `RTX_VERBOSE`
+# set to true to see full installation output, see `MISE_VERBOSE`
 verbose = true
-# set to true to ensure .tool-versions will be compatible with asdf, see `RTX_ASDF_COMPAT`
+# set to true to ensure .tool-versions will be compatible with asdf, see `MISE_ASDF_COMPAT`
 asdf_compat = true
-# disable the default shorthands, see `RTX_DISABLE_DEFAULT_SHORTHANDS`
+# disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
 disable_default_shorthands = true
