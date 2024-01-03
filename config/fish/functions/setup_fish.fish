@@ -39,7 +39,7 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux LESSHISTFILE "$XDG_CACHE_HOME/less/history"
     set -Ux LESSKEY "$XDG_CONFIG_HOME/less/keys"
 
-    # Asdf/rtx
+    # Asdf/mise
     set -Ux ASDF_DIR "$HOMEBREW_PREFIX/opt/asdf/libexec"
     set -Ux ASDF_BIN "$ASDF_DIR/bin"
     set -Ux ASDF_DATA_DIR "$XDG_DATA_HOME/asdf"
@@ -83,9 +83,9 @@ function setup_fish -d "Setup variables for Fish"
     # Cache zoxide init command to a file to cache
     zoxide init fish > "$XDG_CONFIG_HOME/fish/conf.d/zoxide_cached.fish"
 
-    # Cache rtx activate command to a file to cache
-    rtx activate fish > "$XDG_CONFIG_HOME/fish/conf.d/rtx_cached.fish"
-    rtx complete -s fish > "$XDG_CONFIG_HOME/fish/completions/rtx_cached.fish"
+    # Cache mise activate command to a file to cache
+    mise activate fish > "$XDG_CONFIG_HOME/fish/conf.d/mise_cached.fish"
+    mise complete -s fish > "$XDG_CONFIG_HOME/fish/completions/mise_cached.fish"
 
     # Cache 1Password completions
     op completion fish > "$XDG_CONFIG_HOME/fish/completions/op_cached.fish"

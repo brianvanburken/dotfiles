@@ -294,15 +294,14 @@ action "Linking dotfiles in ${HOME} to ${DOT_DIR}"
 mkdir -p "${HOME}/.config"
 files=(
     "config/alacritty"
-    "config/asdf"
     "config/editorconfig"
     "config/fish"
     "config/git"
+    "config/mise"
     "config/npm"
     "config/nvim"
     "config/ripgrep"
     "config/rsync"
-    "config/rtx"
     "config/tmux"
     "config/zsh"
 )
@@ -354,15 +353,15 @@ touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
 # Prolong sudo
 cached_sudo
 
-if [[ -x "$(command -v rtx)" ]]; then
-    eval "$(rtx activate bash)"
-    action "Installing rtx plugins and versions"
+if [[ -x "$(command -v mise)" ]]; then
+    eval "$(mise activate bash)"
+    action "Installing mise plugins and versions"
     cd "${DEV_DIR}"
-    rtx install
+    mise install
     cd -
-    ok "Rtx versions installed"
+    ok "Mise versions installed"
 else
-    err "Rtx plugin manager not found"
+    err "Mise plugin manager not found"
 fi
 
 # Prolong sudo
