@@ -3,7 +3,7 @@
 # For example, .nvmrc in the case of nodejs's nvm
 legacy_version_file = false
 
-# configure `rtx install` to always keep the downloaded archive
+# configure `mise install` to always keep the downloaded archive
 always_keep_download = false
 
 # configure how frequently (in minutes) to fetch updated plugin repository changes
