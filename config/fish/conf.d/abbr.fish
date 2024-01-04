@@ -96,6 +96,7 @@ abbr -a ln ln -i
 abbr -a mkdir mkdir -p
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 abbr -a asdf mise
+abbr -a rtx mise
 
 abbr -a kill_ds 'fd -I -H ".DS_Store" -tf -X rm -rf'
 abbr -a kill_modules 'fd "node_modules" -td -X rm -rf'
