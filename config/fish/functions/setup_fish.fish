@@ -92,4 +92,6 @@ function setup_fish -d "Setup variables for Fish"
 
     # Cache asdf command
     # cat "$(brew --prefix asdf)/libexec/asdf.fish" > "$XDG_CONFIG_HOME/fish/conf.d/asdf-cached.fish"
+
+    fish_update_completions
 end
