@@ -50,7 +50,6 @@ log
 logs
 node_modules
 package-lock.json
-reports
 source_code
 tags
 target
