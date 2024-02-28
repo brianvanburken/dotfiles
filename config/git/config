@@ -23,6 +23,7 @@
 
 	# Don't consider trailing space or EOL changes as a cause for merge conflicts
 	whitespace = -trailing-space,cr-at-eol
+	pager = delta
 
 [alias]
 	lastchange = log -p -n 1
@@ -64,3 +65,16 @@
 [gpg "ssh"]
 	allowedSignersFile = ~/.ssh/allowed_signers
 	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
