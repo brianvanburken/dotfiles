@@ -48,17 +48,24 @@ www.want.nl
 dumpert.nl
 img-9gag-fun.9cache.com
 m.9gag.com
-strava.com
+netflix.com
+snapchat.com
 www.dumpert.nl
-www.strava.com
-# www.youtube.com
-# youtu.be
-# youtube.com
+www.netflix.com
+www.snapchat.com
+# strava.com
+# www.strava.com
+
+# Stop watching YouTube
+www.youtube.com
+youtu.be
+youtube.com
+yewtu.be
+invidious.nl
 
 
 # Games
-
-# Runescape
+## Runescape
 account.runescape.com
 ge-tracker.com
 jagex.com
@@ -89,14 +96,14 @@ www.runehq.com
 www.runescape.com
 www.tip.it
 
-# Ogame
+## Ogame
 gameforge.com
 ogame.gameforge.com
 lobby.ogame.gameforge.com
 en.ogame.gameforge.com
 nl.ogame.gameforge.com
 
-# Block illegal movie site I watch movies at
+# Block illegal movie site I watched movies at
 fmovies.name
 fmovies.to
 fmovies.wtf
@@ -107,9 +114,9 @@ fmovies.world
 fmovies.coffee
 wat32.tv
 movieonlives.com
-
-# Illegal sites I should access via Tor
 123moviesfree.net
+
+# Illegal sites I used to access
 audiobookbay.se
 libgen.rs
 rutracker.org
@@ -124,7 +131,6 @@ player.twitch.tv
 twitch.tv
 www.twitch.tv
 m.twitch.tv
-
 ## SafeTwitch
 safetwitch.drgns.space
 safetwitch.projectsegfau.lt
