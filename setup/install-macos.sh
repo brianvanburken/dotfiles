@@ -91,7 +91,7 @@ cleanup_and_exit() {
     local exitcode="${1:-0}"
     # Drop cached sudo credentials
     sudo -K
-    exit "${exitcode}"
+    exit "$exitcode"
 }
 
 # Make sure we always cleanup whenever this script exits, no matter how it exits
@@ -104,18 +104,18 @@ if [[ "$(uname)" != "Darwin" ]]; then
     cleanup_and_exit 1
 fi
 
-OS_MAJOR_VERSION="$(echo "${OS_VERSION}" | cut -f 1,1 -d '.')"
+OS_MAJOR_VERSION="$(echo "$OS_VERSION" | cut -f 1,1 -d '.')"
 # Stylewise the value we want to test should be on the left side. But checking
 # for a value in an array does not work with the value on the left side. Other
 # possibilities (looping over the array) are harder to read. Thus we decided to
 # keep the value on the right hand side.
-if [[ ! "${SUPPORTED_MACOS_VERSIONS[@]}" =~ "${OS_MAJOR_VERSION}" ]]; then
+if [[ ! "${SUPPORTED_MACOS_VERSIONS[@]}" =~ "$OS_MAJOR_VERSION" ]]; then
     error "You are running an unsupported version of macOS (${OS_MAJOR_VERSION})."
     error "Upgrade first and re-run this script."
     cleanup_and_exit 1
 fi
 
-if [[ -z "${TERM_PROGRAM}" ]]; then
+if [[ -z "$TERM_PROGRAM" ]]; then
     error "This command should be run from a Terminal whiled logged in to a graphical session on your Mac."
     error "Exiting..."
     cleanup_and_exit 1
@@ -177,10 +177,10 @@ ok "Installing software done."
 cached_sudo
 
 softwareupdates="$(softwareupdate -l 2> /dev/null)"
-if [[ "${softwareupdates}" =~ "recommended" ]]; then
+if [[ "$softwareupdates" =~ "recommended" ]]; then
     warning "There are recommended OS updates, please install them and re-run this script."
     require_manual_actions=1
-    echo "${softwareupdates}"
+    echo "$softwareupdates"
 else
     ok "Your system is up to date"
 fi
@@ -214,7 +214,7 @@ fi
 cached_sudo
 
 # Only set the items below for mobile Macs
-if [[ "${APPLE_COMPUTER_TYPE}" =~ "MacBook" ]]; then
+if [[ "$APPLE_COMPUTER_TYPE" =~ "MacBook" ]]; then
     powernap_status=$(pmset -g | awk '/powernap/ {print $2}')
     if [[ ${powernap_status} -eq 1 ]]; then
         action "Disabling Power Nap"
@@ -271,10 +271,10 @@ mkdir -p "${DEV_DIR}/personal"
 mkdir -p "${DEV_DIR}/oss"
 mkdir -p "${DEV_DIR}/work"
 
-if [ ! -d "${DOT_DIR}" ]; then
+if [ ! -d "$DOT_DIR" ]; then
     action "Cloning configurations"
-    git clone "https://github.com/${DOT_REPO}.git" "${DOT_DIR}"
-    cd "${DOT_DIR}"
+    git clone "https://github.com/${DOT_REPO}.git" "$DOT_DIR"
+    cd "$DOT_DIR"
     git remote remove origin
     git remote add origin "git@github.com:${DOT_REPO}.git"
     git fetch --all
@@ -334,7 +334,7 @@ if [[ -x "$(command -v fish)" ]]; then
     readonly shell_file="/etc/shells"
     if ! grep -q "$fish_command" "$shell_file"; then
         action "Adding fish to allowed shells in $shell_file"
-        cached_sudo echo $fish_command >> "$shell_file"
+        cached_sudo echo "$fish_command" >> "$shell_file"
     fi
 
     action "Changing shell to fish"
@@ -356,7 +356,7 @@ cached_sudo
 if [[ -x "$(command -v mise)" ]]; then
     eval "$(mise activate bash)"
     action "Installing mise plugins and versions"
-    cd "${DEV_DIR}"
+    cd "$DEV_DIR"
     mise install
     cd -
     ok "Mise versions installed"
@@ -416,11 +416,11 @@ cached_sudo
 
 readonly HOST_DIR="$DEV_DIR/personal/oss/hosts/"
 if [ ! -d "$HOST_DIR" ]; then
-    action "Setup blacklist hostfile"
+    action "Setup hostfile blocking"
     rm -rf "$HOST_DIR"
     git clone git@github.com:StevenBlack/hosts.git --depth=1 "$HOST_DIR"
-    ln -s "$DOT_DIR/setup/hosts_blacklist" "$HOST_DIR/blacklist"
-    ln -s "$DOT_DIR/setup/hosts_whitelist" "$HOST_DIR/whitelist"
+    ln -s "$DOT_DIR/setup/hosts_disallow" "$HOST_DIR/blacklist"
+    ln -s "$DOT_DIR/setup/hosts_allow" "$HOST_DIR/whitelist"
     cd "$HOST_DIR"
     pip3 install -r requirements.txt
     python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
