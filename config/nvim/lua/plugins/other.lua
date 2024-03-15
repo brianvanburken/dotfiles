@@ -3,7 +3,7 @@ return {
         "christoomey/vim-tmux-navigator",
         keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
     },
-    { "AndrewRadev/splitjoin.vim", version = "~1.2.0", keys = { "gS", "gJ" } },
+    { "AndrewRadev/splitjoin.vim", version = "~1.2.0", keys = { "gS", "gJ" }, event = "BufReadPost" },
     { "tpope/vim-abolish", commit = "cb3dcb220262777082f63972298d57ef9e9455ec", event = "BufReadPost" },
     { "tpope/vim-commentary", commit = "e87cd90dc09c2a203e13af9704bd0ef79303d755", event = "BufReadPost" },
     {
