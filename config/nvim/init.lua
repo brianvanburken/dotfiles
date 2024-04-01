@@ -5,7 +5,6 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_node_provider = 0
 
 vim.o.autoread = true -- Automatically reload files changed outside of vim
-vim.o.background = "dark"
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 1
 vim.o.expandtab = true
