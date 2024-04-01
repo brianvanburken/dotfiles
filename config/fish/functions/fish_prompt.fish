@@ -1,4 +1,4 @@
 function fish_prompt
     echo -n (basename $PWD)
-    echo -n ' 󰈺 '
+    echo -n ' > '
 end
