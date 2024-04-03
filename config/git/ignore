@@ -21,3 +21,6 @@ tags.lock
 # Ignore direnv/env files
 .env
 .envrc
+
+# Python virtualenv
+.venv
