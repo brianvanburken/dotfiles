@@ -57,6 +57,7 @@ www.snapchat.com
 # www.strava.com
 
 # Stop watching YouTube
+yewtu.be
 inv.n8pjl.ca
 inv.nadeko.net
 inv.tux.pizza
@@ -83,7 +84,6 @@ www.youtube.com
 yewtu.be
 youtu.be
 youtube.com
-youtube.owacon.moe
 yt.artemislena.eu
 yt.cdaut.de
 yt.drgnz.club
@@ -168,3 +168,7 @@ st.ggtyler.dev
 lunar.icu
 twitch.sudovanilla.com
 safetwitch.r4fo.com
+
+# Bad sites
+refurbished.nl
+www.refurbished.nl
