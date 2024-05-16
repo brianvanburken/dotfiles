@@ -115,12 +115,6 @@ if [[ ! "${SUPPORTED_MACOS_VERSIONS[@]}" =~ "$OS_MAJOR_VERSION" ]]; then
     cleanup_and_exit 1
 fi
 
-if [[ -z "$TERM_PROGRAM" ]]; then
-    error "This command should be run from a Terminal whiled logged in to a graphical session on your Mac."
-    error "Exiting..."
-    cleanup_and_exit 1
-fi
-
 if [[ ! -d "$(xcode-select -p)" ]]; then
     action "Installing command line tools (without XCode)"
     xcode-select --install
