@@ -34,7 +34,7 @@ OS_VERSION="$(sw_vers -productVersion)"
 readonly OS_VERSION
 
 # Supported macOS versions
-readonly SUPPORTED_MACOS_VERSIONS=("11" "12" "13")
+readonly SUPPORTED_MACOS_VERSIONS=("11" "12" "13" "14")
 
 # Determine Mac model
 APPLE_COMPUTER_TYPE="$(sysctl hw.model | awk '{print $2}')"
