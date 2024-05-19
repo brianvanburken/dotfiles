@@ -67,6 +67,7 @@ require("lazy").setup("plugins", {
                 "matchit",
                 "matchparen",
                 "netrwPlugin",
+                "osc52",
                 "rplugin",
                 "rrhelper",
                 "shada",
