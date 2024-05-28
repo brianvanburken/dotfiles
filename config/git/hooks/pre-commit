@@ -12,4 +12,9 @@ then
     exit 1
 fi
 
+if ! gitleaks protect --no-banner --staged --redact &>/dev/null; then
+  echo "$RED ERROR $NORMAL gitleaks has detected sensitive information in your changes."
+  exit 1
+fi
+
 exit 0
