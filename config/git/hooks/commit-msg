@@ -4,8 +4,8 @@ set -e
 RED="$(tput setab 1)"
 NORMAL="$(tput sgr0)"
 
-# Exit early on merge commit messages
-if head -1 "$1" | grep -qE "^(Merge) .{1,}$"; then
+# Exit early on merge/revert commit messages
+if head -1 "$1" | grep -qE "^(Merge|Revert) .{1,}$"; then
     exit 0
 fi
 
