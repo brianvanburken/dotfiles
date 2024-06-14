@@ -1,6 +1,6 @@
 return {
     "github/copilot.vim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "InsertEnter" },
     version = "~1.34.0",
     config = function()
         vim.g.copilot_no_tab_map = true
