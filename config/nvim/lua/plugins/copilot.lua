@@ -1,12 +1,15 @@
 return {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
     event = { "InsertEnter" },
-    version = "~1.34.0",
     config = function()
-        vim.g.copilot_no_tab_map = true
-        vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
-            expr = true,
-            replace_keycodes = false
+        require("copilot").setup({
+            suggestion = {
+                auto_trigger = true,
+                keymap = {
+                    accept = "<C-J>",
+                },
+            }
         })
     end,
 }
