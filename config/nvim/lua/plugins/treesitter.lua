@@ -54,10 +54,4 @@ return {
             })
         end,
     },
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        commit = "2aa454e4037424c678a8ff033951a5be39e54b9c",
-        dependency = { "nvim-treesitter/nvim-treesitter" },
-        event = "BufReadPost",
-    },
 }
