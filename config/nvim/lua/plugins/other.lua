@@ -8,6 +8,7 @@ return {
         "gregorias/coerce.nvim",
         tag = 'v3.0.0',
         event = "BufReadPost",
+        config = true,
     },
     {
         "tpope/vim-eunuch",
