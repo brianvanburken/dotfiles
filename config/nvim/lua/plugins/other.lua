@@ -3,7 +3,6 @@ return {
         "christoomey/vim-tmux-navigator",
         keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
     },
-    { "AndrewRadev/splitjoin.vim", version = "~1.2.0", keys = { "gS", "gJ" }, event = "BufReadPost" },
     {
         "gregorias/coerce.nvim",
         tag = 'v3.0.0',
