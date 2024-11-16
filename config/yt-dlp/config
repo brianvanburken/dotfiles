@@ -1,5 +1,5 @@
 --abort-on-unavailable-fragment
---concurrent-fragments 4
+--concurrent-fragments 8
 --embed-thumbnail
 --extractor-args "youtube:player_client=default,ios"
 --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
