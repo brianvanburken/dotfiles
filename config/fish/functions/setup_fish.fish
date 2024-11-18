@@ -99,5 +99,5 @@ function setup_fish -d "Setup variables for Fish"
 
     fish_update_completions
 
-    fish_config theme save "Just a Touch"
+    fish_config theme save "Mono Smoke"
 end
