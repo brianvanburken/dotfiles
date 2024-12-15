@@ -21,54 +21,43 @@ function fetch_pocket
     set access_token_file "$cache_dir/pocket_access_token"
     set output_file "$cache_dir/pocket_items.json"
 
-    # Check if the access token file exists
-    if test -f "$access_token_file"
-        # Read the access token from the file
-        set access_token (cat "$access_token_file")
-        echo "Using stored access token."
-    else
-        # Step 1: Obtain a request token
-        set response (curl -s -X POST "https://getpocket.com/v3/oauth/request" \
-            -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
-            -d "consumer_key=$POCKET_CONSUMER_KEY&redirect_uri=https://getpocket.com")
+    # Step 1: Obtain a request token
+    set response (curl -s -X POST "https://getpocket.com/v3/oauth/request" \
+        -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+        -d "consumer_key=$POCKET_CONSUMER_KEY&redirect_uri=https://getpocket.com")
 
-        # Extract the request token from the response
-        set request_token (string replace 'code=' '' -- $response)
+    # Extract the request token from the response
+    set request_token (string replace 'code=' '' -- $response)
 
-        if test -z "$request_token"
-            echo "Failed to obtain request token. Response was: $response"
-            return 1
-        end
-
-        # Step 2: Direct the user to authorize the app
-        set auth_url "https://getpocket.com/auth/authorize?request_token=$request_token&redirect_uri=https://getpocket.com"
-        echo "Please visit the following URL to authorize the application:"
-        echo $auth_url
-
-        echo
-        echo "Press Enter after you have authorized the application."
-        read
-
-        # Step 3: Obtain the access token
-        set response (curl -s -X POST "https://getpocket.com/v3/oauth/authorize" \
-            -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
-            -d "consumer_key=$POCKET_CONSUMER_KEY&code=$request_token")
-
-        # Extract the access token and username
-        set access_token (echo $response | string match -r 'access_token=([^&]+)' | string replace -r 'access_token=' '')
-        set username (echo $response | string match -r 'username=([^&]+)' | string replace -r 'username=' '')
-
-        if test -z "$access_token"
-            echo "Failed to obtain access token. Response was: $response"
-            return 1
-        end
-
-        echo "Successfully obtained access token for user $username"
-
-        # Store the access token in the file
-        echo $access_token > "$access_token_file"
-        echo "Access token stored in $access_token_file"
+    if test -z "$request_token"
+        echo "Failed to obtain request token. Response was: $response"
+        return 1
     end
+
+    # Step 2: Direct the user to authorize the app
+    set auth_url "https://getpocket.com/auth/authorize?request_token=$request_token&redirect_uri=https://getpocket.com"
+    echo "Please visit the following URL to authorize the application:"
+    echo $auth_url
+
+    echo
+    echo "Press Enter after you have authorized the application."
+    read
+
+    # Step 3: Obtain the access token
+    set response (curl -s -X POST "https://getpocket.com/v3/oauth/authorize" \
+        -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+        -d "consumer_key=$POCKET_CONSUMER_KEY&code=$request_token")
+
+    # Extract the access token and username
+    set access_token (echo $response | string match -r 'access_token=([^&]+)' | string replace -r 'access_token=' '')
+    set username (echo $response | string match -r 'username=([^&]+)' | string replace -r 'username=' '')
+
+    if test -z "$access_token"
+        echo "Failed to obtain access token. Response was: $response"
+        return 1
+    end
+
+    echo "Successfully obtained access token for user $username"
 
     # Check if jq is installed
     if not command -v jq >/dev/null
@@ -141,15 +130,14 @@ function fetch_pocket
         set item_ids (echo $list | jq -r 'keys[]')
         for id in $item_ids
             if contains $id $existing_item_ids
-                # Found an existing item; stop fetching
-                echo "Item with ID $id already exists. Stopping fetch."
+                # Found an existing item; set flag to stop fetching after current batch
+                echo "Item with ID $id already exists. Will not fetch further batches."
                 set stop_fetching true
-                break
+            else
+                # Add the new item to new_items
+                set item_json (echo $list | jq --arg id "$id" '.[$id]')
+                set new_items (echo $new_items | jq --argjson item "$item_json" --arg id "$id" '. + {($id): $item}')
             end
-
-            # Add the new item to new_items
-            set item_json (echo $list | jq --arg id "$id" '.[$id]')
-            set new_items (echo $new_items | jq --argjson item "$item_json" --arg id "$id" '. + {($id): $item}')
         end
 
         # Update offset
