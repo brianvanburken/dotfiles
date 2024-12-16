@@ -1,7 +1,7 @@
 return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "InsertEnter" },
     config = function()
         require("copilot").setup({
             suggestion = {
@@ -9,7 +9,7 @@ return {
                 keymap = {
                     accept = "<C-J>",
                 },
-            }
+            },
         })
     end,
 }
