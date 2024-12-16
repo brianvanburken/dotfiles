@@ -89,6 +89,9 @@ return {
 
         local servers = {
             rust_analyzer = {
+                filetypes = {
+                    "rust",
+                },
                 settings = {
                     ["rust-analyzer"] = {
                         rust = {
@@ -115,8 +118,10 @@ return {
                     },
                 },
             },
-
             lua_ls = {
+                filetypes = {
+                    "lua",
+                },
                 settings = {
                     Lua = {
                         completion = {
@@ -139,7 +144,6 @@ return {
                     },
                 },
             },
-
             ts_ls = {
                 filetypes = {
                     "javascript",
@@ -150,14 +154,56 @@ return {
                     "typescript.tsx",
                 },
             },
-
-            taplo = {}, -- TOML
-            cssls = {},
-            elmls = {},
-            html = {},
-            jsonls = {},
-            yamlls = {},
-            tailwindcss = {},
+            taplo = {
+                filetypes = {
+                    "toml",
+                },
+            },
+            cssls = {
+                filetypes = {
+                    "css",
+                    "scss",
+                },
+            },
+            elmls = {
+                filetypes = {
+                    "elm",
+                },
+            },
+            html = {
+                filetypes = {
+                    "html",
+                    "css",
+                    "scss",
+                },
+            },
+            jsonls = {
+                filetypes = {
+                    "json",
+                    "jsonc",
+                },
+            },
+            yamlls = {
+                filetypes = {
+                    "yaml",
+                },
+            },
+            tailwindcss = {
+                filetypes = {
+                    "html",
+                    "css",
+                    "scss",
+                },
+            },
+            elixirls = {
+                filetypes = { "elixir", "eelixir", "heex", "surface" },
+                settings = {
+                    elixirLS = {
+                        dialyzerEnabled = false,
+                        fetchDeps = false,
+                    },
+                },
+            },
         }
 
         for server, conf in pairs(servers) do
