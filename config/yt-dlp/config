@@ -8,3 +8,4 @@
 --path ~/Downloads/Videos/
 --retries 3
 --sub-langs en
+--cookies-from-browser firefox
