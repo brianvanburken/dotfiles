@@ -24,8 +24,8 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true -- enable true colors support
 vim.o.updatetime = 50
 vim.o.writebackup = false
-vim.wo.wrap = false
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.wo.wrap = false
 
 -- Map <leader> to space
 vim.g.mapleader = " "
