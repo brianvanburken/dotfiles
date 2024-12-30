@@ -97,12 +97,10 @@ abbr -a mkdir mkdir -p
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 abbr -a asdf mise
 abbr -a rtx mise
+abbr -a cat bat
 
 abbr -a kill_ds 'fd -I -H ".DS_Store" -tf -X rm -rf'
 abbr -a kill_modules 'fd "node_modules" -td -X rm -rf'
 abbr -a backup 'rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -avP'
 
 abbr -a mine 'sudo chown -R $(whoami):admin'
-
-abbr -a todo wm
-abbr -a bujo wm
