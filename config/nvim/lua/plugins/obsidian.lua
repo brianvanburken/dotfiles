@@ -19,10 +19,7 @@ return {
         workspaces = {
             {
                 name = "Personal",
-                path = "~/Library/CloudStorage/ProtonDrive-brianvanburken@proton.me-folder/",
-                overrides = {
-                    notes_subdir = "Personal Notes",
-                },
+                path = "/Volumes/Personal Data/",
             },
         },
     },
