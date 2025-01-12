@@ -16,6 +16,7 @@ brew "ripgrep"
 brew "tmux"
 brew "tree-sitter"
 brew "xq"
+brew "yq"
 brew "yt-dlp"
 brew "zoxide"
 
