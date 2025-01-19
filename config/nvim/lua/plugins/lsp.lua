@@ -190,10 +190,41 @@ return {
             },
             tailwindcss = {
                 filetypes = {
+                    "elixir",
+                    "eelixir",
+                    "heex",
                     "html",
                     "css",
                     "scss",
                 },
+                init_options = {
+                    userLanguages = {
+                        elixir = "html-eex",
+                        eelixir = "html-eex",
+                        heex = "html-eex",
+                    },
+                },
+                settings = {
+                    tailwindCSS = {
+                        experimental = {
+                            classRegex = {
+                                "(?:class:[\\s\\n]*|class=)['\"]([^'\"]+)['\"]",
+                            },
+                        },
+                    },
+                },
+                root_dir = function(fname)
+                    local root_pattern = lsp.util.root_pattern(
+                        "tailwind.config.mjs",
+                        "tailwind.config.cjs",
+                        "tailwind.config.js",
+                        "tailwind.config.ts",
+                        "postcss.config.js",
+                        "config/tailwind.config.js",
+                        "assets/tailwind.config.js"
+                    )
+                    return root_pattern(fname)
+                end,
             },
             elixirls = {
                 filetypes = { "elixir", "eelixir", "heex", "surface" },

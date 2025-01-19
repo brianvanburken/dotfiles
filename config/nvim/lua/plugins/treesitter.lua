@@ -12,9 +12,11 @@ return {
                 ensure_installed = {
                     "bash",
                     "css",
+                    "eex",
                     "elixir",
                     "elm",
                     "fish",
+                    "heex",
                     "html",
                     "javascript",
                     "jsdoc",
