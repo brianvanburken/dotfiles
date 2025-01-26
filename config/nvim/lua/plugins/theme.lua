@@ -24,7 +24,7 @@ return {
         dependencies = { "tjdevries/colorbuddy.nvim", branch = "dev" },
         priority = 1000,
         init = function()
-            vim.o.background = "light"
+            vim.o.background = "dark"
             vim.cmd("colorscheme noirbuddy")
             require("noirbuddy").setup({
                 colors = {
