@@ -28,7 +28,7 @@ return {
             vim.cmd("colorscheme noirbuddy")
             require("noirbuddy").setup({
                 colors = {
-                    primary = "#F2A43C",
+                    primary = "#8A5CF5",
                 },
             })
 
