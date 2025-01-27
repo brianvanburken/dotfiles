@@ -71,6 +71,7 @@ abbr -a gb git branch
 abbr -a gbr 'git branch --merged | rg -v "master|main|^\*" | xargs git branch -D'
 abbr -a gbra 'git branch | rg -v "master|main|^\*" | xargs git branch -D'
 abbr -a gcm git commit -m
+abbr -a gd git diff
 abbr -a gfa git fetch --all
 abbr -a gl git log
 abbr -a gp git push
