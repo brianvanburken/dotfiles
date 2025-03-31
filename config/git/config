@@ -72,6 +72,21 @@
 [delta]
 	navigate = true    # use n and N to move between diff sections
 	line-numbers = true
+	syntax-theme = "ansi"
+	commit-style = "raw"
+	hunk-header-style = syntax
+	minus-style = red
+	minus-non-emph-style = red
+	minus-emph-style = reverse red
+	minus-empty-line-marker-style = normal red
+	zero-style = syntax
+	plus-style = bold green
+	plus-non-emph-style = bold green
+	plus-emph-style = reverse green
+	plus-empty-line-marker-style = normal green
+	grep-file-style = blue
+	grep-line-number-style = blue
+	whitespace-error-style = reverse magenta
 
 [merge]
 	conflictstyle = diff3
