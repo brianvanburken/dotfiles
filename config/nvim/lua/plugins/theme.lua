@@ -18,31 +18,31 @@ return {
     --     end,
     --     opts = true,
     -- },
+    -- {
+    --     "jesseleite/nvim-noirbuddy",
+    --     name = "noirbuddy",
+    --     dependencies = { "tjdevries/colorbuddy.nvim", branch = "dev" },
+    --     priority = 1000,
+    --     init = function()
+    --         vim.o.background = "dark"
+    --         vim.cmd("colorscheme noirbuddy")
+    --         require("noirbuddy").setup({
+    --             colors = {
+    --                 primary = "#8A5CF5",
+    --             },
+    --         })
+    --
+    --         -- Ensure background is transparent after the theme is loaded
+    --         vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
+    --     end,
+    -- },
     {
-        "jesseleite/nvim-noirbuddy",
-        name = "noirbuddy",
-        dependencies = { "tjdevries/colorbuddy.nvim", branch = "dev" },
+        "kdheepak/monochrome.nvim",
         priority = 1000,
         init = function()
             vim.o.background = "dark"
-            vim.cmd("colorscheme noirbuddy")
-            require("noirbuddy").setup({
-                colors = {
-                    primary = "#8A5CF5",
-                },
-            })
-
-            -- Ensure background is transparent after the theme is loaded
-            vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
+            vim.g.monochrome_style = "amplified"
+            vim.cmd("colorscheme monochrome")
         end,
     },
-    -- {
-    --     "kdheepak/monochrome.nvim",
-    --     priority = 1000,
-    --     init = function()
-    --         vim.o.background = "light"
-    --         vim.g.monochrome_style = "amplified"
-    --         vim.cmd("colorscheme monochrome")
-    --     end,
-    -- },
 }
