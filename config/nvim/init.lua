@@ -23,6 +23,7 @@ vim.o.statusline = "%f%<%m%r"
 vim.o.tabstop = 2
 vim.o.termguicolors = true -- enable true colors support
 vim.o.updatetime = 50
+vim.o.winborder = "single"
 vim.o.writebackup = false
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.wo.wrap = false
