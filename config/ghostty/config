@@ -10,7 +10,6 @@ font-thicken = true
 font-thicken-strength = 100
 
 macos-titlebar-proxy-icon = hidden
-title = " "
 theme = dark:monochrome-dark,light:monochrome-light
 window-theme = system
 mouse-hide-while-typing = true
