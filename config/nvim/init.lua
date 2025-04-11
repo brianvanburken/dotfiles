@@ -39,11 +39,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Keep cursor where it is when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Paste but keep current registry
-vim.keymap.set("n", "<leader>p", '"_d')
-vim.keymap.set("v", "<leader>p", '"_d')
-vim.keymap.set("x", "<leader>p", '"_d')
-
 -- URL handling (custom for when netrw is disabled and don't provide functionality)
 if vim.fn.has("mac") == 1 then
     vim.keymap.set("n", "gx", '<Cmd>call jobstart(["open", expand("<cfile>")], {"detach": v:true})<CR>')
