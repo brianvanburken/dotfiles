@@ -1,12 +1,12 @@
 function fetch_pocket_videos -d "Download videos from Pocket" --argument user
-    set pocket_backup_file $XDG_CACHE_HOME/fetch_pocket/pocket_items.json
+    set pocket_backup_file "$XDG_CACHE_HOME/fetch_pocket/pocket_items.json"
     # Determine cache directory using XDG_CACHE_HOME
-    set cache_dir $XDG_CACHE_HOME/fetch_pocket_videos
+    set cache_dir "$XDG_CACHE_HOME/fetch_pocket_videos"
     mkdir -p $cache_dir
 
     # Define file paths
-    set urls_current $cache_dir/urls_current.txt
-    set urls_previous $cache_dir/urls_previous.txt
+    set urls_current "$cache_dir/urls_current.txt"
+    set urls_previous "$cache_dir/urls_previous.txt"
 
     # Extract URLs and filter for video sites, then sort uniquely
     jq 'values[].given_url' --raw-output $pocket_backup_file \
