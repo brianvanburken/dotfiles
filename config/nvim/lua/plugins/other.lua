@@ -1,9 +1,5 @@
 return {
     {
-        "christoomey/vim-tmux-navigator",
-        keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
-    },
-    {
         "gregorias/coerce.nvim",
         tag = 'v3.0.0',
         event = "BufReadPost",
