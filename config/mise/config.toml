@@ -15,6 +15,6 @@ plugin_autoupdate_last_check_duration = '0'
 # set to true to see full installation output, see `MISE_VERBOSE`
 verbose = false
 # set to true to ensure .tool-versions will be compatible with asdf, see `MISE_ASDF_COMPAT`
-asdf_compat = true
+asdf_compat = false
 # disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
 disable_default_shorthands = true
