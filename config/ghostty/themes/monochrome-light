@@ -1,0 +1,5 @@
+background = "#FFFFFF"
+foreground = "#000000"
+
+selection-foreground = "#FFFFFF"
+selection-background = "#000000"
