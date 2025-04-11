@@ -1,7 +1,9 @@
 clipboard-trim-trailing-spaces = true
-command = /opt/homebrew/bin/fish --login --interactive
+
 cursor-style = "block"
 cursor-style-blink = false
+shell-integration-features = no-cursor
+
 font-family = "FiraCode Nerd Font"
 font-size = 12
 font-thicken = true
@@ -9,8 +11,29 @@ font-thicken-strength = 100
 
 macos-titlebar-proxy-icon = hidden
 title = " "
-
-mouse-hide-while-typing = true
-shell-integration = fish
 theme = dark:monochrome-dark,light:monochrome-light
 window-theme = system
+mouse-hide-while-typing = true
+
+keybind = ctrl+n=new_window
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+b>h=new_split:left
+keybind = ctrl+b>j=new_split:down
+keybind = ctrl+b>k=new_split:up
+keybind = ctrl+b>l=new_split:right
+keybind = ctrl+b>f=toggle_split_zoom
+
+keybind = ctrl+b>n=next_tab
+keybind = ctrl+b>p=previous_tab
+
+keybind = super+r=reload_config
+
+window-save-state = always
+
+shell-integration = fish
+command = /opt/homebrew/bin/fish --login --interactive
