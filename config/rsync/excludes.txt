@@ -6,3 +6,5 @@
 .TemporaryItems
 .Trashes
 .com.apple.timemachine.donotpresent
+.obsidian
+.stfolder

@@ -102,6 +102,6 @@ abbr -a cat bat
 
 abbr -a kill_ds 'fd -I -H ".DS_Store" -tf -X rm -rf'
 abbr -a kill_modules 'fd "node_modules" -td -X rm -rf'
-abbr -a backup 'rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -avP'
+abbr -a backup 'rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -arv --progress'
 
 abbr -a mine 'sudo chown -R $(whoami):admin'
