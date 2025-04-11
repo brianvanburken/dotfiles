@@ -4,31 +4,22 @@ return {
     dependencies = {
         { "williamboman/mason.nvim", version = "~1.7.0" },
         { "williamboman/mason-lspconfig.nvim", version = "~1.14.0" },
-        { "hrsh7th/cmp-nvim-lsp", commit = "44b16d11215dce86f253ce0c30949813c0a90765" },
         { "nvim-lua/plenary.nvim", version = "~0.1.0" },
         { "stevearc/conform.nvim", version = "~v5.3.0" },
     },
     config = function()
         local lsp = require("lspconfig")
         local conform = require("conform")
-        local cmp = require("cmp_nvim_lsp")
 
         require("mason").setup()
         require("mason-lspconfig").setup({
             automatic_installation = true,
         })
 
-        local opts = { noremap = true, silent = true }
-        vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-        vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, opts)
-
         local function lsp_mapping(buf)
             local bufopts = { buffer = buf, noremap = true, silent = true }
 
             vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
             vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
@@ -53,10 +44,6 @@ return {
         local flags = {
             allow_incremental_sync = true,
         }
-
-        ---Common capabilities including lsp snippets and autocompletion
-        -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-        local capabilities = cmp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
         ---Common `on_attach` function for LSP servers
         local function on_attach(client, buf)
@@ -251,7 +238,6 @@ return {
         for server, conf in pairs(servers) do
             lsp[server].setup({
                 flags = flags,
-                capabilities = capabilities,
                 on_attach = on_attach,
                 settings = conf.settings,
                 filetypes = conf.filetypes,
@@ -287,6 +273,15 @@ return {
                 timeout_ms = 3000,
                 lsp_fallback = true,
             },
+        })
+
+        vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(ev)
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                if client:supports_method("textDocument/completion") then
+                    vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+                end
+            end,
         })
     end,
 }
