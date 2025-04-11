@@ -26,6 +26,7 @@ vim.o.updatetime = 50
 vim.o.writebackup = false
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.wo.wrap = false
+vim.o.background = "light"
 
 -- Map <leader> to space
 vim.g.mapleader = " "

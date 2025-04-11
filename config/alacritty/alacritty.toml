@@ -29,6 +29,6 @@ y = 20
 
 [general]
 live_config_reload = true
-import = ["~/.config/alacritty/themes/current.toml"]
+import = ["~/.config/alacritty/themes/monochrome-light.toml"]
 
 [terminal]
