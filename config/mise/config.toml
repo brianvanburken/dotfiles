@@ -18,3 +18,6 @@ verbose = false
 asdf_compat = false
 # disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
 disable_default_shorthands = true
+
+[tools]
+nodejs = "lts"
