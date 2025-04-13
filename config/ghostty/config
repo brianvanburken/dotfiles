@@ -27,7 +27,3 @@ window-save-state = always
 
 shell-integration = fish
 command = /opt/homebrew/bin/fish --login --interactive
-
-minimum-contrast = 1.1
-
-unfocused-split-opacity = 0.5
