@@ -46,6 +46,57 @@ elseif vim.fn.has("unix") == 1 then
     vim.keymap.set("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 end
 
+-- Setting up LSP
+-- Get all LSPs from the config directory and load them
+local lsp_path = vim.fs.joinpath(vim.fn.stdpath("config"), "lsp")
+local lsps = {}
+for fname, _ in vim.fs.dir(lsp_path) do
+    lsps[#lsps + 1] = fname:match("^([^/]+).lua$")
+end
+vim.lsp.enable(lsps)
+
+-- Configuring native diagnostics
+vim.diagnostic.config({
+    float = { border = "rounded" },
+    underline = true,
+    virtual_text = true,
+    virtual_lines = false,
+})
+
+-- Setup autompletion
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        -- Enable completion
+        if client and client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+        end
+
+        -- Auto-format ("lint") on save.
+        -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
+        if
+            client
+            and not client:supports_method("textDocument/willSaveWaitUntil")
+            and client:supports_method("textDocument/formatting")
+        then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = args.buf,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+                end,
+            })
+        end
+
+        -- Keymaps
+        local opts = { buffer = args.buf }
+        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<leader>cf", function()
+            vim.lsp.buf.format({ async = true })
+        end, opts)
+    end,
+})
+
 -- Setup Lazy.nvim
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 
