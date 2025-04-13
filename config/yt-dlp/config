@@ -8,7 +8,9 @@
 --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
 --format-sort res:1440,vcodec:h264
 --no-playlist
---output "%(channel)s - %(title)s [%(id)s].%(ext)s"
+--output "%(channel)s [%(id)s] - %(title)s.%(ext)s"
 --path ~/Downloads/Videos/
 --retries 3
 --sub-langs en
+--restrict-filenames
+--trim-filenames 200
