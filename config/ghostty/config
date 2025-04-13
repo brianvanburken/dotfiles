@@ -15,23 +15,13 @@ theme = dark:monochrome-dark,light:monochrome-light
 window-theme = system
 mouse-hide-while-typing = true
 
-keybind = ctrl+n=new_window
+keybind = ctrl+b>h=goto_split:left
+keybind = ctrl+b>j=goto_split:bottom
+keybind = ctrl+b>k=goto_split:top
+keybind = ctrl+b>l=goto_split:right
 
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:bottom
-keybind = ctrl+k=goto_split:top
-keybind = ctrl+l=goto_split:right
-
-keybind = ctrl+b>h=new_split:left
-keybind = ctrl+b>j=new_split:down
-keybind = ctrl+b>k=new_split:up
-keybind = ctrl+b>l=new_split:right
-keybind = ctrl+b>f=toggle_split_zoom
-
-keybind = ctrl+b>n=next_tab
-keybind = ctrl+b>p=previous_tab
-
-keybind = super+r=reload_config
+keybind = super+h=new_split:left
+keybind = super+j=new_split:down
 
 window-save-state = always
 
