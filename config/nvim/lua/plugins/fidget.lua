@@ -6,6 +6,5 @@ return {
         notification = {
             window = { relative = "editor" },
         },
-    },
-    dependencies = { "neovim/nvim-lspconfig" },
+    }
 }
