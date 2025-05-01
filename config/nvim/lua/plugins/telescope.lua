@@ -13,7 +13,6 @@ return {
         { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
         { "<leader>fr", "<cmd>Telescope resume<CR>" },
         { "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>" },
-        { "<leader>ft", "<cmd>TodoTelescope<CR>" },
     },
     opts = {
         pickers = {
