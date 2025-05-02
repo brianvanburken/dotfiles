@@ -16,7 +16,32 @@ return {
         pickers = {
             find_files = {
                 hidden = true,
+                previewer = false,
+                layout_strategy = "vertical",
             },
         },
+        defaults = {
+            border = false,
+            sorting_strategy = "ascending",
+            layout_config = {
+                horizontal = {
+                    prompt_position = "top",
+                },
+                vertical = {
+                    prompt_position = "top",
+                },
+            },
+            vimgrep_arguments = {
+                "rg",
+                "--color=never",
+                "--no-heading",
+                "--with-filename",
+                "--line-number",
+                "--column",
+                "--smart-case",
+                "--trim"
+            }
+
+        }
     },
 }
