@@ -122,6 +122,7 @@ require("lazy").setup("plugins", {
                 "rplugin",
                 "rrhelper",
                 "shada",
+                "spellfile",
                 "tarPlugin",
                 "tohtml",
                 "tutor",
