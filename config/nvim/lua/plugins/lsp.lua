@@ -1,7 +1,6 @@
 return {
     {
         "williamboman/mason.nvim",
-        version = "~1.7.0",
         event = "BufReadPost",
         opts = {
             ensure_installed = {
