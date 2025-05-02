@@ -2,7 +2,7 @@ return {
     {
         "williamboman/mason.nvim",
         version = "~1.7.0",
-        event = "BufReadPre",
+        event = "BufReadPost",
         opts = {
             ensure_installed = {
                 "biome",
@@ -23,7 +23,7 @@ return {
     },
     {
         "j-hui/fidget.nvim",
-        event = "BufReadPre",
+        event = "BufReadPost",
         opts = {
             notification = {
                 window = { relative = "editor" },
