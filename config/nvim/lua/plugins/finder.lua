@@ -3,7 +3,7 @@ return {
     cmd = "FzfLua",
     keys = {
         { "<leader>ff", "<cmd>FzfLua files<CR>" },
-        { "<leader>fg", "<cmd>FzfLua live_grep<CR>" },
+        { "<leader>fg", "<cmd>FzfLua live_grep_native<CR>" },
         { "<leader>fr", "<cmd>FzfLua resume<CR>" },
         { "<leader>fd", "<cmd>FzfLua diagnostics_document<CR>" },
         { "<leader>fs", "<cmd>FzfLua lsp_document_symbols<CR>" },
