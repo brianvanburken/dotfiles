@@ -21,7 +21,7 @@ return {
     },
     {
         "j-hui/fidget.nvim",
-        event = "BufReadPost",
+        event = "LspAttach",
         opts = {
             notification = {
                 window = { relative = "editor" },
