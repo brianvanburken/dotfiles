@@ -1,6 +1,6 @@
 return {
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         event = "BufReadPost",
         opts = {
             ensure_installed = {
