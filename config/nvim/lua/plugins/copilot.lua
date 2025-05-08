@@ -1,7 +1,7 @@
 return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "BufReadPost",
+    event = "InsertEnter",
     opts = {
         panel = { enabled = true },
         suggestion = {
