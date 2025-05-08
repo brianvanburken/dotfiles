@@ -115,6 +115,7 @@ require("lazy").setup("plugins", {
                 "getscriptPlugin",
                 "gzip",
                 "logipat",
+                "man",
                 "matchit",
                 "matchparen",
                 "netrwPlugin",
