@@ -12,7 +12,6 @@ return {
                 "vscode-json-language-server",
                 "lua-language-server",
                 "rust-analyzer",
-                "stylua",
                 "tailwindcss-language-server",
                 "taplo",
                 "typescript-language-server",
