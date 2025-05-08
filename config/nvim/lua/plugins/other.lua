@@ -7,7 +7,7 @@ return {
     {
         "kylechui/nvim-surround",
         version = "^3.0.0",
-        event = "BufReadPost",
+        keys = { "cs", "ds", "ys" },
         config = true,
     }
 }
