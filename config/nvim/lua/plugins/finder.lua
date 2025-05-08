@@ -12,16 +12,20 @@ return {
     },
     opts = {
         "border-fused",
-        fzf_colors = true,
+        fzf_colors = {
+            true,
+            ["pointer"] = { "fg", "Normal" },
+            ["prompt"] = { "fg", "Normal" },
+        },
         fzf_opts = {
             ['--no-scrollbar'] = true,
         },
         fzf_args = "--bind=change:first",
         defaults = {
-            git_icons = false,
-            file_icons = false,
+            git_icons   = false,
+            file_icons  = false,
             color_icons = false,
-            formatter = "path.filename_first",
+            formatter   = "path.filename_first",
         },
         lsp = {
             symbols = {
@@ -31,6 +35,24 @@ return {
         files = {
             previewer  = false,
             cwd_prompt = false,
+        },
+        grep = {
+            rg_opts     =
+                "--column " ..
+                "--line-number " ..
+                "--no-heading " ..
+                "--color=always " ..
+                "--colors path:none " ..
+                "--colors line:none " ..
+                "--colors column:none " ..
+                "--colors match:none " ..
+                "--colors match:style:bold " ..
+                "--trim " ..
+                "--smart-case " ..
+                "--max-columns=150 " ..
+                "-e",
+            no_header   = true,
+            no_header_i = true,
         },
         winopts = {
             border   = "single",
