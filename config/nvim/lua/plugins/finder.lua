@@ -1,47 +1,44 @@
 return {
-    "nvim-telescope/telescope.nvim",
-    version = "~0.1.8",
-    cmd = "Telescope",
-    dependencies = {
-        { "nvim-lua/plenary.nvim" },
-    },
+    "ibhagwan/fzf-lua",
+    cmd = "FzfLua",
     keys = {
-        { "<leader>fd", "<cmd>Telescope diagnostics<CR>" },
-        { "<leader>ff", "<cmd>Telescope find_files<CR>" },
-        { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
-        { "<leader>fr", "<cmd>Telescope resume<CR>" },
-        { "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>" },
+        { "<leader>ff", "<cmd>FzfLua files<CR>" },
+        { "<leader>fg", "<cmd>FzfLua live_grep<CR>" },
+        { "<leader>fr", "<cmd>FzfLua resume<CR>" },
+        { "<leader>fd", "<cmd>FzfLua diagnostics_document<CR>" },
+        { "<leader>fs", "<cmd>FzfLua lsp_document_symbols<CR>" },
+        { "<leader>fw", "<cmd>FzfLua lsp_workspace_symbols<CR>" },
+        { "<leader>ft", "<cmd>FzfLua spell_suggest<CR>" },
     },
     opts = {
-        pickers = {
-            find_files = {
-                hidden = true,
-                previewer = false,
-                layout_strategy = "vertical",
-            },
+        "border-fused",
+        fzf_colors = true,
+        fzf_opts = {
+            ['--no-scrollbar'] = true,
         },
+        fzf_args = "--bind=change:first",
         defaults = {
-            border = false,
-            sorting_strategy = "ascending",
-            layout_config = {
-                horizontal = {
-                    prompt_position = "top",
-                },
-                vertical = {
-                    prompt_position = "top",
-                },
-            },
-            vimgrep_arguments = {
-                "rg",
-                "--color=never",
-                "--no-heading",
-                "--with-filename",
-                "--line-number",
-                "--column",
-                "--smart-case",
-                "--trim"
+            git_icons = false,
+            file_icons = false,
+            color_icons = false,
+            formatter = "path.filename_first",
+        },
+        lsp = {
+            symbols = {
+                symbol_style = false
             }
-
-        }
-    },
+        },
+        files = {
+            previewer  = false,
+            cwd_prompt = false,
+        },
+        winopts = {
+            border   = "single",
+            backdrop = 100,
+            preview  = {
+                scrollbar = "none",
+                title = false,
+            }
+        },
+    }
 }
