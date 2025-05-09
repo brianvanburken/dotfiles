@@ -41,12 +41,7 @@ return {
                 "--column " ..
                 "--line-number " ..
                 "--no-heading " ..
-                "--color=always " ..
-                "--colors path:none " ..
-                "--colors line:none " ..
-                "--colors column:none " ..
-                "--colors match:none " ..
-                "--colors match:style:bold " ..
+                "--color=never " ..
                 "--trim " ..
                 "--smart-case " ..
                 "--max-columns=150 " ..
