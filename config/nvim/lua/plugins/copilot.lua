@@ -10,7 +10,7 @@ return {
             hide_during_completion = true,
             debounce = 75,
             keymap = {
-                accept = "<c-j>",
+                accept = "<Tab>",
             },
         },
         server_opts_overrides = {},
