@@ -50,10 +50,11 @@ log
 logs
 node_modules
 package-lock.json
+pnpm-lock.yaml
 source_code
+submodules
 tags
 target
 testresults
 tmp
 videos
-submodules
