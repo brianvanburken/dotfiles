@@ -46,6 +46,7 @@ elm-stuff
 gradlew
 gradlew.bat
 images
+lazy-lock.json
 log
 logs
 node_modules
