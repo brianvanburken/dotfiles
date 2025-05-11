@@ -18,8 +18,14 @@ return {
 
             npairs.setup({ check_ts = true })
             npairs.add_rules({
-                Rule(" do$", " end", { "elixir", "eelixir", "heex" }):use_regex(true),
-                Rule(" ->$", " end", { "elixir", "eelixir", "heex" }):use_regex(true),
+                -- Elixir
+                Rule(" do", " end", { "elixir", "eelixir", "heex" }),
+                Rule(" ->", " end", { "elixir", "eelixir", "heex" }),
+                Rule("<%", " %>", { "elixir", "eelixir", "heex" }),
+
+                -- Rust
+                Rule("|", "|", { "rust" }),
+                Rule("<", ">", { "rust" }),
             })
         end
     }
