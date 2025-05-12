@@ -22,6 +22,7 @@ return {
                 Rule(" do", " end", { "elixir", "eelixir", "heex" }),
                 Rule(" ->", " end", { "elixir", "eelixir", "heex" }),
                 Rule("<%", " %>", { "elixir", "eelixir", "heex" }),
+                Rule("__", "__", { "elixir", "eelixir", "heex" }),
 
                 -- Rust
                 Rule("|", "|", { "rust" }),
