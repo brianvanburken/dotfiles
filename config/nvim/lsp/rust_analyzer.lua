@@ -13,10 +13,11 @@ return {
                 importPrefix = "crate",
             },
             cargo = {
+                extraEnv = { BUILD_ENV = "dev" },
+                targetDir = true,
                 features = "all",
             },
             check = {
-                extraArgs = { "--target-dir", "/tmp/rust-analyzer" },
                 features = "all",
                 command = "clippy",
             },
