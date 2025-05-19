@@ -49,6 +49,7 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux ASDF_GEM_DEFAULT_PACKAGES_FILE "$ASDF_CONFIG_DIR/default-gems"
     set -Ux ASDF_NPM_DEFAULT_PACKAGES_FILE "$ASDF_CONFIG_DIR/default-npm-packages"
     set -Ux ASDF_PYTHON_DEFAULT_PACKAGES_FILE "$ASDF_CONFIG_DIR/default-python-packages"
+    set -Ux MISE_FISH_AUTO_ACTIVATE 0
     fish_add_path "$ASDF_BIN"
     fish_add_path "$ASDF_USER_SHIMS"
 
@@ -82,20 +83,19 @@ function setup_fish -d "Setup variables for Fish"
     # Gitleaks
     set -Ux GITLEAKS_CONFIG "$XDG_CONFIG_HOME/gitleaks/config.toml"
 
-    # Personal dirs
+    # Caching setting up tools
+    set -l init_file "$XDG_CONFIG_HOME/fish/conf.d/inits_cached.fish"
+    set -l comp_file "$XDG_CONFIG_HOME/fish/completions/completions_cached.fish"
+    mkdir -p (dirname $init_file) (dirname $comp_file)
 
-    # Cache zoxide init command to a file to cache
-    zoxide init fish > "$XDG_CONFIG_HOME/fish/conf.d/zoxide_cached.fish"
+    # Overwrite inits
+    zoxide init fish --no-cmd > $init_file
+    mise activate fish >> $init_file
 
-    # Cache mise activate command to a file to cache
-    mise activate fish > "$XDG_CONFIG_HOME/fish/conf.d/mise_cached.fish"
-    mise complete -s fish > "$XDG_CONFIG_HOME/fish/completions/mise_cached.fish"
+    # Overwrite completions
+    mise complete -s fish > $comp_file
+    op completion fish >> $comp_file
 
-    # Cache 1Password completions
-    op completion fish > "$XDG_CONFIG_HOME/fish/completions/op_cached.fish"
-
-    # Cache asdf command
-    # cat "$(brew --prefix asdf)/libexec/asdf.fish" > "$XDG_CONFIG_HOME/fish/conf.d/asdf-cached.fish"
-
+    # Rebuild fish’s completion db
     fish_update_completions
 end
