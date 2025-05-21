@@ -5,11 +5,6 @@ abbr -a ncc npm cache clear --force
 abbr -a nci npm ci
 abbr -a nig npm install --global
 
-# Yarn
-abbr -a ycc yarn cache clean
-abbr -a yci yarn install --frozen-lockfile
-abbr -a yig yarn global
-
 # NeoVim/Vim/VSCode
 abbr -a vi nvim
 abbr -a vim nvim
@@ -21,14 +16,10 @@ abbr -a e nvim
 abbr -a g git
 abbr -a ga git add
 abbr -a gam git commit --amend
-abbr -a gamn git commit --amend --no-edit
 abbr -a gap git add --patch
-abbr -a gb git branch
 abbr -a gbr 'git branch --merged | rg -v "master|main|^\*" | xargs git branch -D'
 abbr -a gbra 'git branch | rg -v "master|main|^\*" | xargs git branch -D'
 abbr -a gcm git commit -m
-abbr -a gd git diff
-abbr -a gfa git fetch --all
 abbr -a gl git log
 abbr -a gp git push
 abbr -a gpf git push --force-with-lease
@@ -44,13 +35,9 @@ abbr -a fix 'git diff --name-only | uniq | xargs -o $EDITOR'
 abbr -a ls 'eza --color=auto'
 abbr -a l 'eza --color=auto --group-directories-first  -lahg --no-user'
 abbr -a t 'eza -T -L 3'
-abbr -a rm rm -i
-abbr -a mv mv -i
-abbr -a ln ln -i
 abbr -a mkdir mkdir -p
 abbr -a asdf mise
 abbr -a rtx mise
-abbr -a cat bat
 
 abbr -a kill_ds 'fd -I -H ".DS_Store" -tf -X rm -rf'
 abbr -a kill_modules 'fd "node_modules" -td -X rm -rf'
