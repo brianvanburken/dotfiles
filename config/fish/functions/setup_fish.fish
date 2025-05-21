@@ -89,7 +89,7 @@ function setup_fish -d "Setup variables for Fish"
 
     # Overwrite inits
     zoxide init fish --no-cmd > $init_file
-    mise activate fish >> $init_file
+    mise activate fish --no-hook-env >> $init_file
 
     # Overwrite completions
     mise complete -s fish > $comp_file
