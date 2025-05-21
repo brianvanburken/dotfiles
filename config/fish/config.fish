@@ -43,8 +43,6 @@ abbr -a ls 'eza --color=auto'
 abbr -a l 'eza --color=auto --group-directories-first  -lahg --no-user'
 abbr -a t 'eza -T -L 3'
 abbr -a mkdir mkdir -p
-abbr -a asdf mise
-abbr -a rtx mise
 
 abbr -a kill_ds 'fd -I -H ".DS_Store" -tf -X rm -rf'
 abbr -a backup 'rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -arv --progress'
