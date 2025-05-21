@@ -1,15 +1,6 @@
 # Shortkeys to make live easier
 
-# NPM
-abbr -a ncc npm cache clear --force
-abbr -a nci npm ci
-abbr -a nig npm install --global
-
 # NeoVim/Vim/VSCode
-abbr -a vi nvim
-abbr -a vim nvim
-abbr -a vscode nvim
-abbr -a code nvim
 abbr -a e nvim
 
 # Git
