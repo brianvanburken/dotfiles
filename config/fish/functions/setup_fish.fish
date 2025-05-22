@@ -39,6 +39,8 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux LESSHISTFILE "$XDG_CACHE_HOME/less/history"
     set -Ux LESSKEY "$XDG_CONFIG_HOME/less/keys"
 
+    set -Ux RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
+
     # Asdf/mise
     set -Ux ASDF_DIR "$HOMEBREW_PREFIX/opt/asdf/libexec"
     set -Ux ASDF_BIN "$ASDF_DIR/bin"

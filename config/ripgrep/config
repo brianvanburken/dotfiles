@@ -1,0 +1,6 @@
+--max-columns=150
+--max-depth=5
+--trim
+--smart-case
+--no-line-number
+--no-column
