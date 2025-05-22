@@ -17,6 +17,8 @@ function lazy_load_mise --on-variable PWD
         set -g __mise_activated 1
     end
 end
+# Try when loading the shell
+lazy_load_mise
 
 # Shortkeys to make live easier
 
