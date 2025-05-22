@@ -19,6 +19,7 @@
 *.png
 *.rar
 *.snap
+*.svg
 *.tags*
 *.tar
 *.tmp*
@@ -27,6 +28,7 @@
 *.zcompdump
 *.zip
 *.zwc
+*lock
 .DS_Store
 .cache
 .git
