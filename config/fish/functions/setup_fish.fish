@@ -59,7 +59,8 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux BABEL_CACHE_PATH "$XDG_CACHE_HOME/babel.json"
     set -Ux NODE_REPL_HISTORY "$XDG_CACHE_HOME/node/repl_history"
     set -Ux NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
-    set -Ux NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
+    set -Ux NPM_CONFIG_FUND false
+    set -Ux NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 
     # Elm
     set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
