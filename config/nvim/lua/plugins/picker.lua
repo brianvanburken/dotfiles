@@ -5,20 +5,10 @@ return {
         { '<leader>fg', '<cmd>Pick grep_live<cr>', desc = 'Search buffers' },
         { '<leader>fr', '<cmd>Pick resume<cr>',    desc = 'Resume previous search' },
     },
-    config = function()
+    opts = function()
         local MiniPick = require("mini.pick")
 
-        -- Override the 'files' picker to always use 'fd' as the tool
-        MiniPick.registry.files = function(picker_opts)
-            return MiniPick.builtin.files(vim.tbl_extend(
-                "force",
-                picker_opts or {},
-                { tool = "fd" }
-            ))
-        end
-
-        -- Setup mini.pick with the given options
-        MiniPick.setup({
+        return {
             source = {
                 show = MiniPick.default_show
             },
@@ -35,6 +25,5 @@ return {
                 },
             },
         }
-        )
     end,
 }
