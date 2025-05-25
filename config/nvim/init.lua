@@ -99,6 +99,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>cf", function()
             vim.lsp.buf.format({ async = true })
         end, opts)
+
+        -- Apply first autocomplete item if omnifunc is open, else indent as normal
+        vim.keymap.set("i", "<Tab>", function()
+            if vim.fn.pumvisible() == 1 then
+                -- select the first item (with <C-n>) then accept it (<C-y>)
+                return vim.api.nvim_replace_termcodes("<C-n><C-y>", true, true, true)
+            else
+                -- real Tab key (respects expandtab/shiftwidth)
+                return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
+            end
+        end, { expr = true, silent = true })
     end,
 })
 
