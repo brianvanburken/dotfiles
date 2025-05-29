@@ -65,6 +65,11 @@ function setup_fish -d "Setup variables for Fish"
     # Elm
     set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
 
+    # Elixir/Erlang
+    set -Ux MIX_XDG true
+    mdkir -p "$XDG_CONFIG_HOME/erlang"
+    touch "$XDG_CONFIG_HOME/erlang/.erlang.cookie"
+
     # Ruby
     set -Ux GEMRC "$XDG_CONFIG_HOME/gem/config.yml"
     set -Ux GEM_HOME "$XDG_DATA_HOME/gem"
