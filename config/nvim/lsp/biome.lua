@@ -1,6 +1,7 @@
 return {
     cmd = { "biome", "lsp-proxy" },
     filetypes = {
+        "html",
         "css",
         "graphql",
         "javascript",
@@ -12,5 +13,9 @@ return {
         "typescript.tsx",
         "typescriptreact",
     },
-    root_markers = { "biome.json", "biome.jsonc" },
+    root_markers = {
+        "biome.json",
+        "biome.jsonc",
+        ".git"
+    },
 }
