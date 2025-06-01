@@ -9,26 +9,27 @@ vim.g.loaded_node_provider = 0
 vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 1
-vim.o.expandtab = true
 vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
 vim.o.hidden = true
-vim.o.inccommand = "split"       -- Show live preview of substitutions
+vim.o.ignorecase = true
+vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.lazyredraw = true
 vim.o.list = true
 vim.o.nu = true
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.shiftwidth = 2
 vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%f%<%m%r"
-vim.o.tabstop = 2
 vim.o.termguicolors = true -- enable true colors support
-vim.o.updatetime = 750
+vim.o.updatetime = 250
 vim.o.winborder = "single"
 vim.o.writebackup = false
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.wo.wrap = false
+
+-- Handling of whitespace
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
 -- Map <leader> to space
 vim.g.mapleader = " "
