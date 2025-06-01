@@ -42,11 +42,14 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- URL handling (custom for when netrw is disabled and don't provide functionality)
-if vim.fn.has("mac") == 1 then
-    vim.keymap.set("n", "gx", '<Cmd>call jobstart(["open", expand("<cfile>")], {"detach": v:true})<CR>')
-elseif vim.fn.has("unix") == 1 then
-    vim.keymap.set("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
-end
+vim.keymap.set("n", "gx", function()
+    local target = vim.fn.expand("<cfile>")
+    if vim.fn.has("mac") == 1 then
+        vim.fn.jobstart({ "open", target }, { detach = true })
+    else
+        vim.fn.jobstart({ "xdg-open", target }, { detach = true })
+    end
+end, { desc = "Open file/URL under cursor with default app" })
 
 -- Open the current file using `open`
 vim.api.nvim_create_user_command("Open", function()
