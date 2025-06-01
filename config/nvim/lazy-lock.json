@@ -4,10 +4,10 @@
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "mason.nvim": { "branch": "main", "commit": "9eaedb864cdadc29c6eb7d761a6c0d8aee26c91b" },
   "mini.pick": { "branch": "main", "commit": "fa1e449e1080bf7aa9b2890ee186d23b1b4e1287" },
-  "monochrome.nvim": { "branch": "main", "commit": "2de78d9688ea4a177bcd9be554ab9192337d35ff" },
   "nvim-autopairs": { "branch": "master", "commit": "4d74e75913832866aa7de35e4202463ddf6efd1b" },
   "nvim-surround": { "branch": "main", "commit": "0e62500b98f4513feaaf7425c135472457ea5b7d" },
   "nvim-treesitter": { "branch": "master", "commit": "066fd6505377e3fd4aa219e61ce94c2b8bdb0b79" },
   "refactorex.nvim": { "branch": "main", "commit": "d76789b35562a85c2a5f63613c96e9fc32c47c26" },
+  "rose-pine": { "branch": "main", "commit": "6b9840790cc7acdfadde07f308d34b62dd9cc675" },
   "vim-eunuch": { "branch": "master", "commit": "67f3dd32b4dcd1c427085f42ff5f29c7adc645c6" }
 }
