@@ -41,25 +41,25 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Keep cursor where it is when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
--- URL handling (custom for when netrw is disabled and don't provide functionality)
-vim.keymap.set("n", "gx", function()
-    local target = vim.fn.expand("<cfile>")
+-- Function to open a target given based on OS
+local function open_target(target)
     if vim.fn.has("mac") == 1 then
         vim.fn.jobstart({ "open", target }, { detach = true })
     else
         vim.fn.jobstart({ "xdg-open", target }, { detach = true })
     end
-end, { desc = "Open file/URL under cursor with default app" })
+end
 
--- Open the current file using `open`
+-- Open the URL under the cursor
+-- For when netrw is disabled and don't provide functionality
+vim.keymap.set("n", "gx", function()
+    open_target(vim.fn.expand("<cfile>"))
+end, { desc = "Open file/URL under cursor" })
+
+-- Open the current open file
 vim.api.nvim_create_user_command("Open", function()
-    local path = vim.fn.expand("%:p")
-    if vim.fn.has("mac") == 1 then
-        vim.fn.jobstart({ "open", path }, { detach = true })
-    else
-        vim.fn.jobstart({ "xdg-open", path }, { detach = true })
-    end
-end, { desc = "Open current file with default app (macOS or Linux)" })
+    open_target(vim.fn.expand("%:p"))
+end, { desc = "Open current file" })
 
 -- Setting up LSP
 -- Get all LSPs from the config directory and load them
