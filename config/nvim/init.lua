@@ -48,6 +48,16 @@ elseif vim.fn.has("unix") == 1 then
     vim.keymap.set("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 end
 
+-- Open the current file using `open`
+vim.api.nvim_create_user_command("Open", function()
+    local path = vim.fn.expand("%:p")
+    if vim.fn.has("mac") == 1 then
+        vim.fn.jobstart({ "open", path }, { detach = true })
+    else
+        vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+    end
+end, { desc = "Open current file with default app (macOS or Linux)" })
+
 -- Setting up LSP
 -- Get all LSPs from the config directory and load them
 local lsp_path = vim.fs.joinpath(vim.fn.stdpath("config"), "lsp")
