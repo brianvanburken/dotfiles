@@ -12,7 +12,6 @@ function lazy_load_mise --on-variable PWD
 
     # Test for .mise.toml or .tool-versions
     if test -f mise.toml; test -f .mise.toml; or test -f .tool-versions
-        echo "Activating mise"
         mise activate fish | source
         set -g __mise_activated 1
     end
