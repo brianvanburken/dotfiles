@@ -6,7 +6,6 @@ return {
             ensure_installed = {
                 "biome",
                 "css-lsp",
-                "elixir-ls",
                 "elm-format",
                 "elm-language-server",
                 "html-lsp",
