@@ -124,6 +124,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
             end
         end, { expr = true, silent = true })
+
+        -- https://github.com/neovim/nvim-lspconfig/blob/8adb3b5938f6074a1bcc36d3c3916f497d2e8ec4/plugin/lspconfig.lua#L70C1-L74C3
+        vim.api.nvim_create_user_command('LspLog', function()
+            vim.cmd(string.format('tabnew %s', vim.lsp.get_log_path()))
+        end, { desc = 'Opens the Nvim LSP client log.', })
+
+        -- https://github.com/neovim/nvim-lspconfig/blob/8adb3b5938f6074a1bcc36d3c3916f497d2e8ec4/plugin/lspconfig.lua#L112
+        vim.api.nvim_create_user_command('LspRestart', function(info)
+            for _, name in ipairs(info.fargs) do
+                if vim.lsp.config[name] == nil then
+                    vim.notify(("Invalid server name '%s'"):format(info.args))
+                else
+                    vim.lsp.enable(name, false)
+                end
+            end
+
+            local timer = assert(vim.uv.new_timer())
+            timer:start(500, 0, function()
+                for _, name in ipairs(info.fargs) do
+                    vim.schedule_wrap(function(x)
+                        vim.lsp.enable(x)
+                    end)(name)
+                end
+            end)
+        end, { desc = 'Restart the given client(s)', })
     end,
 })
 
