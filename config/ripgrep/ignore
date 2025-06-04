@@ -31,6 +31,7 @@
 *lock
 .DS_Store
 .cache
+.elixir_ls
 .git
 .gitkeep
 .gradle
