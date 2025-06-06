@@ -125,6 +125,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end
         end, { expr = true, silent = true })
 
+        -- https://github.com/neovim/nvim-lspconfig/blob/8adb3b5938f6074a1bcc36d3c3916f497d2e8ec4/plugin/lspconfig.lua#L68
+        vim.api.nvim_create_user_command('LspInfo', ':checkhealth vim.lsp', { desc = 'Alias to `:checkhealth vim.lsp`' })
+
         -- https://github.com/neovim/nvim-lspconfig/blob/8adb3b5938f6074a1bcc36d3c3916f497d2e8ec4/plugin/lspconfig.lua#L70C1-L74C3
         vim.api.nvim_create_user_command('LspLog', function()
             vim.cmd(string.format('tabnew %s', vim.lsp.get_log_path()))
