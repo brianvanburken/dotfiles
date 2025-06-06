@@ -10,22 +10,32 @@ return {
             },
             assist = {
                 importEnforceGranularity = true,
-                importPrefix = "crate",
+                -- importPrefix = "crate",
             },
             cargo = {
                 extraEnv = { BUILD_ENV = "dev" },
                 targetDir = true,
                 features = "all",
+                allFeatures = true
             },
             check = {
                 features = "all",
-                command = "clippy",
+                command = "check",
             },
             inlayHints = {
                 lifetimeElisionHints = {
                     enable = true,
                     useParameterNames = true,
                 },
+            },
+            procMacro = {
+                enable = true,
+                ignored = {
+                    ["async-trait"] = {},
+                },
+            },
+            diagnostics = {
+                disabled = { "inactive-code" },
             },
         },
     },
