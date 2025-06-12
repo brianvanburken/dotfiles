@@ -297,7 +297,6 @@ files=(
     "config/ripgrep"
     "config/rsync"
     "config/tmux"
-    "config/zsh"
 )
 for x in "${files[@]}"; do
     if [ ! -h "${HOME}/.${x}" ]; then

@@ -1,4 +1,0 @@
-# vim: set ft=zsh:
-function o() {
-    open "${1:-.}";
-}

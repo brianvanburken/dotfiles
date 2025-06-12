@@ -1,6 +1,0 @@
-# Use FD for fzf
-export FZF_DEFAULT_COMMAND="fdfind -tf -H -i -L"
-
-alias kill_modules="fdfind 'node_modules' -td -X rm -rf"
-
-unset zle_bracketed_paste

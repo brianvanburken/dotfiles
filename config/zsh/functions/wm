@@ -1,4 +1,0 @@
-# vim: set ft=zsh:
-function wm() {
-    echo "\n$@" >> "${WORKING_MEMORY_FILE:=${HOME}/Documents/wm.txt}";
-}
