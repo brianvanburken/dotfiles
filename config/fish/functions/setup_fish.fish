@@ -41,19 +41,8 @@ function setup_fish -d "Setup variables for Fish"
 
     set -Ux RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
 
-    # Asdf/mise
-    set -Ux ASDF_DIR "$HOMEBREW_PREFIX/opt/asdf/libexec"
-    set -Ux ASDF_BIN "$ASDF_DIR/bin"
-    set -Ux ASDF_DATA_DIR "$XDG_DATA_HOME/asdf"
-    set -Ux ASDF_USER_SHIMS "$ASDF_DATA_DIR/shims"
-    set -Ux ASDF_CONFIG_DIR "$XDG_CONFIG_HOME/asdf"
-    set -Ux ASDF_CONFIG_FILE "$ASDF_CONFIG_DIR/asdfrc"
-    set -Ux ASDF_GEM_DEFAULT_PACKAGES_FILE "$ASDF_CONFIG_DIR/default-gems"
-    set -Ux ASDF_NPM_DEFAULT_PACKAGES_FILE "$ASDF_CONFIG_DIR/default-npm-packages"
-    set -Ux ASDF_PYTHON_DEFAULT_PACKAGES_FILE "$ASDF_CONFIG_DIR/default-python-packages"
+    # Mise
     set -Ux MISE_FISH_AUTO_ACTIVATE 0
-    fish_add_path "$ASDF_BIN"
-    fish_add_path "$ASDF_USER_SHIMS"
 
     # Node.js
     set -Ux BABEL_CACHE_PATH "$XDG_CACHE_HOME/babel.json"

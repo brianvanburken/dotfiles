@@ -1,6 +1,6 @@
 export PROMPT="%F{blue}%1~ %(?.%F{green}.%F{red})$%f "
 
-export FPATH="${ZDOTDIR}/functions:${ASDF_DIR}/completions:${FPATH}"
+export FPATH="${ZDOTDIR}/functions:${FPATH}"
 
 setopt bang_hist              # Treat the '!' character specially during expansion.
 setopt extended_history       # Write the history file in the ":start:elapsed;command" format.

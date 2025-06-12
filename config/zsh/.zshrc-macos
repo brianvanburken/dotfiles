@@ -31,5 +31,3 @@ alias kill_ds="fd -H '^\.DS_Store$' -tf -X rm -rf"
 alias kill_modules="fd 'node_modules' -td -X rm -rf"
 alias brew_deps="brew leaves | xargs brew deps --include-build --tree"
 alias cat='bat'
-
-csource "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"

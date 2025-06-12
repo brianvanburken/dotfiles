@@ -310,15 +310,6 @@ for x in "${files[@]}"; do
     fi
 done
 
-if [ ! -h "${DEV_DIR}/.tool-versions" ]; then
-    action "Linking ${DEV_DIR}/.tool-versions"
-    rm -f "${DEV_DIR}/.tool-versions"
-    ln -s "${DOT_DIR}/config/asdf/.tool-versions" "${DEV_DIR}/.tool-versions"
-    ok "${DEV_DIR}/.tool-versions has been linked"
-else
-    ok "${DEV_DIR}/.tool-versions is already linked"
-fi
-
 # Prolong sudo
 cached_sudo
 

@@ -41,14 +41,6 @@ export ZSH_EVALCACHE_DIR="${XDG_CACHE_HOME}/zsh"
 export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
 
-# Asdf
-export ASDF_CONFIG_DIR="${XDG_CONFIG_HOME}/asdf"
-export ASDF_CONFIG_FILE="${ASDF_CONFIG_DIR}/asdfrc"
-export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
-export ASDF_GEM_DEFAULT_PACKAGES_FILE="${ASDF_CONFIG_DIR}/default-gems"
-export ASDF_NPM_DEFAULT_PACKAGES_FILE="${ASDF_CONFIG_DIR}/default-npm-packages"
-export ASDF_PYTHON_DEFAULT_PACKAGES_FILE="${ASDF_CONFIG_DIR}/default-python-packages"
-
 # Node.js
 export BABEL_CACHE_PATH="${XDG_CACHE_HOME}/babel.json"
 export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node/repl_history"
