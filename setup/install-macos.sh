@@ -295,7 +295,6 @@ files=(
     "config/nvim"
     "config/ripgrep"
     "config/rsync"
-    "config/tmux"
 )
 for x in "${files[@]}"; do
     if [ ! -h "${HOME}/.${x}" ]; then
@@ -397,7 +396,6 @@ fi
 # Prolong sudo
 cached_sudo
 
-# TODO: setup TMux Plugin Manager
 readonly HOST_DIR="$DEV_DIR/personal/oss/hosts/"
 if [ ! -d "$HOST_DIR" ]; then
     action "Setup hostfile blocking"

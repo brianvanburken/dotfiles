@@ -9,9 +9,9 @@ size = 12
 family = "FiraCode Nerd Font"
 style = "Regular"
 
-[terminal.shell]
-args = ["-l", "-c", "tmux attach || tmux"]
-program = "/opt/homebrew/bin/fish"
+# [terminal.shell]
+# args = ["-l", "-c", "tmux attach || tmux"]
+# program = "/opt/homebrew/bin/fish"
 
 [window]
 decorations = "transparent"
