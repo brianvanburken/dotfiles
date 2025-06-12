@@ -56,7 +56,7 @@ function setup_fish -d "Setup variables for Fish"
 
     # Elixir/Erlang
     set -Ux MIX_XDG true
-    mdkir -p "$XDG_CONFIG_HOME/erlang"
+    mkdir -p "$XDG_CONFIG_HOME/erlang"
     touch "$XDG_CONFIG_HOME/erlang/.erlang.cookie"
 
     # Ruby
