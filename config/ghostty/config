@@ -14,6 +14,7 @@ macos-titlebar-proxy-icon = hidden
 theme = dark:rose-pine,light:rose-pine-dawn
 window-theme = system
 mouse-hide-while-typing = true
+selection-invert-fg-bg = true
 
 keybind = unconsumed:ctrl+h=goto_split:left
 keybind = unconsumed:ctrl+j=goto_split:bottom
