@@ -292,7 +292,6 @@ files=(
     "config/fish"
     "config/git"
     "config/mise"
-    "config/npm"
     "config/nvim"
     "config/ripgrep"
     "config/rsync"
