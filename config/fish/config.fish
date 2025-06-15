@@ -21,6 +21,22 @@ end
 # Try when loading the shell
 lazy_load_mise
 
+# Changes theme based on dark/light mode
+## enable unsolicited
+printf '\e[?2031h'
+
+## bind dark/light DSRs
+bind \e\[?997\;1n on_theme_dark
+bind \e\[?997\;2n on_theme_light
+
+function on_theme_dark
+    yes | fish_config theme save "Mono Smoke"
+end
+
+function on_theme_light
+    yes | fish_config theme save "Mono Lace"
+end
+
 # Shortkeys to make live easier
 
 # NeoVim/Vim/VSCode
