@@ -37,6 +37,17 @@ function on_theme_light
     yes | fish_config theme save "Mono Lace"
 end
 
+function init_theme --on-event fish_prompt
+    functions -e init_theme  # unregister ourselves so it only runs once
+    # `defaults read -g AppleInterfaceStyle` returns “Dark” in dark mode,
+    # errors out in light mode
+    if defaults read -g AppleInterfaceStyle 2>/dev/null | rg -q '^Dark$'
+      on_theme_dark
+    else
+      on_theme_light
+    end
+end
+
 # Shortkeys to make live easier
 
 # NeoVim/Vim/VSCode
