@@ -69,8 +69,8 @@ abbr -a gsm 'git switch main 2>/dev/null | git switch master'
 abbr -a gws git status
 
 # Miscellaneous
-abbr -a ls 'eza --color=auto'
-abbr -a l 'eza --color=auto --group-directories-first  -lahg --no-user'
+abbr -a ls 'eza'
+abbr -a l 'eza --group-directories-first -lahg --no-user'
 abbr -a t 'eza -T -L 3'
 abbr -a mkdir mkdir -p
 abbr -a ... 'cd ../../'
