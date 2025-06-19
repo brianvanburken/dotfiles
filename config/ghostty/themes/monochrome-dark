@@ -6,5 +6,4 @@ selection-foreground = "#000000"
 
 unfocused-split-fill = #000000
 unfocused-split-opacity = 0.4
-minimum-contrast = 1.05
 split-divider-color = #333333

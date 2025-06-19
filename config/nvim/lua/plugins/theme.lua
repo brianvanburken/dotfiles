@@ -1,15 +1,8 @@
 return {
-    "rose-pine/neovim",
-    lazy = false,
+    "kdheepak/monochrome.nvim",
     priority = 1000,
-    name = "rose-pine",
-    opts = {
-        styles = {
-            bold = false,
-            italic = false,
-        },
-    },
     init = function()
-        vim.cmd.colorscheme "rose-pine"
+        vim.g.monochrome_style = "amplified"
+        vim.cmd.colorscheme "monochrome"
     end,
 }

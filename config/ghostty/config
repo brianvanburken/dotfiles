@@ -11,7 +11,7 @@ font-thicken-strength = 100
 font-feature = -calt
 
 macos-titlebar-proxy-icon = hidden
-theme = dark:rose-pine,light:rose-pine-dawn
+theme = dark:monochrome-dark,light:monochrome-light
 window-theme = system
 mouse-hide-while-typing = true
 selection-invert-fg-bg = true

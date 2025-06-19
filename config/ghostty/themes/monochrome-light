@@ -6,4 +6,3 @@ selection-background = "#000000"
 
 unfocused-split-fill = #FFFFFF
 unfocused-split-opacity = 0.5
-minimum-contrast = 1.5
