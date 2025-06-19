@@ -1,6 +1,6 @@
 function fish_prompt
     # Display the current directory
-    set_color blue
+    set_color --bold
     echo -n (basename $PWD)
 
     # Check the exit status of the last command
