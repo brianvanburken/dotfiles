@@ -3,6 +3,11 @@ function fish_prompt
     set_color --bold
     echo -n (basename $PWD)
 
+    if set -q __MISE_SESSION
+        set_color normal
+        echo -n '(m)'
+    end
+
     # Check the exit status of the last command
     # Set the color to bold red if there was an error
     if test $status -ne 0
