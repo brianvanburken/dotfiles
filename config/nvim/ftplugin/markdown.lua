@@ -7,7 +7,6 @@ vim.api.nvim_set_hl(0, 'markdownUrl', { link = 'Conceal' })
 
 -- Below is my code to make Wiki links working within an obsidian vault
 -- without usage of dependencies.
---
 local api   = vim.api
 local fn    = vim.fn
 local vault = "/Volumes/Personal Data"
@@ -15,16 +14,25 @@ local vault = "/Volumes/Personal Data"
 -- Extracts the name between the square brackets under the cursor
 -- [[Name]] => Name
 local function get_link()
-    local line  = api.nvim_get_current_line()
-    local col   = fn.col(".")
-    local start = line:sub(1, col):match(".*()%[%[") -- last "[[" before cursor
-    if not start then return end
-    local finish = line:find("]]", start)
-    if not finish then return end
+    local line  = api.nvim_get_current_line() -- current line
+    local col   = fn.col('.')                 -- byte index of cursor
+
+    -- find the last "[[" before or at the cursor
+    local start = line:sub(1, col):match('.*()%[%[')
+    if not start then return nil end
+
+    -- find the corresponding "]]" after that
+    local finish = line:find(']]', start + 2, true)
+    if not finish then return nil end
+
+    -- only return if cursor is actually inside the brackets
+    if col < (start + 2) or col > finish then
+        return nil
+    end
+
     return line:sub(start + 2, finish - 1)
 end
 
--- Follow the file under the cursor by searching within the vault
 local function follow()
     local name = get_link()
     if not name then
@@ -32,19 +40,19 @@ local function follow()
         return
     end
 
-    -- search for any matching then ame in vault (recursive)
-    local pattern = "**/" .. name .. ".md"
-    local raw = vim.fn.globpath(vault, pattern, false, true)
-    local matches = (type(raw) == "table" and raw) or {}
-
-    if #matches == 0 then
-        vim.notify("No file found for \"" .. name .. "\"", vim.log.levels.WARN)
+    local results = vim.fs.find(name .. ".md", {
+        path  = vault,
+        type  = "file",
+        limit = 1,
+    })
+    if results[1] then
+        api.nvim_command("edit " .. fn.fnameescape(results[1]))
         return
     end
 
-    local first_match = matches[1]
-    api.nvim_command("edit " .. fn.fnameescape(first_match))
+    vim.notify("No file found for \"" .. name .. "\"", vim.log.levels.WARN)
 end
+
 
 -- If the current buffer is within our vault we will set the gf mapping
 local buf = api.nvim_buf_get_name(0)
