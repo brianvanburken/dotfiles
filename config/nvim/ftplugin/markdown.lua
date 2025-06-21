@@ -2,13 +2,15 @@ vim.o.wrap         = false
 vim.o.linebreak    = true
 vim.o.conceallevel = 0
 
-local api          = vim.api
-local fn           = vim.fn
-local vault        = "/Volumes/Personal Data"
-
+-- Color markdown urls as conceal to make them less prominent
+vim.api.nvim_set_hl(0, 'markdownUrl', { link = 'Conceal' })
 
 -- Below is my code to make Wiki links working within an obsidian vault
 -- without usage of dependencies.
+--
+local api   = vim.api
+local fn    = vim.fn
+local vault = "/Volumes/Personal Data"
 
 -- Extracts the name between the square brackets under the cursor
 -- [[Name]] => Name
