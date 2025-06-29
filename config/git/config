@@ -11,6 +11,7 @@
 	autoSetupRemote = true
 
 [pull]
+	default = current
 	rebase = true
 
 [commit]
@@ -20,10 +21,14 @@
 	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
 	hooksPath = ~/.config/git/hooks/
-
+	compression = 9
+	preloadindex = true
 	# Don't consider trailing space or EOL changes as a cause for merge conflicts
 	whitespace = -trailing-space,cr-at-eol
 	pager = delta
+
+[advice]
+	statusHints = false
 
 [alias]
 	lastchange = log -p -n 1
@@ -37,6 +42,7 @@
 
 [rebase]
 	autostash = true
+	missingCommitsCheck = warn
 
 [user]
 	name = Brian van Burken
@@ -53,6 +59,8 @@
 [status]
 	# Recursively traverse untracked directories to display all contents
 	showUntrackedFiles = all
+	branch = true
+	showStash = true
 
 [tag]
 	# Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
@@ -68,6 +76,7 @@
 
 [interactive]
 	diffFilter = delta --color-only
+	singleKey = true
 
 [delta]
 	navigate = true    # use n and N to move between diff sections
@@ -93,3 +102,5 @@
 
 [diff]
 	colorMoved = default
+	context = 3
+	interHunkContext = 10
