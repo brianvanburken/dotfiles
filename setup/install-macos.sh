@@ -145,18 +145,6 @@ ok "Ready to brew"
 # After each install step, let's prolong our sudo credentials since some things may take a while
 cached_sudo
 
-# Install Brew Bundle
-if ! brew tap | grep bundle > /dev/null; then
-    notice " Need to install Homebrew Bundle"
-    brew tap Homebrew/bundle > /dev/null
-    ok "Installing Homebrew Bundle done"
-else
-    ok "Homebrew Bundle found. Proceeding..."
-fi
-
-# Reload sudo
-cached_sudo
-
 action "Installing some very nice apps and tools..."
 cached_sudo
 readonly brew_file="setup/Brewfile"
