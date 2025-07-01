@@ -339,7 +339,7 @@ fi
 # Prolong sudo
 cached_sudo
 
-readonly vim_dir="$XDG_DATA_HOME/nvim/"
+readonly vim_dir="$XDG_DATA_HOME/nvim"
 if [ ! -d "${vim_dir}/lazy" ]; then
     action "Installing lazy.nvim"
     git clone --filter=blob:none --branch=stable --depth 1 https://github.com/folke/lazy.nvim.git "${vim_dir}/lazy"
@@ -381,23 +381,6 @@ if [[ -x "$(command -v cargo)" ]]; then
     ok "Installed cargo crates"
 else
     err "Cargo not found"
-fi
-
-# Prolong sudo
-cached_sudo
-
-readonly HOST_DIR="$DEV_DIR/personal/oss/hosts/"
-if [ ! -d "$HOST_DIR" ]; then
-    action "Setup hostfile blocking"
-    rm -rf "$HOST_DIR"
-    git clone git@github.com:StevenBlack/hosts.git --depth=1 "$HOST_DIR"
-    ln -s "$DOT_DIR/setup/hosts_disallow" "$HOST_DIR/blacklist"
-    ln -s "$DOT_DIR/setup/hosts_allow" "$HOST_DIR/whitelist"
-    cd "$HOST_DIR"
-    pip3 install -r requirements.txt
-    python3 updateHostsFile.py -b -a -f -r -c -e fakenews gambling porn social
-    cd -
-    ok "Done setup hostfile"
 fi
 
 # Prolong sudo
