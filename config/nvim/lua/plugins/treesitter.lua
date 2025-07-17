@@ -2,7 +2,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        event = "BufReadPost",
+        event = "BufReadPre",
         opts = {
             ensure_installed = {
                 "bash",
@@ -31,12 +31,9 @@ return {
                 "vim",
                 "yaml",
             },
-            sync_install = false,
             auto_install = false,
             highlight = {
                 enable = true,
-                use_languagetree = true,
-                additional_vim_regex_highlighting = false,
             },
             indent = {
                 enable = true,
