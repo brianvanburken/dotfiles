@@ -29,5 +29,16 @@ return {
                 Rule("<", ">", { "rust" }),
             })
         end
+    },
+    {
+        "nguyenvukhang/nvim-toggler",
+        keys = { "<leader>i" },
+        opts = {
+            inverses = {
+                -- Markdown checkboxes
+                ["[ ]"] = "[x]",
+                ["[x]"] = "[ ]",
+            }
+        },
     }
 }
