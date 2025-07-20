@@ -6,9 +6,9 @@ function o --description "Open a file or directory passed or current directory"
     end
 
     if type -q xdg-open
-        xdg-open $target
+        xdg-open "$location"
     else if type -q open
-        open $target
+        open "$location"
     else
         echo "Error: no opener found (tried xdg-open and open)"
         return 1
