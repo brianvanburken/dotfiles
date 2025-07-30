@@ -6,23 +6,16 @@ vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_node_provider = 0
 
-vim.o.autoread = true -- Automatically reload files changed outside of vim
 vim.o.clipboard = "unnamedplus"
-vim.o.cmdheight = 1
 vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
-vim.o.hidden = true
 vim.o.ignorecase = true
-vim.o.inccommand = "split" -- Show live preview of substitutions
-vim.o.lazyredraw = true
+vim.o.inccommand = "split"       -- Show live preview of substitutions
 vim.o.list = true
-vim.o.nu = true
-vim.o.shortmess = vim.o.shortmess .. "aoOstTWAIcqFS" -- Shorten all messages
+vim.o.number = true
+vim.o.shortmess = vim.o.shortmess .. "astWAIcqS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.o.statusline = "%f%<%m%r"
-vim.o.termguicolors = true -- enable true colors support
 vim.o.updatetime = 250
-vim.o.winborder = "single"
-vim.o.writebackup = false
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.wo.wrap = false
 
