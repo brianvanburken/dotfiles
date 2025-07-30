@@ -1,8 +1,0 @@
-background = "#FFFFFF"
-foreground = "#000000"
-
-selection-foreground = "#FFFFFF"
-selection-background = "#000000"
-
-unfocused-split-fill = #FFFFFF
-unfocused-split-opacity = 0.5

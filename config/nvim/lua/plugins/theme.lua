@@ -1,8 +1,7 @@
 return {
-    "kdheepak/monochrome.nvim",
+    "shatur/neovim-ayu",
     priority = 1000,
     init = function()
-        vim.g.monochrome_style = "amplified"
-        vim.cmd.colorscheme "monochrome"
+        vim.cmd.colorscheme "ayu"
     end,
 }

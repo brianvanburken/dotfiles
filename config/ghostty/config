@@ -11,7 +11,8 @@ font-thicken-strength = 100
 font-feature = -calt
 
 macos-titlebar-proxy-icon = hidden
-theme = dark:monochrome-dark,light:monochrome-light
+theme = dark:ayu,light:ayu_light
+unfocused-split-opacity = 0.6
 window-theme = system
 mouse-hide-while-typing = true
 selection-invert-fg-bg = true
