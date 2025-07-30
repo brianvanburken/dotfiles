@@ -1,12 +1,18 @@
 return {
     'echasnovski/mini.pick',
     keys = {
-        { '<leader>ff', '<cmd>Pick files<cr>',     desc = 'Search files' },
-        { '<leader>fg', '<cmd>Pick grep_live<cr>', desc = 'Search buffers' },
-        { '<leader>fr', '<cmd>Pick resume<cr>',    desc = 'Resume previous search' },
+        { '<leader>ff', '<cmd>Pick files<cr>',              desc = 'Search files' },
+        { '<leader>fg', '<cmd>Pick grep_live<cr>',          desc = 'Search buffers' },
+        { '<leader>ft', '<cmd>Pick grep_todo_keywords<cr>', desc = 'Search todo/fixme/note' },
+        { '<leader>fr', '<cmd>Pick resume<cr>',             desc = 'Resume previous search' },
     },
     opts = function()
         local MiniPick = require("mini.pick")
+
+        MiniPick.registry.grep_todo_keywords = function(opts)
+            opts.pattern = "(TODO|FIXME|NOTE):"
+            MiniPick.builtin.grep(opts, {})
+        end
 
         return {
             source = {
