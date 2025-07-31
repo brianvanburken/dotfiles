@@ -1,6 +1,6 @@
 return {
     "shatur/neovim-ayu",
-    priority = 1000,
+    cmd = "Colorscheme",
     init = function()
         vim.cmd.colorscheme "ayu"
     end,
