@@ -1,7 +1,7 @@
 {
-  "copilot.lua": { "branch": "master", "commit": "2d7261daa24e4f52e5525941caad92e614287875" },
+  "copilot.lua": { "branch": "master", "commit": "f22d869b9544fce7b25fdc7dd2e3a9b760485154" },
   "elixir-tools.nvim": { "branch": "main", "commit": "b13c67398ee62531e1a4a53b95347a80eacefe6b" },
-  "fidget.nvim": { "branch": "main", "commit": "17ce5ac3b4e5ef590d4f4fd7d91e8fc233114074" },
+  "fidget.nvim": { "branch": "main", "commit": "4ec7bed6c86b671ddde03ca1b227343cfa3e65fa" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "mason.nvim": { "branch": "main", "commit": "3671ab0d40aa5bd24b1686562bd0a23391ecf76a" },
   "mini.pick": { "branch": "main", "commit": "c8f4ff0251ccb8c6a993ee0dee4e06d9c21a4b99" },
