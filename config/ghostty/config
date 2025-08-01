@@ -5,7 +5,7 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 
 font-family = "Menlo"
-font-size = 14
+font-size = 13
 font-thicken = true
 font-thicken-strength = 100
 font-feature = -calt
