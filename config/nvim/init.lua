@@ -35,6 +35,13 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Keep cursor where it is when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Add filetypes
+vim.filetype.add({
+    pattern = {
+        ['.*/ghostty/config'] = { 'dosini', { priority = 10 } },
+    },
+})
+
 -- Function to open a target given based on OS
 local function open_target(target)
     if vim.fn.has("mac") == 1 then
