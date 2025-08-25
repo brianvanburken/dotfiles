@@ -10,20 +10,15 @@ return {
     },
     init_options = {
         userLanguages = {
-            elixir = "html-eex",
-            eelixir = "html-eex",
-            heex = "html-eex",
+            elixir = "phoenix-heex",
+            eelixir = "phoenix-heex",
+            heex = "phoenix-heex",
         },
     },
     settings = {
         tailwindCSS = {
-            classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
-            includeLanguages = {
-                eelixir = "html-eex",
-                eruby = "erb",
-                htmlangular = "html",
-                templ = "html"
-            },
+            validate = true,
+            classAttributes = { "class", "className", "classList" },
             lint = {
                 cssConflict = "warning",
                 invalidApply = "error",
@@ -33,7 +28,11 @@ return {
                 invalidVariant = "error",
                 recommendedVariantOrder = "warning"
             },
-            validate = true
+            experimental = {
+                classRegex = {
+                    [[class:\s*"([^"]*)]],
+                },
+            },
         },
     },
     root_markers = {
