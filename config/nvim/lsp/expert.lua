@@ -1,5 +1,5 @@
 return {
-    cmd = { 'expert' },
+    cmd = 'expert',
     filetypes = {
         'elixir',
         'eelixir',

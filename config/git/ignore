@@ -27,3 +27,4 @@ tags.lock
 
 # Elixir tools
 .elixir-tools
+.expert
