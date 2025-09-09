@@ -5,8 +5,8 @@
 --embed-subs
 --embed-thumbnail
 --extractor-args "youtube:player_client=default,ios"
---format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
---format-sort res:1440,vcodec:h264
+--format "bestvideo+bestaudio"
+--format-sort res:1440
 --no-playlist
 --output "%(channel)s [%(id)s] - %(title)s.%(ext)s"
 --path ~/Downloads/Videos/
