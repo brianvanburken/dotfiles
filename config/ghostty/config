@@ -11,8 +11,8 @@ font-thicken-strength = 100
 font-feature = -calt
 
 macos-titlebar-proxy-icon = hidden
-theme = dark:ayu,light:ayu_light
-unfocused-split-opacity = 0.6
+theme = dark:Ayu,light:Ayu Light
+unfocused-split-opacity = 0.8
 window-theme = system
 mouse-hide-while-typing = true
 selection-invert-fg-bg = true
@@ -28,6 +28,7 @@ keybind = ctrl+b>k=new_split:up
 keybind = ctrl+b>l=new_split:right
 
 window-save-state = always
+confirm-close-surface=false
 
 shell-integration = fish
 command = /opt/homebrew/bin/fish --login --interactive
