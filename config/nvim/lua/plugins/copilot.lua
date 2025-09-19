@@ -1,27 +1,13 @@
 return {
     "zbirenbaum/copilot.lua",
-    cmd  = "Copilot",
-    keys = {
-        {
-            "<D-j>", -- Cmd+j on macOS
-            function() require("copilot.suggestion").next() end,
-            mode = "i",
-            desc = "Next copilot suggestion",
-        },
-        {
-            "<D-k>", -- Cmd+k on macOS
-            function() require("copilot.suggestion").prev() end,
-            mode = "i",
-            desc = "Prev copilot suggestion",
-        },
-    },
-    opts = {
+    event = "BufReadPost",
+    opts  = {
         panel = {
             enabled = false
         },
         suggestion = {
             enabled = true,
-            auto_trigger = false,
+            auto_trigger = true,
             hide_during_completion = true,
             keymap = {
                 accept = "<D-y>",
