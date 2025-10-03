@@ -10,7 +10,7 @@ return {
         local MiniPick = require("mini.pick")
 
         MiniPick.registry.grep_todo_keywords = function(opts)
-            opts.pattern = "(TODO|FIXME|NOTE):"
+            opts.pattern = "(TODO|FIXME|NOTE)"
             MiniPick.builtin.grep(opts, {})
         end
 
