@@ -5,10 +5,11 @@ end
 # Lazy-load mise as I don't always need it to be active
 # only on dirs that have mise files (.mise.toml/.tool-versions)
 function lazy_load_mise --on-variable PWD
-    # Test for .mise.toml or .tool-versions
-    if test -f mise.toml; or test -f .mise.toml; or test -f .tool-versions
-        mise activate fish | source
-        functions -e lazy_load_mise
+    # Test for .mise.toml or .tool-versions in current dir or one up
+    if test -f mise.toml; or test -f .tool-versions;
+      or test -f ../mise.toml; or test -f ../.tool-versions
+          mise activate fish | source
+          functions -e lazy_load_mise
     end
 end
 
