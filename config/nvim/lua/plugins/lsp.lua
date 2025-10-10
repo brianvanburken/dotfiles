@@ -8,6 +8,7 @@ return {
                 "css-lsp",
                 "elm-format",
                 "elm-language-server",
+                "expert",
                 "html-lsp",
                 "lua-language-server",
                 "rust-analyzer",
