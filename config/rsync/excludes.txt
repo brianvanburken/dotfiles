@@ -1,10 +1,13 @@
+[#]recyle
 .DS_Store
-.bzvol
 .DocumentRevisions-V100
-.fseventsd
 .Spotlight-V100
+.SynologyWorkingDirectory
 .TemporaryItems
 .Trashes
+.bzvol
 .com.apple.timemachine.donotpresent
+.fseventsd
 .obsidian
 .stfolder
+Icon
