@@ -1,7 +1,6 @@
 --abort-on-unavailable-fragment
 --add-metadata
 --concurrent-fragments 8
---cookies-from-browser firefox
 --embed-subs
 --embed-thumbnail
 --extractor-args "youtube:player_client=default,ios"
@@ -14,3 +13,5 @@
 --sub-langs en
 --restrict-filenames
 --trim-filenames 200
+
+--extractor-args "youtube:player-client=default,-tv_simply"
