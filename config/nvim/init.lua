@@ -10,6 +10,7 @@ vim.o.clipboard = "unnamedplus"
 vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
 vim.o.ignorecase = true
 vim.o.inccommand = "split"       -- Show live preview of substitutions
+vim.o.laststatus = 3
 vim.o.list = true
 vim.o.number = true
 vim.o.shortmess = vim.o.shortmess .. "astWAIcqS" -- Shorten all messages
