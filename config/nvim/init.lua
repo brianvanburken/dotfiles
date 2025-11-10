@@ -134,10 +134,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.cmd(string.format('tabnew %s', vim.lsp.get_log_path()))
         end, { desc = 'Opens the Nvim LSP client log.', })
 
-        vim.api.nvim_create_user_command('LspLogDelete', function()
-            vim.fn.delete(vim.lsp.get_log_path())
-        end, { desc = 'Deletes the LSP log file. Useful for when it gets too big' })
-
         -- https://github.com/neovim/nvim-lspconfig/blob/8adb3b5938f6074a1bcc36d3c3916f497d2e8ec4/plugin/lspconfig.lua#L112
         vim.api.nvim_create_user_command('LspRestart', function(info)
             for _, name in ipairs(info.fargs) do
