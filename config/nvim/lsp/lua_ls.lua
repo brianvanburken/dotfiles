@@ -29,6 +29,12 @@ return {
             telemetry = {
                 enable = false,
             },
+            diagnostics = {
+                globals = {
+                    "vim",
+                    "Snacks"
+                }
+            },
         },
     },
 }
