@@ -1,35 +1,43 @@
 return {
-    'echasnovski/mini.pick',
+    "folke/snacks.nvim",
     keys = {
-        { '<leader>ff', '<cmd>Pick files<cr>',              desc = 'Search files' },
-        { '<leader>fg', '<cmd>Pick grep_live<cr>',          desc = 'Search buffers' },
-        { '<leader>ft', '<cmd>Pick grep_todo_keywords<cr>', desc = 'Search todo/fixme/note' },
-        { '<leader>fr', '<cmd>Pick resume<cr>',             desc = 'Resume previous search' },
+        { "<leader>ff", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
+        { "<leader>fg", function() Snacks.picker.grep() end,                  desc = "Grep" },
+        { "<leader>ff", function() Snacks.picker.files() end,                 desc = "Find Files" },
+        { "<leader>fr", function() Snacks.picker.resume() end,                desc = "Resume" },
+        { "<leader>fs", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
+        { "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+        { "grr",        function() Snacks.picker.lsp_references() end,        desc = "References",           nowait = true },
     },
     opts = function()
-        local MiniPick = require("mini.pick")
-
-        MiniPick.registry.grep_todo_keywords = function(opts)
-            opts.pattern = "(TODO|FIXME|NOTE)"
-            MiniPick.builtin.grep(opts, {})
-        end
-
+        -- Fix for directory names unreadable in neovim-ayu
+        vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Normal" })
         return {
-            source = {
-                show = MiniPick.default_show
-            },
-            options = {
-                use_cache           = true,
-                content_from_bottom = true,
-            },
-            window = {
-                config = {
-                    -- use entire editor width
-                    width = vim.o.columns,
-                    -- start at left edge
-                    col = 0,
+            picker = {
+                show_delay = 0,
+                smart = {
+                    matcher = {
+                        frecency = true,
+                    }
                 },
-            },
+                icons = {
+                    files = {
+                        enabled = false
+                    }
+                },
+                bigfile = { enabled = false },
+                dashboard = { enabled = false },
+                explorer = { enabled = false },
+                indent = { enabled = false },
+                input = { enabled = false },
+                notifier = { enabled = false },
+                quickfile = { enabled = false },
+                scope = { enabled = false },
+                scroll = { enabled = false },
+                statuscolumn = { enabled = false },
+                words = { enabled = false },
+
+            }
         }
-    end,
+    end
 }
