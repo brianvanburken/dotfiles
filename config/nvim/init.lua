@@ -157,10 +157,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Setup Lazy.nvim
 
--- vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
--- require("lazy").setup("plugins", {
-vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazier/lazier.nvim")
-require("lazier").setup("plugins", {
+vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
+require("lazy").setup("plugins", {
+-- vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazier/lazier.nvim")
+-- require("lazier").setup("plugins", {
     defaults = {
         lazy = true
     },
