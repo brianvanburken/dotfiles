@@ -16,7 +16,8 @@ return {
                 extraEnv = { BUILD_ENV = "dev" },
                 targetDir = true,
                 features = "all",
-                allFeatures = true
+                allFeatures = true,
+                allTargets = false
             },
             check = {
                 features = "all",
@@ -36,7 +37,7 @@ return {
             },
             diagnostics = {
                 disabled = { "inactive-code" },
-            },
+            }
         },
     },
     root_markers = {
