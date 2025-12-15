@@ -7,6 +7,7 @@ return {
         { "<leader>fr", function() Snacks.picker.resume() end,                desc = "Resume" },
         { "<leader>fs", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
         { "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+        { "<leader>fe", function() Snacks.explorer() end,                     desc = "Explorer" },
         { "grr",        function() Snacks.picker.lsp_references() end,        desc = "References",           nowait = true },
     },
     opts = function()
@@ -25,18 +26,6 @@ return {
                         enabled = false
                     }
                 },
-                bigfile = { enabled = false },
-                dashboard = { enabled = false },
-                explorer = { enabled = false },
-                indent = { enabled = false },
-                input = { enabled = false },
-                notifier = { enabled = false },
-                quickfile = { enabled = false },
-                scope = { enabled = false },
-                scroll = { enabled = false },
-                statuscolumn = { enabled = false },
-                words = { enabled = false },
-
             }
         }
     end
