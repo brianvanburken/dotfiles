@@ -81,15 +81,16 @@ function setup_fish -d "Setup variables for Fish"
     # Gitleaks
     set -Ux GITLEAKS_CONFIG "$XDG_CONFIG_HOME/gitleaks/config.toml"
 
+    # Fish
+    set -U fish_greeting
+
     # Caching setting up tools
     set -l init_file "$XDG_CONFIG_HOME/fish/conf.d/inits_cached.fish"
     set -l comp_file "$XDG_CONFIG_HOME/fish/completions/completions_cached.fish"
     mkdir -p (dirname $init_file) (dirname $comp_file)
 
     # Overwrite inits
-    zoxide init fish --no-cmd > $init_file
-    mise activate fish --no-hook-env >> $init_file
-    fzf --fish >> $init_file
+    fzf --fish > $init_file
 
     # Overwrite completions
     mise complete -s fish > $comp_file

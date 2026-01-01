@@ -2,7 +2,7 @@ function brew_fix -d "Resets homebrew and cleans up junk"
     brew update-reset;
     brew doctor;
     brew autoremove;
-    brew cleanup;
+    brew cleanup -s;
 
     rm -rf $(brew --cache)/;
     mkdir $(brew --cache)/;

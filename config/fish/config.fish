@@ -36,7 +36,7 @@ function init_theme --on-event fish_prompt
     functions -e init_theme  # unregister ourselves so it only runs once
     # `defaults read -g AppleInterfaceStyle` returns “Dark” in dark mode,
     # errors out in light mode
-    if defaults read -g AppleInterfaceStyle 2>/dev/null | rg -q '^Dark$'
+    if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -q '^Dark$'
       on_theme_dark
     else
       on_theme_light
@@ -69,7 +69,6 @@ abbr -a t 'eza -T -L 3'
 abbr -a mkdir mkdir -p
 abbr -a ... 'cd ../../'
 
-abbr -a kill_ds 'fd -I -H ".DS_Store" -tf -X rm -rf'
 abbr -a backup 'rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -arv --progress'
 
 abbr -a mine 'sudo chown -R $(whoami):admin'
