@@ -98,4 +98,6 @@ function setup_fish -d "Setup variables for Fish"
 
     # Rebuild fish’s completion db
     fish_update_completions
+
+    fish_config theme choose ayu
 end

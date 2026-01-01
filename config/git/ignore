@@ -28,3 +28,6 @@ tags.lock
 # Elixir tools
 .elixir-tools
 .expert
+
+# Fish
+config/fish/conf.d/fish_frozen_theme.fish
