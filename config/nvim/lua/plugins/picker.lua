@@ -10,23 +10,28 @@ return {
         { "<leader>fe", function() Snacks.explorer() end,                     desc = "Explorer" },
         { "grr",        function() Snacks.picker.lsp_references() end,        desc = "References",           nowait = true },
     },
-    opts = function()
-        -- Fix for directory names unreadable in neovim-ayu
-        vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Normal" })
-        return {
-            picker = {
-                show_delay = 0,
-                smart = {
-                    matcher = {
-                        frecency = true,
-                    }
-                },
-                icons = {
-                    files = {
-                        enabled = false
-                    }
-                },
-            }
+    opts = {
+        picker = {
+            show_delay = 0,
+            smart = {
+                matcher = {
+                    frecency = true,
+                }
+            },
+            icons = {
+                files = {
+                    enabled = false
+                }
+            },
         }
-    end
+    },
+    config = function(_, opts)
+        require("snacks").setup(opts)
+        vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Normal" })
+        vim.api.nvim_create_autocmd("ColorScheme", {
+            callback = function()
+                vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Normal" })
+            end,
+        })
+    end,
 }
