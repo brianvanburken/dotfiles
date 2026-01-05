@@ -1,1 +1,5 @@
 *.local
+
+# Fish compiled files
+config/fish/conf.d/fish_frozen_theme.fish
+config/fish/conf.d/fish_frozen_key_bindings.fish
