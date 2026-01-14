@@ -12,6 +12,11 @@ return {
     },
     opts = {
         picker = {
+            sources = {
+                explorer = { hidden = true },
+                files = { hidden = true },
+                grep = { hidden = true },
+            },
             show_delay = 0,
             smart = {
                 matcher = {
