@@ -27,6 +27,7 @@ keybind = ctrl+b>k=new_split:up
 keybind = ctrl+b>l=new_split:right
 
 window-save-state = always
+quit-after-last-window-closed = true
 confirm-close-surface=false
 
 shell-integration = fish
