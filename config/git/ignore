@@ -28,3 +28,6 @@ tags.lock
 # Elixir tools
 .elixir-tools
 .expert
+
+# AI tools
+.claude
