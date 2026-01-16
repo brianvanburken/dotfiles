@@ -57,6 +57,8 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
 
     # Elixir/Erlang
+    # new feature in elixir 1.19: https://github.com/elixir-lang/elixir/blob/v1.19/CHANGELOG.md#parallel-compilation-of-dependencies
+    set -Ux MIX_OS_DEPS_COMPILE_PARTITION_COUNT 4
     set -Ux MIX_XDG true
     mkdir -p "$XDG_CONFIG_HOME/erlang"
     touch "$XDG_CONFIG_HOME/erlang/.erlang.cookie"
