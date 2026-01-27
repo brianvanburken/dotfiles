@@ -1,5 +1,5 @@
 {
-  "copilot.lua": { "branch": "master", "commit": "9688ca7ad7583c659979591d006e5ff0b0b0da07" },
+  "copilot.lua": { "branch": "master", "commit": "2ede0808fa8dace39ea2a0f09b7bc6583655b730" },
   "elixir-tools.nvim": { "branch": "main", "commit": "26aba63a5850bec6a2eff97a1aed859f29003ea9" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lsp-progress.nvim": { "branch": "main", "commit": "ae52979ad412371ea6dc39ff70c8dfc681fb42b8" },
