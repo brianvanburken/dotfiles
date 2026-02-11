@@ -22,18 +22,10 @@ return {
                     enable = false
                 },
                 nextls = {
-                    enable = true,
-                    spitfire = false,
-                    init_options = {
-                        experimental = {
-                            completions = {
-                                enable = true,
-                            },
-                        },
-                    },
+                    enable = false,
                 },
                 elixirls = {
-                    enable = false,
+                    enable = true,
                 },
             }
         end,
