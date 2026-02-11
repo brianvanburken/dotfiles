@@ -1,7 +1,8 @@
 return {
     "shatur/neovim-ayu",
-    cmd = "Colorscheme",
-    init = function()
+    lazy = false,
+    priority = 1000,
+    config = function()
         require('ayu').setup({
             terminal = true,
             overrides = {
