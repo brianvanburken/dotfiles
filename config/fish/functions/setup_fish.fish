@@ -87,12 +87,13 @@ function setup_fish -d "Setup variables for Fish"
     set -U fish_greeting
 
     # Caching setting up tools
-    set -l init_file "$XDG_CONFIG_HOME/fish/conf.d/inits_cached.fish"
+    set -l fzf_func_file "$XDG_CONFIG_HOME/fish/functions/fzf_key_bindings.fish"
     set -l comp_file "$XDG_CONFIG_HOME/fish/completions/completions_cached.fish"
-    mkdir -p (dirname $init_file) (dirname $comp_file)
+    mkdir -p (dirname $fzf_func_file) (dirname $comp_file)
 
-    # Overwrite inits
-    fzf --fish > $init_file
+    # Write FZF key bindings to functions directory for lazy loading
+    # The lazy_load_fzf function in config.fish will call this when needed
+    fzf --fish > $fzf_func_file
 
     # Overwrite completions
     mise complete -s fish > $comp_file
