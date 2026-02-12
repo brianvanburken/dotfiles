@@ -16,15 +16,6 @@ end
 # Try when loading the shell
 lazy_load_mise
 
-# Lazy-load FZF key bindings on first prompt
-# This defers the 200+ line FZF setup until after shell is interactive
-function lazy_load_fzf --on-event fish_prompt
-    if functions -q fzf_key_bindings
-        fzf_key_bindings
-        functions -e lazy_load_fzf
-    end
-end
-
 # Shortkeys to make live easier
 # NeoVim/Vim/VSCode
 abbr -a e nvim
