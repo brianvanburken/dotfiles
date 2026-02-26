@@ -32,3 +32,5 @@ tags.lock
 # AI tools
 .claude/*
 !.claude/skills/
+!.claude/agents/
+!.claude/hooks/
