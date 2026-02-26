@@ -3,6 +3,7 @@
 # Claude
 config/claude/*
 !config/claude/settings.json
+!config/claude/CLAUDE.md
 !config/claude/skills/
 
 # Fish compiled files
