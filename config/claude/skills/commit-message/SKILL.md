@@ -1,6 +1,6 @@
 ---
 name: commit-message
-description: Use when commit code to follow conventions.
+description: Use when committing code changes or asked to write commit messages.
 model: sonnet
 ---
 
