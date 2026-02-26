@@ -35,3 +35,4 @@ CLAUDE.local.md
 !.claude/skills/
 !.claude/agents/
 !.claude/hooks/
+!.claude/commands/
