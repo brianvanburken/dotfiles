@@ -1,6 +1,6 @@
 ---
 name: searching-code
-description: Prefer modern CLI tools over traditional Unix utilities. Use when searching files or content.
+description: Use when searching files or content.
 model: haiku
 ---
 
