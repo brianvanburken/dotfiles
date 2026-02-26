@@ -30,6 +30,7 @@ tags.lock
 .expert
 
 # AI tools
+CLAUDE.local.md
 .claude/*
 !.claude/skills/
 !.claude/agents/
