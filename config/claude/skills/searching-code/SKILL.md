@@ -1,6 +1,6 @@
 ---
 name: searching-code
-description: Use when searching files or content.
+description: Use when searching files or content in codebases. Always invoke before using any search tool (Glob, Grep, Bash find/grep/fd/rg).
 model: haiku
 ---
 
