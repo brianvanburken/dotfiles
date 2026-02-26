@@ -1,5 +1,10 @@
 *.local
 
+# Claude
+config/claude/*
+!config/claude/settings.json
+!config/claude/skills/
+
 # Fish compiled files
 config/fish/functions/fzf_key_bindings.fish
 config/fish/conf.d/fish_frozen_theme.fish
