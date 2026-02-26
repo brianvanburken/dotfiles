@@ -30,4 +30,5 @@ tags.lock
 .expert
 
 # AI tools
-.claude
+.claude/*
+!.claude/skills/
