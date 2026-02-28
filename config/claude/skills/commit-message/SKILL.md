@@ -21,9 +21,9 @@ Follows [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.
 
 ## Body
 
-- Separate from subject with a blank line
-- Explain *what* and *why*, not *how*; do not repeat what the diff shows
-- Example: "Previously X caused Y. Now it does Z instead."
+- DO Explain *what* and *why*, not *how*; DO NOT repeat what the diff shows
+- DO pass the message directly as a string and use second `-m` for the body
+- DO NOT use HEREDOC syntax or command substitution
 
 ## Atomic Commits
 
