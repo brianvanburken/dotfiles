@@ -1,4 +1,5 @@
 {
+  "preferredNotifChannel": "terminal_bell",
   "attribution": {
     "commit": "",
     "pr": ""
