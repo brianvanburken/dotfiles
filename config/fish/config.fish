@@ -8,9 +8,15 @@ function lazy_load_mise --on-variable PWD
     # Test for .mise.toml or .tool-versions in current dir or one up
     if test -f mise.toml; or test -f .tool-versions;
       or test -f ../mise.toml; or test -f ../.tool-versions
-          mise activate fish | source
-          functions -e lazy_load_mise
+        load_mise
     end
+end
+
+# Load Mise manually
+function load_mise
+    mise activate fish | source
+    functions -e lazy_load_mise
+    functions -e load_mise
 end
 
 # Try when loading the shell
