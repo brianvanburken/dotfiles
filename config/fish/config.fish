@@ -46,6 +46,7 @@ abbr -a l 'eza --group-directories-first -lahg --no-user'
 abbr -a t 'eza -T -L 3'
 abbr -a mkdir mkdir -p
 abbr -a ... 'cd ../../'
+abbr -a csv csvlens
 
 abbr -a backup 'rsync --exclude-from="$XDG_CONFIG_HOME/rsync/excludes.txt" -arv --progress'
 
