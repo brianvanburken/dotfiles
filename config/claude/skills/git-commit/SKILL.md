@@ -60,10 +60,6 @@ git diff --staged
 # If nothing staged, use working tree diff
 git diff
 
-# Also check status
-git status --porcelain
-```
-
 ### 2. Stage Files (if needed)
 
 If nothing is staged or you want to group changes differently:
