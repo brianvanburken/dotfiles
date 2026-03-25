@@ -1,0 +1,27 @@
+return {
+    cmd = { "oxfmt", "--lsp" },
+    filetypes = {
+        "css",
+        "graphql",
+        "handlebars",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "json5",
+        "jsonc",
+        "less",
+        "markdown",
+        "scss",
+        "toml",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "yaml",
+    },
+    root_markers = {
+        ".oxfmtrc.json",
+        ".oxfmtrc.jsonc",
+        "package.json",
+    },
+}
