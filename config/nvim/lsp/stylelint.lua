@@ -13,7 +13,6 @@ return {
         ".stylelintrc.mjs",
         ".stylelintrc.yaml",
         ".stylelintrc.yml",
-        "package.json",
         "stylelint.config.cjs",
         "stylelint.config.js",
         "stylelint.config.mjs",
