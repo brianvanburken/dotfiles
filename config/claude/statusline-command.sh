@@ -1,6 +1,7 @@
 #!/bin/sh
 input=$(cat)
 model=$(echo "$input" | jq -r '.model.display_name // "unknown"')
+ctx_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
 five_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
 five_resets=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
@@ -8,6 +9,10 @@ week_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empt
 week_resets=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
 
 out="$model"
+
+if [ -n "$ctx_pct" ]; then
+  out="$out | ctx:$(printf "%.0f" "$ctx_pct")%"
+fi
 
 if [ -n "$five_pct" ]; then
   five_pct_fmt=$(printf "%.0f" "$five_pct")
