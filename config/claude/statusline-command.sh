@@ -3,7 +3,7 @@ echo "$(cat)" | jq -r '
   def fmt_rate(prefix; pct; resets; datefmt):
     if pct != null then
       "| \(prefix):\(pct | round | tostring)%" +
-      if resets != null then "(\(resets | strftime(datefmt)))" else "" end
+      if resets != null then "(\(resets | strflocaltime(datefmt)))" else "" end
     else "" end;
 
   [
