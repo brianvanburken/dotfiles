@@ -1,5 +1,5 @@
 return {
-    cmd = { "stylelint-lsp", "--stdio" },
+    cmd = { "stylelint-language-server", "--stdio" },
     filetypes = {
         "css",
         "html",
