@@ -18,15 +18,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
                 },
             },
             server_opts_overrides = {},
-            filetypes = {
-                javascript = true,
-                typescript = true,
-                rust = true,
-                lua = true,
-                elixir = true,
-                elm = true,
-                ["*"] = false,
-            },
         })
     end,
 })
