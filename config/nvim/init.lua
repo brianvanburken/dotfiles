@@ -1,11 +1,5 @@
 vim.loader.enable()
 
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_python_provider = 0
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_node_provider = 0
-
 vim.o.clipboard = "unnamedplus"
 vim.o.fcs = vim.o.fcs .. "eob: " -- hide EndOfBuffer characters
 vim.o.ignorecase = true
@@ -168,32 +162,5 @@ require(lazy).setup("plugins", {
     },
     rocks = {
         enabled = false
-    },
-    performance = {
-        rtp = {
-            disabled_plugins = {
-                "2html_plugin",
-                "getscript",
-                "getscriptPlugin",
-                "gzip",
-                "logipat",
-                "man",
-                "matchit",
-                "matchparen",
-                "netrwPlugin",
-                "osc52",
-                "rplugin",
-                "rrhelper",
-                "shada",
-                "spellfile",
-                "tarPlugin",
-                "tohtml",
-                "tutor",
-                "vimball",
-                "vimballPlugin",
-                "zip",
-                "zipPlugin",
-            },
-        },
     },
 })
