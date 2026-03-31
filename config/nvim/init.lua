@@ -37,9 +37,6 @@ vim.filetype.add({
     },
 })
 
-vim.api.nvim_create_user_command("PackUpdate", function()
-    vim.pack.update()
-end, { desc = "Update all managed plugins" })
 
 -- Setting up LSP
 -- Get all LSPs from the config directory and load them
