@@ -24,10 +24,6 @@
       "rev": "61319d4bd1c5e336e197defa15bd104c51f0fb29",
       "src": "https://github.com/kylechui/nvim-surround"
     },
-    "nvim-toggler": {
-      "rev": "467808600882fd6c9e33b9dbc4889b1b80cfd917",
-      "src": "https://github.com/nguyenvukhang/nvim-toggler"
-    },
     "nvim-treesitter": {
       "rev": "7caec274fd19c12b55902a5b795100d21531391f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
