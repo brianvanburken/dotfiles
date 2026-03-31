@@ -1,3 +1,7 @@
+vim.api.nvim_create_user_command("PackUpdate", function()
+    vim.pack.update()
+end, { desc = "Updates all vim pack plugins" })
+
 vim.api.nvim_create_user_command("PackOutdated", function()
     local config_path = vim.fn.stdpath("config")
     local lock_path = vim.fs.joinpath(config_path, "nvim-pack-lock.json")
@@ -48,7 +52,8 @@ vim.api.nvim_create_user_command("PackOutdated", function()
             else
                 local is_outdated = r.latest ~= nil and r.current ~= r.latest
                 if is_outdated then
-                    table.insert(lines, string.format(" * %-26s %s -> %s", r.name, r.current:sub(1, 12), r.latest:sub(1, 12)))
+                    table.insert(lines,
+                        string.format(" * %-26s %s -> %s", r.name, r.current:sub(1, 12), r.latest:sub(1, 12)))
                 elseif r.latest == nil then
                     table.insert(lines, string.format("   %-26s fetch error", r.name))
                 else
@@ -78,7 +83,7 @@ vim.api.nvim_create_user_command("PackOutdated", function()
         vim.fn.writefile(vim.split(new_content, "\n"), cached.path)
         cached.content = new_content
         r.current = r.latest
-        vim.notify(r.name .. " pinned to " .. r.latest:sub(1, 12) .. " — run :lua vim.pack.update() to apply")
+        vim.notify(r.name .. " pinned to " .. r.latest:sub(1, 12) .. " — run :PackUpdate to apply")
         render()
     end
 
