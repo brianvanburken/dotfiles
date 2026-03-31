@@ -37,25 +37,9 @@ vim.filetype.add({
     },
 })
 
--- Function to open a target given based on OS
-local function open_target(target)
-    if vim.fn.has("mac") == 1 then
-        vim.fn.jobstart({ "open", target }, { detach = true })
-    else
-        vim.fn.jobstart({ "xdg-open", target }, { detach = true })
-    end
-end
-
--- Open the URL under the cursor
--- For when netrw is disabled and don't provide functionality
-vim.keymap.set("n", "gx", function()
-    open_target(vim.fn.expand("<cfile>"))
-end, { desc = "Open file/URL under cursor" })
-
--- Open the current open file
-vim.api.nvim_create_user_command("Open", function()
-    open_target(vim.fn.expand("%:p"))
-end, { desc = "Open current file" })
+vim.api.nvim_create_user_command("PackUpdate", function()
+    vim.pack.update()
+end, { desc = "Update all managed plugins" })
 
 -- Setting up LSP
 -- Get all LSPs from the config directory and load them
@@ -149,18 +133,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
--- Setup Lazy.nvim
-local lazy = "lazy"
-vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/" .. lazy .. "/" .. lazy .. ".nvim")
-require(lazy).setup("plugins", {
-    defaults = {
-        lazy = true
-    },
-    debug = false,
-    change_detection = {
-        notify = false
-    },
-    rocks = {
-        enabled = false
-    },
-})
