@@ -7,7 +7,7 @@
 --format "bestvideo+bestaudio"
 --format-sort res:1440
 --no-playlist
---output "%(channel)s [%(id)s] - %(title)s.%(ext)s"
+--output "%(title).100B [%(id).50B].%(ext)s"
 --path ~/Downloads/Videos/
 --retries 3
 --sub-langs en
