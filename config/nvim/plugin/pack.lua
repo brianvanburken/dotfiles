@@ -63,7 +63,7 @@ vim.api.nvim_create_user_command("PackOutdated", function()
         end
 
         table.insert(lines, "")
-        table.insert(lines, "   u: update plugin under cursor   q: close")
+        table.insert(lines, "   u: update   gx: open repo   q: close")
 
         vim.bo[buf].modifiable = true
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
@@ -127,5 +127,12 @@ vim.api.nvim_create_user_command("PackOutdated", function()
         local row = vim.api.nvim_win_get_cursor(win)[1]
         local r = results[row]
         if r then update_plugin(r) end
+    end, { buffer = buf })
+    vim.keymap.set("n", "gx", function()
+        local row = vim.api.nvim_win_get_cursor(win)[1]
+        local r = results[row]
+        if not r then return end
+        local url = r.src:gsub("^git@([^:]+):", "https://%1/"):gsub("%.git$", "")
+        vim.ui.open(url)
     end, { buffer = buf })
 end, { desc = "Check for plugin updates" })
