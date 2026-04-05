@@ -33,5 +33,3 @@ vim.filetype.add({
         ['.*/ghostty/config'] = { 'dosini', { priority = 10 } },
     },
 })
-
-

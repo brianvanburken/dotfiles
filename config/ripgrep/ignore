@@ -49,10 +49,10 @@ elm-stuff
 gradlew
 gradlew.bat
 images
-lazy-lock.json
 log
 logs
 node_modules
+nvim-pack-lock.json
 package-lock.json
 pnpm-lock.yaml
 source_code
