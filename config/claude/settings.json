@@ -1,13 +1,9 @@
 {
-  "preferredNotifChannel": "terminal_bell",
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline-command.sh"
-  },
+  "autoUpdatesChannel": "stable",
   "hooks": {
     "PreToolUse": [
       {
@@ -20,5 +16,10 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline-command.sh"
+  },
+  "preferredNotifChannel": "terminal_bell"
 }
