@@ -29,6 +29,9 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- Add filetypes
 vim.filetype.add({
+    extension = {
+        avsc = 'json',
+    },
     pattern = {
         ['.*/ghostty/config'] = { 'dosini', { priority = 10 } },
     },
