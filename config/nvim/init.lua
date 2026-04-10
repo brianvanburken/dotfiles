@@ -9,7 +9,6 @@ vim.o.number = true
 vim.o.shortmess = vim.o.shortmess .. "astWAIcqS" -- Shorten all messages
 vim.o.signcolumn = "yes"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.wo.wrap = false
 
 -- Handling of whitespace
 vim.o.expandtab = true
