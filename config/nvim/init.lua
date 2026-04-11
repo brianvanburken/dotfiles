@@ -5,6 +5,7 @@ vim.o.ignorecase = true
 vim.o.inccommand = "split"       -- Show live preview of substitutions
 vim.o.laststatus = 3
 vim.o.list = true
+vim.o.nrformats = "unsigned"
 vim.o.number = true
 vim.o.shortmess = vim.o.shortmess .. "astWAIcqS" -- Shorten all messages
 vim.o.signcolumn = "yes"
