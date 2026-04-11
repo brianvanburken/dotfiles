@@ -2,7 +2,7 @@ vim.loader.enable()
 
 vim.o.clipboard = "unnamedplus"
 vim.o.ignorecase = true
-vim.o.inccommand = "split"       -- Show live preview of substitutions
+vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.laststatus = 3
 vim.o.list = true
 vim.o.nrformats = "unsigned"
@@ -35,4 +35,11 @@ vim.filetype.add({
     pattern = {
         ['.*/ghostty/config'] = { 'dosini', { priority = 10 } },
     },
+})
+
+vim.diagnostic.config({
+    float = { border = "rounded" },
+    underline = true,
+    virtual_text = true,
+    virtual_lines = false,
 })
