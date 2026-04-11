@@ -1,5 +1,6 @@
 brew "ast-grep"
 brew "colima"
+brew "csvlens"
 brew "exercism"
 brew "eza"
 brew "fd"
