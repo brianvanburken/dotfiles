@@ -1,5 +1,4 @@
-vim.o.wrap         = false
-vim.o.linebreak    = true
+vim.o.linebreak = true
 vim.o.conceallevel = 0
 
 -- Color markdown urls as conceal to make them less prominent
