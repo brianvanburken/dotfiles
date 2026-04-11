@@ -139,7 +139,7 @@ else
 fi
 
 action "Checking if we can brew..."
-brew doctor > /dev/null
+brew doctor > /dev/null || warning "brew doctor reported issues, continuing anyway"
 ok "Ready to brew"
 
 # After each install step, let's prolong our sudo credentials since some things may take a while
