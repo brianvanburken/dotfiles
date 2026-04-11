@@ -306,7 +306,7 @@ if [[ -x "$(command -v fish)" ]]; then
     readonly shell_file="/etc/shells"
     if ! grep -q "$fish_command" "$shell_file"; then
         action "Adding fish to allowed shells in $shell_file"
-        cached_sudo echo "$fish_command" >> "$shell_file"
+        echo "$fish_command" | cached_sudo tee -a "$shell_file" > /dev/null
     fi
 
     action "Changing shell to fish"
