@@ -10,15 +10,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
-vim.diagnostic.config({
-    float = { border = "rounded" },
-    underline = true,
-    virtual_text = true,
-    virtual_lines = false,
-})
-
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+    group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client and client:supports_method("textDocument/completion") then
@@ -31,7 +24,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
             client
             and not client:supports_method("textDocument/willSaveWaitUntil")
             and client:supports_method("textDocument/formatting")
+            and not vim.b[args.buf].format_autocmd_set
         then
+            vim.b[args.buf].format_autocmd_set = true
             vim.api.nvim_create_autocmd("BufWritePre", {
                 buffer = args.buf,
                 callback = function()
