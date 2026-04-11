@@ -495,6 +495,12 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true
 
+# Disable Stage Manager
+defaults write com.apple.WindowManager GloballyEnabled -bool false
+
+# No margins between tiled windows
+defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
+
 ok "Done setting up macOS preferences"
 
 echo "🍺 Your MacBook is configured!"
