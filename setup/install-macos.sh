@@ -360,30 +360,6 @@ fi
 # Prolong sudo
 cached_sudo
 
-if [[ ! -x "$(command -v rustup)" ]]; then
-    action "Installing Rust toolchain"
-    export CARGO_CACHE_DIR="${XDG_CACHE_HOME}/cargo"
-    export CARGO_CONFIG_DIR="${XDG_CONFIG_HOME}/cargo"
-    export CARGO_HOME="${XDG_DATA_HOME}/cargo"
-    export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    source "${CARGO_HOME}/env"
-    ok "Installed Rust toolchain"
-else
-    ok "Rust toolchain found"
-fi
-
-if [[ -x "$(command -v cargo)" ]]; then
-    action "Installing cargo crates"
-    cargo install cargo-edit cargo-cache bacon || true
-    ok "Installed cargo crates"
-else
-    error "Cargo not found"
-fi
-
-# Prolong sudo
-cached_sudo
-
 action "Setting macOS preferences"
 
 # Set screensaver to start after x seconds
