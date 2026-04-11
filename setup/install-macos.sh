@@ -333,7 +333,7 @@ if [[ -x "$(command -v mise)" ]]; then
     cd -
     ok "Mise versions installed"
 else
-    err "Mise plugin manager not found"
+    error "Mise plugin manager not found"
 fi
 
 # Prolong sudo
@@ -356,7 +356,7 @@ if [ -d "${vim_dir}/lazy" ]; then
     nvim --headless "+Lazy! sync" +qa
     ok "Installed NeoVim plugins"
 else
-    err "Lazy.nvim not found, could not install NeoVim plugins"
+    error "Lazy.nvim not found, could not install NeoVim plugins"
 fi
 
 # Prolong sudo
@@ -380,7 +380,7 @@ if [[ -x "$(command -v cargo)" ]]; then
     cargo install cargo-edit cargo-cache bacon || true
     ok "Installed cargo crates"
 else
-    err "Cargo not found"
+    error "Cargo not found"
 fi
 
 # Prolong sudo
