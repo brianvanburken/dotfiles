@@ -388,9 +388,6 @@ cached_sudo
 
 action "Setting macOS preferences"
 
-# Set delay for password after screensaver in seconds
-defaults write com.apple.screensaver askForPasswordDelay -int 5
-
 # Set screensaver to start after x seconds
 defaults write com.apple.screensaver idleTime -int 300
 
