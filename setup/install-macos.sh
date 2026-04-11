@@ -323,7 +323,10 @@ if [[ -x "$(command -v fish)" ]]; then
     fi
 
     action "Changing shell to fish"
-    cached_sudo chsh -s "$fish_command"
+    current_shell=$(dscl . -read "/Users/$(whoami)" UserShell | awk '{print $2}')
+    if [[ "$current_shell" != "$fish_command" ]]; then
+        cached_sudo chsh -s "$fish_command"
+    fi
 
     action "Setting up fish"
     fish -i -c 'setup_fish; exit;'
