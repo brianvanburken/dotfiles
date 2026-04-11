@@ -295,6 +295,7 @@ files=(
     "config/gitleaks"
     "config/mise"
     "config/nvim"
+    "config/pnpm"
     "config/ripgrep"
     "config/rsync"
     "config/yt-dlp"
