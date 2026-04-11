@@ -85,7 +85,7 @@ function setup_fish -d "Setup variables for Fish"
 
     # Caching setting up tools
     set -l comp_file "$XDG_CONFIG_HOME/fish/completions/completions_cached.fish"
-    mkdir -p (dirname $fzf_func_file) (dirname $comp_file)
+    mkdir -p (dirname $comp_file)
 
     # Overwrite completions
     mise complete -s fish > $comp_file
