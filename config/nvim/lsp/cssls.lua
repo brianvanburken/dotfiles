@@ -6,7 +6,7 @@ return {
         "less"
     },
     settings = {
-        provideFormatter = true,
+        provideFormatter = false,
         css = {
             validate = true
         },

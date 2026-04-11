@@ -22,6 +22,5 @@ return {
     root_markers = {
         ".oxfmtrc.json",
         ".oxfmtrc.jsonc",
-        "package.json",
     },
 }
