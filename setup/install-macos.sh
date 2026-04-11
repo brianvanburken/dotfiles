@@ -311,6 +311,15 @@ for x in "${files[@]}"; do
     fi
 done
 
+if [ ! -h "${HOME}/.claude" ]; then
+    action "Linking ${HOME}/.claude"
+    rm -rf "${HOME}/.claude"
+    ln -s "${DOT_DIR}/config/claude" "${HOME}/.claude"
+    ok "${HOME}/.claude has been linked"
+else
+    ok "${HOME}/.claude is already linked"
+fi
+
 # Prolong sudo
 cached_sudo
 
