@@ -167,12 +167,7 @@ else
     ok "Your system is up to date"
 fi
 
-if ! nvram -x -p | grep fmm-mobileme-token-FMM &> /dev/null; then
-    warning "Find My Mac is not enabled, please configure with your AppleID account"
-    require_manual_actions=1
-else
-    ok "Find My Mac is enabled"
-fi
+notice "Verify Find My Mac is enabled via System Settings > Apple ID > iCloud"
 
 if cached_sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate | grep disabled &> /dev/null; then
     action "Firewall is disabled, enabling..."
