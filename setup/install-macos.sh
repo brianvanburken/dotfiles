@@ -181,6 +181,13 @@ else
     ok "Firewall is enabled"
 fi
 
+if ! spctl --status 2>&1 | grep -q "enabled"; then
+    warning "Gatekeeper is disabled, enabling..."
+    cached_sudo spctl --master-enable
+else
+    ok "Gatekeeper is enabled"
+fi
+
 # Prolong sudo
 cached_sudo
 
