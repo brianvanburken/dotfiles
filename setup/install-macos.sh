@@ -363,25 +363,9 @@ fi
 # Prolong sudo
 cached_sudo
 
-readonly vim_dir="$XDG_DATA_HOME/nvim"
-if [ ! -d "${vim_dir}/lazy" ]; then
-    action "Installing lazy.nvim"
-    git clone --filter=blob:none --branch=stable --depth 1 https://github.com/folke/lazy.nvim.git "${vim_dir}/lazy"
-    ok "Installed lazy.nvim"
-else
-    ok "Lazy.nvim plugin found"
-fi
-
-# Prolong sudo
-cached_sudo
-
-if [ -d "${vim_dir}/lazy" ]; then
-    action "Installing NeoVim plugins using lazy.nvim"
-    nvim --headless "+Lazy! sync" +qa
-    ok "Installed NeoVim plugins"
-else
-    error "Lazy.nvim not found, could not install NeoVim plugins"
-fi
+action "Installing NeoVim plugins"
+nvim --headless "+packloadall" "+qall"
+ok "Installed NeoVim plugins"
 
 # Prolong sudo
 cached_sudo
