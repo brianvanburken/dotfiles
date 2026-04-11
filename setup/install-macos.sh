@@ -188,6 +188,13 @@ else
     ok "Gatekeeper is enabled"
 fi
 
+if ! csrutil status | grep -q "enabled"; then
+    warning "System Integrity Protection is DISABLED."
+    require_manual_actions=1
+else
+    ok "System Integrity Protection is enabled"
+fi
+
 # Prolong sudo
 cached_sudo
 
