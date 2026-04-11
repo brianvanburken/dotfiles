@@ -328,9 +328,7 @@ cached_sudo
 if [[ -x "$(command -v mise)" ]]; then
     eval "$(mise activate bash)"
     action "Installing mise plugins and versions"
-    cd "$DEV_DIR"
     mise install
-    cd -
     ok "Mise versions installed"
 else
     error "Mise plugin manager not found"
