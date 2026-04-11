@@ -495,6 +495,9 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true
 
+# Suppress Passwords app first-launch prompt (1Password is used instead)
+defaults write com.apple.Passwords isFirstLaunch -bool false
+
 # Disable Stage Manager
 defaults write com.apple.WindowManager GloballyEnabled -bool false
 
