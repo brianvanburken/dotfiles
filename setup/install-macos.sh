@@ -504,6 +504,8 @@ defaults write com.apple.WindowManager GloballyEnabled -bool false
 # No margins between tiled windows
 defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
 
+killall Dock Finder SystemUIServer 2>/dev/null || true
+
 ok "Done setting up macOS preferences"
 
 echo "🍺 Your MacBook is configured!"
