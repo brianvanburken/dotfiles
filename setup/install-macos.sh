@@ -424,10 +424,6 @@ defaults write com.apple.dock static-only -bool true
 # At least AnimateInfoPanes
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-# Sending messages and opening windows for replies
-defaults write com.apple.Mail DisableSendAnimations -bool true
-defaults write com.apple.Mail DisableReplyAnimations -bool true
-
 # Disable tab preview in Safari
 defaults write com.apple.Safari DebugDisableTabHoverPreview 1
 
@@ -498,13 +494,6 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Set dock to left of screen
 defaults write com.apple.dock orientation -string "left"
-
-# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-
-# Disable send and reply animations in Mail.app
-defaults write com.apple.mail DisableReplyAnimations -bool true
-defaults write com.apple.mail DisableSendAnimations -bool true
 
 # Disable Apple Intelligence writing tools and on-device model downloads
 defaults write com.apple.AIWritingTools enabled -bool false
