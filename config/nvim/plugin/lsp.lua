@@ -1,10 +1,14 @@
--- Get all LSPs from the config directory and load them
-local lsp_path = vim.fs.joinpath(vim.fn.stdpath("config"), "lsp")
-local lsps = {}
-for fname, _ in vim.fs.dir(lsp_path) do
-    lsps[#lsps + 1] = fname:match("^([^/]+).lua$")
-end
-vim.lsp.enable(lsps)
+vim.api.nvim_create_autocmd("VimEnter", {
+    once = true,
+    callback = function()
+        local lsp_path = vim.fs.joinpath(vim.fn.stdpath("config"), "lsp")
+        local lsps = {}
+        for fname, _ in vim.fs.dir(lsp_path) do
+            lsps[#lsps + 1] = fname:match("^([^/]+).lua$")
+        end
+        vim.lsp.enable(lsps)
+    end,
+})
 
 vim.diagnostic.config({
     float = { border = "rounded" },
