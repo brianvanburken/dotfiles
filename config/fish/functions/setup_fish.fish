@@ -9,9 +9,6 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux LC_ALL "$LANG"
     set -Ux LC_CTYPE "$LANG"
 
-    # Silent direnv
-    set -Ux DIRENV_LOG_FORMAT ""
-
     # Homebrew
     set -Ux HOMEBREW_NO_AUTO_UPDATE 1
     set -Ux HOMEBREW_NO_EMOJI 1
