@@ -424,9 +424,6 @@ defaults write com.apple.dock static-only -bool true
 # At least AnimateInfoPanes
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-# Disable tab preview in Safari
-defaults write com.apple.Safari DebugDisableTabHoverPreview 1
-
 # Hide Desktop icons
 defaults write com.apple.finder CreateDesktop false
 
