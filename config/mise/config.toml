@@ -16,6 +16,8 @@ verbose = false
 # set to true to ensure .tool-versions will be compatible with asdf, see `MISE_ASDF_COMPAT`
 asdf_compat = false
 
+silent = true
+
 [tools]
 nodejs = "lts"
 "npm:pnpm" = "latest"
