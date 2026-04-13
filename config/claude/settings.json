@@ -3,7 +3,6 @@
     "commit": "",
     "pr": ""
   },
-  "autoUpdatesChannel": "stable",
   "hooks": {
     "PreToolUse": [
       {
@@ -21,5 +20,6 @@
     "type": "command",
     "command": "~/.claude/statusline-command.sh"
   },
+  "autoUpdatesChannel": "stable",
   "preferredNotifChannel": "terminal_bell"
 }
