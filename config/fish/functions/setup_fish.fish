@@ -2,7 +2,8 @@ function setup_fish -d "Setup variables for Fish"
     # Block ads and other analytics
     set -Ux ADBLOCK true
     set -Ux DISABLE_OPENCOLLECTIVE true
-    set -Ux DO_NOT_TRACK 1 # https://consoledonottrack.com/
+    set -Ux DO_NOT_TRACK true # https://consoledonottrack.com/
+    set -Ux GH_TELEMETRY false # Github CLI
 
     # Set lang
     set -Ux LANG "en_US.UTF-8"
