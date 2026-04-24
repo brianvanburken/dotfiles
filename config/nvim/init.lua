@@ -37,6 +37,8 @@ vim.filetype.add({
     },
 })
 
+vim.api.nvim_create_user_command("PackUpdate", function() vim.pack.update() end, {})
+
 vim.diagnostic.config({
     float = { border = "rounded" },
     underline = true,
