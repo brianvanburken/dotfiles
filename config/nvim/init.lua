@@ -39,6 +39,20 @@ vim.filetype.add({
 
 vim.api.nvim_create_user_command("PackUpdate", function() vim.pack.update() end, {})
 
+vim.api.nvim_create_user_command("Remove", function()
+    local path = vim.fn.expand("%")
+    vim.fn.delete(path)
+    vim.cmd("bdelete!")
+end, {})
+
+vim.api.nvim_create_user_command("Rename", function(o)
+    local old = vim.fn.expand("%:p")
+    local new = vim.fn.fnamemodify(old, ":h") .. "/" .. o.args
+    vim.fn.rename(old, new)
+    vim.cmd("edit " .. new)
+    vim.cmd("bdelete! #")
+end, { nargs = 1, complete = "file" })
+
 vim.diagnostic.config({
     float = { border = "rounded" },
     underline = true,
