@@ -1,7 +1,7 @@
 {
   "plugins": {
     "copilot.lua": {
-      "rev": "407349117f176789df6ec1c23bca72f34e15b4e8",
+      "rev": "1d457ad5f267b8ef855a6b8b3fe152403cb00947",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "lsp-progress.nvim": {
@@ -9,7 +9,7 @@
       "src": "https://github.com/linrongbin16/lsp-progress.nvim"
     },
     "mason.nvim": {
-      "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
+      "rev": "16ba83bfc8a25f52bb545134f5bee082b195c460",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neovim-ayu": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "snacks.nvim": {
-      "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
     }
   }
