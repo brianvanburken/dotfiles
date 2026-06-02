@@ -18,7 +18,6 @@ vim.api.nvim_create_autocmd("FileType", {
                 "lua",
                 "markdown",
                 "markdown_inline",
-                "nix",
                 "regex",
                 "ruby",
                 "rust",

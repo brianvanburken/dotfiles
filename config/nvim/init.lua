@@ -29,9 +29,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- Add filetypes
 vim.filetype.add({
-    extension = {
-        avsc = 'json',
-    },
     pattern = {
         ['.*/ghostty/config'] = { 'dosini', { priority = 10 } },
     },
@@ -52,10 +49,3 @@ vim.api.nvim_create_user_command("Rename", function(o)
     vim.cmd("edit " .. new)
     vim.cmd("bdelete! #")
 end, { nargs = 1, complete = "file" })
-
-vim.diagnostic.config({
-    float = { border = "rounded" },
-    underline = true,
-    virtual_text = true,
-    virtual_lines = false,
-})
