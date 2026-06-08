@@ -72,7 +72,6 @@
 
 [gpg "ssh"]
 	allowedSignersFile = ~/.ssh/allowed_signers
-	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [interactive]
 	diffFilter = delta --color-only
