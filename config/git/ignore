@@ -11,23 +11,9 @@
 *.swap
 .vim
 
-# Auto-generated tag files
-tags
-tags.lock
-
-# Per project based ignore file for rg
-.ignore
-
 # Ignore direnv/env files
 .env
 .envrc
-
-# Python virtualenv
-.venv
-
-# Elixir tools
-.elixir-tools
-.expert
 
 # AI tools
 CLAUDE.local.md
