@@ -38,7 +38,7 @@ abbr -a gpf git push --force-with-lease
 abbr -a gpl git pull --rebase
 abbr -a gs git switch
 abbr -a gsc git switch -c
-abbr -a gsm 'git switch main 2>/dev/null | git switch master'
+abbr -a gsm 'git switch main 2>/dev/null || git switch master'
 abbr -a gws git status
 
 # Miscellaneous
