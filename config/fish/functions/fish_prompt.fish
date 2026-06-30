@@ -1,7 +1,7 @@
 function fish_prompt
     # Display the current directory
     set_color --bold
-    echo -n (basename $PWD)
+    echo -n (path basename $PWD)
 
     if set -q __MISE_SESSION
         set_color normal
