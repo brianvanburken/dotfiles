@@ -9,6 +9,7 @@ vim.o.nrformats = "unsigned"
 vim.o.number = true
 vim.o.shortmess = vim.o.shortmess .. "astWAIcqS" -- Shorten all messages
 vim.o.signcolumn = "yes"
+vim.o.updatetime = 250 -- Faster CursorHold for LSP hover/diagnostics (default: 4000)
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Handling of whitespace
