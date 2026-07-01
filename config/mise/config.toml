@@ -1,8 +1,4 @@
 [settings]
-# Plugins can read the versions files used by other version managers (if enabled by the plugin)
-# For example, .nvmrc in the case of nodejs's nvm
-legacy_version_file = false
-
 # configure `mise install` to always keep the downloaded archive
 always_keep_download = false
 
@@ -10,11 +6,6 @@ always_keep_download = false
 # this is updated whenever a new runtime is installed
 # set to 0 to disable updates
 plugin_autoupdate_last_check_duration = '0'
-
-# set to true to see full installation output, see `MISE_VERBOSE`
-verbose = false
-# set to true to ensure .tool-versions will be compatible with asdf, see `MISE_ASDF_COMPAT`
-asdf_compat = false
 
 silent = true
 lockfile = true
