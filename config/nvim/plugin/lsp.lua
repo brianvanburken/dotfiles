@@ -1,11 +1,14 @@
-vim.api.nvim_create_autocmd("VimEnter", {
+local lsp_path = vim.fs.joinpath(vim.fn.stdpath("config"), "lsp")
+local lsps = {}
+for fname, _ in vim.fs.dir(lsp_path) do
+    lsps[#lsps + 1] = fname:match("^([^/]+)%.lua$")
+end
+
+-- Enable on BufReadPost: fires before FileType (so the autocmd is registered
+-- in time), but after the file is read (so tools like mason have set up PATH).
+vim.api.nvim_create_autocmd("BufReadPost", {
     once = true,
     callback = function()
-        local lsp_path = vim.fs.joinpath(vim.fn.stdpath("config"), "lsp")
-        local lsps = {}
-        for fname, _ in vim.fs.dir(lsp_path) do
-            lsps[#lsps + 1] = fname:match("^([^/]+).lua$")
-        end
         vim.lsp.enable(lsps)
     end,
 })
