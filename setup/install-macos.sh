@@ -284,6 +284,7 @@ cached_sudo
 action "Linking dotfiles in ${HOME} to ${DOT_DIR}"
 mkdir -p "${HOME}/.config"
 files=(
+    "config/aube"
     "config/fish"
     "config/ghostty"
     "config/git"
