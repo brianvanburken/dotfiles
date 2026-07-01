@@ -22,3 +22,7 @@ CLAUDE.local.md
 !.claude/agents/
 !.claude/hooks/
 !.claude/commands/
+
+# Mise
+mise.local.toml
+mise.local.lock
