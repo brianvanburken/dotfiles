@@ -18,7 +18,3 @@ asdf_compat = false
 
 silent = true
 lockfile = true
-
-[tools]
-nodejs = "lts"
-"npm:pnpm" = "latest"
