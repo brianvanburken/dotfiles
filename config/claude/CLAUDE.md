@@ -3,3 +3,5 @@ MUST avoid including redundant comments which are tautological or self-demonstat
 NEVER push to git without asking first.
 ALWAYS write test for all new behaviors and bug fixes BEFORE implementing those, following TDD principles.
 Follow YAGNI principles, and one-liner solutions.
+Install languages using mise.
+Use pnpm over npm.
