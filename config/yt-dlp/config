@@ -1,17 +1,16 @@
 --abort-on-unavailable-fragment
 --add-metadata
 --concurrent-fragments 8
+--cookies-from-browser firefox
 --embed-subs
 --embed-thumbnail
---extractor-args "youtube:player_client=default,ios"
+--extractor-args "youtube:player-client=default,-tv_simply"
 --format "bestvideo+bestaudio"
 --format-sort res:1440
 --no-playlist
 --output "%(channel)s/%(title).100B [%(id).50B].%(ext)s"
 --path ~/Downloads/Videos/
+--restrict-filenames
 --retries 3
 --sub-langs en
---restrict-filenames
 --trim-filenames 200
-
---extractor-args "youtube:player-client=default,-tv_simply"
