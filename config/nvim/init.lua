@@ -9,7 +9,7 @@ vim.o.nrformats = "unsigned"
 vim.o.number = true
 vim.o.shortmess = vim.o.shortmess .. "astWAIcqS" -- Shorten all messages
 vim.o.signcolumn = "yes"
-vim.o.updatetime = 250 -- Faster CursorHold for LSP hover/diagnostics (default: 4000)
+vim.o.updatetime = 250                           -- Faster CursorHold for LSP hover/diagnostics (default: 4000)
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Handling of whitespace
@@ -27,9 +27,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Keep cursor where it is when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
-
-
-vim.api.nvim_create_user_command("PackUpdate", function() vim.pack.update() end, {})
 
 vim.api.nvim_create_user_command("Remove", function()
     local path = vim.fn.expand("%")
