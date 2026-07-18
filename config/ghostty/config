@@ -1,3 +1,4 @@
+# vim: set ft=dosini:
 clipboard-trim-trailing-spaces = true
 
 cursor-style = "block"
