@@ -41,9 +41,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local bufopts = { buffer = args.buf, noremap = true, silent = true }
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 
-        local opts = { buffer = args.buf }
-        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-
         -- Apply first autocomplete item if omnifunc is open, else indent as normal
         vim.keymap.set("i", "<Tab>", function()
             if vim.fn.pumvisible() == 1 then
