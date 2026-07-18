@@ -8,6 +8,10 @@
       "rev": "d521d3959f81f4fa58870ed329754f1dd5057511",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
+    "fff": {
+      "rev": "073698c8e7dad9f6106d23ef588f5ebc7f98b326",
+      "src": "https://github.com/dmtrKovalenko/fff"
+    },
     "flash.nvim": {
       "rev": "b6346946d10d07998efee029fb0f7a593806d0cd",
       "src": "https://github.com/folke/flash.nvim"
