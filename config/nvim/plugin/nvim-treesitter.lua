@@ -5,6 +5,7 @@ local languages = {
     "elixir",
     "elm",
     "fish",
+    "haskell",
     "heex",
     "html",
     "javascript",
