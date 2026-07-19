@@ -1,6 +1,7 @@
 vim.api.nvim_create_autocmd("BufReadPost", {
     once = true,
     callback = function()
+        if vim.fn.executable("node") ~= 1 then return end
         vim.pack.add({ "https://github.com/zbirenbaum/copilot.lua" })
         require("copilot").setup({
             panel = {
