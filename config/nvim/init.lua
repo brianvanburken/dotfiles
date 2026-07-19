@@ -1,5 +1,13 @@
 vim.loader.enable()
 
+-- Disable unused built-in plugins to speed up startup
+vim.g.loaded_gzip = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_zipPlugin = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_matchit = 1
+vim.g.loaded_tutor_mode_plugin = 1
+
 vim.o.clipboard = "unnamedplus"
 vim.o.ignorecase = true
 vim.o.inccommand = "split" -- Show live preview of substitutions
