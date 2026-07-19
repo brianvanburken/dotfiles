@@ -90,7 +90,6 @@ function setup_fish -d "Setup variables for Fish"
 
     # Overwrite completions
     mise complete -s fish > $comp_file
-    op completion fish >> $comp_file
 
     # Rebuild fish’s completion db
     fish_update_completions
