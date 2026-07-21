@@ -38,8 +38,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end
 
-        vim.keymap.set("n", "grr", vim.lsp.buf.references, { nowait = true })
-
         -- Apply first autocomplete item if omnifunc is open, else indent as normal
         vim.keymap.set("i", "<Tab>", function()
             if vim.fn.pumvisible() == 1 then
