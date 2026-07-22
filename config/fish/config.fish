@@ -6,8 +6,7 @@ end
 # only on dirs that have mise files (.mise.toml/.tool-versions)
 function lazy_load_mise --on-variable PWD
     # Test for .mise.toml or .tool-versions in current dir or one up
-    if test -f mise.toml; or test -f .tool-versions;
-      or test -f ../mise.toml; or test -f ../.tool-versions
+    if test -f mise.toml; or test -f mise.local.toml;
         load_mise
     end
 end
