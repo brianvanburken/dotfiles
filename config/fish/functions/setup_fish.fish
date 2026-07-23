@@ -30,7 +30,7 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux XDG_STATE_HOME "$HOME/.local/state"
     set -Ux XDG_RUNTIME_DIR "$XDG_DATA_HOME"
     set -Ux XDG_CONFIG_DIRS "/etc/xdg"
-    set -Ux XDG_DATA_DIRS "/usr/local/share:/usr/share:$XDG_DATA_HOME"
+    set -Ux XDG_DATA_DIRS "/usr/local/share:/usr/share"
 
     set -Ux EDITOR "nvim"
     set -Ux VISUAL "$EDITOR"
