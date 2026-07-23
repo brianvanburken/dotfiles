@@ -1,16 +1,10 @@
 function load_mise
-    set -l directory $PWD
-
-    while true
-        if path filter -q -f \
-                "$directory"/{,.}mise{,.local}.toml \
-                "$directory/.tool-versions"
-            break
-        end
-
-        test "$directory" = /; and return
-        set directory (path dirname "$directory")
-    end
+    path filter -q -f \
+        "$PWD"/{,.}mise{,.local}.toml \
+        "$PWD/.tool-versions" \
+        "$PWD"/../{,.}mise{,.local}.toml \
+        "$PWD/../.tool-versions"
+    or return
 
     command mise activate fish | source
     set -l activation_status $pipestatus

@@ -3,14 +3,8 @@ if not status is-interactive
 end
 
 function __load_mise_on_first_command --on-event fish_preexec
+    functions -e __load_mise_on_first_command
     load_mise
-    set -l load_status $status
-
-    if test $load_status -eq 0; and functions -q __load_mise_on_first_command
-        functions -e __load_mise_on_first_command
-    end
-
-    return $load_status
 end
 
 # Shortkeys to make live easier
