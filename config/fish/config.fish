@@ -2,24 +2,16 @@ if not status is-interactive
   exit
 end
 
-# Lazy-load mise as I don't always need it to be active
-# only on dirs that have mise files (.mise.toml/.tool-versions)
-function lazy_load_mise --on-variable PWD
-    # Test for .mise.toml or .tool-versions in current dir or one up
-    if test -f mise.toml; or test -f mise.local.toml;
-        load_mise
+function __load_mise_on_first_command --on-event fish_preexec
+    load_mise
+    set -l load_status $status
+
+    if test $load_status -eq 0; and functions -q __load_mise_on_first_command
+        functions -e __load_mise_on_first_command
     end
-end
 
-# Load Mise manually
-function load_mise
-    mise activate fish | source
-    functions -e lazy_load_mise
-    functions -e load_mise
+    return $load_status
 end
-
-# Try when loading the shell
-lazy_load_mise
 
 # Shortkeys to make live easier
 # NeoVim/Vim/VSCode
