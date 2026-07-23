@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd("InsertEnter", {
     once = true,
     callback = function()
         if vim.fn.executable("node") ~= 1 then return end
