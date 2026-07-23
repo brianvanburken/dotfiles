@@ -23,6 +23,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
 
+        if client and client:supports_method("textDocument/inlineCompletion") then
+            vim.lsp.inline_completion.enable(true, { bufnr = args.buf })
+
+            vim.keymap.set("i", "<D-y>", function()
+                if not vim.lsp.inline_completion.get() then
+                    return "<D-y>"
+                end
+            end, { expr = true, replace_keycodes = true, buffer = args.buf, desc = "Accept inline completion" })
+
+            vim.keymap.set("i", "<D-j>", function()
+                vim.lsp.inline_completion.select({ count = 1 })
+            end, { buffer = args.buf, desc = "Next inline completion" })
+
+            vim.keymap.set("i", "<D-k>", function()
+                vim.lsp.inline_completion.select({ count = -1 })
+            end, { buffer = args.buf, desc = "Previous inline completion" })
+        end
+
         -- Auto-format ("lint") on save.
         -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
         if
