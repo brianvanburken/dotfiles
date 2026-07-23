@@ -4,12 +4,14 @@ for fname, _ in vim.fs.dir(lsp_path) do
     lsps[#lsps + 1] = fname:match("^([^/]+)%.lua$")
 end
 
--- Enable on BufReadPost: fires before FileType (so the autocmd is registered
--- in time), but after the file is read (so tools like mason have set up PATH).
-vim.api.nvim_create_autocmd("BufReadPost", {
+-- Defer LSP setup until after the first file is displayed. vim.lsp.enable()
+-- revisits buffers whose FileType event has already fired.
+vim.api.nvim_create_autocmd("FileType", {
     once = true,
     callback = function()
-        vim.lsp.enable(lsps)
+        vim.schedule(function()
+            vim.lsp.enable(lsps)
+        end)
     end,
 })
 
