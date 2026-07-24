@@ -5,9 +5,6 @@ return {
     },
     settings = {
         ["rust-analyzer"] = {
-            rust = {
-                analyzerTargetDir = true,
-            },
             assist = {
                 importEnforceGranularity = true,
                 -- importPrefix = "crate",
@@ -15,12 +12,9 @@ return {
             cargo = {
                 extraEnv = { BUILD_ENV = "dev" },
                 targetDir = true,
-                features = "all",
-                allFeatures = true,
                 allTargets = false
             },
             check = {
-                features = "all",
                 command = "check",
             },
             inlayHints = {
