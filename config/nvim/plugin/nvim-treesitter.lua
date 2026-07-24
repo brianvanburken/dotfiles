@@ -11,13 +11,22 @@ local function start_treesitter(bufnr, lang)
     return false
 end
 
+local plugin
+local function treesitter()
+    if not plugin then
+        vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
+        plugin = require("nvim-treesitter")
+    end
+    return plugin
+end
+
+
 -- nvim-treesitter defines its own :TSUpdate once loaded, but until then
 -- (e.g. every cached parser is already installed) the command doesn't
 -- exist yet. This wrapper loads the plugin first, which redefines
 -- :TSUpdate to the real implementation before we invoke it.
 vim.api.nvim_create_user_command("TSUpdate", function()
-    vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
-    vim.cmd.TSUpdate()
+    treesitter().update(nil, { summary = true }):wait(300000)
 end, { desc = "Load nvim-treesitter and update installed parsers" })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -27,8 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
         if start_treesitter(args.buf, lang) then return end
 
-        vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
-        require("nvim-treesitter").install(lang):await(function(err)
+        treesitter().install(lang):await(function(err)
             if err then return end
             vim.schedule(function() start_treesitter(args.buf, lang) end)
         end)
