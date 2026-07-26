@@ -36,6 +36,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
         if start_treesitter(args.buf, lang) then return end
 
+        -- get_lang() falls back to the filetype for unmapped filetypes (e.g.
+        -- fff_input), so guard against installing parsers that don't exist.
+        if not vim.list_contains(treesitter().get_available(), lang) then return end
+
         treesitter().install(lang):await(function(err)
             if err then return end
             vim.schedule(function() start_treesitter(args.buf, lang) end)
