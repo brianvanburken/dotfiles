@@ -7,6 +7,12 @@ vim.g.loaded_zipPlugin = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_matchit = 1
 vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_man = 1
+vim.g.loaded_nvim_net_plugin = 1
+vim.g.loaded_spellfile_plugin = 1
+vim.g.loaded_shada_plugin = 1
+vim.g.loaded_remote_plugins = 1
+vim.g.editorconfig = false
 
 vim.o.clipboard = "unnamedplus"
 vim.o.ignorecase = true
