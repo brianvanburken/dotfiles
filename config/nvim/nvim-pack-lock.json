@@ -1,7 +1,7 @@
 {
   "plugins": {
     "fff": {
-      "rev": "167f7d67cb4534797f67491600979b5197705041",
+      "rev": "9033efb60f3fa5a39009244c6e9ba4e86e010005",
       "src": "https://github.com/dmtrKovalenko/fff"
     },
     "flash.nvim": {
