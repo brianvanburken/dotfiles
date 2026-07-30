@@ -15,14 +15,20 @@ vim.g.loaded_remote_plugins = 1
 vim.g.editorconfig = false
 
 vim.o.clipboard = "unnamedplus"
+vim.o.confirm = true -- Prompt to save instead of erroring on :q
 vim.o.ignorecase = true
 vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.laststatus = 3
 vim.o.list = true
 vim.o.nrformats = "unsigned"
 vim.o.number = true
+vim.o.scrolloff = 8 -- Keep context around the cursor
 vim.o.shortmess = vim.o.shortmess .. "astWAIcqS" -- Shorten all messages
 vim.o.signcolumn = "yes"
+vim.o.smartcase = true -- Case-sensitive only when the pattern has a capital
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.undofile = true -- Persist undo history across sessions
 vim.o.updatetime = 250                           -- Faster CursorHold for LSP hover/diagnostics (default: 4000)
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
