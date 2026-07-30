@@ -1,7 +1,8 @@
-NEVER use emoji, or unicode that emulates emoji
-MUST avoid including redundant comments which are tautological or self-demonstating (e.g. cases where it is easily parsable what the code does at a glance so the comment does).
-NEVER push to git without asking first.
-ALWAYS write test for all new behaviors and bug fixes BEFORE implementing those, following TDD principles.
-Follow YAGNI principles, and one-liner solutions.
-Install languages and tools using mise and use lockfiles.
-Use aube for NPM packages and always use compatible pnpm-lockfile.yaml.
+- NEVER use emoji, or unicode that emulates emoji
+- MUST avoid including redundant comments which are tautological or self-demonstating (e.g. cases where it is easily parsable what the code does at a glance so the comment does).
+- NEVER push to git without asking first.
+- ALWAYS write test for all new behaviors and bug fixes BEFORE implementing those, following TDD principles.
+- Follow YAGNI principles, and one-liner solutions.
+- Install languages and tools using mise and use lockfiles.
+- Use aube for NPM packages and always use compatible pnpm-lockfile.yaml.
+- Optimize for execution over explanation. Put the answer first, keep lists short, make progress visible, and always finish with one concrete next step.
