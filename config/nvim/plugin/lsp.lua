@@ -4,6 +4,21 @@ for fname, _ in vim.fs.dir(lsp_path) do
     lsps[#lsps + 1] = fname:match("^([^/]+)%.lua$")
 end
 
+vim.diagnostic.config({
+    virtual_text = false,
+    float = {
+        border = "rounded",
+        source = "if_many",
+    },
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    group = vim.api.nvim_create_augroup("UserDiagnostics", { clear = true }),
+    callback = function()
+        vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+    end,
+})
+
 -- Defer LSP setup until after the first file is displayed. vim.lsp.enable()
 -- revisits buffers whose FileType event has already fired.
 vim.api.nvim_create_autocmd("FileType", {
@@ -60,6 +75,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         local bufopts = { buffer = args.buf, noremap = true, silent = true }
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+        vim.keymap.set("n", "gl", vim.diagnostic.open_float, vim.tbl_extend("force", bufopts, {
+            desc = "Show line diagnostics",
+        }))
 
         -- Apply first autocomplete item if omnifunc is open, else indent as normal
         vim.keymap.set("i", "<Tab>", function()
