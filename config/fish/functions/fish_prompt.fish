@@ -1,4 +1,7 @@
 function fish_prompt
+    # Must be captured before any command below overwrites it
+    set -l last_status $status
+
     # Display the current directory
     set_color --bold
     echo -n (path basename $PWD)
@@ -8,9 +11,7 @@ function fish_prompt
         echo -n '(m)'
     end
 
-    # Check the exit status of the last command
-    # Set the color to bold red if there was an error
-    if test $status -ne 0
+    if test $last_status -ne 0
         set_color --bold red
     else
         set_color normal
