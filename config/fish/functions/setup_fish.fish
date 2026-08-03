@@ -16,8 +16,8 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux HOMEBREW_NO_EMOJI 1
     set -Ux HOMEBREW_NO_ENV_HINTS 1
     set -Ux HOMEBREW_PREFIX "/opt/homebrew"
-    set -Ux HOMBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-    set -Ux HOMBREW_REPOSITORY "$HOMEBREW_PREFIX"
+    set -Ux HOMBEREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    set -Ux HOMBEREW_REPOSITORY "$HOMEBREW_PREFIX"
     set -Ux MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
     set -Ux INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
     fish_add_path "$HOMEBREW_PREFIX/bin"
