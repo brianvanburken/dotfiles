@@ -78,6 +78,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "gl", vim.diagnostic.open_float, vim.tbl_extend("force", bufopts, {
             desc = "Show line diagnostics",
         }))
+        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {
+            desc = "Code Action",
+        })
 
         -- Apply first autocomplete item if omnifunc is open, else indent as normal
         vim.keymap.set("i", "<Tab>", function()
