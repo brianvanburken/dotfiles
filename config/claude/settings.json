@@ -9,5 +9,8 @@
     "command": "~/.claude/statusline-command.sh"
   },
   "autoUpdatesChannel": "stable",
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "permissions": {
+    "deny": ["Bash(git push *)"]
+  }
 }

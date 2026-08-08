@@ -7,7 +7,6 @@
 ## Workflow
 
 - ALWAYS write tests for new behavior and bug fixes BEFORE implementing them (TDD).
-- NEVER push to git without asking first.
 - Refactor only when essential or explicitly requested.
 
 ## Code style
