@@ -5,21 +5,14 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux DO_NOT_TRACK true # https://consoledonottrack.com/
     set -Ux GH_TELEMETRY false # Github CLI
 
-    # Set lang
-    set -Ux LANG "en_US.UTF-8"
-    set -Ux LC_ALL "$LANG"
-    set -Ux LC_CTYPE "$LANG"
-
     # Homebrew
     set -Ux HOMEBREW_NO_ANALYTICS 1
     set -Ux HOMEBREW_NO_AUTO_UPDATE 1
     set -Ux HOMEBREW_NO_EMOJI 1
     set -Ux HOMEBREW_NO_ENV_HINTS 1
     set -Ux HOMEBREW_PREFIX "/opt/homebrew"
-    set -Ux HOMBEREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-    set -Ux HOMBEREW_REPOSITORY "$HOMEBREW_PREFIX"
-    set -Ux MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
-    set -Ux INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
+    set -Ux HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    set -Ux HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX"
     fish_add_path "$HOMEBREW_PREFIX/bin"
     fish_add_path "$HOMEBREW_PREFIX/sbin"
 
@@ -28,7 +21,6 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux XDG_CACHE_HOME "$HOME/.cache"
     set -Ux XDG_DATA_HOME "$HOME/.local/share"
     set -Ux XDG_STATE_HOME "$HOME/.local/state"
-    set -Ux XDG_RUNTIME_DIR "$XDG_DATA_HOME"
     set -Ux XDG_CONFIG_DIRS "/etc/xdg"
     set -Ux XDG_DATA_DIRS "/usr/local/share:/usr/share"
 
