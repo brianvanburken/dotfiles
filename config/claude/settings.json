@@ -3,6 +3,11 @@
     "commit": "",
     "pr": ""
   },
+  "permissions": {
+    "deny": [
+      "Bash(git push *)"
+    ]
+  },
   "hooks": {},
   "statusLine": {
     "type": "command",
