@@ -1,1 +1,2 @@
 paranoid = true
+defaultLockfileFormat = "pnpm"
