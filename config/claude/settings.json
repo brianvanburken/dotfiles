@@ -26,8 +26,5 @@
     }
   },
   "autoUpdatesChannel": "stable",
-  "preferredNotifChannel": "terminal_bell",
-  "permissions": {
-    "deny": ["Bash(git push *)"]
-  }
+  "preferredNotifChannel": "terminal_bell"
 }
