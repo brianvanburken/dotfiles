@@ -12,7 +12,6 @@ config/claude/*
 
 # Fish compiled files
 config.local.fish
-config/fish/functions/fzf_key_bindings.fish
 config/fish/conf.d/fish_frozen_theme.fish
 config/fish/conf.d/fish_frozen_key_bindings.fish
 config/fish/completions/
