@@ -10,9 +10,10 @@ font-thicken = true
 font-thicken-strength = 100
 font-feature = -calt
 
+macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 theme = dark:Ayu,light:Ayu Light
-unfocused-split-opacity = 0.8
+unfocused-split-opacity = 0.6
 window-theme = system
 mouse-hide-while-typing = true
 selection-invert-fg-bg = true
