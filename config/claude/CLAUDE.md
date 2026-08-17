@@ -6,7 +6,7 @@
 
 ## Workflow
 
-- ALWAYS write tests for new behavior and bug fixes BEFORE implementing them (TDD).
+- ALWAYS break down the task in small steps.
 - Refactor only when essential or explicitly requested.
 
 ## Code style
