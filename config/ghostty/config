@@ -32,4 +32,3 @@ quit-after-last-window-closed = true
 confirm-close-surface=false
 
 shell-integration = fish
-command = /opt/homebrew/bin/fish --login --interactive
