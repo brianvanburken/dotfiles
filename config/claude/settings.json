@@ -21,6 +21,7 @@
   "disableWorkflows": true,
   "disableArtifact": true,
   "hooks": {},
+  "spinnerTipsEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline-command.sh"
