@@ -27,5 +27,6 @@
   },
   "autoUpdatesChannel": "stable",
   "verbose": false,
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "tui": "fullscreen"
 }
