@@ -5,10 +5,21 @@
   },
   "permissions": {
     "deny": [
+      "NotebookEdit",
+      "DesignSync",
+      "CronCreate",
+      "CronDelete",
+      "CronList",
+      "PushNotification",
+      "RemoteTrigger",
       "Bash(git push *)",
       "Bash(rm *)"
     ]
   },
+  "disableClaudeAiConnectors": true,
+  "disableBundledSkills": true,
+  "disableWorkflows": true,
+  "disableArtifact": true,
   "hooks": {},
   "statusLine": {
     "type": "command",
@@ -26,7 +37,7 @@
     }
   },
   "autoUpdatesChannel": "stable",
+  "tui": "fullscreen",
   "verbose": false,
-  "preferredNotifChannel": "terminal_bell",
-  "tui": "fullscreen"
+  "preferredNotifChannel": "terminal_bell"
 }
