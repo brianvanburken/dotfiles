@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: Create a conventional-commit git commit - stage the right files, derive type/scope from the diff, and write the message. Use when the user asks to commit changes or mentions "/commit".
+description: Create a conventional-commit git commit - stage the right files, derive type/scope from the diff, and write the message. Use when the user asks to commit changes.
 allowed-tools: Bash
 ---
 
