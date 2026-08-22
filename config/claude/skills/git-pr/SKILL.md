@@ -1,6 +1,6 @@
 ---
-name: create-pr
-description: 'Create a standardized, well-structured pull request via the GitHub CLI. Use when user asks to open a PR, create a pull request, or mentions "/pr". Supports: (1) Detecting an existing repo PR template and falling back to a standard one, (2) Conventional-commit-style titles, (3) Why-first descriptions covering decisions made and problems encountered, (4) Draft vs ready-for-review detection, (5) Pushing the branch and running gh pr create'
+name: git-pr
+description: 'Create a focused, why-first pull request via the GitHub CLI: conventional-commit title, repo-template-aware description, draft/ready detection, and push + gh pr create. Use when the user asks to open a PR or create a pull request'
 allowed-tools: Bash
 ---
 
