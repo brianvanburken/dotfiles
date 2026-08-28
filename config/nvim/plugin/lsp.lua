@@ -34,11 +34,35 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client:supports_method("textDocument/completion") then
+        if not client then
+            vim.notify(
+                "LspAttach failed for client " .. args.data.client_id,
+                vim.log.levels.WARN
+            )
+            return
+        end
+
+        if client:supports_method "textDocument/codeLens" then
+            vim.lsp.codelens.enable(true, { bufnr = args.buf })
+        end
+
+        if client:supports_method "textDocument/inlayHint" then
+            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+        end
+
+        if client:supports_method "textDocument/documentColor" then
+            vim.lsp.document_color.enable(true, { bufnr = args.buf })
+        end
+
+        if client:supports_method "textDocument/onTypeFormatting" then
+            vim.lsp.on_type_formatting.enable(true, { client_id = client.id })
+        end
+
+        if client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
 
-        if client and client:supports_method("textDocument/inlineCompletion") then
+        if client:supports_method("textDocument/inlineCompletion") then
             vim.lsp.inline_completion.enable(true, { bufnr = args.buf })
 
             vim.keymap.set("i", "<D-y>", function()
@@ -56,11 +80,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end, { buffer = args.buf, desc = "Previous inline completion" })
         end
 
+
         -- Auto-format ("lint") on save.
         -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
         if
-            client
-            and not client:supports_method("textDocument/willSaveWaitUntil")
+            not client:supports_method("textDocument/willSaveWaitUntil")
             and client:supports_method("textDocument/formatting")
             and not vim.b[args.buf].format_autocmd_set
         then
