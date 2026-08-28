@@ -18,10 +18,10 @@
   },
   "disableClaudeAiConnectors": true,
   "disableBundledSkills": true,
+  "hooks": {},
+  "disableRemoteControl": true,
   "disableWorkflows": true,
   "disableArtifact": true,
-  "hooks": {},
-  "spinnerTipsEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline-command.sh"
@@ -37,6 +37,7 @@
       }
     }
   },
+  "spinnerTipsEnabled": false,
   "autoUpdatesChannel": "stable",
   "tui": "fullscreen",
   "verbose": false,
