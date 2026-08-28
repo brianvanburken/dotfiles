@@ -47,3 +47,6 @@ vim.api.nvim_create_user_command("Rename", function(o)
     vim.cmd("edit " .. new)
     vim.cmd("bdelete! #")
 end, { nargs = 1, complete = "file" })
+
+-- Source directly to avoid a runtimepath lookup during startup.
+dofile(vim.fs.joinpath(vim.fn.stdpath("config"), "colors", "ayu.lua"))
