@@ -27,7 +27,7 @@ export DOT_DIR="${DOT_DIR:=${DEV_DIR}/personal/dotfiles}"
 readonly DOT_REPO="brianvanburken/dotfiles"
 
 # Set the download URL
-readonly SOURCE_URL="${SOURCE_URL:=https://raw.githubusercontent.com/${DOT_REPO}/master/}"
+readonly SOURCE_URL="${SOURCE_URL:=https://raw.githubusercontent.com/${DOT_REPO}/main/}"
 
 # Determine macOS version
 OS_VERSION="$(sw_vers -productVersion)"
@@ -269,7 +269,7 @@ if [ ! -d "$DOT_DIR" ]; then
     git remote remove origin
     git remote add origin "git@github.com:${DOT_REPO}.git"
     git fetch --all
-    git branch -u origin/master master
+    git branch -u origin/main main
     git config --local user.name "Brian van Burken"
     git config --local user.email "brianvanburken@users.noreply.github.com"
     cd -
