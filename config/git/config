@@ -6,9 +6,8 @@
 	ui = true
 
 [push]
-	# Default push should only push the current branch to its push target, regardless of its remote name
-	default = current
 	autoSetupRemote = true
+	followTags = true
 
 [pull]
 	rebase = true
@@ -36,12 +35,11 @@
 	trim = !git remote prune origin && git gc
 	tag = tag -s
 
-	# https://mtsknn.fi/blog/how-to-force-push-in-git-with-style-and-some-safety/
-	please = push --force-with-lease
-
 [rebase]
-	autostash = true
+	autoStash = true
 	missingCommitsCheck = warn
+	autoSquash = true
+	updateRefs = true
 
 [user]
 	name = Brian van Burken
@@ -96,15 +94,21 @@
 	whitespace-error-style = reverse magenta
 
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 
 [diff]
-	colorMoved = default
+	colorMoved = plain
 	context = 3
 	interHunkContext = 10
+	algorithm = histogram
+	mnemonicPrefix = true
+	renames = true
 
 [fetch]
 	parallel = 0
+	prune = true
+	pruneTags = true
+	all = true
 
 [feature]
 	manyFiles = true
