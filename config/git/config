@@ -110,3 +110,6 @@
 
 [feature]
 	manyFiles = true
+
+[branch]
+	sort = committerdate
