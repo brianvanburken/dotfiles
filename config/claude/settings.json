@@ -13,7 +13,8 @@
       "PushNotification",
       "RemoteTrigger",
       "Bash(git push *)",
-      "Bash(rm *)"
+      "Bash(rm *)",
+      "Bash(rmdir *)"
     ]
   },
   "disableClaudeAiConnectors": true,
