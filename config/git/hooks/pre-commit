@@ -17,4 +17,14 @@ if ! gitleaks protect --no-banner --staged --redact &>/dev/null; then
   exit 1
 fi
 
+# core.hooksPath replaces .git/hooks entirely rather than adding to it, so
+# setting it globally silently disables every repository's own hooks. Run the
+# repository hook here so per-project checks still apply.
+# --git-path would resolve through core.hooksPath and find this file again.
+repository_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
+
+if [ -x "$repository_hook" ]; then
+  "$repository_hook" "$@" || exit $?
+fi
+
 exit 0
