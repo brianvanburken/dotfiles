@@ -14,3 +14,5 @@
 --retries 3
 --sub-langs en
 --trim-filenames 200
+--write-auto-subs
+--write-subs
