@@ -9,10 +9,11 @@
 - ALWAYS break down the task in small steps.
 - Refactor only when essential or explicitly requested.
 
-## Code style
+## Style
 
+- DO NOT overengineer.
 - Follow YAGNI and KISS. Prefer the simplest working solution.
-- MUST avoid redundant comments that restate what the code already shows.
+- MUST prefer clear naming and small functions over comments.
 
 ## Scope control
 
