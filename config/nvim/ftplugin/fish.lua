@@ -1,3 +1,3 @@
-vim.opt_local.commentstring = "# %s"
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
+vim.bo.commentstring = "# %s"
+vim.bo.shiftwidth = 4
+vim.bo.tabstop = 4
