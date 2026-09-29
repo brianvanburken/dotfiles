@@ -23,4 +23,5 @@ return {
         ".oxfmtrc.json",
         ".oxfmtrc.jsonc",
     },
+    workspace_required = true,
 }
