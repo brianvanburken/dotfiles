@@ -2,11 +2,6 @@
 # configure `mise install` to always keep the downloaded archive
 always_keep_download = false
 
-# configure how frequently (in minutes) to fetch updated plugin repository changes
-# this is updated whenever a new runtime is installed
-# set to 0 to disable updates
-plugin_autoupdate_last_check_duration = '0'
-
 silent = true
 lockfile = true
 paranoid = true
