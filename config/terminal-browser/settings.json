@@ -1,0 +1,7 @@
+{
+  "search.engine": "https://www.ecosia.org/search?q=%s",
+  "search.suggestions": "https://ac.ecosia.org/?q=%s",
+  "telemetry.usage": "off",
+  "telemetry.crashReports": "off",
+  "updates.check": "off"
+}

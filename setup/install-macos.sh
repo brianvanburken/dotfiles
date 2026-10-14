@@ -293,6 +293,7 @@ files=(
     "config/nvim"
     "config/ripgrep"
     "config/rsync"
+    "config/terminal-browser"
     "config/yt-dlp"
 )
 for x in "${files[@]}"; do
