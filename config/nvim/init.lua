@@ -21,6 +21,9 @@ vim.g.loaded_zipPlugin = 1
 
 vim.o.clipboard = "unnamedplus"
 vim.o.confirm = true -- Prompt to save instead of erroring on :q
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
 vim.o.ignorecase = true
 vim.o.inccommand = "split" -- Show live preview of substitutions
 vim.o.laststatus = 3
