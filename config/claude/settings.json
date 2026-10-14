@@ -17,6 +17,7 @@
       "Bash(rmdir *)"
     ]
   },
+  "model": "opus",
   "disableClaudeAiConnectors": true,
   "disableBundledSkills": true,
   "hooks": {},
@@ -28,7 +29,8 @@
     "command": "~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "mattpocock-skills@mattpocock": true
+    "mattpocock-skills@mattpocock": true,
+    "cc-plugin-plugin-authoring@builtin": false
   },
   "extraKnownMarketplaces": {
     "mattpocock": {
@@ -38,10 +40,10 @@
       }
     }
   },
+  "outputStyle": "Concise",
   "spinnerTipsEnabled": false,
   "autoUpdatesChannel": "stable",
   "tui": "fullscreen",
   "verbose": false,
-  "preferredNotifChannel": "terminal_bell",
-  "outputStyle": "Concise"
+  "preferredNotifChannel": "terminal_bell"
 }
