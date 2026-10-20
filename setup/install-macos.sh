@@ -290,6 +290,7 @@ files=(
     "config/git"
     "config/gitleaks"
     "config/mise"
+    "config/mole"
     "config/nvim"
     "config/ripgrep"
     "config/rsync"
