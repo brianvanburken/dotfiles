@@ -27,3 +27,6 @@
 - Missing or brittle tests.
 - Unsafe assumptions, unclear boundaries.
 - Poor or stale documentation.
+
+## Testing
+- Prefer tabular testing as much as possible.
