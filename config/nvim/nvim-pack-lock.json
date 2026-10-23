@@ -1,7 +1,7 @@
 {
   "plugins": {
     "fff": {
-      "rev": "4b17d9b278c3818fb380855b7d77424b239b3b91",
+      "rev": "7353971198321b5330824c29eb4e49635c072245",
       "src": "https://github.com/dmtrKovalenko/fff"
     },
     "flash.nvim": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-treesitter": {
-      "rev": "1a4f47b03dfe92d28de7d5654c67327ef008c9e6",
+      "rev": "29212d826054bb2948fa9d3a99eca9bf6a050eb2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "vim-startuptime": {
