@@ -1,4 +1,4 @@
 [settings]
-silent = true
+silent = false
 lockfile = true
 paranoid = true
