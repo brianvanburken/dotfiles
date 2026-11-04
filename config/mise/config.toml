@@ -1,7 +1,4 @@
 [settings]
-# configure `mise install` to always keep the downloaded archive
-always_keep_download = false
-
 silent = true
 lockfile = true
 paranoid = true
