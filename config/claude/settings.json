@@ -20,7 +20,6 @@
   "model": "opus",
   "disableClaudeAiConnectors": true,
   "disableBundledSkills": true,
-  "hooks": {},
   "disableRemoteControl": true,
   "disableWorkflows": true,
   "disableArtifact": true,
@@ -44,6 +43,5 @@
   "spinnerTipsEnabled": false,
   "autoUpdatesChannel": "stable",
   "tui": "fullscreen",
-  "verbose": false,
   "preferredNotifChannel": "terminal_bell"
 }
