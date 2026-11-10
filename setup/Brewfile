@@ -19,7 +19,7 @@ brew "zoxide"
 
 cask "calibre"
 cask "claude"
-cask "claude-code@latest"
+cask "claude-code"
 cask "cold-turkey-blocker"
 cask "firefox"
 cask "flux-app"
