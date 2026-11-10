@@ -295,6 +295,7 @@ files=(
     "config/ripgrep"
     "config/rsync"
     "config/terminal-browser"
+    "config/tinycast"
     "config/yt-dlp"
 )
 for x in "${files[@]}"; do
