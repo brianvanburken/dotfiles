@@ -13,7 +13,7 @@
     "theme": "system",
     "animations": true,
     "interfaceSize": "standard",
-    "compactMode": true,
+    "compactMode": false,
     "compactBarCommands": [],
     "followCursorAcrossDisplays": true,
     "dragToReposition": false
@@ -80,6 +80,11 @@
         "showInLauncher": false
       },
       "com.apple.DeskCam": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
+      "com.apple.Dictionary": {
         "shortcut": null,
         "alias": null,
         "showInLauncher": false
@@ -329,6 +334,11 @@
         "alias": null,
         "showInLauncher": false
       },
+      "com.apple.keychainaccess": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
       "com.apple.mail": {
         "shortcut": null,
         "alias": null,
@@ -350,6 +360,11 @@
         "showInLauncher": false
       },
       "com.apple.printcenter": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
+      "com.apple.reminders": {
         "shortcut": null,
         "alias": null,
         "showInLauncher": false
@@ -384,6 +399,11 @@
         "alias": null,
         "showInLauncher": false
       },
+      "com.backblaze.Backblaze": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
       "com.backblaze.BackblazeRestore": {
         "shortcut": null,
         "alias": null,
@@ -404,12 +424,22 @@
         "alias": null,
         "showInLauncher": false
       },
+      "com.synology.CloudStation": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
       "com.tinycast.app": {
         "shortcut": null,
         "alias": null,
         "showInLauncher": false
       },
       "com.vincent-neo.Avenue": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
+      "jp.plentycom.app.SteerMouse": {
         "shortcut": null,
         "alias": null,
         "showInLauncher": false
