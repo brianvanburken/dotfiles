@@ -4,14 +4,6 @@ for fname, _ in vim.fs.dir(lsp_path) do
     lsps[#lsps + 1] = fname:match("^([^/]+)%.lua$")
 end
 
-vim.diagnostic.config({
-    virtual_text = false,
-    float = {
-        border = "rounded",
-        source = "if_many",
-    },
-})
-
 vim.api.nvim_create_autocmd("CursorHold", {
     group = vim.api.nvim_create_augroup("UserDiagnostics", { clear = true }),
     callback = function()
@@ -25,6 +17,13 @@ vim.api.nvim_create_autocmd("FileType", {
     once = true,
     callback = function()
         vim.schedule(function()
+            vim.diagnostic.config({
+                virtual_text = false,
+                float = {
+                    border = "rounded",
+                    source = "if_many",
+                },
+            })
             vim.lsp.enable(lsps)
         end)
     end,
