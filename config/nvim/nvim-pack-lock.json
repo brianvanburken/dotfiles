@@ -1,7 +1,7 @@
 {
   "plugins": {
     "fff": {
-      "rev": "5d95b054804577b24790673387a00ca71f5a355e",
+      "rev": "924cb4d758f09bb54654555b0c9440bacd1f97f0",
       "src": "https://github.com/dmtrKovalenko/fff"
     },
     "flash.nvim": {
@@ -9,7 +9,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "lsp-progress.nvim": {
-      "rev": "f6d5af10563b895ff846346f57cbd4451439f4c1",
+      "rev": "b77b6ce147b3fcf4e851f0f9ecc3d42e9fd86bf8",
       "src": "https://github.com/linrongbin16/lsp-progress.nvim"
     },
     "mason.nvim": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-treesitter": {
-      "rev": "19bdfc04f40ed2ccb3340591d125f759b0406875",
+      "rev": "60c0f468de3e636fa660a419d537e8033aca4e39",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "vim-startuptime": {
