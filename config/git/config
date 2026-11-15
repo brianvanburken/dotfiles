@@ -2,9 +2,6 @@
 [credential]
 	helper = osxkeychain
 
-[color]
-	ui = true
-
 [push]
 	autoSetupRemote = true
 	followTags = true
@@ -16,14 +13,8 @@
 	gpgsign = true
 
 [core]
-	excludesfile = ~/.config/git/ignore
-	attributesfile = ~/.config/git/attributes
 	hooksPath = ~/.config/git/hooks/
-	compression = 0
-	preloadindex = true
-	fsmonitor = true
-	untrackedCache = true
-	# Don't consider trailing space or EOL changes as a cause for merge conflicts
+	# Don't flag trailing whitespace or CR at EOL as whitespace errors in diffs
 	whitespace = -trailing-space,cr-at-eol
 	pager = delta
 
@@ -33,7 +24,6 @@
 [alias]
 	lastchange = log -p -n 1
 	trim = !git remote prune origin && git gc
-	tag = tag -s
 
 [rebase]
 	autoStash = true
@@ -54,8 +44,6 @@
 	abbrevCommit = true
 
 [status]
-	# Recursively traverse untracked directories to display all contents
-	showUntrackedFiles = normal
 	branch = true
 	showStash = true
 
@@ -98,16 +86,16 @@
 
 [diff]
 	colorMoved = plain
-	context = 3
 	interHunkContext = 10
 	algorithm = histogram
 	mnemonicPrefix = true
-	renames = true
+
+[rerere]
+	enabled = true
 
 [fetch]
 	parallel = 0
 	prune = true
-	pruneTags = true
 	all = true
 
 [feature]
