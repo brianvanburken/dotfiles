@@ -6,7 +6,7 @@ NORMAL="$(tput sgr0)"
 
 # Exit early on merge/revert commit messages
 if head -1 "$1" | grep -qE "^(Merge) .{1,}$"; then
-    exit 0
+    exec "$(dirname "$0")/run-repository-hook" commit-msg "$@"
 fi
 
 if ! head -1 "$1" | grep -qE "^(feat|fix|chore|docs|test|style|refactor|perf|build|ci|revert)(\(.+?\))?: .{1,}$"; then
@@ -18,4 +18,5 @@ if ! head -1 "$1" | grep -qE "^.{1,72}$"; then
     echo "$RED ERROR $NORMAL Commit message is too long, max 72 characters." >&2
     exit 1
 fi
-exit 0
+
+exec "$(dirname "$0")/run-repository-hook" commit-msg "$@"

@@ -1,0 +1,15 @@
+#!/bin/sh
+# Usage: run-repository-hook <hook-name> [hook arguments...]
+#
+# core.hooksPath replaces .git/hooks entirely rather than adding to it, so
+# setting it globally silently disables every repository's own hooks. The
+# global hooks call this so per-project hooks still apply.
+# --git-path would resolve through core.hooksPath and find the global hook again.
+hook_name="$1"
+shift
+
+repository_hook="$(git rev-parse --git-common-dir)/hooks/$hook_name"
+
+[ -x "$repository_hook" ] || exit 0
+
+exec "$repository_hook" "$@"
