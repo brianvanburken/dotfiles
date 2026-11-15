@@ -394,6 +394,11 @@
         "alias": "preferences",
         "showInLauncher": true
       },
+      "com.apple.weather": {
+        "shortcut": null,
+        "alias": "weer",
+        "showInLauncher": true
+      },
       "com.apple.wifi.diagnostics": {
         "shortcut": null,
         "alias": null,
