@@ -2,7 +2,7 @@
   "general": {
     "launcherShortcut": "cmd+space",
     "showInMenuBar": false,
-    "automaticallyCheckForUpdates": true,
+    "automaticallyCheckForUpdates": false,
     "popToRootSeconds": 0,
     "escapeKeyBehavior": "navigateBackOrClose",
     "autoSwitchInputSource": null,
