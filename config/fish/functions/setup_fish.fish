@@ -68,6 +68,9 @@ function setup_fish -d "Setup variables for Fish"
     set -Ux RUSTUP_HOME "$XDG_DATA_HOME/rustup"
     fish_add_path "$CARGO_HOME/bin"
 
+    # Claude Code
+    set -Ux CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
+
     # Gitleaks
     set -Ux GITLEAKS_CONFIG "$XDG_CONFIG_HOME/gitleaks/config.toml"
 

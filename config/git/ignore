@@ -26,3 +26,5 @@ CLAUDE.local.md
 # Mise
 mise.local.toml
 mise.local.lock
+
+**/.claude/settings.local.json

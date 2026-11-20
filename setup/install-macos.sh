@@ -285,6 +285,7 @@ action "Linking dotfiles in ${HOME} to ${DOT_DIR}"
 mkdir -p "${HOME}/.config"
 files=(
     "config/aube"
+    "config/claude"
     "config/fish"
     "config/ghostty"
     "config/git"
@@ -308,15 +309,6 @@ for x in "${files[@]}"; do
         ok "${HOME}/.${x} is already linked"
     fi
 done
-
-if [ ! -h "${HOME}/.claude" ]; then
-    action "Linking ${HOME}/.claude"
-    rm -rf "${HOME}/.claude"
-    ln -s "${DOT_DIR}/config/claude" "${HOME}/.claude"
-    ok "${HOME}/.claude has been linked"
-else
-    ok "${HOME}/.claude is already linked"
-fi
 
 # Prolong sudo
 cached_sudo
