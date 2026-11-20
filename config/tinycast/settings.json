@@ -11,7 +11,7 @@
   },
   "appearance": {
     "theme": "system",
-    "animations": true,
+    "animations": false,
     "interfaceSize": "standard",
     "compactMode": false,
     "compactBarCommands": [],
