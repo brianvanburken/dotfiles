@@ -14,6 +14,7 @@
 - DO NOT overengineer.
 - Follow YAGNI and KISS. Prefer the simplest working solution.
 - MUST prefer clear naming and small functions over comments.
+- Put units in names of functions and variables, e.g. sleepInMilliseconds
 
 ## Scope control
 
