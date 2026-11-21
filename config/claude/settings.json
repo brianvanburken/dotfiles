@@ -43,6 +43,6 @@
   "spinnerTipsEnabled": false,
   "autoUpdatesChannel": "stable",
   "tui": "fullscreen",
-  "preferredNotifChannel": "terminal_bell",
-  "theme": "auto"
+  "theme": "auto",
+  "preferredNotifChannel": "terminal_bell"
 }
