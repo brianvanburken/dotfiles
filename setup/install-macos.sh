@@ -210,10 +210,15 @@ if [[ "$APPLE_COMPUTER_TYPE" =~ "MacBook" ]]; then
         ok "Power Nap is disabled"
     fi
 
-    filevault_destroykeysonstandby=$(pmset -g | awk '/DestroyFVKeyOnStandby/ {print $2}' || echo 1)
-    hibernatemode=$(pmset -g | awk '/hibernatemode/ {print $2}' || echo "25")
-    standbymode=$(pmset -g | awk '/standby / {print $2}' || echo "1")
-    autopoweroff=$(pmset -g | awk '/autopoweroff / {print $2}' || echo "1")
+    # Keys missing on Apple Silicon yield empty output, so default to the desired value
+    filevault_destroykeysonstandby=$(pmset -g | awk '/DestroyFVKeyOnStandby/ {print $2}')
+    filevault_destroykeysonstandby="${filevault_destroykeysonstandby:-0}"
+    hibernatemode=$(pmset -g | awk '/hibernatemode/ {print $2}')
+    hibernatemode="${hibernatemode:-3}"
+    standbymode=$(pmset -g | awk '/standby / {print $2}')
+    standbymode="${standbymode:-1}"
+    autopoweroff=$(pmset -g | awk '/autopoweroff / {print $2}')
+    autopoweroff="${autopoweroff:-0}"
     #standbydelay=$(pmset -g | awk '/standbydelay/ {print $2}' || echo "86400")
     if pmset -g batt | grep Battery &> /dev/null; then
         if [[ ${filevault_destroykeysonstandby} -eq 1 || ${hibernatemode} -eq 25 || ${standbymode} -eq 0 || ${autopoweroff} -eq 1 ]]; then
