@@ -332,7 +332,7 @@ fi
 cached_sudo
 
 action "Installing NeoVim plugins"
-nvim --headless "+packloadall" "+qall"
+nvim --headless "+qall"
 ok "Installed NeoVim plugins"
 
 # Prolong sudo
