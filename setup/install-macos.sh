@@ -410,7 +410,7 @@ defaults write com.apple.dock static-only -bool true
 defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Hide Desktop icons
-defaults write com.apple.finder CreateDesktop false
+defaults write com.apple.finder CreateDesktop -bool false
 
 # Default screenshot location to $HOME/Downloads
 defaults write com.apple.screencapture location "${HOME}/Downloads"
