@@ -325,7 +325,7 @@ if [[ -x "$(command -v mise)" ]]; then
     mise install
     ok "Mise versions installed"
 else
-    error "Mise plugin manager not found"
+    warning "Mise not found, skipping tool installation"
 fi
 
 # Prolong sudo
