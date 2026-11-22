@@ -320,13 +320,13 @@ if [[ -x "$(command -v fish)" ]]; then
 
     action "Setting up fish"
     fish -i -c 'setup_fish; exit;'
+
+    action "Creating local fish file"
+    touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
     ok "Fish is now the default"
 else
     warning "Fish shell not found, skipping setup"
 fi
-
-action "Creating local fish file"
-touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
 
 # Prolong sudo
 cached_sudo
