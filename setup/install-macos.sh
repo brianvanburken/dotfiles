@@ -37,7 +37,7 @@ readonly OS_VERSION
 readonly SUPPORTED_MACOS_VERSIONS=("15" "26" "27")
 
 # Determine Mac model
-APPLE_COMPUTER_TYPE="$(sysctl hw.model | awk '{print $2}')"
+APPLE_COMPUTER_TYPE="$(system_profiler SPHardwareDataType | awk -F': ' '/Model Name/ {print $2}')"
 readonly APPLE_COMPUTER_TYPE
 
 # ANSI color codes
