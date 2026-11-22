@@ -323,12 +323,20 @@ if [[ ! -x /nix/var/nix/profiles/default/bin/nix ]]; then
     action "Installing Nix"
     curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-confirm
     ok "Nix installed"
+else
+    ok "Nix binary found."
 fi
 source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
+# Prolong sudo
+cached_sudo
 
 action "Installing direnv and nix-direnv"
 nix profile add nixpkgs#direnv nixpkgs#nix-direnv
 ok "direnv and nix-direnv installed"
+
+# Prolong sudo
+cached_sudo
 
 if [[ -x "$(command -v mise)" ]]; then
     eval "$(mise activate zsh)"
