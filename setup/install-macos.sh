@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -e
 set -o pipefail
@@ -82,7 +82,7 @@ cached_sudo() {
         input "We will need admin permissions for the next steps. Please enter your password and press <ENTER>"
         sudo -v
     fi
-    if [[ -n "${@}" ]]; then
+    if (( $# > 0 )); then
         sudo "${@}"
     fi
 }
@@ -105,11 +105,7 @@ if [[ "$(uname)" != "Darwin" ]]; then
 fi
 
 OS_MAJOR_VERSION="$(echo "$OS_VERSION" | cut -f 1,1 -d '.')"
-# Stylewise the value we want to test should be on the left side. But checking
-# for a value in an array does not work with the value on the left side. Other
-# possibilities (looping over the array) are harder to read. Thus we decided to
-# keep the value on the right hand side.
-if [[ ! "${SUPPORTED_MACOS_VERSIONS[@]}" =~ "$OS_MAJOR_VERSION" ]]; then
+if (( ! ${SUPPORTED_MACOS_VERSIONS[(Ie)$OS_MAJOR_VERSION]} )); then
     error "You are running an unsupported version of macOS (${OS_MAJOR_VERSION})."
     error "Upgrade first and re-run this script."
     cleanup_and_exit 1
@@ -342,7 +338,7 @@ touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
 cached_sudo
 
 if [[ -x "$(command -v mise)" ]]; then
-    eval "$(mise activate bash)"
+    eval "$(mise activate zsh)"
     action "Installing mise plugins and versions"
     mise install
     ok "Mise versions installed"
@@ -475,9 +471,6 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
-# Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Set dock to left of screen
 defaults write com.apple.dock orientation -string "left"
