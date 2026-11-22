@@ -261,14 +261,8 @@ mkdir -p "${DEV_DIR}/work"
 if [ ! -d "$DOT_DIR" ]; then
     action "Cloning configurations"
     git clone "https://github.com/${DOT_REPO}.git" "$DOT_DIR"
-    cd "$DOT_DIR"
-    git remote remove origin
-    git remote add origin "git@github.com:${DOT_REPO}.git"
-    git fetch --all
-    git branch -u origin/main main
-    git config --local user.name "Brian van Burken"
-    git config --local user.email "brianvanburken@users.noreply.github.com"
-    cd -
+    git -C "$DOT_DIR" config --local user.name "Brian van Burken"
+    git -C "$DOT_DIR" config --local user.email "brianvanburken@users.noreply.github.com"
     ok "Created configurations directory at ${DOT_DIR}"
 else
     ok "Dotfiles already present"
@@ -490,6 +484,11 @@ defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
 killall Dock Finder SystemUIServer 2>/dev/null || true
 
 ok "Done setting up macOS preferences"
+
+# Switch to SSH last: a fresh machine has no SSH key during install
+action "Switching dotfiles remote to SSH"
+git -C "$DOT_DIR" remote set-url origin "git@github.com:${DOT_REPO}.git"
+notice "Restore ~/.ssh/id_ed25519 and ~/.ssh/allowed_signers to push and sign commits"
 
 echo "🍺 Your MacBook is configured!"
 if [[ ${require_manual_actions} -eq 1 ]]; then
