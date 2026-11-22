@@ -87,35 +87,32 @@ cached_sudo() {
     fi
 }
 
-cleanup_and_exit() {
-    local exitcode="${1:-0}"
-    # Drop cached sudo credentials
+drop_sudo_credentials() {
     sudo -K
-    exit "$exitcode"
 }
 
 # Make sure we always cleanup whenever this script exits, no matter how it exits
-trap cleanup_and_exit EXIT
+trap drop_sudo_credentials EXIT
 
 action "Setting up macOS"
 
 if [[ "$(uname)" != "Darwin" ]]; then
     error "No, macOS setup does not work on non macOS machines.."
-    cleanup_and_exit 1
+    exit 1
 fi
 
 OS_MAJOR_VERSION="$(echo "$OS_VERSION" | cut -f 1,1 -d '.')"
 if (( ! ${SUPPORTED_MACOS_VERSIONS[(Ie)$OS_MAJOR_VERSION]} )); then
     error "You are running an unsupported version of macOS (${OS_MAJOR_VERSION})."
     error "Upgrade first and re-run this script."
-    cleanup_and_exit 1
+    exit 1
 fi
 
 if [[ ! -d "$(xcode-select -p)" ]]; then
     action "Installing command line tools (without XCode)"
     xcode-select --install
     ok "Installing command line tools done. Rerun this script to install everything else."
-    cleanup_and_exit
+    exit 0
 else
     ok "Command line tools are installed."
 fi
@@ -485,4 +482,4 @@ if [[ ${require_manual_actions} -eq 1 ]]; then
 fi
 echo "🍿 Your MacBook may also need to reboot to apply the final changes."
 
-cleanup_and_exit
+exit 0
