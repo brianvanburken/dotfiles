@@ -151,7 +151,7 @@ ok "Installing software done."
 cached_sudo
 
 softwareupdates="$(softwareupdate -l 2> /dev/null)"
-if [[ "$softwareupdates" =~ "recommended" ]]; then
+if [[ "$softwareupdates" =~ "Recommended: YES" ]]; then
     warning "There are recommended OS updates, please install them and re-run this script."
     require_manual_actions=1
     echo "$softwareupdates"
