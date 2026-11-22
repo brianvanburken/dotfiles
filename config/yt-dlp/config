@@ -7,12 +7,13 @@
 --extractor-args "youtube:player-client=default,-tv_simply"
 --format "bestvideo+bestaudio"
 --format-sort res:1440
+--impersonate Chrome-152
 --no-playlist
 --output "%(channel)s/%(title).100B [%(id).50B].%(ext)s"
 --path ~/Downloads/Videos/
 --restrict-filenames
 --retries 3
---sub-langs en
+--sub-langs "en.*,-en"
 --trim-filenames 200
 --write-auto-subs
 --write-subs
