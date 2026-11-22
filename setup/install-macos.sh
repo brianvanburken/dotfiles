@@ -246,18 +246,11 @@ fi
 # Prolong sudo
 cached_sudo
 
-if [[ ! -d "${HOME}/.ssh" ]]; then
-    action "Creating ssh directory and setting permissions"
-    mkdir -p "${HOME}/.ssh"
-    chmod 700 "${HOME}/.ssh"
-elif [[ "$(stat -f "%A" "${HOME}/.ssh")" != "700" ]]; then
-    action "Setting secure permissions for ssh directory"
-    chmod 700 "${HOME}/.ssh"
-    find "${HOME}/.ssh" -type f -exec chmod 600 {} \;
-    find "${HOME}/.ssh" -type d -exec chmod 700 {} \;
-else
-    ok "Permissions for ssh directory are secure"
-fi
+action "Setting secure permissions for ssh directory"
+mkdir -p "${HOME}/.ssh"
+find "${HOME}/.ssh" -type d -exec chmod 700 {} +
+find "${HOME}/.ssh" -type f -exec chmod 600 {} +
+ok "Permissions for ssh directory are secure"
 
 # Prolong sudo
 cached_sudo
