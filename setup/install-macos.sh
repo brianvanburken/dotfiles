@@ -218,7 +218,6 @@ if [[ "$APPLE_COMPUTER_TYPE" =~ "MacBook" ]]; then
     standbymode="${standbymode:-1}"
     autopoweroff=$(pmset -g | awk '/autopoweroff / {print $2}')
     autopoweroff="${autopoweroff:-0}"
-    #standbydelay=$(pmset -g | awk '/standbydelay/ {print $2}' || echo "86400")
     if pmset -g batt | grep Battery &> /dev/null; then
         if [[ ${filevault_destroykeysonstandby} -eq 1 || ${hibernatemode} -eq 25 || ${standbymode} -eq 0 || ${autopoweroff} -eq 1 ]]; then
             action "Reverting to default sleep behavior to address stability issues with Secure Deep Sleep"
