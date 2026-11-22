@@ -276,23 +276,9 @@ cached_sudo
 
 action "Linking dotfiles in ${HOME} to ${DOT_DIR}"
 mkdir -p "${HOME}/.config"
-files=(
-    "config/aube"
-    "config/claude"
-    "config/fish"
-    "config/ghostty"
-    "config/git"
-    "config/gitleaks"
-    "config/mise"
-    "config/mole"
-    "config/nvim"
-    "config/ripgrep"
-    "config/rsync"
-    "config/terminal-browser"
-    "config/tinycast"
-    "config/yt-dlp"
-)
-for x in "${files[@]}"; do
+config_names=("${DOT_DIR}"/config/*(/:t))
+for name in "${config_names[@]}"; do
+    x="config/${name}"
     if [ ! -h "${HOME}/.${x}" ]; then
         action "Linking ${HOME}/.${x}"
         rm -rf "${HOME}/.${x}"
