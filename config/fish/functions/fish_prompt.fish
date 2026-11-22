@@ -11,6 +11,11 @@ function fish_prompt
         echo -n '(m)'
     end
 
+    if set -q DIRENV_DIR
+        set_color normal
+        echo -n '(d)'
+    end
+
     if test $last_status -ne 0
         set_color --bold red
     else

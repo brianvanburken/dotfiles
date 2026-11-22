@@ -14,6 +14,11 @@
 # Ignore direnv/env files
 .env
 .envrc
+.direnv/
+
+# Mise (remove once every project is migrated to Nix)
+mise.local.toml
+mise.local.lock
 
 # AI tools
 CLAUDE.local.md
@@ -22,9 +27,5 @@ CLAUDE.local.md
 !.claude/agents/
 !.claude/hooks/
 !.claude/commands/
-
-# Mise
-mise.local.toml
-mise.local.lock
 
 **/.claude/settings.local.json

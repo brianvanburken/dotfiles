@@ -319,6 +319,17 @@ fi
 # Prolong sudo
 cached_sudo
 
+if [[ ! -x /nix/var/nix/profiles/default/bin/nix ]]; then
+    action "Installing Nix"
+    curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-confirm
+    ok "Nix installed"
+fi
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
+action "Installing direnv and nix-direnv"
+nix profile add nixpkgs#direnv nixpkgs#nix-direnv
+ok "direnv and nix-direnv installed"
+
 if [[ -x "$(command -v mise)" ]]; then
     eval "$(mise activate zsh)"
     action "Installing mise plugins and versions"

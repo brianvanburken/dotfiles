@@ -7,6 +7,11 @@ function __load_mise_on_first_command --on-event fish_preexec
     load_mise
 end
 
+function __load_direnv_on_first_command --on-event fish_preexec
+    functions -e __load_direnv_on_first_command
+    load_direnv
+end
+
 # Shortkeys to make live easier
 # NeoVim/Vim/VSCode
 abbr -a e nvim
