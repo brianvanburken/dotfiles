@@ -193,6 +193,15 @@ else
     ok "Filevault is enabled"
 fi
 
+# AutoBackup is absent when Time Machine was never configured
+time_machine_auto_backup=$(defaults read /Library/Preferences/com.apple.TimeMachine AutoBackup 2> /dev/null || echo 0)
+if [[ ${time_machine_auto_backup} -eq 1 ]]; then
+    action "Disabling Time Machine"
+    cached_sudo tmutil disable
+else
+    ok "Time Machine is disabled"
+fi
+
 # Prolong sudo
 cached_sudo
 
