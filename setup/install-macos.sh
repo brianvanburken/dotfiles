@@ -142,7 +142,6 @@ ok "Ready to brew"
 cached_sudo
 
 action "Installing some very nice apps and tools..."
-cached_sudo
 readonly brew_file="setup/Brewfile"
 if [[ -f "${DOT_DIR}/${brew_file}" ]]; then
     brew bundle --file="${DOT_DIR}/${brew_file}"
