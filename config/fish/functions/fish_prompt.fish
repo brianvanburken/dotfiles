@@ -6,14 +6,13 @@ function fish_prompt
     set_color --bold
     echo -n (path basename $PWD)
 
-    if set -q __MISE_SESSION
-        set_color normal
-        echo -n '(m)'
-    end
+    set -l environment_markers
+    set -q __MISE_SESSION; and set -a environment_markers m
+    set -q DIRENV_DIR; and set -a environment_markers n
 
-    if set -q DIRENV_DIR
+    if set -q environment_markers[1]
         set_color normal
-        echo -n '(d)'
+        echo -n '('(string join '' $environment_markers)')'
     end
 
     if test $last_status -ne 0
