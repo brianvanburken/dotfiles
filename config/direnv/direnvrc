@@ -1,1 +1,4 @@
+NIX_DIRENV_SKIP_VERSION_CHECK=1
 source "$HOME/.nix-profile/share/nix-direnv/direnvrc"
+log_status() { :; }
+_nix_direnv_warning() { log_error "nix-direnv: $*"; }
