@@ -15,6 +15,7 @@
       darwinConfigurations.mac = nix-darwin.lib.darwinSystem {
         modules = [
           home-manager.darwinModules.home-manager
+          ./nix/macos.nix
           (
             { pkgs, ... }:
             let

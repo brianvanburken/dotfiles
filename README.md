@@ -16,7 +16,7 @@ To install on macOS:
 3. Move macOS preferences to nix-darwin. Keep unported GUI apps in Homebrew
    casks or install them through their vendors before removing Homebrew.
 
-### Build the first CLI generation
+### Build the macOS generation
 
 With Determinate Nix installed, build from the repository root:
 
@@ -51,3 +51,14 @@ macOS account. After the switch, select it with
 comes from `/run/current-system/sw/bin`, then enter a direnv project and a mise
 project to verify lazy activation.
 Keep Homebrew installed until the Nix tools and terminal setup are verified.
+
+### macOS preferences and GUI apps
+
+`nix/macos.nix` manages the user preferences from the legacy setup script and
+the casks from `setup/Brewfile`. A switch requires Homebrew and can install
+missing casks. It does not upgrade or remove existing Homebrew packages.
+The legacy bootstrap remains available as a fallback.
+
+To remove Homebrew later, migrate the remaining formulae and replace the casks
+with vendor or App Store installs, then disable `homebrew.enable` and verify a
+switch before uninstalling Homebrew.
