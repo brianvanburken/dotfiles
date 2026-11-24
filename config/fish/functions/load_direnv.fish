@@ -15,19 +15,21 @@ function __load_direnv_hook
         printf '%s\n' 'load_direnv: direnv not found' >&2
         return 127
     end
-    set direnv_path (path resolve -- "$direnv_path")
+    set -l direnv_target (path resolve -- "$direnv_path")
     or return
 
     set -l cache_dir "$HOME/.cache/direnv"
     if string match -q '/*' -- "$XDG_CACHE_HOME"
         set cache_dir "$XDG_CACHE_HOME/direnv"
     end
-    set -l cache_file "$cache_dir/"(string escape --style=var -- "$direnv_path")".fish"
-    if test -s "$cache_file"; and not test "$direnv_path" -nt "$cache_file"
+    set cache_dir "$cache_dir/"(string escape --style=var -- "$direnv_path")
+    set -l cache_file "$cache_dir/"(string escape --style=var -- "$direnv_target")".fish"
+    if test -s "$cache_file"; and not test "$direnv_target" -nt "$cache_file"
         source "$cache_file"
         return
     end
 
+    # Keep the profile symlink in the generated hook so it survives upgrades.
     set -l hook "$(command "$direnv_path" hook fish)"
     or return
     if test -z "$hook"
