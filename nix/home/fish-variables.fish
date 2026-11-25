@@ -47,16 +47,6 @@ set -Ux NPM_CONFIG_FUND false
 # Elm
 set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
 
-# Ruby
-set -Ux GEMRC "$XDG_CONFIG_HOME/gem/config.yml"
-set -Ux GEM_HOME "$XDG_DATA_HOME/gem"
-set -Ux GEM_SPEC_CACHE "$GEM_HOME/specs"
-set -Ux IRBRC "$XDG_CONFIG_HOME/irb/config"
-set -Ux BUNDLE_USER_HOME "$XDG_CONFIG_HOME/bundler"
-set -Ux BUNDLE_USER_CONFIG "$BUNDLE_USER_HOME/config.yml"
-set -Ux BUNDLE_USER_CACHE "$XDG_CACHE_HOME/bundler"
-set -Ux BUNDLE_USER_PLUGIN "$XDG_DATA_HOME/bundler"
-
 # Rust
 set -Ux CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -Ux RUSTUP_HOME "$XDG_DATA_HOME/rustup"

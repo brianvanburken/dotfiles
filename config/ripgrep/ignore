@@ -2,7 +2,6 @@
 *.bak
 *.beam
 *.bmp
-*.gemtags*
 *.gif
 *.gz
 *.jar
