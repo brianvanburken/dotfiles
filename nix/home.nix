@@ -4,7 +4,7 @@ let
   dotfiles = ../config;
   dotfilesCheckout = "${config.home.homeDirectory}/Developer/personal/dotfiles/config";
   directories = lib.filterAttrs (_: type: type == "directory") (builtins.readDir dotfiles);
-  appWrittenDirectories = [ "terminal-browser" "tinycast" ];
+  appWrittenDirectories = [ "tinycast" ];
 
   linkFromStore = name: {
     source = dotfiles + "/${name}";
@@ -44,6 +44,15 @@ in
     name: _: if lib.elem name appWrittenDirectories then linkFromCheckout name else linkFromStore name
   ) directories // {
     "fish/fish_variables".source = fishVariables;
+
+    # Read-only: changes made from inside terminal-browser are lost on the next switch
+    "terminal-browser/settings.json".source = (pkgs.formats.json { }).generate "settings.json" {
+      "search.engine" = "https://www.ecosia.org/search?q=%s";
+      "search.suggestions" = "https://ac.ecosia.org/?q=%s";
+      "telemetry.usage" = "off";
+      "telemetry.crashReports" = "off";
+      "updates.check" = "off";
+    };
   };
 
   xdg.dataFile = lib.mapAttrs' (
