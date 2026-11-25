@@ -16,14 +16,30 @@
   };
 
   outputs =
-    { nix-darwin, home-manager, ... }@inputs:
     {
-      darwinConfigurations.mac = nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./nix/darwin
-        ];
-      };
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      inherit (nixpkgs) lib;
+      # Each file in nix/hosts is one machine, named after its LocalHostName
+      hostFiles = builtins.readDir ./nix/hosts;
+      hostNames = map (lib.removeSuffix ".nix") (builtins.attrNames hostFiles);
+
+      mkMac =
+        hostName:
+        nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./nix/darwin
+            ./nix/hosts/${hostName}.nix
+          ];
+        };
+    in
+    {
+      darwinConfigurations = lib.genAttrs hostNames mkMac;
     };
 }

@@ -10,7 +10,10 @@ makes Nix's Fish the login shell. It is safe to run again.
 
 ## Layout
 
-- `flake.nix`: inputs, and the `mac` nix-darwin configuration.
+- `flake.nix`: inputs, and one nix-darwin configuration per file in
+  `nix/hosts/`.
+- `nix/hosts/`: per-machine settings, one file per machine named after its
+  hostname (`scutil --get LocalHostName`). Every machine shares the rest.
 - `nix/darwin/`: nix-darwin, one module per context. `default.nix` names the
   account and wires up Home Manager; the rest cover CLI packages, Fish,
   macOS preferences and Touch ID, Homebrew, and the SSH agent.
@@ -18,8 +21,8 @@ makes Nix's Fish the login shell. It is safe to run again.
   `config/` into `~/.config`; the rest cover Claude Code, direnv, Fish
   universal variables, Neovim plugins, SSH and terminal-browser.
 
-Apply changes with `sudo darwin-rebuild switch --flake .#mac` from the
-repository root. Update the pinned inputs with `nix flake update`.
+Apply changes with `sudo darwin-rebuild switch --flake .` from the
+repository root; it picks the configuration matching the hostname. Update the pinned inputs with `nix flake update`.
 
 ## Configs
 

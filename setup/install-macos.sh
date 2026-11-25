@@ -258,6 +258,10 @@ if [[ -z "$machine_hostname" ]]; then
     exit 1
 fi
 readonly machine_name machine_hostname
+if [[ ! -f "${DOT_DIR}/nix/hosts/${machine_hostname}.nix" ]]; then
+    error "No configuration for this machine. Create ${DOT_DIR}/nix/hosts/${machine_hostname}.nix, git add it and re-run this script."
+    exit 1
+fi
 cached_sudo scutil --set ComputerName "$machine_name"
 cached_sudo scutil --set LocalHostName "$machine_hostname"
 cached_sudo scutil --set HostName "$machine_hostname"
@@ -293,7 +297,7 @@ source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 cached_sudo
 
 action "Activating the nix-darwin configuration"
-system_path="$(nix build --no-link --print-out-paths "${DOT_DIR}#darwinConfigurations.mac.config.system.build.toplevel")"
+system_path="$(nix build --no-link --print-out-paths "${DOT_DIR}#darwinConfigurations.${machine_hostname}.config.system.build.toplevel")"
 # nix-darwin refuses to replace /etc files it doesn't know, such as those the Nix installer edits
 etc_backup_dir="${HOME}/Downloads/backup_install_$(date +%Y-%m-%d)/etc"
 managed_etc_files=(${(f)"$(cd "${system_path}/etc" && find . \( -type f -o -type l \) | sed 's|^\./||')"})
@@ -304,7 +308,7 @@ for name in "${managed_etc_files[@]}"; do
         ok "Moved /etc/${name} to ${etc_backup_dir}/${name}"
     fi
 done
-cached_sudo "${system_path}/sw/bin/darwin-rebuild" switch --flake "${DOT_DIR}#mac"
+cached_sudo "${system_path}/sw/bin/darwin-rebuild" switch --flake "${DOT_DIR}#${machine_hostname}"
 export PATH="/run/current-system/sw/bin:${PATH}"
 killall Dock Finder SystemUIServer 2>/dev/null || true
 ok "System, dotfiles, casks and macOS preferences are configured"
