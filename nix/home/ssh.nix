@@ -7,9 +7,9 @@
     enable = true;
     enableDefaultConfig = false;
     includes = [ "${config.xdg.configHome}/colima/ssh_config" ];
-    matchBlocks."*" = {
-      addKeysToAgent = "yes";
-      extraOptions.UseKeychain = "yes";
+    settings."*" = {
+      AddKeysToAgent = "yes";
+      UseKeychain = "yes";
     };
   };
 }
