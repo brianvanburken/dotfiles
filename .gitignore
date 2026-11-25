@@ -1,8 +1,5 @@
 *.local
 
-# Homebrew
-Brewfile.lock.json
-
 # Claude
 config/claude/*
 !config/claude/settings.json

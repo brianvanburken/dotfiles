@@ -8,14 +8,8 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
-# Set Homebrew prefix
-case "$(uname -m)" in
-    arm64) export HOMEBREW_PREFIX="/opt/homebrew" ;;
-    *) export HOMEBREW_PREFIX="/usr/local" ;;
-esac
-
-# Force specific PATH
-export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH}"
+# The flake only targets Apple Silicon
+readonly HOMEBREW_PREFIX="/opt/homebrew"
 
 # Location where to store code
 export DEV_DIR="${DEV_DIR:=${HOME}/Developer}"
@@ -25,9 +19,6 @@ export DOT_DIR="${DOT_DIR:=${DEV_DIR}/personal/dotfiles}"
 
 # Name of dotfiles repo
 readonly DOT_REPO="brianvanburken/dotfiles"
-
-# Set the download URL
-readonly SOURCE_URL="${SOURCE_URL:=https://raw.githubusercontent.com/${DOT_REPO}/main/}"
 
 # Determine macOS version
 OS_VERSION="$(sw_vers -productVersion)"
@@ -96,8 +87,8 @@ trap drop_sudo_credentials EXIT
 
 action "Setting up macOS"
 
-if [[ "$(uname)" != "Darwin" ]]; then
-    error "No, macOS setup does not work on non macOS machines.."
+if [[ "$(uname)" != "Darwin" || "$(uname -m)" != "arm64" ]]; then
+    error "This setup only supports macOS on Apple Silicon."
     exit 1
 fi
 
@@ -120,7 +111,7 @@ fi
 # Get sudo credentials
 cached_sudo
 
-# Install Homebrew
+# nix-darwin manages the casks and formulae but needs Homebrew itself
 if [[ ! -r "${HOMEBREW_PREFIX}/bin/brew" ]]; then
     notice " Need to install Homebrew..."
     action "Installing Homebrew and required components. This may take some time... ☕️ "
@@ -130,22 +121,6 @@ if [[ ! -r "${HOMEBREW_PREFIX}/bin/brew" ]]; then
 else
     ok "Homebrew binary found."
 fi
-
-action "Checking if we can brew..."
-brew doctor > /dev/null || warning "brew doctor reported issues, continuing anyway"
-ok "Ready to brew"
-
-# After each install step, let's prolong our sudo credentials since some things may take a while
-cached_sudo
-
-action "Installing some very nice apps and tools..."
-readonly brew_file="setup/Brewfile"
-if [[ -f "${DOT_DIR}/${brew_file}" ]]; then
-    brew bundle --file="${DOT_DIR}/${brew_file}"
-else
-    curl -fsSL "${SOURCE_URL}${brew_file}" | brew bundle --file=-
-fi
-ok "Installing software done."
 
 # Reload sudo
 cached_sudo
@@ -273,20 +248,6 @@ fi
 # Prolong sudo
 cached_sudo
 
-# Home Manager would write through these links into the checkout
-action "Removing legacy links from ${HOME}/.config to ${DOT_DIR}"
-config_names=("${DOT_DIR}"/config/*(/:t))
-for name in "${config_names[@]}"; do
-    link="${HOME}/.config/${name}"
-    if [[ -h "$link" && "$(readlink "$link")" == "${DOT_DIR}/config/${name}"* ]]; then
-        rm "$link"
-        ok "Removed ${link}"
-    fi
-done
-
-# Prolong sudo
-cached_sudo
-
 if [[ ! -x /nix/var/nix/profiles/default/bin/nix ]]; then
     action "Installing Nix"
     curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-confirm
@@ -301,6 +262,15 @@ cached_sudo
 
 action "Activating the nix-darwin configuration"
 system_path="$(nix build --no-link --print-out-paths "${DOT_DIR}#darwinConfigurations.mac.config.system.build.toplevel")"
+# nix-darwin refuses to replace /etc files it doesn't know, such as those the Nix installer edits
+managed_etc_files=(${(f)"$(cd "${system_path}/etc" && find . \( -type f -o -type l \) | sed 's|^\./||')"})
+for name in "${managed_etc_files[@]}"; do
+    if [[ -f "/etc/${name}" && ! -h "/etc/${name}" ]]; then
+        cached_sudo mkdir -p "/tmp/etc/${name:h}"
+        cached_sudo mv "/etc/${name}" "/tmp/etc/${name}"
+        ok "Moved /etc/${name} to /tmp/etc/${name}"
+    fi
+done
 cached_sudo "${system_path}/sw/bin/darwin-rebuild" switch --flake "${DOT_DIR}#mac"
 export PATH="/run/current-system/sw/bin:${PATH}"
 killall Dock Finder SystemUIServer 2>/dev/null || true

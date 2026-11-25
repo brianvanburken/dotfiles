@@ -75,10 +75,15 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "none";
+    taps = [ "s-sigdel/tap" ];
+    brews = [
+      "mole"
+      "s-sigdel/tap/vimhjkl"
+    ];
     casks = [
       "calibre"
       "claude"
-      "claude-code"
+      "claude-code@latest"
       "cold-turkey-blocker"
       "firefox"
       "flux-app"
