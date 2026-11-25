@@ -14,6 +14,8 @@ let
   forceInstall = install_url: {
     installation_mode = "force_installed";
     inherit install_url;
+    # In the extensions panel, even when the extension asks for the toolbar
+    default_area = "menupanel";
   };
   # Applied on every start; changes made in Firefox last until it restarts
   applyOnEveryStart = value: {
@@ -112,7 +114,10 @@ in
   # Activation runs as root, so a bare domain would land in /var/root instead.
   system.defaults.CustomSystemPreferences."/Library/Preferences/org.mozilla.firefox" = {
     EnterprisePoliciesEnabled = true;
-    ExtensionSettings = lib.mapAttrs (_: forceInstall) extensionInstallUrls;
+    ExtensionSettings = lib.mapAttrs (_: forceInstall) extensionInstallUrls // {
+      # Extensions installed by hand; managed ones need it in their own entry
+      "*".default_area = "menupanel";
+    };
     Preferences = lib.mapAttrs (_: applyOnEveryStart) preferences;
 
     DisableTelemetry = true;
