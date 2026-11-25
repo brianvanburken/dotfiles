@@ -47,6 +47,6 @@ Neovim plugins come from nixpkgs and load with `packadd`.
 
 ## Homebrew
 
-A switch installs missing formulae and casks. It does not upgrade or remove
-Homebrew packages. To drop Homebrew, move the formulae to nixpkgs, replace the
+A switch installs missing formulae and casks, and zaps (uninstalls, with
+their app data) any not listed in the config. It does not upgrade them. To drop Homebrew, move the formulae to nixpkgs, replace the
 casks with vendor or App Store installs, and disable `homebrew.enable`.
