@@ -1,6 +1,6 @@
 # Universal variables baked into a read-only fish_variables by nix/home/fish.nix.
 # Usage: fish fish-variables.fish <home directory>
-# EDITOR, MISE_FISH_AUTO_ACTIVATE, XDG_CONFIG_DIRS, XDG_DATA_DIRS
+# EDITOR, VISUAL, MISE_FISH_AUTO_ACTIVATE, XDG_CONFIG_DIRS, XDG_DATA_DIRS
 # and, on brainbook, CLAUDE_CONFIG_DIR come from nix-darwin instead.
 set -l home $argv[1]
 
@@ -28,8 +28,6 @@ set -Ux XDG_CONFIG_HOME "$home/.config"
 set -Ux XDG_CACHE_HOME "$home/.cache"
 set -Ux XDG_DATA_HOME "$home/.local/share"
 set -Ux XDG_STATE_HOME "$home/.local/state"
-
-set -Ux VISUAL nvim
 
 # Set XDG for tools
 # Less
