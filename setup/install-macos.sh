@@ -273,48 +273,16 @@ fi
 # Prolong sudo
 cached_sudo
 
-action "Linking dotfiles in ${HOME} to ${DOT_DIR}"
-mkdir -p "${HOME}/.config"
+# Home Manager would write through these links into the checkout
+action "Removing legacy links from ${HOME}/.config to ${DOT_DIR}"
 config_names=("${DOT_DIR}"/config/*(/:t))
 for name in "${config_names[@]}"; do
-    x="config/${name}"
-    if [ ! -h "${HOME}/.${x}" ]; then
-        action "Linking ${HOME}/.${x}"
-        rm -rf "${HOME}/.${x}"
-        ln -s "${DOT_DIR}/${x}" "${HOME}/.${x}"
-        ok "${HOME}/.${x} has been linked"
-    else
-        ok "${HOME}/.${x} is already linked"
+    link="${HOME}/.config/${name}"
+    if [[ -h "$link" && "$(readlink "$link")" == "${DOT_DIR}/config/${name}"* ]]; then
+        rm "$link"
+        ok "Removed ${link}"
     fi
 done
-
-# Prolong sudo
-cached_sudo
-
-if [[ -x "$(command -v fish)" ]]; then
-    action "Setting up fish as default shell"
-    readonly fish_command="$HOMEBREW_PREFIX/bin/fish"
-    readonly shell_file="/etc/shells"
-    if ! grep -q "$fish_command" "$shell_file"; then
-        action "Adding fish to allowed shells in $shell_file"
-        echo "$fish_command" | cached_sudo tee -a "$shell_file" > /dev/null
-    fi
-
-    action "Changing shell to fish"
-    current_shell=$(dscl . -read "/Users/$(whoami)" UserShell | awk '{print $2}')
-    if [[ "$current_shell" != "$fish_command" ]]; then
-        cached_sudo chsh -s "$fish_command" "$(whoami)"
-    fi
-
-    action "Setting up fish"
-    fish -i -c 'setup_fish; exit;'
-
-    action "Creating local fish file"
-    touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
-    ok "Fish is now the default"
-else
-    warning "Fish shell not found, skipping setup"
-fi
 
 # Prolong sudo
 cached_sudo
@@ -331,9 +299,29 @@ source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 # Prolong sudo
 cached_sudo
 
-action "Installing direnv and nix-direnv"
-nix profile add nixpkgs#direnv nixpkgs#nix-direnv
-ok "direnv and nix-direnv installed"
+action "Activating the nix-darwin configuration"
+system_path="$(nix build --no-link --print-out-paths "${DOT_DIR}#darwinConfigurations.mac.config.system.build.toplevel")"
+cached_sudo "${system_path}/sw/bin/darwin-rebuild" switch --flake "${DOT_DIR}#mac"
+export PATH="/run/current-system/sw/bin:${PATH}"
+killall Dock Finder SystemUIServer 2>/dev/null || true
+ok "System, dotfiles, casks and macOS preferences are configured"
+
+# Prolong sudo
+cached_sudo
+
+action "Setting up fish as default shell"
+readonly fish_command="/run/current-system/sw/bin/fish"
+current_shell=$(dscl . -read "/Users/$(whoami)" UserShell | awk '{print $2}')
+if [[ "$current_shell" != "$fish_command" ]]; then
+    cached_sudo chsh -s "$fish_command" "$(whoami)"
+fi
+
+action "Setting up fish"
+"$fish_command" -i -c 'setup_fish; exit;'
+
+action "Creating local fish file"
+touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
+ok "Fish is now the default"
 
 # Prolong sudo
 cached_sudo
@@ -346,151 +334,6 @@ if [[ -x "$(command -v mise)" ]]; then
 else
     warning "Mise not found, skipping tool installation"
 fi
-
-# Prolong sudo
-cached_sudo
-
-action "Installing NeoVim plugins"
-nvim --headless "+qall"
-ok "Installed NeoVim plugins"
-
-# Prolong sudo
-cached_sudo
-
-action "Setting macOS preferences"
-
-# Set screensaver to start after x seconds
-defaults write com.apple.screensaver idleTime -int 300
-
-# Opening and closing windows and popovers
-defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
-
-# Smooth scrolling
-defaults write -g NSScrollAnimationEnabled -bool false
-
-# Showing and hiding sheets, resizing preference windows, zooming windows
-# float 0 doesn't work
-defaults write -g NSWindowResizeTime -float 0.001
-
-# Opening and closing Quick Look windows
-defaults write -g QLPanelAnimationDuration -float 0
-
-# Rubberband scrolling (doesn't affect web views)
-defaults write -g NSScrollViewRubberbanding -bool false
-
-# Resizing windows before and after showing the version browser
-# also disabled by NSWindowResizeTime -float 0.001
-defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
-
-# Showing a toolbar or menu bar in full screen
-defaults write -g NSToolbarFullScreenAnimationDuration -float 0
-
-# Scrolling column views
-defaults write -g NSBrowserColumnAnimationSpeedMultiplier -float 0
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
-
-# Showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
-defaults write com.apple.dock autohide-delay -float 0
-
-# Showing and hiding Mission Control, command+numbers
-defaults write com.apple.dock expose-animation-duration -float 0
-
-# Showing and hiding Launchpad
-defaults write com.apple.dock springboard-show-duration -float 0
-defaults write com.apple.dock springboard-hide-duration -float 0
-
-# Changing pages in Launchpad
-defaults write com.apple.dock springboard-page-duration -float 0
-
-# Only active applications in Dock
-defaults write com.apple.dock static-only -bool true
-
-# At least AnimateInfoPanes
-defaults write com.apple.finder DisableAllAnimations -bool true
-
-# Hide Desktop icons
-defaults write com.apple.finder CreateDesktop -bool false
-
-# Default screenshot location to $HOME/Downloads
-defaults write com.apple.screencapture location "${HOME}/Downloads"
-
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-# Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
-
-# Open and save files as UTF-8 in TextEdit
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-# Disable automatic capitalization as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable smart dashes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic period substitution as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable smart quotes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# Disable press-and-hold for keys in favor of key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-# Set a fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1         # Preferences lowest value = 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 10 # Preferences lowest value = 15
-
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-# Enable subpixel font rendering on non-Apple LCDs
-# Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
-defaults write NSGlobalDomain AppleFontSmoothing -int 1
-
-# Show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-# Keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool true
-
-# Disable the warning when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Enable spring loading for directories
-defaults write NSGlobalDomain com.apple.springing.enabled -bool true
-
-# Reduce the spring loading delay for directories
-defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
-
-# Use list view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
-# Set dock to left of screen
-defaults write com.apple.dock orientation -string "left"
-
-# Disable Apple Intelligence writing tools and on-device model downloads
-defaults write com.apple.AIWritingTools enabled -bool false
-
-# Suppress Passwords app first-launch prompt (1Password is used instead)
-defaults write com.apple.Passwords isFirstLaunch -bool false
-
-# Disable Stage Manager
-defaults write com.apple.WindowManager GloballyEnabled -bool false
-
-# No margins between tiled windows
-defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
-
-killall Dock Finder SystemUIServer 2>/dev/null || true
-
-ok "Done setting up macOS preferences"
 
 # Switch to SSH last: a fresh machine has no SSH key during install
 action "Switching dotfiles remote to SSH"
