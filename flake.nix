@@ -7,10 +7,25 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # Only for claude-code, the 26.05 release lags far behind
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    mattpocock-skills = {
+      url = "github:mattpocock/skills";
+      flake = false;
+    };
   };
 
   outputs =
-    { home-manager, nix-darwin, ... }:
+    {
+      home-manager,
+      nix-darwin,
+      nixpkgs-unstable,
+      mattpocock-skills,
+      ...
+    }:
+    let
+      allowClaudeCode = pkg: nixpkgs-unstable.lib.getName pkg == "claude-code";
+    in
     {
       darwinConfigurations.mac = nix-darwin.lib.darwinSystem {
         modules = [
@@ -23,6 +38,8 @@
             in
             {
               nixpkgs.hostPlatform = "aarch64-darwin";
+              # The home-manager wrapper around claude-code inherits its unfree license
+              nixpkgs.config.allowUnfreePredicate = allowClaudeCode;
               nix.enable = false;
               system.stateVersion = 7;
               system.primaryUser = username;
@@ -71,6 +88,16 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "pre-nix";
+                extraSpecialArgs = {
+                  inherit mattpocock-skills;
+                  inherit
+                    (import nixpkgs-unstable {
+                      system = "aarch64-darwin";
+                      config.allowUnfreePredicate = allowClaudeCode;
+                    })
+                    claude-code
+                    ;
+                };
                 users.${username} = import ./nix/home.nix;
               };
             }

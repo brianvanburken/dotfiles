@@ -83,7 +83,6 @@
     casks = [
       "calibre"
       "claude"
-      "claude-code@latest"
       "cold-turkey-blocker"
       "firefox"
       "flux-app"

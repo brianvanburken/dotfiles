@@ -22,8 +22,14 @@ repository root. Update the pinned inputs with `nix flake update`.
 ## Configs
 
 Most configs are linked file by file from the store, so edit them in this
-repository and switch. Configs that their apps write to (`claude`,
-`terminal-browser`, `tinycast`) link to this checkout instead.
+repository and switch. Configs that their apps write to (`terminal-browser`,
+`tinycast`) link to this checkout instead.
+
+Claude Code comes from `nix/claude.nix`: the binary from nixpkgs-unstable,
+a read-only `settings.json` and `CLAUDE.md`, and the mattpocock skills as a
+plugin. Changes made from inside Claude Code are lost on the next switch, so
+edit `nix/claude.nix` instead. Its runtime state (history, login, memory)
+stays in a real `~/.config/claude` directory.
 
 Universal variables come from `nix/fish-variables.fish` and land in a
 read-only `fish_variables`, so `set -U` fails. Change that file and switch

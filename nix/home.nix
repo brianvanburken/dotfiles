@@ -4,7 +4,7 @@ let
   dotfiles = ../config;
   dotfilesCheckout = "${config.home.homeDirectory}/Developer/personal/dotfiles/config";
   directories = lib.filterAttrs (_: type: type == "directory") (builtins.readDir dotfiles);
-  appWrittenDirectories = [ "claude" "terminal-browser" "tinycast" ];
+  appWrittenDirectories = [ "terminal-browser" "tinycast" ];
 
   linkFromStore = name: {
     source = dotfiles + "/${name}";
@@ -35,6 +35,8 @@ let
   };
 in
 {
+  imports = [ ./claude.nix ];
+
   home.stateVersion = "26.05";
 
   xdg.enable = true;

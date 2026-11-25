@@ -1,11 +1,5 @@
 *.local
 
-# Claude
-config/claude/*
-!config/claude/settings.json
-!config/claude/CLAUDE.md
-!config/claude/statusline-command.sh
-
 # Fish compiled files
 config.local.fish
 config/fish/completions/
