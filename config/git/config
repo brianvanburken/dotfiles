@@ -56,7 +56,10 @@
 	format = ssh
 
 [gpg "ssh"]
+	# Local only, setup/install-macos.sh writes it from GitHub's signing keys
 	allowedSignersFile = ~/.ssh/allowed_signers
+	# Sign with the first key in the agent, so no key path is configured
+	defaultKeyCommand = ssh-add -L
 
 [interactive]
 	diffFilter = delta --color-only

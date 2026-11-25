@@ -59,6 +59,15 @@
                 MISE_FISH_AUTO_ACTIVATE = "0";
               };
               security.pam.services.sudo_local.touchIdAuth = true;
+              # Git signs with the agent's key, so load it before the first SSH connection
+              launchd.user.agents.ssh-add.serviceConfig = {
+                ProgramArguments = [
+                  "/usr/bin/ssh-add"
+                  "-q"
+                  "--apple-load-keychain"
+                ];
+                RunAtLoad = true;
+              };
 
               environment.systemPackages = with pkgs; [
                 colima
