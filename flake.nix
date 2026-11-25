@@ -19,7 +19,7 @@
           (
             { pkgs, ... }:
             let
-              username = "brian.vanburken";
+              username = "brianvanburken";
             in
             {
               nixpkgs.hostPlatform = "aarch64-darwin";
@@ -31,15 +31,19 @@
 
               programs.fish = {
                 enable = true;
+                useBabelfish = true;
                 shellInit = ''
                   fish_add_path --global --move /run/current-system/sw/bin
                 '';
               };
               environment.shells = [ pkgs.fish ];
-              environment.variables.MISE_FISH_AUTO_ACTIVATE = "0";
+              environment.variables = {
+                EDITOR = "nvim";
+                MISE_FISH_AUTO_ACTIVATE = "0";
+              };
+              security.pam.services.sudo_local.touchIdAuth = true;
 
               environment.systemPackages = with pkgs; [
-                direnv
                 eza
                 fd
                 git
