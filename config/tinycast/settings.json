@@ -420,7 +420,7 @@
         "showInLauncher": false
       },
       "com.mitchellh.ghostty": {
-        "shortcut": null,
+        "shortcut": "option+cmd+t",
         "alias": "terminal",
         "showInLauncher": true
       },
@@ -453,6 +453,11 @@
         "shortcut": null,
         "alias": null,
         "showInLauncher": false
+      },
+      "org.mozilla.firefox": {
+        "shortcut": "option+cmd+f",
+        "alias": null,
+        "showInLauncher": true
       }
     }
   },

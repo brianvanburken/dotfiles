@@ -5,29 +5,23 @@ set -o pipefail
 
 # Set XDG config
 export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
+# Same as nix/home/fish-variables.fish, so rustup installs where fish looks
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 
-# Set Homebrew prefix
-case "$(uname -m)" in
-    arm64) export HOMEBREW_PREFIX="/opt/homebrew" ;;
-    *) export HOMEBREW_PREFIX="/usr/local" ;;
-esac
-
-# Force specific PATH
-export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${PATH}"
+# The flake only targets Apple Silicon
+readonly HOMEBREW_PREFIX="/opt/homebrew"
 
 # Location where to store code
-export DEV_DIR="${DEV_DIR:=${HOME}/Developer}"
+readonly DEV_DIR="${HOME}/Developer"
 
-# Location where to store configurations
-export DOT_DIR="${DOT_DIR:=${DEV_DIR}/personal/dotfiles}"
+# Location where to store configurations. Fixed, because nix/home/default.nix
+# links app-written configs to this checkout.
+readonly DOT_DIR="${DEV_DIR}/personal/dotfiles"
 
 # Name of dotfiles repo
 readonly DOT_REPO="brianvanburken/dotfiles"
-
-# Set the download URL
-readonly SOURCE_URL="${SOURCE_URL:=https://raw.githubusercontent.com/${DOT_REPO}/main/}"
 
 # Determine macOS version
 OS_VERSION="$(sw_vers -productVersion)"
@@ -76,12 +70,10 @@ error() {
 }
 
 cached_sudo() {
-    if sudo -n true &> /dev/null; then
-        sudo -v
-    else
+    if ! sudo -n true &> /dev/null; then
         input "We will need admin permissions for the next steps. Please enter your password and press <ENTER>"
-        sudo -v
     fi
+    sudo -v
     if (( $# > 0 )); then
         sudo "${@}"
     fi
@@ -96,8 +88,8 @@ trap drop_sudo_credentials EXIT
 
 action "Setting up macOS"
 
-if [[ "$(uname)" != "Darwin" ]]; then
-    error "No, macOS setup does not work on non macOS machines.."
+if [[ "$(uname)" != "Darwin" || "$(uname -m)" != "arm64" ]]; then
+    error "This setup only supports macOS on Apple Silicon."
     exit 1
 fi
 
@@ -120,35 +112,46 @@ fi
 # Get sudo credentials
 cached_sudo
 
-# Install Homebrew
+action "Creating special directories"
+mkdir -p "${DEV_DIR}/personal"
+mkdir -p "${DEV_DIR}/oss"
+mkdir -p "${DEV_DIR}/work"
+
+if [ ! -d "$DOT_DIR" ]; then
+    action "Cloning configurations"
+    git clone "https://github.com/${DOT_REPO}.git" "$DOT_DIR"
+    ok "Created configurations directory at ${DOT_DIR}"
+else
+    ok "Dotfiles already present"
+fi
+
+# Each nix/machines file is a profile named after the hostname it sets
+profiles=("${DOT_DIR}"/nix/machines/*.nix(N:t:r))
+if (( ${#profiles} == 0 )); then
+    error "No profiles found. Create ${DOT_DIR}/nix/machines/<hostname>.nix, git add it and re-run this script."
+    exit 1
+fi
+input "Pick the profile for this machine"
+PS3="> "
+select machine_hostname in "${profiles[@]}"; do
+    [[ -n "$machine_hostname" ]] && break
+done
+if [[ -z "$machine_hostname" ]]; then
+    error "No profile picked."
+    exit 1
+fi
+readonly machine_hostname
+ok "Using the ${machine_hostname} profile"
+
+# nix-darwin manages the casks and formulae but needs Homebrew itself
 if [[ ! -r "${HOMEBREW_PREFIX}/bin/brew" ]]; then
-    notice " Need to install Homebrew..."
-    action "Installing Homebrew and required components. This may take some time... ☕️ "
+    action "Installing Homebrew. This may take some time... ☕️"
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ok "Installing Homebrew done"
 else
     ok "Homebrew binary found."
 fi
-
-action "Checking if we can brew..."
-brew doctor > /dev/null || warning "brew doctor reported issues, continuing anyway"
-ok "Ready to brew"
-
-# After each install step, let's prolong our sudo credentials since some things may take a while
-cached_sudo
-
-action "Installing some very nice apps and tools..."
-readonly brew_file="setup/Brewfile"
-if [[ -f "${DOT_DIR}/${brew_file}" ]]; then
-    brew bundle --file="${DOT_DIR}/${brew_file}"
-else
-    curl -fsSL "${SOURCE_URL}${brew_file}" | brew bundle --file=-
-fi
-ok "Installing software done."
-
-# Reload sudo
-cached_sudo
 
 softwareupdates="$(softwareupdate -l 2> /dev/null)"
 if [[ "$softwareupdates" =~ "Recommended: YES" ]]; then
@@ -161,20 +164,6 @@ fi
 
 notice "Verify Find My Mac is enabled via System Settings > Apple ID > iCloud"
 
-if cached_sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate | grep disabled &> /dev/null; then
-    action "Firewall is disabled, enabling..."
-    cached_sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
-else
-    ok "Firewall is enabled"
-fi
-
-if ! spctl --status 2>&1 | grep -q "enabled"; then
-    warning "Gatekeeper is disabled, enabling..."
-    cached_sudo spctl --master-enable
-else
-    ok "Gatekeeper is enabled"
-fi
-
 if ! csrutil status | grep -q "enabled"; then
     warning "System Integrity Protection is DISABLED."
     require_manual_actions=1
@@ -182,12 +171,10 @@ else
     ok "System Integrity Protection is enabled"
 fi
 
-# Prolong sudo
-cached_sudo
-
 if ! fdesetup isactive &> /dev/null; then
     warning "FileVault is not enabled"
     action "Enabling FileVault"
+    input "Save the recovery key printed below, it is shown only once"
     cached_sudo fdesetup enable -user "$(whoami)"
 else
     ok "Filevault is enabled"
@@ -202,9 +189,6 @@ else
     ok "Time Machine is disabled"
 fi
 
-# Prolong sudo
-cached_sudo
-
 # Only set the items below for mobile Macs
 if [[ "$APPLE_COMPUTER_TYPE" =~ "MacBook" ]]; then
     powernap_status=$(pmset -g | awk '/powernap/ {print $2}')
@@ -215,23 +199,13 @@ if [[ "$APPLE_COMPUTER_TYPE" =~ "MacBook" ]]; then
         ok "Power Nap is disabled"
     fi
 
-    # Keys missing on Apple Silicon yield empty output, so default to the desired value
-    filevault_destroykeysonstandby=$(pmset -g | awk '/DestroyFVKeyOnStandby/ {print $2}')
-    filevault_destroykeysonstandby="${filevault_destroykeysonstandby:-0}"
     hibernatemode=$(pmset -g | awk '/hibernatemode/ {print $2}')
-    hibernatemode="${hibernatemode:-3}"
     standbymode=$(pmset -g | awk '/standby / {print $2}')
-    standbymode="${standbymode:-1}"
-    autopoweroff=$(pmset -g | awk '/autopoweroff / {print $2}')
-    autopoweroff="${autopoweroff:-0}"
     if pmset -g batt | grep Battery &> /dev/null; then
-        if [[ ${filevault_destroykeysonstandby} -eq 1 || ${hibernatemode} -eq 25 || ${standbymode} -eq 0 || ${autopoweroff} -eq 1 ]]; then
-            action "Reverting to default sleep behavior to address stability issues with Secure Deep Sleep"
-            cached_sudo pmset -a destroyfvkeyonstandby 0
+        if [[ ${hibernatemode} -ne 3 || ${standbymode} -ne 1 ]]; then
+            action "Reverting to the default sleep behavior"
             cached_sudo pmset -a standby 1
-            cached_sudo pmset -a standbydelay 10800
             cached_sudo pmset -a hibernatemode 3
-            cached_sudo pmset -a autopoweroff 0
         else
             ok "Sleep mode correctly configured"
         fi
@@ -243,84 +217,29 @@ else
     notice "Skipping MacBook specific settings because detected model is ${APPLE_COMPUTER_TYPE:-empty}"
 fi
 
-# Prolong sudo
-cached_sudo
-
 action "Setting secure permissions for ssh directory"
 mkdir -p "${HOME}/.ssh"
 find "${HOME}/.ssh" -type d -exec chmod 700 {} +
 find "${HOME}/.ssh" -type f -exec chmod 600 {} +
 ok "Permissions for ssh directory are secure"
 
-# Prolong sudo
-cached_sudo
-
-action "Creating special directories"
-mkdir -p "${DEV_DIR}/personal"
-mkdir -p "${DEV_DIR}/oss"
-mkdir -p "${DEV_DIR}/work"
-
-if [ ! -d "$DOT_DIR" ]; then
-    action "Cloning configurations"
-    git clone "https://github.com/${DOT_REPO}.git" "$DOT_DIR"
-    git -C "$DOT_DIR" config --local user.name "Brian van Burken"
-    git -C "$DOT_DIR" config --local user.email "brianvanburken@users.noreply.github.com"
-    ok "Created configurations directory at ${DOT_DIR}"
+readonly ssh_key="${HOME}/.ssh/id_ed25519"
+if [[ ! -f "$ssh_key" ]]; then
+    action "Generating an SSH key for this machine"
+    input "Choose a passphrase for the key, it is stored in the keychain"
+    ssh-keygen -t ed25519 -C "$machine_hostname" -f "$ssh_key"
+    /usr/bin/ssh-add --apple-use-keychain "$ssh_key" || warning "Could not add the key to the SSH agent"
+    ok "Generated ${ssh_key}"
 else
-    ok "Dotfiles already present"
+    ok "SSH key found."
 fi
-
-# Prolong sudo
-cached_sudo
-
-action "Linking dotfiles in ${HOME} to ${DOT_DIR}"
-mkdir -p "${HOME}/.config"
-config_names=("${DOT_DIR}"/config/*(/:t))
-for name in "${config_names[@]}"; do
-    x="config/${name}"
-    if [ ! -h "${HOME}/.${x}" ]; then
-        action "Linking ${HOME}/.${x}"
-        rm -rf "${HOME}/.${x}"
-        ln -s "${DOT_DIR}/${x}" "${HOME}/.${x}"
-        ok "${HOME}/.${x} has been linked"
-    else
-        ok "${HOME}/.${x} is already linked"
-    fi
-done
-
-# Prolong sudo
-cached_sudo
-
-if [[ -x "$(command -v fish)" ]]; then
-    action "Setting up fish as default shell"
-    readonly fish_command="$HOMEBREW_PREFIX/bin/fish"
-    readonly shell_file="/etc/shells"
-    if ! grep -q "$fish_command" "$shell_file"; then
-        action "Adding fish to allowed shells in $shell_file"
-        echo "$fish_command" | cached_sudo tee -a "$shell_file" > /dev/null
-    fi
-
-    action "Changing shell to fish"
-    current_shell=$(dscl . -read "/Users/$(whoami)" UserShell | awk '{print $2}')
-    if [[ "$current_shell" != "$fish_command" ]]; then
-        cached_sudo chsh -s "$fish_command" "$(whoami)"
-    fi
-
-    action "Setting up fish"
-    fish -i -c 'setup_fish; exit;'
-
-    action "Creating local fish file"
-    touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
-    ok "Fish is now the default"
-else
-    warning "Fish shell not found, skipping setup"
-fi
-
-# Prolong sudo
-cached_sudo
+ssh_public_key="$(cut -d ' ' -f 1,2 "${ssh_key}.pub")"
+readonly ssh_public_key
 
 if [[ ! -x /nix/var/nix/profiles/default/bin/nix ]]; then
     action "Installing Nix"
+    # The installer calls sudo itself
+    cached_sudo
     curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-confirm
     ok "Nix installed"
 else
@@ -328,179 +247,82 @@ else
 fi
 source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
-# Prolong sudo
-cached_sudo
-
-action "Installing direnv and nix-direnv"
-nix profile add nixpkgs#direnv nixpkgs#nix-direnv
-ok "direnv and nix-direnv installed"
-
-# Prolong sudo
-cached_sudo
-
-if [[ -x "$(command -v mise)" ]]; then
-    eval "$(mise activate zsh)"
-    action "Installing mise plugins and versions"
-    mise install
-    ok "Mise versions installed"
-else
-    warning "Mise not found, skipping tool installation"
-fi
-
-# Prolong sudo
-cached_sudo
-
-action "Installing NeoVim plugins"
-nvim --headless "+qall"
-ok "Installed NeoVim plugins"
-
-# Prolong sudo
-cached_sudo
-
-action "Setting macOS preferences"
-
-# Set screensaver to start after x seconds
-defaults write com.apple.screensaver idleTime -int 300
-
-# Opening and closing windows and popovers
-defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
-
-# Smooth scrolling
-defaults write -g NSScrollAnimationEnabled -bool false
-
-# Showing and hiding sheets, resizing preference windows, zooming windows
-# float 0 doesn't work
-defaults write -g NSWindowResizeTime -float 0.001
-
-# Opening and closing Quick Look windows
-defaults write -g QLPanelAnimationDuration -float 0
-
-# Rubberband scrolling (doesn't affect web views)
-defaults write -g NSScrollViewRubberbanding -bool false
-
-# Resizing windows before and after showing the version browser
-# also disabled by NSWindowResizeTime -float 0.001
-defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
-
-# Showing a toolbar or menu bar in full screen
-defaults write -g NSToolbarFullScreenAnimationDuration -float 0
-
-# Scrolling column views
-defaults write -g NSBrowserColumnAnimationSpeedMultiplier -float 0
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
-
-# Showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
-defaults write com.apple.dock autohide-delay -float 0
-
-# Showing and hiding Mission Control, command+numbers
-defaults write com.apple.dock expose-animation-duration -float 0
-
-# Showing and hiding Launchpad
-defaults write com.apple.dock springboard-show-duration -float 0
-defaults write com.apple.dock springboard-hide-duration -float 0
-
-# Changing pages in Launchpad
-defaults write com.apple.dock springboard-page-duration -float 0
-
-# Only active applications in Dock
-defaults write com.apple.dock static-only -bool true
-
-# At least AnimateInfoPanes
-defaults write com.apple.finder DisableAllAnimations -bool true
-
-# Hide Desktop icons
-defaults write com.apple.finder CreateDesktop -bool false
-
-# Default screenshot location to $HOME/Downloads
-defaults write com.apple.screencapture location "${HOME}/Downloads"
-
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-# Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
-
-# Open and save files as UTF-8 in TextEdit
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-# Disable automatic capitalization as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable smart dashes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic period substitution as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable smart quotes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# Disable press-and-hold for keys in favor of key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-# Set a fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1         # Preferences lowest value = 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 10 # Preferences lowest value = 15
-
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-# Enable subpixel font rendering on non-Apple LCDs
-# Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
-defaults write NSGlobalDomain AppleFontSmoothing -int 1
-
-# Show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-# Keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool true
-
-# Disable the warning when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Enable spring loading for directories
-defaults write NSGlobalDomain com.apple.springing.enabled -bool true
-
-# Reduce the spring loading delay for directories
-defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
-
-# Use list view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
-# Set dock to left of screen
-defaults write com.apple.dock orientation -string "left"
-
-# Disable Apple Intelligence writing tools and on-device model downloads
-defaults write com.apple.AIWritingTools enabled -bool false
-
-# Suppress Passwords app first-launch prompt (1Password is used instead)
-defaults write com.apple.Passwords isFirstLaunch -bool false
-
-# Disable Stage Manager
-defaults write com.apple.WindowManager GloballyEnabled -bool false
-
-# No margins between tiled windows
-defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
-
+action "Activating the nix-darwin configuration"
+system_path="$(nix build --no-link --print-out-paths "${DOT_DIR}#darwinConfigurations.${machine_hostname}.config.system.build.toplevel")"
+# nix-darwin refuses to replace /etc files it doesn't know, such as those the Nix installer edits
+etc_backup_dir="${HOME}/Downloads/backup_install_$(date +%Y-%m-%d)/etc"
+managed_etc_files=(${(f)"$(cd "${system_path}/etc" && find . \( -type f -o -type l \) | sed 's|^\./||')"})
+for name in "${managed_etc_files[@]}"; do
+    if [[ -f "/etc/${name}" && ! -h "/etc/${name}" ]]; then
+        cached_sudo mkdir -p "${etc_backup_dir}/${name:h}"
+        cached_sudo mv "/etc/${name}" "${etc_backup_dir}/${name}"
+        ok "Moved /etc/${name} to ${etc_backup_dir}/${name}"
+    fi
+done
+cached_sudo "${system_path}/sw/bin/darwin-rebuild" switch --flake "${DOT_DIR}#${machine_hostname}"
+export PATH="/run/current-system/sw/bin:${PATH}"
 killall Dock Finder SystemUIServer 2>/dev/null || true
+ok "System, dotfiles, casks and macOS preferences are configured"
 
-ok "Done setting up macOS preferences"
+action "Setting up fish as default shell"
+readonly fish_command="/run/current-system/sw/bin/fish"
+current_shell=$(dscl . -read "/Users/$(whoami)" UserShell | awk '{print $2}')
+if [[ "$current_shell" != "$fish_command" ]]; then
+    cached_sudo chsh -s "$fish_command" "$(whoami)"
+fi
+ok "Fish is now the default"
 
-# Switch to SSH last: a fresh machine has no SSH key during install
+action "Creating local fish file"
+touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
+
+action "Installing the stable Rust toolchain"
+rustup default stable
+# Neovim uses rustup's rust-analyzer, see nix/home/neovim.nix
+rustup component add rust-analyzer
+ok "Rust toolchain installed"
+
+action "Registering the SSH key with GitHub"
+readonly github_key_scopes="admin:public_key,admin:ssh_signing_key"
+if ! gh auth status --hostname github.com &> /dev/null; then
+    gh auth login --hostname github.com --git-protocol ssh --skip-ssh-key --web --scopes "$github_key_scopes"
+fi
+# Listing needs the key scopes, which an existing login may lack
+if ! gh api user/keys --silent &> /dev/null || ! gh api user/ssh_signing_keys --silent &> /dev/null; then
+    gh auth refresh --hostname github.com --scopes "$github_key_scopes"
+fi
+for key_type in authentication signing; do
+    if [[ "$key_type" == "authentication" ]]; then
+        endpoint="user/keys"
+    else
+        endpoint="user/ssh_signing_keys"
+    fi
+    if gh api "$endpoint" --paginate --jq '.[].key' | grep -qxF "$ssh_public_key"; then
+        ok "SSH key is registered on GitHub for ${key_type}"
+    else
+        gh ssh-key add "${ssh_key}.pub" --title "$machine_hostname" --type "$key_type"
+        ok "Registered the SSH key on GitHub for ${key_type}"
+    fi
+done
+
+# Kept out of the repo. Lists every machine's signing key so their commits verify.
+action "Writing allowed signers from GitHub"
+git_email="$(git config --file "${DOT_DIR}/config/git/config" user.email)"
+gh api user/ssh_signing_keys --paginate --jq '.[] | "\(.title)\t\(.key)"' |
+    while IFS=$'\t' read -r key_title key; do
+        printf '# %s\n%s %s\n' "$key_title" "$git_email" "$key"
+    done > "${HOME}/.ssh/allowed_signers.tmp"
+# Only replace the old file once the full list arrived
+mv "${HOME}/.ssh/allowed_signers.tmp" "${HOME}/.ssh/allowed_signers"
+ok "Wrote ~/.ssh/allowed_signers"
+
+# Switch to SSH last, once GitHub knows this machine's key
 action "Switching dotfiles remote to SSH"
 git -C "$DOT_DIR" remote set-url origin "git@github.com:${DOT_REPO}.git"
-notice "Restore ~/.ssh/id_ed25519 and ~/.ssh/allowed_signers to push and sign commits"
 
-echo "🍺 Your MacBook is configured!"
+echo "🍺 Your Mac is configured!"
 if [[ ${require_manual_actions} -eq 1 ]]; then
     echo "🔎 But some items require manual actions. Check the output above for more info."
 fi
-echo "🍿 Your MacBook may also need to reboot to apply the final changes."
+echo "🍿 Your Mac may also need to reboot to apply the final changes."
 
 exit 0
