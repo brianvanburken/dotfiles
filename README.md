@@ -18,7 +18,7 @@ makes Nix's Fish the login shell. It is safe to run again.
   account and wires up Home Manager; the rest cover CLI packages, Fish,
   macOS preferences and Touch ID, Homebrew, and the SSH agent.
 - `nix/home/`: Home Manager, one module per program. `default.nix` links
-  `config/` into `~/.config`; the rest cover Claude Code, direnv, Fish
+  `config/` into `~/.config`; the rest cover direnv, Fish
   universal variables, Neovim plugins, SSH and terminal-browser.
 
 Apply changes with `sudo darwin-rebuild switch --flake .` from the
@@ -31,7 +31,8 @@ repository and switch. Configs that their apps write to (`tinycast`) link to
 this checkout instead. terminal-browser's `settings.json` is generated from
 `nix/home/terminal-browser.nix`, so edit it there.
 
-Claude Code comes from `nix/home/claude.nix`: the binary from nixpkgs-unstable,
+Claude Code, on brainbook only, comes from `nix/home/claude.nix`, which
+`nix/hosts/brainbook.nix` imports: the binary from nixpkgs-unstable,
 a read-only `settings.json` and `CLAUDE.md`, and the mattpocock skills as a
 plugin. Changes made from inside Claude Code are lost on the next switch, so
 edit `nix/home/claude.nix` instead. Its runtime state (history, login, memory)

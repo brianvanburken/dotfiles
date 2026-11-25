@@ -7,7 +7,6 @@
     colima
     delta
     docker-client
-    exercism
     eza
     fd
     ffmpeg

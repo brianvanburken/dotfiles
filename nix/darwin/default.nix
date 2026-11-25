@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [
@@ -10,8 +10,6 @@
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
-  # The home-manager wrapper around claude-code inherits its unfree license
-  nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
   nix.enable = false;
   system.stateVersion = 7;
   system.primaryUser = "brianvanburken";
