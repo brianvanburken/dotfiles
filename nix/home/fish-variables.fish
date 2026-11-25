@@ -1,7 +1,7 @@
 # Universal variables baked into a read-only fish_variables by nix/home/fish.nix.
 # Usage: fish fish-variables.fish <home directory>
-# EDITOR, MISE_FISH_AUTO_ACTIVATE, XDG_CONFIG_DIRS and XDG_DATA_DIRS come
-# from nix-darwin instead.
+# EDITOR, MISE_FISH_AUTO_ACTIVATE, XDG_CONFIG_DIRS, XDG_DATA_DIRS
+# and, on brainbook, CLAUDE_CONFIG_DIR come from nix-darwin instead.
 set -l home $argv[1]
 
 # Block ads and other analytics
@@ -50,9 +50,6 @@ set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
 # Rust
 set -Ux CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -Ux RUSTUP_HOME "$XDG_DATA_HOME/rustup"
-
-# Claude Code
-set -Ux CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
 
 # Gitleaks
 set -Ux GITLEAKS_CONFIG "$XDG_CONFIG_HOME/gitleaks/config.toml"
