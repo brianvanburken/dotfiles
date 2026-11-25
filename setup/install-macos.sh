@@ -112,6 +112,37 @@ fi
 # Get sudo credentials
 cached_sudo
 
+action "Creating special directories"
+mkdir -p "${DEV_DIR}/personal"
+mkdir -p "${DEV_DIR}/oss"
+mkdir -p "${DEV_DIR}/work"
+
+if [ ! -d "$DOT_DIR" ]; then
+    action "Cloning configurations"
+    git clone "https://github.com/${DOT_REPO}.git" "$DOT_DIR"
+    ok "Created configurations directory at ${DOT_DIR}"
+else
+    ok "Dotfiles already present"
+fi
+
+# Each nix/machines file is a profile named after the hostname it sets
+profiles=("${DOT_DIR}"/nix/machines/*.nix(N:t:r))
+if (( ${#profiles} == 0 )); then
+    error "No profiles found. Create ${DOT_DIR}/nix/machines/<hostname>.nix, git add it and re-run this script."
+    exit 1
+fi
+input "Pick the profile for this machine"
+PS3="> "
+select machine_hostname in "${profiles[@]}"; do
+    [[ -n "$machine_hostname" ]] && break
+done
+if [[ -z "$machine_hostname" ]]; then
+    error "No profile picked."
+    exit 1
+fi
+readonly machine_hostname
+ok "Using the ${machine_hostname} profile"
+
 # nix-darwin manages the casks and formulae but needs Homebrew itself
 if [[ ! -r "${HOMEBREW_PREFIX}/bin/brew" ]]; then
     action "Installing Homebrew. This may take some time... ☕️"
@@ -191,37 +222,6 @@ mkdir -p "${HOME}/.ssh"
 find "${HOME}/.ssh" -type d -exec chmod 700 {} +
 find "${HOME}/.ssh" -type f -exec chmod 600 {} +
 ok "Permissions for ssh directory are secure"
-
-action "Creating special directories"
-mkdir -p "${DEV_DIR}/personal"
-mkdir -p "${DEV_DIR}/oss"
-mkdir -p "${DEV_DIR}/work"
-
-if [ ! -d "$DOT_DIR" ]; then
-    action "Cloning configurations"
-    git clone "https://github.com/${DOT_REPO}.git" "$DOT_DIR"
-    ok "Created configurations directory at ${DOT_DIR}"
-else
-    ok "Dotfiles already present"
-fi
-
-# Each nix/machines file is a profile named after the hostname it sets
-profiles=("${DOT_DIR}"/nix/machines/*.nix(N:t:r))
-if (( ${#profiles} == 0 )); then
-    error "No profiles found. Create ${DOT_DIR}/nix/machines/<hostname>.nix, git add it and re-run this script."
-    exit 1
-fi
-input "Pick the profile for this machine"
-PS3="> "
-select machine_hostname in "${profiles[@]}"; do
-    [[ -n "$machine_hostname" ]] && break
-done
-if [[ -z "$machine_hostname" ]]; then
-    error "No profile picked."
-    exit 1
-fi
-readonly machine_hostname
-ok "Using the ${machine_hostname} profile"
 
 readonly ssh_key="${HOME}/.ssh/id_ed25519"
 if [[ ! -f "$ssh_key" ]]; then
