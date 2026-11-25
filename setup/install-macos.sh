@@ -12,10 +12,11 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 readonly HOMEBREW_PREFIX="/opt/homebrew"
 
 # Location where to store code
-export DEV_DIR="${DEV_DIR:=${HOME}/Developer}"
+readonly DEV_DIR="${HOME}/Developer"
 
-# Location where to store configurations
-export DOT_DIR="${DOT_DIR:=${DEV_DIR}/personal/dotfiles}"
+# Location where to store configurations. Fixed, because nix/home/default.nix
+# links app-written configs to this checkout.
+readonly DOT_DIR="${DEV_DIR}/personal/dotfiles"
 
 # Name of dotfiles repo
 readonly DOT_REPO="brianvanburken/dotfiles"
