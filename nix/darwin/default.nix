@@ -14,7 +14,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
   nix.enable = false;
   system.stateVersion = 7;
-  system.primaryUser = "brian.vanburken";
+  system.primaryUser = "brianvanburken";
 
   users.users.${config.system.primaryUser}.home = "/Users/${config.system.primaryUser}";
 
