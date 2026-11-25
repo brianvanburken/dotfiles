@@ -18,6 +18,7 @@
     jq
     mise
     ripgrep
+    rustup
     wget
     xq-xml
     yq-go

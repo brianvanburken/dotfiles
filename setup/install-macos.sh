@@ -5,8 +5,10 @@ set -o pipefail
 
 # Set XDG config
 export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
+# Same as nix/home/fish-variables.fish, so rustup installs where fish looks
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 
 # The flake only targets Apple Silicon
 readonly HOMEBREW_PREFIX="/opt/homebrew"
@@ -68,12 +70,10 @@ error() {
 }
 
 cached_sudo() {
-    if sudo -n true &> /dev/null; then
-        sudo -v
-    else
+    if ! sudo -n true &> /dev/null; then
         input "We will need admin permissions for the next steps. Please enter your password and press <ENTER>"
-        sudo -v
     fi
+    sudo -v
     if (( $# > 0 )); then
         sudo "${@}"
     fi
@@ -114,17 +114,13 @@ cached_sudo
 
 # nix-darwin manages the casks and formulae but needs Homebrew itself
 if [[ ! -r "${HOMEBREW_PREFIX}/bin/brew" ]]; then
-    notice " Need to install Homebrew..."
-    action "Installing Homebrew and required components. This may take some time... ☕️ "
+    action "Installing Homebrew. This may take some time... ☕️"
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ok "Installing Homebrew done"
 else
     ok "Homebrew binary found."
 fi
-
-# Reload sudo
-cached_sudo
 
 softwareupdates="$(softwareupdate -l 2> /dev/null)"
 if [[ "$softwareupdates" =~ "Recommended: YES" ]]; then
@@ -158,9 +154,6 @@ else
     ok "System Integrity Protection is enabled"
 fi
 
-# Prolong sudo
-cached_sudo
-
 if ! fdesetup isactive &> /dev/null; then
     warning "FileVault is not enabled"
     action "Enabling FileVault"
@@ -177,9 +170,6 @@ if [[ ${time_machine_auto_backup} -eq 1 ]]; then
 else
     ok "Time Machine is disabled"
 fi
-
-# Prolong sudo
-cached_sudo
 
 # Only set the items below for mobile Macs
 if [[ "$APPLE_COMPUTER_TYPE" =~ "MacBook" ]]; then
@@ -219,17 +209,11 @@ else
     notice "Skipping MacBook specific settings because detected model is ${APPLE_COMPUTER_TYPE:-empty}"
 fi
 
-# Prolong sudo
-cached_sudo
-
 action "Setting secure permissions for ssh directory"
 mkdir -p "${HOME}/.ssh"
 find "${HOME}/.ssh" -type d -exec chmod 700 {} +
 find "${HOME}/.ssh" -type f -exec chmod 600 {} +
 ok "Permissions for ssh directory are secure"
-
-# Prolong sudo
-cached_sudo
 
 action "Creating special directories"
 mkdir -p "${DEV_DIR}/personal"
@@ -239,8 +223,6 @@ mkdir -p "${DEV_DIR}/work"
 if [ ! -d "$DOT_DIR" ]; then
     action "Cloning configurations"
     git clone "https://github.com/${DOT_REPO}.git" "$DOT_DIR"
-    git -C "$DOT_DIR" config --local user.name "Brian van Burken"
-    git -C "$DOT_DIR" config --local user.email "brianvanburken@users.noreply.github.com"
     ok "Created configurations directory at ${DOT_DIR}"
 else
     ok "Dotfiles already present"
@@ -282,20 +264,16 @@ fi
 ssh_public_key="$(cut -d ' ' -f 1,2 "${ssh_key}.pub")"
 readonly ssh_public_key
 
-# Prolong sudo
-cached_sudo
-
 if [[ ! -x /nix/var/nix/profiles/default/bin/nix ]]; then
     action "Installing Nix"
+    # The installer calls sudo itself
+    cached_sudo
     curl -fsSL https://install.determinate.systems/nix | sh -s -- install --no-confirm
     ok "Nix installed"
 else
     ok "Nix binary found."
 fi
 source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-
-# Prolong sudo
-cached_sudo
 
 action "Activating the nix-darwin configuration"
 system_path="$(nix build --no-link --print-out-paths "${DOT_DIR}#darwinConfigurations.${machine_hostname}.config.system.build.toplevel")"
@@ -314,31 +292,22 @@ export PATH="/run/current-system/sw/bin:${PATH}"
 killall Dock Finder SystemUIServer 2>/dev/null || true
 ok "System, dotfiles, casks and macOS preferences are configured"
 
-# Prolong sudo
-cached_sudo
-
 action "Setting up fish as default shell"
 readonly fish_command="/run/current-system/sw/bin/fish"
 current_shell=$(dscl . -read "/Users/$(whoami)" UserShell | awk '{print $2}')
 if [[ "$current_shell" != "$fish_command" ]]; then
     cached_sudo chsh -s "$fish_command" "$(whoami)"
 fi
+ok "Fish is now the default"
 
 action "Creating local fish file"
 touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
-ok "Fish is now the default"
 
-# Prolong sudo
-cached_sudo
-
-if [[ -x "$(command -v mise)" ]]; then
-    eval "$(mise activate zsh)"
-    action "Installing mise plugins and versions"
-    mise install
-    ok "Mise versions installed"
-else
-    warning "Mise not found, skipping tool installation"
-fi
+action "Installing the stable Rust toolchain"
+rustup default stable
+# Neovim uses rustup's rust-analyzer, see nix/home/neovim.nix
+rustup component add rust-analyzer
+ok "Rust toolchain installed"
 
 action "Registering the SSH key with GitHub"
 readonly github_key_scopes="admin:public_key,admin:ssh_signing_key"
