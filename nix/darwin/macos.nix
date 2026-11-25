@@ -64,8 +64,6 @@
         springboard-show-duration = 0.0;
       };
       "com.apple.finder".DisableAllAnimations = true;
-      # Read config from XDG instead of ~/.hammerspoon
-      "org.hammerspoon.Hammerspoon".MJConfigFile = "~/.config/hammerspoon/init.lua";
       "com.apple.screensaver" = {
         askForPassword = 1;
         askForPasswordDelay = 0;

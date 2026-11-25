@@ -420,7 +420,7 @@
         "showInLauncher": false
       },
       "com.mitchellh.ghostty": {
-        "shortcut": null,
+        "shortcut": "option+cmd+t",
         "alias": "terminal",
         "showInLauncher": true
       },
@@ -453,6 +453,11 @@
         "shortcut": null,
         "alias": null,
         "showInLauncher": false
+      },
+      "org.mozilla.firefox": {
+        "shortcut": "option+cmd+f",
+        "alias": null,
+        "showInLauncher": true
       }
     }
   },
@@ -913,6 +918,83 @@
     "menuSearchShowsAppleMenu": false,
     "menuSearchDisabledApps": [],
     "commands": {}
+  },
+  "windowManagement": {
+    "enabled": true,
+    "showInLauncher": true,
+    "gap": 0,
+    "cycle": "off",
+    "wrapDisplays": true,
+    "keepProportions": true,
+    "layoutsShowInLauncher": false,
+    "roomsShowInLauncher": false,
+    "shortcuts": {
+      "left-half": "ctrl+option+left",
+      "right-half": "ctrl+option+right",
+      "top-half": "ctrl+option+up",
+      "bottom-half": "ctrl+option+down",
+      "top-left-quarter": "ctrl+option+u",
+      "top-right-quarter": "ctrl+option+i",
+      "bottom-left-quarter": "ctrl+option+j",
+      "bottom-right-quarter": "ctrl+option+k",
+      "first-three-fourths": null,
+      "last-three-fourths": null,
+      "first-third": "ctrl+option+d",
+      "center-third": "ctrl+option+f",
+      "last-third": "ctrl+option+g",
+      "first-two-thirds": "ctrl+option+e",
+      "last-two-thirds": "ctrl+option+t",
+      "maximize": "ctrl+option+return",
+      "almost-maximize": null,
+      "reasonable-size": null,
+      "maximize-height": "ctrl+option+shift+up",
+      "maximize-width": null,
+      "center": "ctrl+option+c",
+      "center-half": null,
+      "center-two-thirds": "ctrl+option+r",
+      "make-larger": "ctrl+option+=",
+      "make-smaller": "ctrl+option+-",
+      "restore": "ctrl+option+delete",
+      "move-left": null,
+      "move-right": null,
+      "move-up": null,
+      "move-down": null,
+      "move-to-left-edge": null,
+      "move-to-right-edge": null,
+      "move-to-top-edge": null,
+      "move-to-bottom-edge": null,
+      "next-display": "ctrl+option+cmd+right",
+      "previous-display": "ctrl+option+cmd+left",
+      "toggle-fullscreen": null,
+      "previous-space": null,
+      "next-space": null
+    },
+    "aliases": {},
+    "customSizes": [],
+    "layouts": [],
+    "rooms": [],
+    "commands": {
+      "create-window-layout": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
+      "capture-window-layout": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
+      "switch-room": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      },
+      "create-room": {
+        "shortcut": null,
+        "alias": null,
+        "showInLauncher": false
+      }
+    }
   },
   "clipboard": {
     "enabled": true,

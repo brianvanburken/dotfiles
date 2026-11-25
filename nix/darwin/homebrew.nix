@@ -15,7 +15,6 @@
       "flux-app"
       "garmin-express"
       "ghostty"
-      "hammerspoon"
       "iina"
       "keka"
       "libreoffice"
