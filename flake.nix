@@ -39,6 +39,10 @@
           modules = [
             home-manager.darwinModules.home-manager
             ./nix/machines/${hostName}.nix
+            {
+              networking.hostName = hostName;
+              system.defaults.smb.NetBIOSName = hostName;
+            }
           ];
         };
 

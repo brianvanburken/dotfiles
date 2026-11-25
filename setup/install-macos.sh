@@ -133,13 +133,6 @@ fi
 
 notice "Verify Find My Mac is enabled via System Settings > Apple ID > iCloud"
 
-if cached_sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate | grep disabled &> /dev/null; then
-    action "Firewall is disabled, enabling..."
-    cached_sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
-else
-    ok "Firewall is enabled"
-fi
-
 if ! csrutil status | grep -q "enabled"; then
     warning "System Integrity Protection is DISABLED."
     require_manual_actions=1
@@ -212,28 +205,23 @@ else
     ok "Dotfiles already present"
 fi
 
-# macOS defaults to "<Full Name>'s MacBook", which Bonjour, AirDrop and DHCP
-# announce on every network. The name also labels this machine's SSH key.
-machine_name="$(scutil --get ComputerName)"
-input "Name for this machine, without personal details. Press <ENTER> to keep \"${machine_name}\""
-read -r "new_machine_name?> "
-machine_name="${new_machine_name:-$machine_name}"
-# Hostnames only allow letters, digits and hyphens
-machine_hostname="$(echo "$machine_name" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9' '-' | sed 's/^-*//; s/-*$//')"
+# Each nix/machines file is a profile named after the hostname it sets
+profiles=("${DOT_DIR}"/nix/machines/*.nix(N:t:r))
+if (( ${#profiles} == 0 )); then
+    error "No profiles found. Create ${DOT_DIR}/nix/machines/<hostname>.nix, git add it and re-run this script."
+    exit 1
+fi
+input "Pick the profile for this machine"
+PS3="> "
+select machine_hostname in "${profiles[@]}"; do
+    [[ -n "$machine_hostname" ]] && break
+done
 if [[ -z "$machine_hostname" ]]; then
-    error "\"${machine_name}\" has no letters or digits to build a hostname from."
+    error "No profile picked."
     exit 1
 fi
-readonly machine_name machine_hostname
-if [[ ! -f "${DOT_DIR}/nix/machines/${machine_hostname}.nix" ]]; then
-    error "No configuration for this machine. Create ${DOT_DIR}/nix/machines/${machine_hostname}.nix, git add it and re-run this script."
-    exit 1
-fi
-cached_sudo scutil --set ComputerName "$machine_name"
-cached_sudo scutil --set LocalHostName "$machine_hostname"
-cached_sudo scutil --set HostName "$machine_hostname"
-cached_sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$machine_hostname"
-ok "This machine is named \"${machine_name}\" (${machine_hostname})"
+readonly machine_hostname
+ok "Using the ${machine_hostname} profile"
 
 readonly ssh_key="${HOME}/.ssh/id_ed25519"
 if [[ ! -f "$ssh_key" ]]; then
@@ -311,7 +299,7 @@ for key_type in authentication signing; do
     if gh api "$endpoint" --paginate --jq '.[].key' | grep -qxF "$ssh_public_key"; then
         ok "SSH key is registered on GitHub for ${key_type}"
     else
-        gh ssh-key add "${ssh_key}.pub" --title "$machine_name" --type "$key_type"
+        gh ssh-key add "${ssh_key}.pub" --title "$machine_hostname" --type "$key_type"
         ok "Registered the SSH key on GitHub for ${key_type}"
     fi
 done
@@ -331,10 +319,10 @@ ok "Wrote ~/.ssh/allowed_signers"
 action "Switching dotfiles remote to SSH"
 git -C "$DOT_DIR" remote set-url origin "git@github.com:${DOT_REPO}.git"
 
-echo "🍺 Your MacBook is configured!"
+echo "🍺 Your Mac is configured!"
 if [[ ${require_manual_actions} -eq 1 ]]; then
     echo "🔎 But some items require manual actions. Check the output above for more info."
 fi
-echo "🍿 Your MacBook may also need to reboot to apply the final changes."
+echo "🍿 Your Mac may also need to reboot to apply the final changes."
 
 exit 0

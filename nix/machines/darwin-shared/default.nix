@@ -17,5 +17,7 @@
   nix.enable = false;
   system.primaryUser = user.name;
 
+  networking.applicationFirewall.enable = true;
+
   users.users.${user.name}.home = "/Users/${user.name}";
 }

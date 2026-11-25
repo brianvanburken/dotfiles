@@ -10,6 +10,8 @@
 
   system.stateVersion = 7;
 
+  networking.computerName = "BrainBook";
+
   environment.systemPackages = [ pkgs.exercism ];
 
   home-manager.users.${user.name}.imports = [ ../home/claude.nix ];
