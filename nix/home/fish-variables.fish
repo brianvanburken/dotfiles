@@ -47,11 +47,6 @@ set -Ux NPM_CONFIG_FUND false
 # Elm
 set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
 
-# Elixir/Erlang
-# new feature in elixir 1.19: https://github.com/elixir-lang/elixir/blob/v1.19/CHANGELOG.md#parallel-compilation-of-dependencies
-set -Ux MIX_OS_DEPS_COMPILE_PARTITION_COUNT 4
-set -Ux MIX_XDG true
-
 # Ruby
 set -Ux GEMRC "$XDG_CONFIG_HOME/gem/config.yml"
 set -Ux GEM_HOME "$XDG_DATA_HOME/gem"

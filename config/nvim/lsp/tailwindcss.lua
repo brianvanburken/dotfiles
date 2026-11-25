@@ -1,19 +1,9 @@
 return {
     cmd = { "tailwindcss-language-server" },
     filetypes = {
-        "elixir",
-        "eelixir",
-        "heex",
         "html",
         "css",
         "scss",
-    },
-    init_options = {
-        userLanguages = {
-            elixir = "phoenix-heex",
-            eelixir = "phoenix-heex",
-            heex = "phoenix-heex",
-        },
     },
     settings = {
         tailwindCSS = {
