@@ -43,7 +43,9 @@ read-only `fish_variables`, so `set -U` fails. Change that file and switch
 instead. Keep machine-local variables in `~/.config/fish/conf.d/config.local.fish`,
 and keep project secrets in that project's `.envrc`.
 
-Neovim plugins come from nixpkgs and load with `packadd`.
+Neovim plugins come from nixpkgs and load with `packadd`. Language servers
+come from nixpkgs too, on the end of `nvim`'s PATH, so project-local ones win;
+add them in `nix/home/neovim.nix`. rust-analyzer comes from rustup.
 
 Firefox stays a Homebrew cask. `nix/darwin/firefox.nix` sets its extensions
 and settings as enterprise policies in `/Library/Preferences/org.mozilla.firefox`;

@@ -19,7 +19,6 @@
     hyperfine
     jq
     mise
-    neovim
     ripgrep
     tree-sitter
     wget
