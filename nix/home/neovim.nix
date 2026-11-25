@@ -1,16 +1,10 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }:
 
 let
-  unstable = import inputs.nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    config.allowUnfreePredicate = pkg: lib.getName pkg == "copilot-language-server";
-  };
-
   # rust-analyzer is left out so rustup's, which matches the toolchain, is used
   languageServers = with pkgs; [
     elmPackages.elm-language-server
@@ -36,7 +30,7 @@ let
   treesitterGrammars = pkgs.symlinkJoin {
     name = "treesitter-grammars";
     paths =
-      (unstable.vimPlugins.nvim-treesitter.withPlugins (
+      (pkgs.unstable.vimPlugins.nvim-treesitter.withPlugins (
         grammars: with grammars; [
           bash
           css
@@ -76,18 +70,19 @@ let
     "flash.nvim" = flash-nvim;
     "lsp-progress.nvim" = lsp-progress-nvim;
     "nvim-surround" = nvim-surround;
-    "nvim-treesitter" = unstable.vimPlugins.nvim-treesitter;
+    "nvim-treesitter" = pkgs.unstable.vimPlugins.nvim-treesitter;
     "vim-startuptime" = vim-startuptime;
   };
 in
 {
   home.packages = [ neovim ];
 
-  xdg.dataFile = lib.mapAttrs' (
-    name: plugin: lib.nameValuePair "nvim/site/pack/nix/opt/${name}" { source = plugin; }
-  ) plugins
-  // {
-    # In start/ so parsers and queries are on the runtimepath without packadd
-    "nvim/site/pack/nix/start/treesitter-grammars".source = treesitterGrammars;
-  };
+  xdg.dataFile =
+    lib.mapAttrs' (
+      name: plugin: lib.nameValuePair "nvim/site/pack/nix/opt/${name}" { source = plugin; }
+    ) plugins
+    // {
+      # In start/ so parsers and queries are on the runtimepath without packadd
+      "nvim/site/pack/nix/start/treesitter-grammars".source = treesitterGrammars;
+    };
 }

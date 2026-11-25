@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  policies = import ../common/firefox-policies.nix {
+  policies = import ../../common/firefox-policies.nix {
     inherit lib;
     homeDirectory = config.users.users.${config.system.primaryUser}.home;
   };

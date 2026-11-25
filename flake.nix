@@ -26,8 +26,11 @@
       inherit (nixpkgs) lib;
       user.name = "brianvanburken";
 
-      # Each file in nix/hosts/darwin is one Mac, named after its LocalHostName
-      macNames = map (lib.removeSuffix ".nix") (builtins.attrNames (builtins.readDir ./nix/hosts/darwin));
+      # Each .nix file in nix/machines is one Mac, named after its LocalHostName
+      machineFiles = lib.filterAttrs (name: type: type == "regular" && lib.hasSuffix ".nix" name) (
+        builtins.readDir ./nix/machines
+      );
+      macNames = map (lib.removeSuffix ".nix") (builtins.attrNames machineFiles);
 
       mkMac =
         hostName:
@@ -35,8 +38,7 @@
           specialArgs = { inherit inputs user; };
           modules = [
             home-manager.darwinModules.home-manager
-            ./nix/darwin
-            ./nix/hosts/darwin/${hostName}.nix
+            ./nix/machines/${hostName}.nix
           ];
         };
 

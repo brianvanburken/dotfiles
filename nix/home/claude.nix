@@ -5,16 +5,10 @@
   ...
 }:
 
-let
-  unstable = import inputs.nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    config.allowUnfreePredicate = pkgs.config.allowUnfreePredicate;
-  };
-in
 {
   programs.claude-code = {
     enable = true;
-    package = unstable.claude-code;
+    package = pkgs.unstable.claude-code;
     configDir = "${config.xdg.configHome}/claude";
     context = ./claude/CLAUDE.md;
     plugins = [ inputs.mattpocock-skills ];

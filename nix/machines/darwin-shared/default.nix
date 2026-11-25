@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../common
+    ../../common
     ./firefox.nix
     ./fish.nix
     ./homebrew.nix

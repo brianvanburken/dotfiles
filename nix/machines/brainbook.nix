@@ -1,19 +1,18 @@
 {
   config,
-  lib,
   pkgs,
   user,
   ...
 }:
 
 {
+  imports = [ ./darwin-shared ];
+
   system.stateVersion = 7;
 
   environment.systemPackages = [ pkgs.exercism ];
 
-  # The home-manager wrapper around claude-code inherits its unfree license
-  nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
-  home-manager.users.${user.name}.imports = [ ../../home/claude.nix ];
+  home-manager.users.${user.name}.imports = [ ../home/claude.nix ];
   # Home Manager does not manage fish, so its session variables never load
   environment.variables.CLAUDE_CONFIG_DIR =
     config.home-manager.users.${user.name}.programs.claude-code.configDir;

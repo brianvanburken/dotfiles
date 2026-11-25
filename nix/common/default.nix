@@ -3,6 +3,7 @@
 {
   imports = [
     ./fish.nix
+    ./nixpkgs.nix
     ./packages.nix
   ];
 
