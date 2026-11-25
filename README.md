@@ -21,9 +21,8 @@ repository root. Update the pinned inputs with `nix flake update`.
 
 ## Configs
 
-Most configs are linked file by file from the store, so edit them in this
-repository and switch. Configs that their apps write to (`tinycast`) link to
-this checkout instead. terminal-browser's `settings.json` is generated from
+Configs are linked file by file from the store, so edit them in this
+repository and switch. terminal-browser's `settings.json` is generated from
 `nix/home.nix`, so edit it there.
 
 Claude Code comes from `nix/claude.nix`: the binary from nixpkgs-unstable,

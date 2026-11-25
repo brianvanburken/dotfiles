@@ -2,16 +2,11 @@
 
 let
   dotfiles = ../config;
-  dotfilesCheckout = "${config.home.homeDirectory}/Developer/personal/dotfiles/config";
   directories = lib.filterAttrs (_: type: type == "directory") (builtins.readDir dotfiles);
-  appWrittenDirectories = [ "tinycast" ];
 
   linkFromStore = name: {
     source = dotfiles + "/${name}";
     recursive = true;
-  };
-  linkFromCheckout = name: {
-    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesCheckout}/${name}";
   };
 
   # Read-only, so `set -U` fails loudly; change nix/fish-variables.fish instead.
@@ -40,9 +35,7 @@ in
   home.stateVersion = "26.05";
 
   xdg.enable = true;
-  xdg.configFile = lib.mapAttrs (
-    name: _: if lib.elem name appWrittenDirectories then linkFromCheckout name else linkFromStore name
-  ) directories // {
+  xdg.configFile = lib.mapAttrs (name: _: linkFromStore name) directories // {
     "fish/fish_variables".source = fishVariables;
 
     # Read-only: changes made from inside terminal-browser are lost on the next switch
