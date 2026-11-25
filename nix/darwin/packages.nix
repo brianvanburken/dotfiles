@@ -20,7 +20,6 @@
     jq
     mise
     ripgrep
-    tree-sitter
     wget
     xq-xml
     yq-go

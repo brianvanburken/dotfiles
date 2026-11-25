@@ -32,12 +32,51 @@ let
     extraMakeWrapperArgs = "--suffix PATH : ${lib.makeBinPath languageServers}";
   };
 
+  # From unstable so grammars stay close to upstream; queries ship with them
+  treesitterGrammars = pkgs.symlinkJoin {
+    name = "treesitter-grammars";
+    paths =
+      (unstable.vimPlugins.nvim-treesitter.withPlugins (
+        grammars: with grammars; [
+          bash
+          css
+          csv
+          diff
+          dtd
+          elixir
+          elm
+          fish
+          git_config
+          git_rebase
+          gitcommit
+          gitignore
+          graphql
+          haskell
+          html
+          htmldjango
+          ini
+          javascript
+          json
+          nix
+          python
+          ruby
+          rust
+          scss
+          toml
+          tsv
+          typescript
+          xml
+          yaml
+        ]
+      )).dependencies;
+  };
+
   plugins = with pkgs.vimPlugins; {
     "fff" = fff-nvim;
     "flash.nvim" = flash-nvim;
     "lsp-progress.nvim" = lsp-progress-nvim;
     "nvim-surround" = nvim-surround;
-    "nvim-treesitter" = nvim-treesitter;
+    "nvim-treesitter" = unstable.vimPlugins.nvim-treesitter;
     "vim-startuptime" = vim-startuptime;
   };
 in
@@ -46,5 +85,9 @@ in
 
   xdg.dataFile = lib.mapAttrs' (
     name: plugin: lib.nameValuePair "nvim/site/pack/nix/opt/${name}" { source = plugin; }
-  ) plugins;
+  ) plugins
+  // {
+    # In start/ so parsers and queries are on the runtimepath without packadd
+    "nvim/site/pack/nix/start/treesitter-grammars".source = treesitterGrammars;
+  };
 }
