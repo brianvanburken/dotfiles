@@ -263,12 +263,13 @@ cached_sudo
 action "Activating the nix-darwin configuration"
 system_path="$(nix build --no-link --print-out-paths "${DOT_DIR}#darwinConfigurations.mac.config.system.build.toplevel")"
 # nix-darwin refuses to replace /etc files it doesn't know, such as those the Nix installer edits
+etc_backup_dir="${HOME}/Downloads/backup_install_$(date +%Y-%m-%d)/etc"
 managed_etc_files=(${(f)"$(cd "${system_path}/etc" && find . \( -type f -o -type l \) | sed 's|^\./||')"})
 for name in "${managed_etc_files[@]}"; do
     if [[ -f "/etc/${name}" && ! -h "/etc/${name}" ]]; then
-        cached_sudo mkdir -p "/tmp/etc/${name:h}"
-        cached_sudo mv "/etc/${name}" "/tmp/etc/${name}"
-        ok "Moved /etc/${name} to /tmp/etc/${name}"
+        cached_sudo mkdir -p "${etc_backup_dir}/${name:h}"
+        cached_sudo mv "/etc/${name}" "${etc_backup_dir}/${name}"
+        ok "Moved /etc/${name} to ${etc_backup_dir}/${name}"
     fi
 done
 cached_sudo "${system_path}/sw/bin/darwin-rebuild" switch --flake "${DOT_DIR}#mac"
