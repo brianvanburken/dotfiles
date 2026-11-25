@@ -2,18 +2,21 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }:
 
 {
+  system.stateVersion = 7;
+
   environment.systemPackages = [ pkgs.exercism ];
 
   # The home-manager wrapper around claude-code inherits its unfree license
   nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "claude-code";
-  home-manager.users.${config.system.primaryUser}.imports = [ ../home/claude.nix ];
+  home-manager.users.${user.name}.imports = [ ../../home/claude.nix ];
   # Home Manager does not manage fish, so its session variables never load
   environment.variables.CLAUDE_CONFIG_DIR =
-    config.home-manager.users.${config.system.primaryUser}.programs.claude-code.configDir;
+    config.home-manager.users.${user.name}.programs.claude-code.configDir;
 
   system.defaults.CustomSystemPreferences."/Library/Preferences/org.mozilla.firefox".ExtensionSettings =
     {

@@ -1,13 +1,6 @@
-{ pkgs, ... }:
-
 {
-  programs.fish = {
-    enable = true;
-    useBabelfish = true;
-    shellInit = ''
-      fish_add_path --global --move /run/current-system/sw/bin
-    '';
-  };
-  environment.shells = [ pkgs.fish ];
-  environment.variables.MISE_FISH_AUTO_ACTIVATE = "0";
+  # macOS's path_helper puts the system directories in front of Nix's
+  programs.fish.shellInit = ''
+    fish_add_path --global --move /run/current-system/sw/bin
+  '';
 }

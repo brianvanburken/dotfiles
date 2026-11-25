@@ -7,7 +7,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # Only for claude-code, the 26.05 release lags far behind
+    # For packages where the 26.05 release lags far behind
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     mattpocock-skills = {
       url = "github:mattpocock/skills";
@@ -24,23 +24,29 @@
     }@inputs:
     let
       inherit (nixpkgs) lib;
-      # Each file in nix/hosts is one machine, named after its LocalHostName
-      hostFiles = builtins.readDir ./nix/hosts;
-      hostNames = map (lib.removeSuffix ".nix") (builtins.attrNames hostFiles);
+      user.name = "brianvanburken";
+
+      # Each file in nix/hosts/darwin is one Mac, named after its LocalHostName
+      macNames = map (lib.removeSuffix ".nix") (builtins.attrNames (builtins.readDir ./nix/hosts/darwin));
 
       mkMac =
         hostName:
         nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs user; };
           modules = [
             home-manager.darwinModules.home-manager
             ./nix/darwin
-            ./nix/hosts/${hostName}.nix
+            ./nix/hosts/darwin/${hostName}.nix
           ];
         };
+
+      darwinConfigurations = lib.genAttrs macNames mkMac;
+
+      # `nix flake check` builds every Mac
+      checks.aarch64-darwin = lib.mapAttrs (_: machine: machine.system) darwinConfigurations;
     in
     {
-      darwinConfigurations = lib.genAttrs hostNames mkMac;
+      inherit darwinConfigurations checks;
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
     };
 }

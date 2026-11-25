@@ -1,29 +1,9 @@
 { pkgs, ... }:
 
 {
-  environment.variables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
-
+  # Linux runs containers natively, macOS needs a VM
   environment.systemPackages = with pkgs; [
     colima
-    delta
     docker-client
-    eza
-    fd
-    ffmpeg
-    gh
-    git
-    gitleaks
-    hyperfine
-    jq
-    mise
-    ripgrep
-    wget
-    xq-xml
-    yq-go
-    yt-dlp
-    zoxide
   ];
 }

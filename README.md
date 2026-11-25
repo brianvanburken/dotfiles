@@ -11,18 +11,23 @@ makes Nix's Fish the login shell. It is safe to run again.
 ## Layout
 
 - `flake.nix`: inputs, and one nix-darwin configuration per file in
-  `nix/hosts/`.
-- `nix/hosts/`: per-machine settings, one file per machine named after its
-  hostname (`scutil --get LocalHostName`). Every machine shares the rest.
-- `nix/darwin/`: nix-darwin, one module per context. `default.nix` names the
-  account and wires up Home Manager; the rest cover CLI packages, Fish,
-  macOS preferences and Touch ID, Homebrew, and the SSH agent.
-- `nix/home/`: Home Manager, one module per program. `default.nix` links
-  `config/` into `~/.config`; the rest cover direnv, Fish
-  universal variables, Neovim plugins, SSH and terminal-browser.
+  `nix/hosts/darwin/`. The account name is set here.
+- `nix/hosts/darwin/`: per-Mac settings, one file per Mac named after its
+  hostname (`scutil --get LocalHostName`).
+- `nix/common/`: system modules that are not tied to macOS: Home Manager
+  wiring, CLI packages and Fish. `firefox-policies.nix` holds the Firefox
+  policies as plain data.
+- `nix/darwin/`: macOS only: preferences and Touch ID, Homebrew, the SSH
+  agent, colima, and Firefox policies in macOS preferences.
+- `nix/home/`: Home Manager, one module per program, shared by every machine.
+  `default.nix` links `config/` into `~/.config`; the rest cover direnv, Fish
+  universal variables, git, Neovim plugins, SSH and terminal-browser.
+  macOS-only settings sit behind `pkgs.stdenv.isDarwin`.
 
 Apply changes with `sudo darwin-rebuild switch --flake .` from the
-repository root; it picks the configuration matching the hostname. Update the pinned inputs with `nix flake update`, and format the Nix files with `nix fmt`.
+repository root; it picks the configuration matching the hostname.
+`nix flake check` builds every Mac. Update the pinned inputs with
+`nix flake update`, and format the Nix files with `nix fmt`.
 
 ## Configs
 
@@ -32,7 +37,7 @@ this checkout instead. terminal-browser's `settings.json` is generated from
 `nix/home/terminal-browser.nix`, so edit it there.
 
 Claude Code, on brainbook only, comes from `nix/home/claude.nix`, which
-`nix/hosts/brainbook.nix` imports: the binary from nixpkgs-unstable,
+`nix/hosts/darwin/brainbook.nix` imports: the binary from nixpkgs-unstable,
 a read-only `settings.json` and `CLAUDE.md`, and the mattpocock skills as a
 plugin. Changes made from inside Claude Code are lost on the next switch, so
 edit `nix/home/claude.nix` instead. Its runtime state (history, login, memory)

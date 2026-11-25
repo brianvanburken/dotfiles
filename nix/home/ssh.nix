@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   # The key itself is generated per machine by setup/install-macos.sh.
@@ -6,10 +11,10 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    includes = [ "${config.xdg.configHome}/colima/ssh_config" ];
+    includes = lib.optionals pkgs.stdenv.isDarwin [ "${config.xdg.configHome}/colima/ssh_config" ];
     settings."*" = {
       AddKeysToAgent = "yes";
-      UseKeychain = "yes";
-    };
+    }
+    // lib.optionalAttrs pkgs.stdenv.isDarwin { UseKeychain = "yes"; };
   };
 }

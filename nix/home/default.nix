@@ -19,6 +19,7 @@ in
   imports = [
     ./direnv.nix
     ./fish.nix
+    ./git.nix
     ./neovim.nix
     ./ssh.nix
     ./terminal-browser.nix

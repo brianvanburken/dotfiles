@@ -1,6 +1,7 @@
 # vim: set ft=gitconfig:
-[credential]
-	helper = osxkeychain
+[include]
+	# Written by nix/home/git.nix on macOS only; git skips a missing include
+	path = ~/.config/git/macos
 
 [push]
 	autoSetupRemote = true

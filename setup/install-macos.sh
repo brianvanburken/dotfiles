@@ -259,8 +259,8 @@ if [[ -z "$machine_hostname" ]]; then
     exit 1
 fi
 readonly machine_name machine_hostname
-if [[ ! -f "${DOT_DIR}/nix/hosts/${machine_hostname}.nix" ]]; then
-    error "No configuration for this machine. Create ${DOT_DIR}/nix/hosts/${machine_hostname}.nix, git add it and re-run this script."
+if [[ ! -f "${DOT_DIR}/nix/hosts/darwin/${machine_hostname}.nix" ]]; then
+    error "No configuration for this machine. Create ${DOT_DIR}/nix/hosts/darwin/${machine_hostname}.nix, git add it and re-run this script."
     exit 1
 fi
 cached_sudo scutil --set ComputerName "$machine_name"
