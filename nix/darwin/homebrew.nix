@@ -26,6 +26,7 @@
       "signal"
       "steermouse"
       "terminal-browser"
+      "tinycast"
       "whatsapp"
     ];
   };
