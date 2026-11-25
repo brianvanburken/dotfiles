@@ -88,8 +88,19 @@ end)
 
 -- Window hints: overlay a letter on every window, press it to focus that window.
 -- "vimperator" style starts each hint with the app's first letter.
+-- Titles are never shown next to the hints.
 hs.hints.style = "vimperator"
-hs.hotkey.bind(mods, "tab", hs.hints.windowHints)
+hs.hints.showTitleThresh = 0
+hs.hotkey.bind({ "cmd" }, "escape", hs.hints.windowHints)
+
+local apps = {
+  f = "Firefox",
+  t = "Ghostty",
+}
+
+for key, app in pairs(apps) do
+  hs.hotkey.bind({ "alt", "cmd" }, key, function() hs.application.launchOrFocus(app) end)
+end
 
 -- Home Manager swaps the init.lua symlink on every switch; reload when it does.
 ConfigWatcher = hs.pathwatcher.new(hs.configdir, hs.reload):start()
