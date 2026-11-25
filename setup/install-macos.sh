@@ -140,13 +140,6 @@ else
     ok "Firewall is enabled"
 fi
 
-if ! spctl --status 2>&1 | grep -q "enabled"; then
-    warning "Gatekeeper is disabled, enabling..."
-    cached_sudo spctl --master-enable
-else
-    ok "Gatekeeper is enabled"
-fi
-
 if ! csrutil status | grep -q "enabled"; then
     warning "System Integrity Protection is DISABLED."
     require_manual_actions=1
@@ -157,6 +150,7 @@ fi
 if ! fdesetup isactive &> /dev/null; then
     warning "FileVault is not enabled"
     action "Enabling FileVault"
+    input "Save the recovery key printed below, it is shown only once"
     cached_sudo fdesetup enable -user "$(whoami)"
 else
     ok "Filevault is enabled"
@@ -181,23 +175,13 @@ if [[ "$APPLE_COMPUTER_TYPE" =~ "MacBook" ]]; then
         ok "Power Nap is disabled"
     fi
 
-    # Keys missing on Apple Silicon yield empty output, so default to the desired value
-    filevault_destroykeysonstandby=$(pmset -g | awk '/DestroyFVKeyOnStandby/ {print $2}')
-    filevault_destroykeysonstandby="${filevault_destroykeysonstandby:-0}"
     hibernatemode=$(pmset -g | awk '/hibernatemode/ {print $2}')
-    hibernatemode="${hibernatemode:-3}"
     standbymode=$(pmset -g | awk '/standby / {print $2}')
-    standbymode="${standbymode:-1}"
-    autopoweroff=$(pmset -g | awk '/autopoweroff / {print $2}')
-    autopoweroff="${autopoweroff:-0}"
     if pmset -g batt | grep Battery &> /dev/null; then
-        if [[ ${filevault_destroykeysonstandby} -eq 1 || ${hibernatemode} -eq 25 || ${standbymode} -eq 0 || ${autopoweroff} -eq 1 ]]; then
-            action "Reverting to default sleep behavior to address stability issues with Secure Deep Sleep"
-            cached_sudo pmset -a destroyfvkeyonstandby 0
+        if [[ ${hibernatemode} -ne 3 || ${standbymode} -ne 1 ]]; then
+            action "Reverting to the default sleep behavior"
             cached_sudo pmset -a standby 1
-            cached_sudo pmset -a standbydelay 10800
             cached_sudo pmset -a hibernatemode 3
-            cached_sudo pmset -a autopoweroff 0
         else
             ok "Sleep mode correctly configured"
         fi
