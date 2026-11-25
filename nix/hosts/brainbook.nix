@@ -34,6 +34,7 @@
     taps = [ "s-sigdel/tap" ];
     brews = [ "s-sigdel/tap/vimhjkl" ];
     casks = [
+      "backblaze"
       "calibre"
       "claude"
       "cleanmymac"
@@ -42,6 +43,7 @@
       "proton-pass"
       "protonvpn"
       "signal"
+      "synology-drive"
       "whatsapp"
     ];
   };
