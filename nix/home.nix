@@ -2,34 +2,55 @@
 
 let
   dotfiles = ../config;
+  dotfilesCheckout = "${config.home.homeDirectory}/Developer/personal/dotfiles/config";
   directories = lib.filterAttrs (_: type: type == "directory") (builtins.readDir dotfiles);
-  neovimLock = "nvim-pack-lock.json";
+  appWrittenDirectories = [ "claude" "terminal-browser" "tinycast" ];
+
+  linkFromStore = name: {
+    source = dotfiles + "/${name}";
+    recursive = true;
+  };
+  linkFromCheckout = name: {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfilesCheckout}/${name}";
+  };
+
+  # Read-only, so `set -U` fails loudly; change nix/fish-variables.fish instead.
+  # The interactive run first lets fish record its migration version.
+  fishVariables = pkgs.runCommand "fish_variables" { nativeBuildInputs = [ pkgs.fish ]; } ''
+    # No exported XDG_* variables, they would shadow the universal ones
+    export HOME="$TMPDIR/home"
+    fish --interactive --command exit
+    fish ${./fish-variables.fish} ${lib.escapeShellArg config.home.homeDirectory}
+    cp "$HOME/.config/fish/fish_variables" "$out"
+  '';
+
+  neovimPlugins = with pkgs.vimPlugins; {
+    "fff" = fff-nvim;
+    "flash.nvim" = flash-nvim;
+    "lsp-progress.nvim" = lsp-progress-nvim;
+    "mason.nvim" = mason-nvim;
+    "nvim-surround" = nvim-surround;
+    "nvim-treesitter" = nvim-treesitter;
+    "vim-startuptime" = vim-startuptime;
+  };
 in
 {
   home.stateVersion = "26.05";
 
   xdg.enable = true;
-  xdg.configFile = lib.mapAttrs (name: _: {
-    source =
-      if name == "nvim" then
-        lib.cleanSourceWith {
-          src = dotfiles + "/nvim";
-          filter = path: _: baseNameOf path != neovimLock;
-        }
-      else
-        dotfiles + "/${name}";
-    recursive = true;
-  }) directories // {
-    "direnv/lib/nix-direnv-path.sh".text = ''
-      NIX_DIRENV_RC="${pkgs.nix-direnv}/share/nix-direnv/direnvrc"
-    '';
+  xdg.configFile = lib.mapAttrs (
+    name: _: if lib.elem name appWrittenDirectories then linkFromCheckout name else linkFromStore name
+  ) directories // {
+    "fish/fish_variables".source = fishVariables;
   };
 
-  home.activation.seedNeovimLock = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    lock=${lib.escapeShellArg "${config.xdg.configHome}/nvim/${neovimLock}"}
-    if [[ ! -e "$lock" && ! -L "$lock" ]]; then
-      run mkdir -p -- "$(dirname -- "$lock")"
-      run install -m 0644 -- ${dotfiles}/nvim/${neovimLock} "$lock"
-    fi
-  '';
+  xdg.dataFile = lib.mapAttrs' (
+    name: plugin: lib.nameValuePair "nvim/site/pack/nix/opt/${name}" { source = plugin; }
+  ) neovimPlugins;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableFishIntegration = false;
+  };
 }

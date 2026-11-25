@@ -1,7 +1,7 @@
 local plugin
 local function flash()
     if not plugin then
-        vim.pack.add({ "https://github.com/folke/flash.nvim" })
+        vim.cmd.packadd("flash.nvim")
         plugin = require("flash")
         plugin.setup()
     end

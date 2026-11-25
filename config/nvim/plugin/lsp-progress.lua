@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("LspAttach", {
     once = true,
     callback = function()
-        vim.pack.add({ "https://github.com/linrongbin16/lsp-progress.nvim" })
+        vim.cmd.packadd("lsp-progress.nvim")
 
         local lsp_progress = require("lsp-progress")
         lsp_progress.setup({

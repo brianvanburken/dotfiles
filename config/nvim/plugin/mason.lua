@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("CmdUndefined", {
     pattern = "Mason*",
     once = true,
     callback = function()
-        vim.pack.add({ "https://github.com/mason-org/mason.nvim" })
+        vim.cmd.packadd("mason.nvim")
         require("mason").setup({ PATH = "skip" })
     end,
 })
