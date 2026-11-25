@@ -1,9 +1,10 @@
 #!/bin/bash
 
-IFS=$'\x1f' read -r model ctx_tokens ctx_max five_pct five_reset seven_pct seven_reset <<< "$(
+IFS=$'\x1f' read -r model effort ctx_tokens ctx_max five_pct five_reset seven_pct seven_reset <<< "$(
   cat | jq -r '
     [
       (.model.display_name // "unknown"),
+      (.effort.level // ""),
       (.context_window.total_input_tokens // ""),
       (.context_window.context_window_size // ""),
       (.rate_limits.five_hour.used_percentage // ""),
@@ -34,7 +35,10 @@ pct_color() {
   fi
 }
 
-segments=("$model")
+model_segment="$model"
+[[ -n "$effort" ]] && model_segment="$model ${DIM}(${effort})${RESET}"
+
+segments=("$model_segment")
 
 if [[ -n "$ctx_tokens" && -n "$ctx_max" && "$ctx_max" -gt 0 ]]; then
   ctx_pct=$(( (ctx_tokens * 100 + ctx_max / 2) / ctx_max ))
