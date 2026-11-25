@@ -13,6 +13,7 @@ in
   imports = [
     ./claude.nix
     ./direnv.nix
+    ./erlang.nix
     ./fish.nix
     ./neovim.nix
     ./ssh.nix

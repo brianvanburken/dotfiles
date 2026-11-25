@@ -319,9 +319,6 @@ if [[ "$current_shell" != "$fish_command" ]]; then
     cached_sudo chsh -s "$fish_command" "$(whoami)"
 fi
 
-action "Setting up fish"
-"$fish_command" -i -c 'setup_fish; exit;'
-
 action "Creating local fish file"
 touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
 ok "Fish is now the default"
