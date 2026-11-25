@@ -10,11 +10,13 @@ makes Nix's Fish the login shell. It is safe to run again.
 
 ## Layout
 
-- `flake.nix`: the `mac` nix-darwin configuration for the account it names.
-  It covers the CLI packages, Fish, environment variables and Touch ID for sudo.
-- `nix/macos.nix`: macOS preferences and the Homebrew formulae and casks.
-- `nix/home.nix`: Home Manager. Links `config/` into `~/.config`, generates
-  Fish universal variables, and installs the Neovim plugins and direnv.
+- `flake.nix`: inputs, and the `mac` nix-darwin configuration.
+- `nix/darwin/`: nix-darwin, one module per context. `default.nix` names the
+  account and wires up Home Manager; the rest cover CLI packages, Fish,
+  macOS preferences and Touch ID, Homebrew, and the SSH agent.
+- `nix/home/`: Home Manager, one module per program. `default.nix` links
+  `config/` into `~/.config`; the rest cover Claude Code, direnv, Fish
+  universal variables, Neovim plugins, SSH and terminal-browser.
 
 Apply changes with `sudo darwin-rebuild switch --flake .#mac` from the
 repository root. Update the pinned inputs with `nix flake update`.
@@ -23,15 +25,15 @@ repository root. Update the pinned inputs with `nix flake update`.
 
 Configs are linked file by file from the store, so edit them in this
 repository and switch. terminal-browser's `settings.json` is generated from
-`nix/home.nix`, so edit it there.
+`nix/home/terminal-browser.nix`, so edit it there.
 
-Claude Code comes from `nix/claude.nix`: the binary from nixpkgs-unstable,
+Claude Code comes from `nix/home/claude.nix`: the binary from nixpkgs-unstable,
 a read-only `settings.json` and `CLAUDE.md`, and the mattpocock skills as a
 plugin. Changes made from inside Claude Code are lost on the next switch, so
-edit `nix/claude.nix` instead. Its runtime state (history, login, memory)
+edit `nix/home/claude.nix` instead. Its runtime state (history, login, memory)
 stays in a real `~/.config/claude` directory.
 
-Universal variables come from `nix/fish-variables.fish` and land in a
+Universal variables come from `nix/home/fish-variables.fish` and land in a
 read-only `fish_variables`, so `set -U` fails. Change that file and switch
 instead. Keep machine-local variables in `~/.config/fish/conf.d/config.local.fish`,
 and keep project secrets in that project's `.envrc`.

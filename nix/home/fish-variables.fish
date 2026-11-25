@@ -1,4 +1,4 @@
-# Universal variables baked into a read-only fish_variables by nix/home.nix.
+# Universal variables baked into a read-only fish_variables by nix/home/fish.nix.
 # Usage: fish fish-variables.fish <home directory>
 # EDITOR, MISE_FISH_AUTO_ACTIVATE, XDG_CONFIG_DIRS and XDG_DATA_DIRS come
 # from nix-darwin instead.

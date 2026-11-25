@@ -4,7 +4,7 @@
 # for every interactive shell, with no setting to disable it (~2.8 ms of ~11.6 ms
 # startup, measured on fish 4.9.3). That call only fills in color variables that
 # are still unset, and the universal variables written by
-# `fish_config theme save ayu` (see nix/fish-variables.fish) already cover all
+# `fish_config theme save ayu` (see nix/home/fish-variables.fish) already cover all
 # of them, so it is skipped here.
 #
 # Every other invocation loads the real fish_config, which replaces this

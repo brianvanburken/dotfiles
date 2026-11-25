@@ -1,5 +1,5 @@
 function setup_fish -d "Setup local files for Fish"
-    # Universal variables come from nix/fish-variables.fish
+    # Universal variables come from nix/home/fish-variables.fish
 
     mkdir -p "$XDG_CONFIG_HOME/erlang"
     touch "$XDG_CONFIG_HOME/erlang/.erlang.cookie"
