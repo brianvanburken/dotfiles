@@ -19,7 +19,7 @@
           (
             { pkgs, ... }:
             let
-              username = "brianvanburken";
+              username = "brian.vanburken";
             in
             {
               nixpkgs.hostPlatform = "aarch64-darwin";
