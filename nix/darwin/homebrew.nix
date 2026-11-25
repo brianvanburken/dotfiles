@@ -1,7 +1,7 @@
 {
   homebrew = {
     enable = true;
-    onActivation.cleanup = "none";
+    onActivation.cleanup = "zap";
     taps = [ "s-sigdel/tap" ];
     brews = [
       "mole"
@@ -10,6 +10,7 @@
     casks = [
       "calibre"
       "claude"
+      "cleanmymac"
       "cold-turkey-blocker"
       "firefox"
       "flux-app"
@@ -23,6 +24,7 @@
       "proton-pass"
       "protonvpn"
       "signal"
+      "spotify"
       "steermouse"
       "terminal-browser"
       "tinycast"
