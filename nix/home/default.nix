@@ -26,6 +26,8 @@ in
 
   home.stateVersion = "26.05";
 
+  targets.darwin.copyApps.enable = false;
+
   xdg.enable = true;
   xdg.configFile = lib.mapAttrs (
     name: _: if lib.elem name appWrittenDirectories then linkFromCheckout name else linkFromStore name
