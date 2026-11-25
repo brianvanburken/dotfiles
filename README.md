@@ -45,6 +45,11 @@ and keep project secrets in that project's `.envrc`.
 
 Neovim plugins come from nixpkgs and load with `packadd`.
 
+Firefox stays a Homebrew cask. `nix/darwin/firefox.nix` sets its extensions
+and settings as enterprise policies in `/Library/Preferences/org.mozilla.firefox`;
+see `about:policies` after restarting Firefox. Extensions configure themselves
+in Firefox, uBlock Origin included.
+
 ## Homebrew
 
 A switch installs missing formulae and casks, and zaps (uninstalls, with

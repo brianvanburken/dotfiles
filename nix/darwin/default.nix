@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./firefox.nix
     ./fish.nix
     ./homebrew.nix
     ./macos.nix
