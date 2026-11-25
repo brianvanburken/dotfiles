@@ -22,7 +22,7 @@ makes Nix's Fish the login shell. It is safe to run again.
   universal variables, Neovim plugins, SSH and terminal-browser.
 
 Apply changes with `sudo darwin-rebuild switch --flake .` from the
-repository root; it picks the configuration matching the hostname. Update the pinned inputs with `nix flake update`.
+repository root; it picks the configuration matching the hostname. Update the pinned inputs with `nix flake update`, and format the Nix files with `nix fmt`.
 
 ## Configs
 

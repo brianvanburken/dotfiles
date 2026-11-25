@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   # Read-only, so `set -U` fails loudly; change nix/home/fish-variables.fish instead.

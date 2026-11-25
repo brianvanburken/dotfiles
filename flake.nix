@@ -41,5 +41,6 @@
     in
     {
       darwinConfigurations = lib.genAttrs hostNames mkMac;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
     };
 }
