@@ -1,5 +1,9 @@
 # Firefox enterprise policies as plain data, applied by nix/machines/darwin-shared/firefox.nix
-{ lib, homeDirectory }:
+{
+  lib,
+  homeDirectory,
+  extraExtensionInstallUrls,
+}:
 
 let
   fromAddonsMozillaOrg =
@@ -10,7 +14,8 @@ let
     "78272b6fa58f4a1abaac99321d503a20@proton.me" = fromAddonsMozillaOrg "proton-pass";
     "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = fromAddonsMozillaOrg "auto-tab-discard";
     "nl-NL@dictionaries.addons.mozilla.org" = fromAddonsMozillaOrg "woordenboek-nederlands";
-  };
+  }
+  // extraExtensionInstallUrls;
   forceInstall = install_url: {
     installation_mode = "force_installed";
     inherit install_url;
