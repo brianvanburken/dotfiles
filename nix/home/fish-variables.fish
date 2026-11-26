@@ -53,6 +53,9 @@ set -Ux DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 # Gradle
 set -Ux GRADLE_USER_HOME "$XDG_DATA_HOME/gradle"
 
+# Shared agent skills, linked by terminal-browser
+set -Ux AGENT_SKILLS_HOME "$XDG_CONFIG_HOME/agents/skills"
+
 # Gitleaks
 set -Ux GITLEAKS_CONFIG "$XDG_CONFIG_HOME/gitleaks/config.toml"
 
