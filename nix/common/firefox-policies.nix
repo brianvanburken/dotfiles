@@ -187,6 +187,7 @@ in
     Downloads = true;
     FormData = true;
     History = true;
+    Locked = true;
   };
 
   # Same engine as terminal-browser
