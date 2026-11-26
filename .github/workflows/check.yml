@@ -1,0 +1,14 @@
+name: Check
+
+# Builds every Mac so Dependabot's flake.lock bumps can't break a switch
+on:
+  pull_request:
+
+jobs:
+  flake-check:
+    # Apple Silicon, matching the flake's only system
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: DeterminateSystems/determinate-nix-action@4b040423529d49b1a19ba918742e0aa9aa95031a # v3.24.3
+      - run: nix flake check
