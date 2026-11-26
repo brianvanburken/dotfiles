@@ -1,6 +1,7 @@
 {
   homebrew = {
     enable = true;
+    onActivation.autoUpdate = true;
     onActivation.cleanup = "zap";
     brews = [
       "mole"
