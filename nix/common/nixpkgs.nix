@@ -10,7 +10,7 @@
 
   # For packages where the 26.05 release lags far behind, used as pkgs.unstable.<name>
   nixpkgs.overlays = [
-    (final: prev: {
+    (_final: prev: {
       unstable = import inputs.nixpkgs-unstable {
         inherit (prev.stdenv.hostPlatform) system;
         inherit (prev) config;
