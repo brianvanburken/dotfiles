@@ -50,13 +50,8 @@
 
   # Bundle cleanup already removes unused dependencies, so no `brew autoremove`
   system.activationScripts.homebrew.text = lib.mkAfter ''
-    echo >&2 "Homebrew cleanup and doctor..."
-    brewAsUser() {
-      sudo --user=${lib.escapeShellArg config.homebrew.user} --set-home \
-        ${config.homebrew.prefix}/bin/brew "$@"
-    }
-    brewAsUser cleanup --scrub
-    # Warnings only, they should not fail the switch
-    brewAsUser doctor || true
+    echo >&2 "Homebrew cleanup..."
+    sudo --user=${lib.escapeShellArg config.homebrew.user} --set-home \
+      ${config.homebrew.prefix}/bin/brew cleanup --scrub
   '';
 }
