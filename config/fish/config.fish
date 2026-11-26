@@ -2,11 +2,6 @@ if not status is-interactive
   exit
 end
 
-function __load_mise_on_first_command --on-event fish_preexec
-    functions -e __load_mise_on_first_command
-    load_mise
-end
-
 function __load_direnv_on_first_command --on-event fish_preexec
     functions -e __load_direnv_on_first_command
     load_direnv

@@ -16,7 +16,6 @@
     gitleaks
     hyperfine
     jq
-    mise
     ripgrep
     rustup
     wget

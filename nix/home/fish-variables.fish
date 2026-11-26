@@ -1,6 +1,6 @@
 # Universal variables baked into a read-only fish_variables by nix/home/fish.nix.
 # Usage: fish fish-variables.fish <home directory>
-# EDITOR, VISUAL, MISE_FISH_AUTO_ACTIVATE, XDG_CONFIG_DIRS, XDG_DATA_DIRS
+# EDITOR, VISUAL, XDG_CONFIG_DIRS, XDG_DATA_DIRS
 # and, on brainbook, CLAUDE_CONFIG_DIR come from nix-darwin instead.
 set -l home $argv[1]
 

@@ -7,7 +7,6 @@ function fish_prompt
     echo -n (path basename $PWD)
 
     set -l environment_markers
-    set -q __MISE_SESSION; and set -a environment_markers m
     set -q DIRENV_DIR; and set -a environment_markers n
 
     if set -q environment_markers[1]

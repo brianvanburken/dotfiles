@@ -49,8 +49,6 @@ gradlew.bat
 images
 log
 logs
-mise.*.lock
-mise.lock
 node_modules
 nvim-pack-lock.json
 package-lock.json

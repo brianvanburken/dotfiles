@@ -16,10 +16,6 @@
 .envrc
 .direnv/
 
-# Mise (remove once every project is migrated to Nix)
-mise.local.toml
-mise.local.lock
-
 # AI tools
 CLAUDE.local.md
 .claude/*
