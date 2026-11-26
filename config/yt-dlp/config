@@ -4,16 +4,15 @@
 --cookies-from-browser firefox
 --embed-subs
 --embed-thumbnail
---extractor-args "youtube:player-client=default,-tv_simply"
+--extractor-args "youtube:player-client=default,-tv_simply;player_js_variant=tv"
 --format "bestvideo+bestaudio"
 --format-sort res:1440
---impersonate Chrome-152
 --no-playlist
 --output "%(channel)s/%(title).100B [%(id).50B].%(ext)s"
 --path ~/Downloads/Videos/
 --restrict-filenames
 --retries 3
---sub-langs "en.*,-en"
+--sub-langs "en,en-orig,en-US,en-GB"
 --trim-filenames 200
 --write-auto-subs
 --write-subs
