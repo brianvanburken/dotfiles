@@ -1,4 +1,4 @@
-# Firefox enterprise policies as plain data, applied by nix/machines/darwin-shared/firefox.nix
+# Firefox enterprise policies as plain data, applied by ./firefox.nix
 {
   lib,
   homeDirectory,
