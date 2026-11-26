@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   user,
   ...
@@ -34,9 +35,16 @@
       };
     };
 
+  nix-homebrew.taps."s-sigdel/homebrew-tap" = inputs.homebrew-s-sigdel-tap;
+
   homebrew = {
-    taps = [ "s-sigdel/tap" ];
-    brews = [ "s-sigdel/tap/vimhjkl" ];
+    # Trusted in the Brewfile: bundle cleanup replaces trust entries with the Brewfile's
+    brews = [
+      {
+        name = "s-sigdel/tap/vimhjkl";
+        trusted = true;
+      }
+    ];
     casks = [
       "backblaze"
       "calibre"

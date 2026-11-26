@@ -9,6 +9,26 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # For packages where the 26.05 release lags far behind
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Pins Homebrew and its taps, so casks and formulae only change with flake.lock
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-homebrew.inputs.brew-src.follows = "brew-src";
+    # Locked together with homebrew-core, which needs a Homebrew at least as new as itself
+    brew-src = {
+      url = "github:Homebrew/brew";
+      flake = false;
+    };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-s-sigdel-tap = {
+      url = "github:s-sigdel/homebrew-tap";
+      flake = false;
+    };
     mattpocock-skills = {
       url = "github:mattpocock/skills";
       flake = false;

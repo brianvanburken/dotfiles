@@ -21,7 +21,6 @@ set -Ux HOMEBREW_NO_EMOJI 1
 set -Ux HOMEBREW_NO_ENV_HINTS 1
 set -Ux HOMEBREW_PREFIX /opt/homebrew
 set -Ux HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-set -Ux HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX"
 
 # https://0x46.net/thoughts/2019/02/01/dotfile-madness/
 set -Ux XDG_CONFIG_HOME "$home/.config"

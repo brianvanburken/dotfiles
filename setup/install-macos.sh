@@ -10,9 +10,6 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 
-# The flake only targets Apple Silicon
-readonly HOMEBREW_PREFIX="/opt/homebrew"
-
 # Location where to store code
 readonly DEV_DIR="${HOME}/Developer"
 
@@ -142,16 +139,6 @@ if [[ -z "$machine_hostname" ]]; then
 fi
 readonly machine_hostname
 ok "Using the ${machine_hostname} profile"
-
-# nix-darwin manages the casks and formulae but needs Homebrew itself
-if [[ ! -r "${HOMEBREW_PREFIX}/bin/brew" ]]; then
-    action "Installing Homebrew. This may take some time... ☕️"
-
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ok "Installing Homebrew done"
-else
-    ok "Homebrew binary found."
-fi
 
 softwareupdates="$(softwareupdate -l 2> /dev/null)"
 if [[ "$softwareupdates" =~ "Recommended: YES" ]]; then
