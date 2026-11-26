@@ -5,7 +5,7 @@
 }:
 
 let
-  # rust-analyzer is left out so rustup's, which matches the toolchain, is used
+  # rust-analyzer is left out so the one from the project flake, which matches its toolchain, is used
   languageServers = with pkgs; [
     elmPackages.elm-language-server
     fish-lsp
@@ -21,7 +21,7 @@ let
     yaml-language-server
   ];
 
-  # Suffixed so tools from a project's PATH (node_modules, rustup) win
+  # Suffixed so tools from a project's PATH (node_modules, flakes) win
   neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
     extraMakeWrapperArgs = "--suffix PATH : ${lib.makeBinPath languageServers}";
   };

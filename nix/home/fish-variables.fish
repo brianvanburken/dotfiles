@@ -46,13 +46,12 @@ set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
 
 # Rust
 set -Ux CARGO_HOME "$XDG_DATA_HOME/cargo"
-set -Ux RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 
 # Gitleaks
 set -Ux GITLEAKS_CONFIG "$XDG_CONFIG_HOME/gitleaks/config.toml"
 
 # fish_add_path skips directories that don't exist at build time
-set -U fish_user_paths "$CARGO_HOME/bin" "$HOMEBREW_PREFIX/sbin" "$HOMEBREW_PREFIX/bin"
+set -U fish_user_paths "$HOMEBREW_PREFIX/sbin" "$HOMEBREW_PREFIX/bin"
 
 # Fish
 set -U fish_greeting

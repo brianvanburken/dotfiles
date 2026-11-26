@@ -5,10 +5,6 @@ set -o pipefail
 
 # Set XDG config
 export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_DATA_HOME="${HOME}/.local/share"
-# Same as nix/home/fish-variables.fish, so rustup installs where fish looks
-export CARGO_HOME="${XDG_DATA_HOME}/cargo"
-export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 
 # Location where to store code
 readonly DEV_DIR="${HOME}/Developer"
@@ -261,12 +257,6 @@ ok "Fish is now the default"
 
 action "Creating local fish file"
 touch "${XDG_CONFIG_HOME}/fish/conf.d/config.local.fish"
-
-action "Installing the stable Rust toolchain"
-rustup default stable
-# Neovim uses rustup's rust-analyzer, see nix/home/neovim.nix
-rustup component add rust-analyzer
-ok "Rust toolchain installed"
 
 action "Registering the SSH key with GitHub"
 readonly github_key_scopes="admin:public_key,admin:ssh_signing_key"
