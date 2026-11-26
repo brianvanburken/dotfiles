@@ -47,6 +47,12 @@ set -Ux ELM_HOME "$XDG_CACHE_HOME/elm"
 # Rust
 set -Ux CARGO_HOME "$XDG_DATA_HOME/cargo"
 
+# Docker
+set -Ux DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
+
+# Gradle
+set -Ux GRADLE_USER_HOME "$XDG_DATA_HOME/gradle"
+
 # Gitleaks
 set -Ux GITLEAKS_CONFIG "$XDG_CONFIG_HOME/gitleaks/config.toml"
 

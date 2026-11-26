@@ -48,6 +48,11 @@
     ];
   };
 
+  # Activation runs brew without XDG_CONFIG_HOME, which would make it fall back to ~/.homebrew
+  environment.etc."homebrew/brew.env".text = ''
+    HOMEBREW_XDG_CONFIG_HOME=${config.users.users.${user.name}.home}/.config
+  '';
+
   # Bundle cleanup already removes unused dependencies, so no `brew autoremove`
   system.activationScripts.homebrew.text = lib.mkAfter ''
     echo >&2 "Homebrew cleanup..."
