@@ -35,12 +35,21 @@
       _FXSortFoldersFirst = true;
     };
 
+    loginwindow = {
+      RestartDisabled = false;
+      SHOWFULLNAME = false;
+      ShutDownDisabled = false;
+      SleepDisabled = false;
+    };
+
     screencapture.location = "${config.users.users.${config.system.primaryUser}.home}/Downloads";
 
     WindowManager = {
       EnableTiledWindowMargins = false;
       GloballyEnabled = false;
     };
+
+    CustomSystemPreferences."com.apple.loginwindow".RetriesUntilHint = 0;
 
     CustomUserPreferences = {
       NSGlobalDomain = {
@@ -71,6 +80,11 @@
       };
     };
   };
+
+  system.activationScripts.postActivation.text = ''
+    pmset -b displaysleep 5
+    pmset -c displaysleep 10
+  '';
 
   security.pam.services.sudo_local.touchIdAuth = true;
 }
