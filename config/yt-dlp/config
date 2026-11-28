@@ -7,6 +7,8 @@
 --extractor-args "youtube:player-client=default,-tv_simply;player_js_variant=tv"
 --format "bv*+ba/b"
 --format-sort res:1440
+# Auto-translated subtitles often get HTTP 429; warn and keep the other tracks
+--ignore-errors
 --no-playlist
 --output "%(channel)s/%(title).100B [%(id).50B].%(ext)s"
 --path ~/Downloads/Videos/
