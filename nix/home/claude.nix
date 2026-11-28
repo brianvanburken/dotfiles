@@ -12,6 +12,7 @@
     configDir = "${config.xdg.configHome}/claude";
     context = ./claude/CLAUDE.md;
     plugins = [ inputs.mattpocock-skills ];
+    skills.yt-dlp = ./claude/skills/yt-dlp/SKILL.md;
 
     # Read-only: changes made from inside Claude Code are lost on the next switch
     settings = {
