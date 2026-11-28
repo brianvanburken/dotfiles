@@ -33,6 +33,10 @@
       url = "github:mattpocock/skills";
       flake = false;
     };
+    rust-skills = {
+      url = "github:leonardomso/rust-skills";
+      flake = false;
+    };
   };
 
   outputs =

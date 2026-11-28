@@ -185,7 +185,24 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "rust-skills": "rust-skills"
+      }
+    },
+    "rust-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795704958,
+        "narHash": "sha256-9AFwv5+UG3fAd/ER846XdBJG1e2/LhPQXQLotlyEmok=",
+        "owner": "leonardomso",
+        "repo": "rust-skills",
+        "rev": "0e94a9e517cb2539bfd30694f5d785f610c27374",
+        "type": "github"
+      },
+      "original": {
+        "owner": "leonardomso",
+        "repo": "rust-skills",
+        "type": "github"
       }
     }
   },
